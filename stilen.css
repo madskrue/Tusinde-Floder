@@ -1,0 +1,1190 @@
+/* Variable */
+:root {
+    --baggrund: #aaa;
+    --ark: #ccc;
+    --sektion: #ddd;
+    --felt: #eee;
+    --svagt-felt: #d6d6d6;
+    --hover:  #fff;
+    --besked: #ffffffaa;
+    --besked-hover: #ffffff66;
+
+    --tekst-haard:  #000;
+    --tekst-mellem-haard: #333;
+    --tekst-mellem-svag: #555;
+    --tekst-svag: #999;
+    --sektion-titel: #888;
+    --tekst-pris: #900;
+    --ny-vaerdi: #00f;
+    --forskudt-op: #060;
+    --forskudt-ned: #800;
+    --tekst-aktiv: #009;
+
+    --sektion-knap: #e3e3e3;
+    --knap: #eee;
+    --advarsel: #fee;
+    --advarsel-hover: #faa;
+
+    --doed: #ffffff44;
+}
+
+body.dark-mode {
+    --baggrund: #000;
+    --ark: #1a1a1a;
+    --sektion: #1e1e1e;
+    --felt: #232323;
+    --svagt-felt: #1c1c1c;
+    --hover:  #333;
+    --besked: #000000aa;
+    --besked-hover: #00000033;
+
+    --tekst-haard:  #fff;
+    --tekst-mellem-haard: #eee;
+    --tekst-mellem-svag: #ddd;
+    --tekst-svag: #999;
+    --sektion-titel: #aaa;
+    --tekst-pris: #f66;
+    --ny-vaerdi: #99f;
+    --forskudt-op: #cfc;
+    --forskudt-ned: #fcc;
+    --tekst-aktiv: #ccf;
+
+    --sektion-knap: #222;
+    --knap: #262626;
+    --advarsel: #f66;
+    --advarsel-hover: #f33;
+
+    --doed: #00000044;
+}
+
+
+
+/* CSS RESET */
+*, *::before, *::after {
+box-sizing: border-box;
+}
+
+*:not(dialog) {
+  margin: 0;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  html {
+    interpolate-size: allow-keywords;
+  }
+}
+
+body {
+    line-height: 1.3;
+    -webkit-font-smoothing: antialiased;
+    font-family: 'Andale Mono', 'Menlo', 'Monaco', 'Courier New', monospace;
+    background-color: var(--baggrund);
+    padding: 1rem;
+    color: var(--tekst-haard);
+}
+
+img, picture, video, canvas, svg {
+    display: block;
+    max-width: 100%;
+}
+
+input, button, textarea, select {
+    font: inherit;
+    color: inherit;
+    padding: 0;
+}
+
+p, h1, h2, h3, h4, h5, h6 {
+    overflow-wrap: break-word;
+}
+
+p {
+    text-wrap: pretty;
+}
+h1, h2, h3, h4, h5, h6 {
+    text-wrap: balance;
+}
+
+#root, #__next {
+    isolation: isolate;
+}
+
+
+
+/* Stil */
+input, textarea {
+    height: fit-content;
+    padding: 0.25em;
+    background-color: var(--felt);
+    border: none;
+    border-radius: 0.5rem;
+}
+
+textarea {
+    color: var(--tekst-mellem-svag);
+}
+
+input:focus-visible, textarea:focus-visible {
+    background-color: var(--hover);
+    outline: none;
+}
+
+textarea:focus-visible {
+    color: var(--tekst-haard);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =========== */
+/* === ARK === */
+/* =========== */
+/* Ark */
+.ark {
+    background-color: var(--ark);
+    padding: 0.5rem;
+    max-width: 1000px;
+    border-radius: 1rem;
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    font-size: 0.8rem;
+}
+
+
+
+/* Sektion */
+.sektion {
+    background-color: var(--sektion);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+}
+
+.sektion__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5rem;
+}
+
+.sektion__titel {
+    text-transform: uppercase;
+    color: var(--sektion-titel);
+    cursor: pointer;
+}
+
+.sektion__knap {
+    background-color: var(--sektion-knap);
+    height: 100%;
+    padding: 0.25rem 0.5rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.sektion__knap:hover {
+    background-color: var(--hover);
+}
+
+.sektion__knap--lille {
+    font-size: 0.7rem;
+}
+
+.sektion__knap--stor {
+    font-size: 1.25rem;
+    padding: 0 0.5rem;
+}
+
+.sektion__knap--dark-mode {
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    padding: 0.25rem 1rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    opacity: 0.33;
+    background-color: #666;
+    color: #fff;
+}
+
+.sektion__knap--dark-mode:hover {
+    background-color: #000;
+    opacity: 0.8;
+}
+
+
+
+
+
+
+/* ================= */
+/* === SEKTIONER === */
+/* ================= */
+
+/* SEKTION: GRUNDLÆGGENDE */
+.grundlaeggende__emne {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+    margin-bottom: 0.5rem;
+    cursor: default;
+}
+
+.grundlaeggende__vaerdi {
+    border-radius: 0.5rem;
+    background-color: var(--svagt-felt);
+    padding: 0.25em 0.5em;
+    cursor: default;
+}
+
+.grundlaeggende__vaerdi--draaber {
+    cursor: pointer;
+}
+
+.grundlaeggende__vaerdi--draaber:hover {
+    background-color: var(--hover);
+}
+
+
+/* Dråber */
+.draaber__top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.draaber__efterladt {
+    display: none;
+    font-size: 0.6rem;
+    color: var(--tekst-mellem-svag);
+    font-style: italic;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.draaber__efterladt.aktiv {
+    display: block;
+}
+
+.draaber__efterladt:hover {
+    background-color: var(--hover);
+    color: var(--tekst-haard);
+}
+
+
+/* Inventar */
+.felt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: default;
+    height: fit-content;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--svagt-felt);
+}
+
+.felt--vandsten {
+    width: 200px;
+    justify-self: end;
+}
+
+.felt__titel {
+    color: var(--tekst-mellem-haard);
+}
+
+.inventar__emne {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--sektion);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5em;
+    cursor: pointer;
+}
+
+.inventar__emne:hover {
+    background-color: var(--hover);
+}
+
+
+/* Ved vandstenen */
+.vandsten__knap {
+    background-color: var(--knap);
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.vandsten__knap:hover {
+    background-color: var(--hover);
+}
+
+
+
+
+
+/* SEKTION: RESSOURCER */
+.ressource__grid {
+    display: grid;
+    grid-template-columns: 2fr 2fr 2fr 1fr;
+    gap: 0.5rem;
+}
+
+.ressource {
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--felt);
+    height: fit-content;
+    cursor: pointer;
+}
+
+.ressource--liv:hover {background-color: #f4eeee;}
+.ressource--sejd:hover {background-color: #eeeef4;}
+.ressource--hu:hover {background-color: #eef2ee;}
+.ressource--flasker:hover {background-color: #f4f4ee;}
+
+.dark-mode .ressource--liv:hover {background-color: #2c2222;}
+.dark-mode .ressource--sejd:hover {background-color: #22222f;}
+.dark-mode .ressource--hu:hover {background-color: #222622;}
+.dark-mode .ressource--flasker:hover {background-color: #292922;}
+
+.ressource__hoved {
+    display: flex;
+    justify-content: space-between;
+    color: var(--tekst-mellem-haard);
+    margin-bottom: 0;
+}
+
+.ressource__info {
+    font-size: 0.8em;
+}
+
+.ressource__vaerdi {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.bar {
+    height: 0.7em;
+    background: var(--ark);
+    margin: 0.5em 0;
+    border-radius: 1rem;
+}
+
+.bar__fyld {
+    height: 100%;
+    background: var(--tekst-mellem-svag);
+    border-radius: 1rem;
+    transition: width 0.125s ease;
+}
+
+.bar__fyld--liv { background: #844;}
+.bar__fyld--sejd { background: #448;}
+.bar__fyld--hu { background: #454;}
+
+.dark-mode .bar__fyld--liv { background: #a66;}
+.dark-mode .bar__fyld--sejd { background: #66c;}
+.dark-mode .bar__fyld--hu { background: #686;}
+
+.flaske-ikoner {
+    text-align: center;
+    font-size: 1.25em;
+}
+
+.reduceret {
+    color: var(--tekst-pris);
+}
+
+
+
+
+
+/* SEKTION: STATUS */
+.status__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.stat {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--felt);
+    border-radius: 0.5rem;
+    padding: 0.5em;
+    align-items: center;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.stat:hover {
+    background-color: var(--hover);
+}
+
+.stat__navn {
+    color: var(--tekst-mellem-haard);
+}
+
+.stat__vaerdi {
+    font-size: 1.5em;
+}
+
+.stat:not(.sekvens) {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+
+
+
+/* SEKTION: VÅBEN OG BASISSKADE */
+.basisskade__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.basisskade {
+    
+    background-color: var(--felt);
+    padding: 0.5em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.basisskade:hover {
+    background-color: var(--hover);
+}
+
+.basisskade__top {
+    display: flex;
+    justify-content: space-between;
+}
+
+.basisskade__navn {
+    text-transform: uppercase;
+    color: var(--tekst-mellem-haard);
+}
+
+.basisskade__vaaben {
+    font-size: 0.6rem;
+    color: var(--tekst-aktiv);
+    font-weight: 600;
+}
+
+.intet-vaaben {
+    color: var(--tekst-svag);
+    font-weight: 400;
+}
+
+.basisskade__vaerdier {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+}
+
+.basisskade__vaerdi {
+    padding: 0.25em 0.5em;
+    border-radius: 0.5em;
+}
+
+.basisskade__vaerdi--stor {
+    background-color: var(--sektion);
+    font-size: 1.5em;
+    padding: 0.25em 0.5em;
+    width: fit-content;
+    align-self: center;
+    border-radius: 0.5rem;
+}
+
+.basisskade__halv-dobbelt {
+    font-size: 0.65rem;
+    margin: 0.5rem 0 0.25rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+}
+
+
+
+/* Våbenvælger */
+.vaaben-vaelger {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5em;
+    flex-wrap: wrap;
+}
+
+.vaaben-tom-vaelger {
+    font-size: 0.85em;
+    color: var(--tekst-svag);
+    padding: 0.25em;
+    text-align: center;
+    cursor: default;
+}
+
+.vaaben-valg {
+    font-size: 0.85em;
+    padding: 0.25em 0.5em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    background-color: var(--sektion);
+    margin-top: 0.25em;
+    text-align: center;
+    width: fit-content;
+    font-weight: 400;
+}
+
+.vaaben-valg.aktiv {
+    background-color: var(--hover);
+    font-weight: 600;
+}
+
+.vaaben-valg:hover, .vaaben-valg.aktiv:hover {
+    background-color: var(--tekst-svag);
+}
+
+
+
+
+
+/* SEKTION: EVNER */
+.evne__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.evne {
+    display: flex;
+    flex-direction: column;
+    background-color: var(--felt);
+    align-items: center;
+    padding: 0.5em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.evne:hover {
+    background-color: var(--hover);
+}
+
+.evne__navn {
+    color: var(--tekst-mellem-haard);
+}
+
+.evne__level {
+    color: var(--tekst-svag);
+}
+
+.evne__level--forskudt-op {
+    color: var(--forskudt-op);
+    font-size: 1.4rem;
+}
+
+.evne__level--forskudt-ned {
+    color: var(--forskudt-ned);
+    font-size: 1.4rem;
+}
+
+.evne__level--ikke-forskudt {
+    color: var(--tekst-haard);
+    font-size: 1.4rem;
+}
+
+
+
+
+
+/* SEKTION: NOTER */
+.noter {
+    width: 100%;
+    resize: none;
+    overflow: hidden;
+}
+
+
+
+
+
+/* =================== */
+/* === JUSTERINGER === */
+/* =================== */
+.justering {
+    display: none;
+    flex-direction: row;
+    justify-content: space-between;
+    background-color: var(--sektion);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: default;
+    width: 100%;
+}
+
+.justering--aktiv {
+    display: flex;
+}
+
+.justering input {
+    width: 100%;
+    background-color: var(--felt);
+}
+
+.justering input:focus {
+    background-color: var(--hover);
+}
+
+.justering__knapgruppe {
+    display: flex;
+    gap: 0.35rem;
+    width: fit-content;
+    justify-content: end;
+    align-items: center;
+}
+
+.justering__knap {
+    background-color: var(--felt);
+    font-size: 0.9rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: fit-content;
+    height: fit-content;
+}
+
+.justering__knap:hover {
+    background-color: var(--hover);
+}
+
+
+
+/* Modifiers */
+.justering--draaber {
+    margin: 0.25rem 0 0.25rem 0;
+}
+
+.justering__knapgruppe--flaske {
+    flex-direction: column;
+    width: 100%;
+}
+
+.justering__knap--lille {
+    font-size: 1em;
+    width: 100%;
+    text-align: center;
+}
+
+.justering--stat {
+    justify-content: center;
+    width: 100%;
+    gap: 0.25rem;
+}
+
+.justering--stat input {
+    font-size: 0.7rem;
+}
+
+.justering--slet-vaaben {
+    font-size: 0.8rem;
+    flex-direction: column;
+    gap: 1rem;
+    margin: 0.5rem 0 0.25rem 0;
+    padding: 0.5rem;
+}
+
+.justering--evne-forskydning {
+    flex-direction: column;
+    font-size: 0.7rem;
+    padding-left: 0.5rem;
+    gap: 0;
+}
+
+
+
+
+
+/* ================ */
+/* === BESKEDER === */
+/* ================ */
+.besked-beholder {
+    position: fixed;
+    z-index: 10000;
+    top: 4rem;
+    left: 4rem;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5em;
+    pointer-events: none;
+}
+
+.besked {
+    background: var(--besked);
+    color: var(--tekst-haard);
+    backdrop-filter: blur(1px);
+    font-size: 0.75rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    width: 200px;
+    height: fit-content;
+    cursor: pointer;
+    pointer-events: all;
+    animation: besked-ind 0.5s ease forwards;
+}
+
+.besked:hover {
+    background: var(--besked-hover);
+}
+
+.besked.ud {
+    animation: besked-ud 0.25s ease forwards;
+}
+
+@keyframes besked-ind {
+    from { transform: translateX(calc(300% - 3em)); opacity: 0; }
+    to   { transform: translateX(0); opacity: 1; }
+}
+
+@keyframes besked-ud {
+    from { transform: translateX(0); opacity: 1; }
+    to   { transform: translateX(calc(-100% - 3em)); opacity: 0; }
+}
+
+
+
+
+
+/* =============== */
+/* === MODALER === */
+/* =============== */
+.vindue__baggrund {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    font-size: 0.75rem;
+    background: rgba(0, 0, 0, 0.1);
+    backdrop-filter: blur(0.5px);
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+}
+
+.vindue__blok {
+    min-width: 300px;
+    background: var(--sektion);
+    padding: 2em 2em 2.5em 2em;
+    border-radius: 0.5rem;
+    width: fit-content;
+    height: fit-content;
+    cursor: default;
+}
+
+.vindue__titel {
+    text-transform: uppercase;
+    color: var(--sektion-titel);
+    margin-bottom: 0.5em;
+}
+
+.vindue__tekst {
+    margin-bottom: 1em;
+    width: 100%;
+}
+
+.vindue__hoved {
+    margin-bottom: 2em;
+}
+
+.vindue__fod {
+    margin-top: 2em;
+    margin-bottom: 0.5em;
+}
+
+.vindue input {
+    width: 100%;
+}
+
+.vindue__liste {
+    margin-bottom: 2em;
+}
+
+.vindue__blok--kompleks {
+    width: 600px;
+    height: fit-content;
+}
+
+.vindue__blok--vaabenopgradering {
+    width: 500px;
+    border: 0.5px solid var(--hover);
+}
+
+.vindue__blok--endeligtdoed {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    min-width: none;
+    background-color: var(--doed);
+    backdrop-filter: blur(1px);
+    color: var(--tekst-mellem-haard);
+    font-size: 2rem;
+    text-align: center;
+    border-radius: 2rem;
+    padding: 3rem;
+}
+
+.vindue__baggrund--endeligtdoed {
+    filter: saturate(0);
+}
+
+.vindue__baggrund--vaabenopgradering {
+    background: rgba(0, 0, 0, 0);
+    backdrop-filter: blur(1px);
+}
+
+
+
+/* Vinduerækker */
+.vindue__raekke {
+    display: grid;
+    grid-template-columns: 120px 1fr 100px;
+    align-items: center;
+    gap: 1em;
+    padding: 0.5em;
+    margin-bottom: 0.5em;
+    background: var(--felt);
+    border-radius: 0.5rem;
+}
+
+.vindue__raekke:hover {
+    background: var(--hover);
+}
+
+.vindue__raekke--inventar {
+    grid-template-columns: 1fr 1fr;
+}
+
+.vindue__raekke--info {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.5em;
+}
+
+.vindue__raekke--vaaben {
+    grid-template-columns: 120px 80px 1fr 100px 20px;
+}
+
+.vindue__raekke--vaaben.top {
+    background-color: transparent;
+    color: var(--tekst-svag);
+    padding-bottom: 0;
+}
+
+.vindue__raekke--opgradering {
+    text-align: center;
+}
+
+.vindue__special-info {
+    font-size:0.9em;
+    font-style:italic;
+    color: var(--tekst-mellem-svag);
+    margin-top:2px;
+}
+
+
+
+
+
+/* Vindueknapper */
+.vindue__knapgruppe {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.vindue__knap {
+    background-color: var(--felt);
+    padding: 1em 2em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: 100%;
+    height: fit-content;
+    text-align: center;
+}
+
+.vindue__knap:hover {
+    background-color: var(--hover);
+}
+
+.vindue__knap--annuller {
+    background-color: var(--svagt-felt);
+}
+
+.vindue__knap--annuller:hover {
+    background-color: var(--sektion);
+}
+
+.vindue__knapgruppe button {
+    padding: 1px 1px;
+    border: none;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: all 0s;
+    min-width: 36px;
+    background-color: var(--sektion);
+}
+
+.minus-btn:hover:not(:disabled) {
+    background: var(--hover);
+}
+
+.plus-btn:hover:not(:disabled) {
+    background: var(--hover);
+}
+
+.vindue__knapgruppe button:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+}
+
+.vindue__knapgruppe--karakter {
+    flex-direction: column;
+}
+
+
+
+
+
+/* Våben og opgraderingsvindue */
+.vaabendetaljer {
+    display: flex;
+    flex-direction: column;
+    gap: 1em;
+}
+
+.vaabendetaljer__raekke {
+    display: grid;
+    grid-template-columns: 150px 1fr;
+}
+
+.vaabendetaljer__opgradering {
+    display: flex;
+    justify-content: space-between;
+}
+
+.vaabendetaljer__opgraderingstal {
+    font-size: 1.2em;
+}
+
+.vaabendetaljer__opgraderingsknap {
+    background-color: var(--felt);
+    padding: 0.5em 1em;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    width: fit-content;
+    text-align: center;
+}
+
+.vaabendetaljer__opgraderingsknap:hover {
+    background-color: var(--hover);
+}
+
+.minus-btn.vaaben, .plus-btn.vaaben {
+    background-color: var(--ark);
+}
+
+.vaabendetaljer__opgraderingsselektor-toggle {
+    display: flex;
+    gap: 0.5em;
+}
+
+.vaabendetaljer__opgraderingsselektor {
+    padding: 0.1em 0.5em;
+    border-radius: 0.5rem;
+    background-color: var(--sektion);
+    cursor: pointer;
+    color: var(--tekst-mellem-svag);
+}
+
+.vaabendetaljer__opgraderingsselektor.aktiv {
+    background-color: var(--felt);
+    color: var(--tekst-haard);
+}
+
+.vaabendetaljer__opgraderingsselektor:hover {
+    background-color: var(--hover);
+}
+
+
+.vaabendetaljer__opgraderingspris {
+    color: var(--tekst-pris);
+    font-size: 0.85em;
+}
+
+.vaabendetaljer__opgradering--tom {
+    color: var(--sektion-titel);
+    padding: 0.5em;
+}
+
+.vaabendetaljer__opgraderingspil {
+    color: var(--tekst-svag);
+    font-size: 1.5em;
+    text-align: right;
+}
+
+
+
+
+
+/* UTILITIES */
+.u-grid-split, .grundlaeggende__kolonner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.u-grid-1-2 {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 0.5rem;
+}
+
+.u-flex-column {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.u-flex-row {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.ny-vaerdi {
+    color: var(--ny-vaerdi);
+    font-weight: 600;
+}
+
+.ny-vaerdi--draaber {
+    color: var(--tekst-pris);
+}
+
+.u-advarsel {
+    background-color: var(--advarsel);
+}
+
+.u-advarsel:hover {
+    background-color: var(--advarsel-hover);
+}
+
+.skjult-indhold {
+    display: none;
+}
+
+
+@media (max-width: 800px) {
+    .basisskade__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .ressource__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .evne__grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+@media (max-width: 600px) {
+    body {
+        padding: 0.5rem;
+    }
+    
+    .grundlaeggende__kolonner {
+        grid-template-columns: 1fr;
+    }
+
+    .grundlaeggende__emne {
+        grid-template-columns: 75px 1fr;
+    }
+
+    .inventar__emne {
+        grid-template-columns: 150px 1fr;
+    }
+
+    .ressource__grid {
+        grid-template-columns: 1fr;
+    }
+
+    .status__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .evne__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .justering--evne-forskydning {
+        flex-direction: row;
+    }
+
+    .besked-beholder {
+        top: 1rem;
+        left: 1rem;
+    }
+
+    .u-grid-1-2 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .vaabendetaljer__opgraderingsselektor-toggle {
+        flex-direction: column;
+    }
+
+}
+
+@media (max-width: 450px) {
+    .vindue__raekke {
+        grid-template-columns: 80px 1fr 80px;
+    }
+    .vindue__raekke--vaaben {
+        grid-template-columns: 80px 1fr 1fr 70px 20px;
+    }
+
+    .vindue__knapgruppe button {
+        min-width: 24px;
+    }
+}
+
+@media (max-width: 400px) {
+    body {
+        padding: 0;
+    }
+
+    .basisskade__grid {
+        grid-template-columns: 1fr;
+    }
+}

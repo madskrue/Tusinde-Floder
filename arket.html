@@ -1,0 +1,731 @@
+<!DOCTYPE html>
+<html lang="da">
+<head>
+    <title>Karakterark</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="stilen.css">
+    <link rel="favicon" href="favicon.ico">
+</head>
+<body>
+    <div class="sektion__knap sektion__knap--dark-mode" id="dark-mode-toggle">☽</div>
+    <div class="ark" id="beholder">
+
+
+
+        <!-- Grundlæggende -->
+        <div class="sektion grundlaeggende" id="sektion-grundlaeggende">
+            
+            <div class="sektion__top" id="grundlaeggende-top">
+                <div class="sektion__titel" id="grundlaeggende-titel">Grundlæggende</div>
+                <div class="sektion__knap sektion__knap--stor" id="rediger-knap">⚗︎</div>
+            </div>
+            <div id="grundlaeggende-indhold">
+
+                <div class="grundlaeggende__kolonner">
+                    <div class="grundlaeggende kolonne-a">
+                        <div class="grundlaeggende__emne">
+                            <div>Navn</div>
+                            <input type="text" id="karakterNavn" placeholder="Karakter">
+                        </div>
+
+                        <div class="grundlaeggende__emne">
+                            <div>Klasse</div>
+                            <input type="text" id="karakterKlasse" placeholder="Asket">
+                        </div>
+
+                        <div class="grundlaeggende__emne">
+                            <div>Level</div>
+                            <div class="grundlaeggende__vaerdi">
+                                <div id="karakterLevel">72</div>
+                            </div>
+                        </div>
+
+                        <div class="grundlaeggende__emne">
+                            <div>Dråber</div>
+                            <div class="grundlaeggende__vaerdi grundlaeggende__vaerdi--draaber" id="draabe-toggle">
+                                <div class="draaber__top">
+                                    <div id="draaber">0</div>
+                                    <div class="draaber__efterladt" id="draaber-efterladt-beholder"><span id="draaber-efterladt">22</span> efterladt</div>
+                                </div>
+                                <div class="justering justering--draaber" id="draabe-justering">
+                                    <input type="number" id="draaber-input" placeholder="Dråber" min="0">
+                                    <div class="justering__knapgruppe">
+                                        <div class="justering__knap" id="draabe-justering-minus">-</div>
+                                        <div class="justering__knap" id="draabe-justering-plus">+</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="felt felt--vandsten">
+                        <div class="u-flex-column">
+                            <div class="felt__titel">Ved vandsten</div>
+                            <div class="vandsten__knap" id="stor-hvile-knap">Hvil</div>
+                            <div class="vandsten__knap" id="stor-doed-knap">Død</div>
+                        </div>
+                    </div>
+
+
+                </div>
+            </div>
+        </div>
+        
+
+
+        <!-- Ressourcer -->
+        <div class="sektion" id="sektion-ressourcer">
+            <div class="sektion__top" id="ressource-top">
+                <div class="sektion__titel" id="ressourcer-titel">Ressourcer</div>
+                <div class="sektion__knap" id="ressource-toggle">+/-</div>
+            </div>
+
+            <div id="ressourcer-indhold">
+
+                <div class="ressource__grid">
+
+                    <div class="ressource ressource--liv" id="liv-status">
+                        <div class="ressource__hoved">LIV
+                        <div class="ressource__info">Vitalt maks: <span id="livVital">60</span> Liv</div></div>
+                        <div class="ressource__vaerdi">
+                            <span id="livNu">60</span> / <span id="livMax">60</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar__fyld bar__fyld--liv" id="livBar" style="width: 80%;"></div>
+                        </div>
+                        <div class="justering" id="liv-justering">
+                            <input type="number" id="liv-input" placeholder="Liv" min="0">
+                            <div class="justering__knapgruppe">
+                                <div class="justering__knap" id="liv-justering-minus">-</div>
+                                <div class="justering__knap" id="liv-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="ressource ressource--sejd" id="sejd-status">
+                        <div class="ressource__hoved">SEJD</div>
+                        <div class="ressource__vaerdi">
+                            <span id="sejdNu">18</span> / <span id="sejdMax">18</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar__fyld bar__fyld--sejd" id="sejdBar" style="width: 100%;"></div>
+                        </div>
+                        <div class="justering" id="sejd-justering">
+                            <input type="number" id="sejd-input" placeholder="Sejd" min="0">
+                            <div class="justering__knapgruppe">
+                                <div class="justering__knap" id="sejd-justering-minus">-</div>
+                                <div class="justering__knap" id="sejd-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ressource ressource--hu" id="hu-status">
+                        <div class="ressource__hoved">HU
+                        <div class="ressource__info">↺ <span id="huRegen">4</span> Hu/runde</div></div>
+                        <div class="ressource__vaerdi">
+                            <span id="huNu">5</span> / <span id="huMax">5</span>
+                        </div>
+                        <div class="bar">
+                            <div class="bar__fyld bar__fyld--hu" id="huBar" style="width: 100%;"></div>
+                        </div>
+                        <div class="justering" id="hu-justering">
+                            <div class="justering__knap justering__knap--hu-regen" id="hu-justering-regen">↺</div>
+                            <div class="justering__knapgruppe">
+                                <div class="justering__knap" id="hu-justering-minus">-</div>
+                                <div class="justering__knap" id="hu-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ressource ressource--flasker" id="flasker">
+                        <div class="ressource__hoved">STENVANDSFLASKER</div>
+                        <div class="ressource__vaerdi"><span id="flaskerNu">3</span> / <span id="flaskerMax">3</span></div>
+                        <div class="flaske-ikoner" id="flaske-ikoner">◉ ◉ ◉ ◉ ○</div>
+
+                        <div class="justering justering--flaske" id="flaske-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--flaske">
+                                <div class="justering__knap justering__knap--lille" id="flaske-liv">Liv</div>
+                                <div class="justering__knap justering__knap--lille" id="flaske-sejd">Sejd</div>
+                                <div class="justering__knap justering__knap--lille" id="flaske-laesion">Læsion</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Status -->
+        <div class="sektion" id="sektion-status">
+            <div class="sektion__top" id="status-top">
+                <div class="sektion__titel" id="status-titel">Status</div>
+                <div class="sektion__knap" id="status-toggle">+/-</div>
+            </div>
+
+            <div id="status-indhold">
+
+                <div class="status__grid">
+                    <div class="stat sekvens" id="sekvens">
+                        <span class="stat__navn">Sekvens</span>
+                        <span class="stat__vaerdi" id="sekvens-vaerdi">0</span>
+                        
+                        <div class="justering justering--stat" id="sekvens-justering">
+                            <input type="number" id="sekvens-input" placeholder="Sekvenstal" min="0">
+                            <div class="justering__knapgruppe">
+                                <div class="justering__knap sekvens" id="sekvens-saet">↖︎</div>
+                            </div>
+                            <div class="evne__pulje" id="sekvens-pulje">1d6</div>
+                        </div>
+                    </div>
+
+                    <div class="stat haab" id="haab">
+                        <span class="stat__navn">Håb</span>
+                        <span class="stat__vaerdi" id="haab-vaerdi">0</span>
+                        <div class="justering justering--stat" id="haab-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--stat">
+                                <div class="justering__knap haab" id="haab-justering-minus">-</div>
+                                <div class="justering__knap haab" id="haab-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="stat forvitring" id="forvitring">
+                        <span class="stat__navn">Forvitring</span>
+                        <span class="stat__vaerdi" id="forvitring-vaerdi">0</span>
+                        <div class="justering justering--stat" id="forvitring-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--stat">
+                                <div class="justering__knap forvitring" id="forvitring-justering-minus">-</div>
+                                <div class="justering__knap forvitring" id="forvitring-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat udmattelse" id="udmattelse">
+                        <span class="stat__navn">Udmattelse</span>
+                        <span class="stat__vaerdi" id="udmattelse-vaerdi">0</span>
+                        <div class="justering justering--stat" id="udmattelse-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--stat">
+                                <div class="justering__knap udmattelse" id="udmattelse-justering-minus">-</div>
+                                <div class="justering__knap udmattelse" id="udmattelse-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stat laesioner" id="laesioner">
+                        <span class="stat__navn">Læsioner</span>
+                        <span class="stat__vaerdi" id="laesioner-vaerdi">0</span>
+                        <div class="justering justering--stat" id="laesioner-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--stat">
+                                <div class="justering__knap laesioner" id="laesioner-justering-minus">-</div>
+                                <div class="justering__knap laesioner" id="laesioner-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Basisskade -->
+        <div class="sektion" id="sektion-basisskade">
+
+            <div class="sektion__top">
+                <div class="sektion__titel" id="basisskade-titel">Våben og basisskade</div>
+                <div class="u-flex-row">
+                    <div class="sektion__knap sektion__knap--lille" id="vaaben-liste-knap">Våben og opgraderinger</div>
+                    <div class="sektion__knap" id="vaaben-toggle">+/-</div>
+                </div>
+            </div>
+
+            <div id="basisskade-indhold">
+
+                <div class="basisskade__grid" id="basisskade-beholder">
+                    
+                    <div class="basisskade" id="basisskade-evne-styrke">
+                        <div class="basisskade__top">
+                            <div class="basisskade__navn">Styrke</div>
+                            <div class="basisskade__vaaben" id="basisskade-evne-vaaben-styrke"></div>
+                        </div>
+
+                        <div class="basisskade__vaerdier" id="basisskade-omraade-styrke">
+                            <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-styrke">0</div>
+                            <div class="basisskade__halv-dobbelt">
+                                <div>Halv:<span class="basisskade__vaerdi" id="basisskade-halv-styrke">0</span></div>
+                                <div>Dobbelt:<span class="basisskade__vaerdi" id="basisskade-dobbelt-styrke">0</span></div>
+                            </div>
+                        </div>
+
+                        <div class="justering vaaben-vaelger" id="vaaben-vaelger-styrke-justering">
+                            <div class="vaaben-vaelger" id="vaaben-vaelger-styrke">
+                                <!-- udfyldes dynamisk -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="basisskade" id="basisskade-evne-behaendighed">
+                        <div class="basisskade__top">
+                            <div class="basisskade__navn">Behændighed</div>
+                            <div class="basisskade__vaaben" id="basisskade-evne-vaaben-behaendighed"></div>
+                        </div>
+
+                        <div class="basisskade__vaerdier" id="basisskade-omraade-behaendighed">
+                            <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-behaendighed">0</div>
+                            <div class="basisskade__halv-dobbelt">
+                                <div>Halv:<span class="basisskade__vaerdi" id="basisskade-halv-behaendighed">0</span></div>
+                                <div>Dobbelt:<span class="basisskade__vaerdi" id="basisskade-dobbelt-behaendighed">0</span></div>
+                            </div>
+                        </div>
+                        <div class="justering vaaben-vaelger" id="vaaben-vaelger-behaendighed-justering">
+                            <div class="vaaben-vaelger" id="vaaben-vaelger-behaendighed">
+                                <!-- udfyldes dynamisk -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="basisskade" id="basisskade-evne-visdom">
+                        <div class="basisskade__top">
+                            <div class="basisskade__navn">Visdom</div>
+                            <div class="basisskade__vaaben" id="basisskade-evne-vaaben-visdom"></div>
+                        </div>
+                        <div class="basisskade__vaerdier" id="basisskade-omraade-visdom">
+                            <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-visdom">0</div>
+                            <div class="basisskade__halv-dobbelt">
+                                <div>Halv:<span class="basisskade__vaerdi" id="basisskade-halv-visdom">0</span></div>
+                                <div>Dobbelt:<span class="basisskade__vaerdi" id="basisskade-dobbelt-visdom">0</span></div>
+                            </div>
+                        </div>
+                        <div class="justering vaaben-vaelger" id="vaaben-vaelger-visdom-justering">
+                            <div class="vaaben-vaelger" id="vaaben-vaelger-visdom">
+                                <!-- udfyldes dynamisk -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="basisskade" id="basisskade-evne-mystik">
+                        <div class="basisskade__top">
+                            <div class="basisskade__navn">Mystik</div>
+                            <div class="basisskade__vaaben" id="basisskade-evne-vaaben-mystik"></div>
+                        </div>
+                        <div class="basisskade__vaerdier" id="basisskade-omraade-mystik">
+                            <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-mystik">0</div>
+                            <div class="basisskade__halv-dobbelt">
+                                <div>Halv:<span class="basisskade__vaerdi" id="basisskade-halv-mystik">0</span></div>
+                                <div>Dobbelt:<span class="basisskade__vaerdi" id="basisskade-dobbelt-mystik">0</span></div>
+                            </div>
+                        </div>
+                        <div class="justering vaaben-vaelger" id="vaaben-vaelger-mystik-justering">
+                            <div class="vaaben-vaelger" id="vaaben-vaelger-mystik">
+                                <!-- udfyldes dynamisk -->
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Evner -->
+        <div class="sektion">
+            <div class="sektion__top">
+                <div class="sektion__titel" id="evner-titel">Evner</div>
+                <div class="u-flex-row">
+                    <div class="sektion__knap sektion__knap--lille" id="evneforbedringsknap">Evneforbedring</div>
+                    <div class="sektion__knap" id="evne-toggle">+/-</div>
+                </div>
+            </div>
+
+            <div id="evner-indhold">
+
+                <div class="evne__grid">
+                    <div class="evne" id="form-evne">
+                        <div class="evne__navn">FORM</div>
+                        <span class="evne__level" id="form-forskudt"></span>
+                        <div class="evne__level" id="form-level">12</div>
+                        <div class="evne__pulje" id="form-pulje">2d6</div>
+                        <div class="justering justering--evne-forskydning" id="form-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="form-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="form-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="form-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="sind-evne">
+                        <div class="evne__navn">SIND</div>
+                        <span class="evne__level" id="sind-forskudt"></span>
+                        <div class="evne__level" id="sind-level">18</div>
+                        <div class="evne__pulje" id="sind-pulje">3d6</div>
+                        <div class="justering justering--evne-forskydning" id="sind-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="sind-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="sind-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="sind-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="intuition-evne">
+                        <div class="evne__navn">INTUITION</div>
+                        <span class="evne__level" id="intuition-forskudt"></span>
+                        <div class="evne__level" id="intuition-level">8</div>
+                        <div class="evne__pulje" id="intuition-pulje">2d6</div>
+                        <div class="justering justering--evne-forskydning" id="intuition-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="intuition-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="intuition-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="intuition-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="styrke-evne">
+                        <div class="evne__navn">STYRKE</div>
+                        <span class="evne__level" id="styrke-forskudt"></span>
+                        <div class="evne__level" id="styrke-level">10</div>
+                        <div class="evne__pulje" id="styrke-pulje">2d6</div>
+                        <div class="justering justering--evne-forskydning" id="styrke-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="styrke-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="styrke-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="styrke-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="behaendighed-evne">
+                        <div class="evne__navn">BEHÆNDIGHED</div>
+                        <span class="evne__level" id="behaendighed-forskudt"></span>
+                        <div class="evne__level" id="behaendighed-level">15</div>
+                        <div class="evne__pulje" id="behaendighed-pulje">3d6</div>
+                        <div class="justering justering--evne-forskydning" id="behaendighed-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="behaendighed-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="behaendighed-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="behaendighed-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="visdom-evne">
+                        <div class="evne__navn">VISDOM</div>
+                        <span class="evne__level" id="visdom-forskudt"></span>
+                        <div class="evne__level" id="visdom-level">4</div>
+                        <div class="evne__pulje" id="visdom-pulje">1d6</div>
+                        <div class="justering justering--evne-forskydning" id="visdom-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="visdom-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="visdom-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="visdom-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="evne" id="mystik-evne">
+                        <div class="evne__navn">MYSTIK</div>
+                        <span class="evne__level" id="mystik-forskudt"></span>
+                        <div class="evne__level" id="mystik-level">5</div>
+                        <div class="evne__pulje" id="mystik-pulje">1d6</div>
+                        <div class="justering justering--evne-forskydning" id="mystik-forskydning-justering">
+                            Forskydning
+                            <div class="justering__knapgruppe justering__knapgruppe--evne-forskydning">
+                                <div class="justering__knap" id="mystik-forskydning-justering-minus">-</div>
+                                <div class="justering__vaerdi" id="mystik-forskydning-vaerdi"></div>
+                                <div class="justering__knap" id="mystik-forskydning-justering-plus">+</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <div class="sektion">
+            <div class="sektion__top" id="noter-top">
+                <div class="sektion__titel" id="inventar-og-noter-titel">Inventar og noter</div>
+            </div>
+            <div id="inventar-og-noter-indhold">
+            <div class="u-grid-1-2">
+                <div class="felt" id="inventar-element">
+                    <div class="felt__titel">Inventar</div>
+                    <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
+                    <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
+                </div>
+
+                
+                    <textarea class="noter" id="noter-input" placeholder="Her kan du skrive noter"></textarea>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <!-- Besked -->
+    <div class="besked-beholder" id="besked-beholder"></div>
+
+
+
+    <!-- Vinduer -->
+    <div class="vindue__baggrund" id="inventar-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Inventar</div>
+            <div class="vindue__liste" id="inventar-liste">
+                <div class="vindue__raekke vindue__raekke--inventar">
+                    <div class="inventar-navn">Stenvandsflasker</div>
+                    <div class="vindue__knapgruppe vindue__knapgruppe">
+                        <button class="minus-btn" id="minus-flaske">-</button>
+                        <span class="antal-badge" id="antal-flaske">0</span>
+                        <button class="plus-btn" id="plus-flaske">+</button>
+                    </div>
+                </div>
+
+                <div class="vindue__raekke vindue__raekke--inventar">
+                    <div class="inventar-navn">Stenskår</div>
+                    <div class="vindue__knapgruppe vindue__knapgruppe">
+                        <button class="minus-btn" id="minus-stenskaar">-</button>
+                        <span class="antal-badge" id="antal-stenskaar">0</span>
+                        <button class="plus-btn" id="plus-stenskaar">+</button>
+                    </div>
+                </div>
+            </div>
+        
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="luk-inventar">Luk</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="hvil-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Hvil</div>
+            <div class="vindue__tekst">Vil du hvile ved en vandsten?</div>
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-hvil">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-hvil">Bekræft</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="doed-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Død</div>
+            <div class="vindue__tekst">Vil du dø og genopstå ved en vandsten?</div>
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-doed">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-doed">Bekræft</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="evneforbedring-vindue">
+        <div class="vindue__blok vindue__blok--kompleks">
+            <div class="vindue__titel">Evneforbedring</div>
+        <div class="vindue__hoved">
+            <div class="vindue__raekke--info">
+            <span class="info-emne">Karakterlevel:</span>
+            <span class="info-vaerdi" id="karakter-level">-</span>
+            </div>
+            <div class="vindue__raekke--info">
+            <span class="info-emne">Omkostning:</span>
+            <span class="info-vaerdi" id="total-omkostning">0 Dråber</span>
+            </div>
+            <div class="vindue__raekke--info">
+            <span class="info-emne">Resterende:</span>
+            <span class="info-vaerdi" id="draaber-info">-</span>
+            </div>
+        </div>
+        
+        <div class="vindue__liste" id="evne-liste"></div>
+        
+        <div class="vindue__fod">
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-evne">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-evne">Bekræft forbedringer</div>
+            </div>
+        </div>
+        </div>
+    </div>
+
+
+
+    <div class="vindue__baggrund" id="vaabenliste-vindue">
+        <div class="vindue__blok vindue__blok--kompleks">
+            <div class="vindue__titel">Våben og opgraderinger</div>
+            <div class="vindue__raekke vindue__raekke--vaaben top">
+                <div>Navn</div>
+                <div>Opgradering</div>
+                <div></div>
+                <div>Basis</div>
+            </div>
+            <div class="vindue__liste" id="vaaben-liste"></div>
+            <div class="vindue__fod">
+                <div class="vindue__knapgruppe">
+                    <div class="vindue__knap vindue__knap--annuller" id="luk-vaabenliste">Luk</div>
+                    <div class="vindue__knap" id="nyt-vaaben-knap">Nyt våben</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="vaabendetalje-vindue">
+        <div class="vindue__blok vindue__blok--kompleks">
+            <div class="vindue__titel" id="vaabendetalje-titel">Våben</div>
+
+            <div class="vaabendetaljer">
+                <div class="vaabendetaljer__raekke">
+                    <div>Navn</div>
+                    <input type="text" id="vaaben-navn-input">
+                </div>
+                <div class="vaabendetaljer__raekke">
+                    <div>Basisevne</div>
+                    <div class="vaabendetaljer__opgraderingsselektor-toggle" id="vaaben-basis-toggle">
+                        <span class="vaabendetaljer__opgraderingsselektor" data-basis="styrke">Styrke</span>
+                        <span class="vaabendetaljer__opgraderingsselektor" data-basis="behaendighed">Behændighed</span>
+                        <span class="vaabendetaljer__opgraderingsselektor" data-basis="visdom">Visdom</span>
+                        <span class="vaabendetaljer__opgraderingsselektor" data-basis="mystik">Mystik</span>
+                    </div>
+                </div>
+                <div class="vaabendetaljer__raekke">
+                    <div>Opgradering</div>
+                    <div class="vaabendetaljer__opgradering">
+                        <div class="vaabendetaljer__opgraderingstal" id="opgraderingstal"></div>
+                        <div class="vaabendetaljer__opgraderingsknap" id="aaben-vaabenopgradering">Opgrader</div>
+                    </div>
+                </div>
+                <textarea class="noter" id="vaaben-noter-input" placeholder="Noter om våbenet"></textarea>
+            </div>
+
+            <div class="vindue__fod">
+                <div class="vindue__knapgruppe">
+                    <div class="vindue__knap vindue__knap--annuller" id="annuller-vaabendetalje">Annuller</div>
+                    <div class="vindue__knap" id="slet-vaaben">Slet
+                        <div class="justering justering--slet-vaaben" id="slet-vaaben-bekraeft-justering">
+                            <div class="slet-vaaben-bekraeft-justering-tekst">Er du sikker?</div>
+                            <div class="justering__knapgruppe justering__knapgruppe--slet-vaaben">
+                                <div class="justering__knap justering__knap--lille" id="slet-vaaben-annuller">Annuller</div>
+                                <div class="justering__knap justering__knap--lille u-advarsel" id="slet-vaaben-slet">Slet</div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="vindue__knap" id="gem-vaaben">Gem</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+   <div class="vindue__baggrund vindue__baggrund--vaabenopgradering" id="vaabenopgradering-vindue">
+        <div class="vindue__blok vindue__blok--vaabenopgradering">
+            <div class="vindue__titel" id="vaabenopgradering-titel">Opgradering</div>
+
+            <div class="vindue__hoved">
+                <div class="vindue__raekke--info">
+                    <span class="info-emne">Niveau</span>
+                    <span class="info-vaerdi" id="vaabenopg-niveau">+0</span>
+                </div>
+                <div class="vindue__raekke--info">
+                    <span class="info-emne">Stenskår</span>
+                    <span class="info-vaerdi" id="vaabenopg-stenskaar-info">-</span>
+                </div>
+                <div class="vindue__raekke--info">
+                    <span class="info-emne">Dråber</span>
+                    <span class="info-vaerdi" id="vaabenopg-draaber-info">-</span>
+                </div>
+                <div class="vindue__raekke--info">
+                    <span class="info-emne">Opgrader ved</span>
+                    <div class="vaabendetaljer__opgraderingsselektor-toggle">
+                        <span class="vaabendetaljer__opgraderingsselektor aktiv" id="vaabenopg-smedje">Smedje</span>
+                        <span class="vaabendetaljer__opgraderingsselektor" id="vaabenopg-vandsten">Vandsten</span>
+                    </div>
+                </div>
+                <div class="vindue__raekke--info">
+                    <span class="info-emne">Omkostning</span>
+                    <span class="info-vaerdi" id="vaabenopg-total-omkostning">–</span>
+                </div>
+            </div>
+
+            <div class="vindue__knapgruppe" style="justify-content: center; margin: 1.5em 0;">
+                <button class="minus-btn vaaben" id="vaabenopg-minus">-</button>
+                <span class="antal-badge vaaben" id="vaabenopg-niveau-badge">+0</span>
+                <button class="plus-btn vaaben" id="vaabenopg-plus">+</button>
+            </div>
+
+            <div class="vindue__fod">
+                <div class="vindue__knapgruppe">
+                    <div class="vindue__knap vindue__knap--annuller" id="annuller-vaabenopgradering">Annuller</div>
+                    <div class="vindue__knap" id="bekraeft-vaabenopgradering">Bekræft</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+
+    <div id="endeligtdoed" class="vindue__baggrund vindue__baggrund--endeligtdoed">
+        <div class="vindue__blok vindue__blok--endeligtdoed">
+        Du er endeligt død.
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="karakter-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Karakter</div>
+            <div class="vindue__tekst">Gem eller indlæs karakter</div>
+            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+                <div class="vindue__knap" id="eksporter-knap">Gem karakter</div>
+                <div class="vindue__knap" id="importer-knap">Indlæs karakter</div>
+                <div class="vindue__knap" id="ny-karakter">Ny karakter</div>
+                <div class="vindue__knap" id="nulstil-knap">Nulstil</div>
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-karakter">Annuller</div>
+            </div>
+            <input type="file" id="importer-input" accept=".json" style="display:none;">
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="ny-karakter-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Ny karakter</div>
+            <div class="vindue__tekst">Vælg klasse.</div>
+            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+                <div class="vindue__knap" id="asket-knap">Asket</div>
+                <div class="vindue__knap" id="bytyv-knap">Bytyv</div>
+                <div class="vindue__knap" id="forkynder-knap">Forkynder</div>
+                <div class="vindue__knap" id="hedonist-knap">Hedonist</div>
+                <div class="vindue__knap" id="lovloes-knap">Lovløs</div>
+                <div class="vindue__knap" id="laerd-knap">Lærd</div>
+                <div class="vindue__knap" id="militarist-knap">Militarist</div>
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-ny-karakter">Annuller</div>
+            </div>
+        </div>
+    </div>
+
+     <div class="vindue__baggrund" id="nulstil-karakter-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Bekræft nulstilling</div>
+            <div class="vindue__tekst">Vil du nulstille til en blank karakter?</div>
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-nulstil">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-nulstil">Bekræft</div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Scripts -->
+    <script src="data.js"></script>
+    <script src="logik.js"></script>
+    <script src="events.js"></script>
+</body>
+</html>

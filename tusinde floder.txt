@@ -1,0 +1,1051 @@
+Tusinde Floder
+Spillerbogen
+
+Dybt under jordens overflade findes uendelige grotter og underjordiske floder, forbundne af det vand, der flyder mellem dem. Gennem æoner er disse hulninger i klippeskorpen langsomt eroderet med en konstant fremdrift af nye strukturer og forbindelser. Det underjordiske vand er altid i bevægelse, indlejret af en ældgammel, guddommelig magi.
+
+Enkelte steder fremspringer ensomme sten fra hulernes dyb til den kolde luft over jordens overflade. Disse misdannelser af grotternes væv er overjordiske kilder til dybets vand – stenvandet – en lun, svagt glødende væske. Fra stenenes overflade siver en konstant rislen af stenvand ud gennem vandstenenes porer, ned og tilbage i jorden. Stenvandet – og de vandsten, det løber fra – har spredt sig til mange af verdensaltets utallige planeter og måner.
+
+Få personer er forbundne til stenvandet, gennem skæbne eller tilfældighed. Deres liv er præget af denne forbindelse, for vandstenene og deres vand griber ind i verdensaltets faser af død og forfald; stenvandet binder dets forbundne til livet, tvinger dem til at genopstå, og holder dem fra den endelige død; men det tager noget fra dem, hver gang de dør.
+
+Du er forbundet. Når du dør, vækkes du af stenvandet igen, forvitret men levende. Sådan er den evindelige cyklus, der binder dig til livet.
+
+Risivik
+Spillerbogen beskriver præmisserne for de forbundnes eksistens og reglerne for deres handlen i verden. Reglerne gælder hvorend jeres eventyr udspiller sig og kan omskrives og tilpasses efter behov. Som et vejledende eksempel tager bogen her udgangspunkt i Risivik – en verden, hvori stenvandet har flydt i æoner.
+
+
+
+
+
+Grundlæggende mekanikker
+
+Tusinde Floder er et rollespil om de forbundne, de mennesker der holdes fast i livet. Spillet udspiller sig i samtaler mellem jer og Spilmesteren. Når du handler, fortæller du, hvad din karakter gør; når verden svarer, ruller du terninger for at se, hvor langt dine evner rækker.
+
+Evner
+I Tusinde Floder findes syv evner: Form, Sind, Intuition, Styrke, Behændighed, Visdom, og Mystik. Hver af disse evner er én facet af din karakters væsen og danner tilsammen et kompleks, der er udtryk for din karakters samlede kunnen.
+
+Form
+Din generelle modstandsdygtighed og udholdenhed. Et højt level i Form gør dig resilient over for ellers dødbringende angreb og gør det mere sandsynligt, at du kan klare dig i det barske vildnis.
+
+Intuition
+Din evne til at være tilstede i nuet, navigere i sociale situationer og fornemme større sammenhænge. Et højt level i Intuition øger din sociale intelligens og giver dig et større handlerum i kamp.
+
+Sind
+Din magiske rummelighed og din mentale resiliens og skarphed. Et højt level i Sind giver dig et større magisk handlerum, øger dine overtalelsesevner og styrker dine muligheder for at lade uønskede tanker passere.
+
+Styrke
+Din rå styrke og din evne til at blokere fysiske angreb. Et højt level i Styrke giver dig kropslig overlegenhed, gør dine angreb ustoppelige og giver dig mulighed for at bære tunge rustninger.
+
+Behændighed
+Din adræthed, bevægelighed, fingersnilde, og din evne til at undvige fysiske angreb. Et højt level i Behændighed kan gøre dig hurtigere end dine fjender og er et udtryk for en fortræffelig kropslig kontrol.
+
+Visdom
+Din viden om verden og dens sammenhænge, samt din kyndighed i profan magi. Et højt level i Visdom gør det muligt for dig at analysere og manipulere fysikkens subtile strømninger og psykens bøjelige elementer.
+
+Mystik
+Din resonans med åndelige planer og din kyndighed i mystisk magi. Et højt level i Mystik er udtryk for en utrolig åbenhed for det hinsidige og gør det muligt for dig at finde energi i skjulte planer af spirituel tilværelse.
+
+
+Evnelevel og karakterlevel
+Hver evne skal gives et tal, når du skaber din karakter. Dette tal kaldes evnens level. Gennemgående for de forskellige evner er, at jo højere evnens level er, desto bedre er din karakter indenfor den evne. Dette kommer til udtryk på forskellige måder indenfor hver evne.
+
+Når du lægger alle dine syv evnelevels sammen, får du dit karakterlevel, et tal der bruges, når du vil forbedre dine evner. Du kan forbedre dine evner når du hviler ved en vandsten, ved at bruge Dråber, som du optjener i løbet af spillet. Læs mere om forbedringer i afsnittet Dråber.
+
+Liv, Hu, Sejd
+Liv, Hu og Sejd er tre forskellige energiformer, du kan trække på i din færd gennem verden.
+
+Liv er bundet til din Form og repræsenterer den grundlæggende energi, der holder dig i live. Dit Liv reduceres, hver gang du tager skade og kan heles med stenvand, hvile og magi.
+
+Hu er bundet til din Intuition og repræsenterer din viljekraft og din handledygtighed i nuet. Du bruger Hu, hver gang du handler i kamp. Dit Hu regenereres løbende og vender tilbage i takt med dit overskud.
+
+Sejd er bundet til dit Sind og repræsenterer din evne til at udføre særligt krævende handlinger. Mange besværgelser, våbenteknikker og færdigheder bruger Sejd. Dit Sejd regenereres ikke af sig selv, men kan genvindes med stenvand, hvile og særlige færdigheder.
+
+Liv og Form
+Dit Formlevel afgør hvor meget Liv du har. Tabellen nedenfor viser, hvor meget ekstra Liv du får hver gange du forbedrer dit Formlevel.
+
+Formlevel
+Liv per nyt level i Form
+1–20
+5
+21–40
+4
+41–60
+3
+61–80
+2
+81–100
+1
+
+
+Eksempel: Du forbedrer dit Formlevel til 44. Dit maksimale Liv er nu 
+20 x 5 Liv + 20 x 4 Liv + 4 x 3 Liv = 192 Liv.
+
+
+Hu og Intuition
+Dit level i Intuition afgør dit maksimale Hu, samt hvor meget Hu du regenererer per runde. Fra Intuitionlevel 1 har du 5 Hu og regenererer 4 Hu per runde. I høje levels i Intuition får du et højere antal maksimal Hu en højere regenerering af Hu. Progressionen følger tabellen herunder.
+
+Intuitionlevel
+Maksimalt Hu
+Hu regen
+1-9
+5
+4
+10-19
+6
+20-29
+5
+30-39
+7
+40-49
+6
+50-59
+8
+60-69
+70-79
+9
+7
+80-89
+90-100
+10
+
+
+Sejd og Sind
+Dit maksimale Sejd svarer til dit level i Sind. Du kan genvinde Sejd ved at hvile ved en vandsten, drikke fra en stenvandsflaske eller gennem evnefærdigheder i Sind. Forholdet mellem dit Sindlevel og dit maksimale Sejd er lineært. Hvert level i Sind giver 1 Sejd og dit level i Sind svarer derfor til dit maksimale antal Sejd.
+
+Styrke, Behændighed, Visdom og Mystik
+De fire resterenede evner er dine primære handlingsevner. Du kan eksempelvis bruge Styrke til at flytte et tungt objekt, Behændighed til at dirke en lås op, Visdom til at genkalde relevant viden, Mystik til at kontakte hinsidige planer.
+
+I kamp bestemmer disse evner, hvor hårdt du slår og hvor kraftig din magi er. Deres level afgør din basisskade indenfor hver af evnerne og disse skalerer linært. Level 24 i Styrke giver dig en basisskade på 24 for våben, der har basis i Styrke. Level 33 i Mystik giver dig en basisskade på 33 for besværgelser, der har basis i Mystik.
+
+
+Terninger
+Når du skal rulle om et udfald, gøres det ud fra en eller flere af dine evner. Spilmesteren afgør hvilket rul der skal til. Alt efter hvilket rul du laver, har du et bestemt antal terninger at rulle med. Dette antal er afgjort af, hvor højt level du har i den gældende evne. Den mængde terninger du har til et givent rul, kaldes en pulje. Se tabellen nedenfor, for at afgøre hvor mange terninger du har indenfor hver evne.
+
+Evne-level
+Pulje
+1-6
+1d6
+7-12
+2d6
+13-20
+3d6
+21-29
+4d6
+30-39
+5d6
+40-50
+6d6
+51-63
+7d6
+64-78
+8d6
+79-94
+9d6
+95-100
+10d6
+
+
+Når du ruller med din pulje af terninger, gælder det om at få flest muligt 5’ere og 6’ere, der samlet kaldes træffere.
+
+Evnerul & modrul
+
+Alt efter hvilken handling du gerne vil lave, fungerer det enten sådan, at Spilmesteren beder om at få et bestemt antal træffere, eller at du skal rulle mod en anden karakters rul og forsøge at få flere træffere end de gør. Der er særlige regler for, hvordan rullene fungerer i en kampsituation, som er nærmere beskrevet i kapitlet Kamp.
+
+Eksempel: Du vil nå under en port der er ved at sænke sig, og kaster dig hen ad jorden for at glide under. Spilmesteren siger, at det kræver to træffere i Behændighed for at lykkes. Du har 24 i Behændighed og må derfor rulle en pulje af fire terninger. Du ruller 3, 2, 6, 4. Du får altså kun en træffer og porten falder i lige foran dig.
+
+Fuldtræffere
+Når du får en fuldtræffer, opnår du mere end forventet eller udfører en handling perfekt. Du får en fuldtræffer hvis du lykkes med en handling og hvis halvdelen eller flere af dine træffere er 6’ere.
+
+Eksempel: Du vil fjerne en meget stor sten, og Spilmesteren beder om fire træffere på et Styrkerul. Du er meget stærk, så du ruller Styrke med seks terninger og får 5, 4, 5, 6, 6, 3. Handlingen lykkes og du får en fuldtræffer – stenen trilles af vejen og lander lige der, hvor du gerne ville have den, uden støj og skrammer. Havde du i stedet rullet 3, 4, 3, 6, 6, 6, lykkes handlingen ikke og du kan ikke flytte stenen.
+
+Fejl
+Når du ruller, kan du begå en fejl – altså går noget galt. Du begår en fejl, hvis du får flere 1’ere end du får træffere.
+
+Kritisk fejl
+Hvis du får en fejl og samtidig ikke får nok træffere til at bestå, begår du en kritisk fejl og noget går alvorligt galt. Spilmesteren afgør konsekvensen.
+
+Hjælp
+Du kan hjælpe en allieret med en handling. Når du vil hjælpe, skal du forklare hvordan du vil hjælpe og Spilmesteren afgør så, hvilken evne du ruller med. Du ruller og for hver træffer du får, får din allierede en ekstra d6 til deres rul. Der kan kun være én hjælper til en allierets rul.
+
+Eksempel: En af dine allierede vil gerne forsøge at overtale en bibliotekar til at lade jer undersøge skrifterne i deres lukkede afdeling. Din ven bliver bedt om at rulle Intuition og har en Intuition-pulje på 3d6. Du fortæller at du gerne vil bruge din viden til at hjælpe din ven og bliver bedt om at rulle Visdom. Du har selv en Visdom-pulje på 3d6, ruller og får 1 træffer. Din vens pulje er til at overtale bibliotekaren nu på 4d6.
+
+Alternative terningerul
+Det kan hænde at reglerne beder dig rulle 1d2 eller 1d3 frem for 1d6. Disse afgøres dog stadig ved at rulle med en almindelig sekssidet terning.
+
+1d2
+Rul 1d6:
+Ved 1-3 er resultatet 1.
+Ved 4-6 er resultatet 2.
+
+1d3
+Rul 1d6:
+Ved 1-2 er resultatet 1.
+Ved 3-4 er resultatet 2.
+Ved 5-6 er resultatet 3.
+
+
+Dråber
+Nogle gange hænder det, at små stenvandsdråber størkner og falder til jorden. Dråberne har en åndelig værdi for de forbundne, hvorfor de ofte samler dem op. Du får derfor Dråber for at dræbe forbundne fjender. Hvor mange Dråber hver fjende bærer, bestemmes af Spilmesteren. Hvis du begår en fejl i et rul, får du desuden 1 Dråbe.
+
+Når du modtager Dråber, bindes de til din krop. Det bliver din opgave, at bære dem til en vandsten, hvor du kan bruge dem.
+
+Skulle det ske at du dør, mens du bærer Dråber, efterlades de, hvor du faldt. Hvis du når frem til stedet, hvor du tabte dine Dråber, uden at dø igen, kan du samle dem op og bære dem videre. Hvis du derimod dør, før du når frem til dine tabte Dråber, forsvinder de for altid, nedsunket og opløst.
+
+Dråbernes funktion
+Det primære du kan bruge Dråber til, er at forbedre dine evner. Dette kan du gøre når du hviler ved en vandsten. Hvis du vil forbedre en evne, koster det Dråber svarende til dit karakterlevel. Dråberne forbruges, når evnen forbedres. Hver evne kan forbedres op til level 100.
+
+Eksempel: Du har følgende evner, Form 12, Sind 17, Styrke 7, Behændighed 10, Visdom 20, og Mystik 8. Dit karakterlevel summen af disse, altså 74. Det vil altså koste 74 Dråber at forbedre én af dine evner – f.eks. fra Visdom 20 til Visdom 21 – hvorefter dit karakterlevel stiger til 75.
+
+Når du hviler ved en vandsten sammen med andre forbundne, kan du også vælge at bidrage nogle af dine egne Dråber til deres evneforbedringer.
+
+Du kan også bruge Dråber til at opgradere udstyr. Denne proces beskrives i afsnittet om våbenopgraderinger. Samtidig kan Dråber også bruges til at låse op for nye evnefærdigheder, som bliver tilgængelige, når du når et vist level indenfor en evne. Disse findes i afsnittet om evnefærdigheder. Du kan også bruge Dråber til at få Håb.
+
+Håb
+Håb er en ressource, som kan give dig en fordel i pressede situationer. Du kan bruge 1 Håb på at få +1d6 til et hvilket som helst rul. Du kan maksimal bære 3 Håb ad gangen. Du kan få Håb på forskellige måder:
+Når du hviler ved en vandsten, kan du bruge Dråber svarende til (halvdelen af?) dit karakterlevel for at få 1 Håb.
+Spilmesteren kan uddele Håb til spillere, der i udpræget grad handler i overensstemmelse med deres karakters baggrund eller motivationer.
+Når du allerede er forvitret og du så dør og genopstår, kan du rulle 1d6 i starten af din tur - hvis du får en træffer, får du 1 Håb.
+Når du skaber din karakter, starter du med 1d3 Håb.
+
+
+
+
+
+
+Vandstenen
+
+Vandstenen er et central objekt for jer, der er forbundne til stenvandet, på godt og på ondt. Den er en kilde til det stenvand, der holder dig i live, og giver dig et trygt sted at hvile. Vandstenen giver dig liv igen, hvis du falder i kamp, men denne proces tager noget fra dig og efterlader dig svagere, forvitret.
+
+Cyklus
+Gennem disse regler bruges begrebet cyklus. Dette refererer til den tid man bruger mellem vandsten. Dette indbefatter tiden mellem to hvil ved en vandsten; tiden fra du hviler ved en vandsten, til du dør; tiden fra du dør og genopvågner ved en vandsten til du hviler ved en vandsten; eller tiden mellem to dødsfald. Mange færdigheder kan bruges én gang per cyklus.
+
+Hvile ved en vandsten
+Du kan bruge alle vandsten som et trygt hvilested. Når du hviler dig ved en vandsten, heles dine sår og dit helbred, og følgende effekter indtræffer:
+Du genvinder al Liv, Hu, og Sejd
+Du genvinder alle færdigheder og andre per-cyklus-ressourcer
+Du heler alle Læsioner og Kritiske læsioner
+Du fjerner alle midlertidige tilstande
+Du genopfylder alle medbragte Stenvandsflasker
+Alle dræbte fjender genopstår
+Stenvandsflaske
+En lille flaske af en særlig type glas, der kan bære stenvandet. Stenvandet er en utroligt tyndtflydende væske, der siver gennem gængse glastyper. Flasken er lavet af de glaspustende mystikere i det sydlige Tzik.
+
+Drik en Stenvandsflaske for at få fornyet energi og genvinde noget af din kraft. Når du drikker en Stenvandsflaske kan du vælge enten at:
+Genvinde halvdelen af dit maksimale Liv (rundet op),
+Genvinde halvdelen af dit maksimale Sejd (rundet op), eller
+Hele én (ikke kritisk) Læsion
+
+
+Udover de helende effekter der indtræffer, når du hviler ved en vandsten, kan du aktivt udnytte stenvandets magi til at styrke din karakter. Når du hviler ved en vandsten, kan du udvikle din karakter på måder, der kræver Dråber. Du kan:
+Forbedre evner
+Opgradere udstyr
+Låse op for nye evnefærdigheder
+Få Håb
+
+Du kan også bruge din hviletid til at lære nyfundne besværgelser.
+
+
+
+Død, forvitring og vitalitet
+Hvis dit Liv reduceres til 0, dør du. Du taber dine indsamlede Dråber på stedet, og din krop opløses til stenvand og siver ned i jorden. På din næste tur genopvågner du ved den vandsten, du sidst har rørt, tynget af tab, men kropsligt genfødt.
+
+Når du genopstår, genvinder du al Liv og dine per cyklus færdigheder. Ingen andre ressourcer genvindes, men du kan rejse dig og tilslutte dig dine allierede igen. Dog tager døden noget fra dig: du forvitrer.
+
+Forvitring
+At dø og genopstå forvitrer dig og trækker gradvist livskraften ud af din krop. Når du dør og bliver Forvitret, reduceres dit maksimale Liv med 10% af dit vitale maksimum (rundet op). Dit vitale maksimum er det Liv, du ville have med dit nuværende Formlevel (plus eventuel forskydning), hvis du ikke var forvitret – hvis du var vital.
+
+Forvitring stables. Hver gang du dør, mens du er forvitret, reduceres din maksimale Liv med yderligere 10% af dit vitale maksimum.
+
+Eksempel: Du har Formlevel 23, hvilket giver dig et vitalt maksimum på 112 Liv. Du dør og bliver forvitret. Dit maksimale Liv reduceres med 10% af 112 = 12 Liv, så dit nye maksimum er 100 Liv. Du dør igen. Dit maksimale Liv reduceres med yderligere 12 Liv, så dit nye maksimum er 88 Liv. Hvis du nu forbedrer din Form til level 29 (vitalt maksimum 136 Liv), er dit aktuelle maksimum nu 136 - 2 x 10% = 108 Liv. Dør du igen, mister du endnu 14 maks Liv.
+
+Den endelige død
+Hvis du gennem forvitring reducerer dit maksimale Liv til 0 eller lavere, indtræffer din endelige død. Denne død kan du ikke genopstå fra, og din sjæl tilhører ikke længere din krop, der efterlades som en tom skal af forrådnende kød.
+Livsknogle
+En arkaisk, lille knogle med indgraverede, svagt glødende ornamenter. Nogen har givet sit liv, for at en anden kan få sit igen.
+
+Brug en livsknogle til at genoprette din Vitalitet, hvis du er forvitret.
+
+Efter brug mister livsknoglen sin glød; den er udtømt og kan ikke bruges igen.
+
+
+Vitalitet
+Der er måder, hvorpå du kan omvende forvitringsprocessen og genskabe din vitalitet. Når du får din vitalitet igen, nulstilles din forvitring fuldstændigt. Dit maksimale Liv vender tilbage til dit vitale maksimum og dit nuværende Liv genvindes totalt.
+
+Du kan genskabe din vitalitet gennem livsknogler eller blodprisen.
+
+Blodprisen
+En anden måde at genskabe sin vitalitet, er gennem blodprisen. Blodprisen er en rituel handling af desperation og ofring, hvor éns vitalitet tappes for at genoprette en andens. Ritualet sammenbinder de involveredes skæbner og efterlader begge med en vedvarende følelse af tab.
+
+Hvis du er vital og vil betale blodprisen til en forvitret allieret, skal du røre ved den forvitrede. Her kan du bruge 1 Hu og øjeblikkeligt overføre din vitalitet til den anden og genskabe deres vitalitet. Du drænes dog, du forvitrer som var du død og påtager dig tomhed: du kan ikke genskabe din egen vitalitet gennem blodprisen, før den er genskabt på anden vis.
+
+Blodbånd
+Indtil én af de to karakterer der er involveret i blodprisen dør, er deres blod bundet til hinandens. Hvis den ene af de to får en fejl, har den anden -1d6 til deres næste rul. Hvis den ene af de to får en fuldtræffer, har den anden +1d6 til deres næste rul.
+
+
+
+
+
+
+
+Din karakter
+
+De forbundne
+Når du træder ind i stenvandets land, gør du det med en karakter, der er en af de få forbundne til stenvandet. Denne karakter skal du skabe.
+
+For at komme i gang, skal du:
+Vælge en startklasse
+Bestemme dine evner
+Beskrive din personlighed
+
+Startklasse
+Du starter spillet med en karakter, der påtager sig en af de syv startklasser. Hver startklasse har sit eget udstyr og har desuden færdigheder, der kan forme deres måde at handle på i Risiviks verden.
+
+De syv startklasser:
+Asket, en disciplineret mediterende
+Bytyv, en diskret dolkbærer
+Forkynder, en hellig kriger
+Hedonist, en elegant duelist
+Lovløs, en fri kæmper
+Lærd, en uddannet magiker
+Militarist, en trænet soldat
+
+Hver startklasse har en færdighed, som karakteren har lært i løbet af sit liv. Denne klassefærdighed kan ikke skiftes ud, men udover denne, er din karakter er ikke låst til en bestemt måde at spille på. Når du forbedrer dine evner, kan du få mulighed for at bruge nye våben og besværgelser, samt låse op for nye evne-baserede færdigheder.
+
+Startevner
+Når du skaber en karakter, skal du tage stilling til din karakters evner. Du skal finde ud af, hvor god din karakter er indenfor de syv evner: Form, Sind, Intuition, Styrke, Behændighed, Visdom, og Mystik. Du skal give hver evne et tal, her kaldet evnens level; jo højere level, desto bedre. 
+
+Hver klasse har én evne, der starter i level 18 (med undtagelse af de udhulede). Denne er angivet i beskrivelsen af hver klasse. Dette efterlader seks evner, der hver skal have en level-værdi. Alt efter hvordan I starter jeres eventyr, kan I give evnerne levels på forskellige måder.
+
+Standardværdier
+En måde er at bruge et sæt af standardværdier, som alle karakterer tager udgangspunkt i. Disse værdier kunne være de følgende: 15 · 12 · 10 · 8 · 5 · 4
+
+Disse værdier kan du selv fordele på de seks resterende evner, som du har lyst. Her har I et par relativt stærke enver, en del i midten og nogle få underudviklede evner. På denne måde kan I hurtigt komme i gang med spillet og I starter med et lige udgangspunkt, alle i level 72. Hvis kampagnen lægger op til, at I starter stærkere, kan I gange værdierne op med en passende faktor.
+
+I vælger at gange startlevel op med 1,5. I såfald ligger klassestartlevel på 27. De resterende evner ligger på 23, 18, 15, 12, 8, 6. Jeres start-karakterlevel hver især er nu 109.
+
+Rullede værdier
+Hvis I vil tilføre tilfældighed til jeres skabelsesproces, kan I i stedet rulle om de resterende startevner. I kan eksempelvis hver rulle 3d6 seks gange og så fordele de værdier I ruller på de resterende evner. Her får I tilfældighed i jeres evnelevel, men frihed til at vælge hvad, jeres karakterer er gode til. Rullede startevner kan give mere spænding til skabelsesprocessen, men kan også føre til, at nogle karakterer starter væsentligt stærkere end andre.
+
+Personlighed
+Hvem er din karakter? Hvordan agerer de? Her er nogle spørgsmål, der kan sætte fantasien igang. De er ikke tænkt til at skulle besvares hver og en, men de er til for at vise en bredde i, hvilke facetter du kan åbne op for, når du skaber din karakter.
+
+Hvordan har du fået dine evner?
+Hvad styres du af? En streng moral? Gudernes ønsker?
+Føler du dig bedre end andre?
+Hvordan handler du i kamp? Overilet? Forsigtigt? Præcist?
+Gør du det, de andre gør?
+Har du en hemmelighed? Et skjult misbrug? Et skamfuldt minde?
+Er du altid klar på en fest?
+Ser du op til en forælder?
+Agerer du altid rationelt?
+Skræmmes du let?
+Hvem er dine forfædre? Din familie? Dine venner?
+Hvordan går du klædt? Og hvad er dit forhold til personlig hygiejne?
+Hvad er din relation til vandstenene?
+Har du et minde knyttet til en bestemt vandsten?
+Har du endnu ikke prøvet at dø?
+Hvad bliver taget fra dig, når du dør og forvitrer?
+
+
+
+
+
+
+Startklasser
+
+Asket
+Startevne: Sind 18
+Som asket har du levet en del af dit liv i isolation, hvor du har skærpet dit sind gennem meditation, disciplin og afholdenhed.
+
+Klassefærdighed: Indre ro
+Når du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.
+
+Klassefærdighed: Indre kraft
+Du kan omdanne 4 Sejd til 1 Hu. Færdigheden kan bruges én gang per runde.
+
+Genstande
+En asket starter med et Knojern og en Kæde.
+
+Knojern
+Kræver: Behændighed 10
+Basis: Behændighed
+Type: Nærkampsvåben (1 spænd)
+Bruger: 1 Hu
+Et simpelt knojern. Gør halv basisskade.
+Teknik: Knoglebrud
+Bruger: 2 Hu · 1 Sejd
+Koncentrer kraften af dit slag til et enkelt punkt på dit måls krop. Gør basisskade og målet får -1d6 til deres næste angreb.
+
+
+Kæde
+Kræver: Behændighed 16 · Styrke 10
+Basis: Behændighed
+Type: Nærkampsvåben (2 spænd)
+Bruger: 1 Hu
+En let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.
+Teknik: Svirp
+Bruger: 2 Hu · 1 Sejd
+Hvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig.
+
+
+
+Bytyv
+Startevne: Behændighed 18
+I Risiviks store byer findes der levende undergrundsmiljøer, der arbejder i strid med lovgivningen. Bytyvene kan tage sig ud på mange måder, men er alle – på en eller anden måde – diskrete.
+
+Klassefærdighed: Baghold
+Som bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.
+
+Genstande
+En bytyv starter med enten Tvillingedolke eller en Langdolk.
+
+Tvillingedolke
+Kræver: Behændighed 15 · to hænder
+Basis: Behændighed
+Type: Nærkampsvåben (1 spænd)
+Bruger: 1 Hu
+Et sæt af to mindre dolke, en til hver hånd. Et angreb er et stød med en af dolkene. Gør halv basisskade.
+Teknik: Sejdrtige hænder
+Kræver: to hænder
+Bruger: 2 Hu · 1 Sejd
+Angrib med den ene dolk, flyt dig op til 1 spænd, og angrib med den anden dolk. Gør halv basisskade for hvert angreb.
+
+
+Langdolk
+Kræver: Behændighed 13
+Basis: Behændighed
+Type: Nærkampsvåben (1 spænd)
+Bruger: 1 Hu
+En lang dolk med en savtakket klinge. Gør halv basisskade.
+Teknik: Flænsning
+Bruger: 2 Hu · 1 Sejd
+Skær et dybt sår i målet. Hvis de rammes, tager de basisskade nu og begynder at bløde. I starten af målets næste tur, tager de halv basisskade.
+
+
+
+Forkynder
+Startevne: Mystik 18
+Hellig magiker fra et af Risiviks religiøs fællesskaber. Får sine evner fra en guddom.
+
+Klassefærdighed: Bøn
+Som forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.
+
+Genstande
+En forkynder starter med et Sakralt fokus, en Morgenstjerne og et Rundskjold.
+
+Sakralt fokus
+Kræver: Mystik 14
+Basis: Mystik
+Type: Sakralt fokus
+Bruger: per besværgelse
+Et enkelt objekt (f.eks. ikon, stav, relikvie), der kanaliserer sakral magi.
+Teknik: Slag
+Bruger: 2 Hu
+Slå et mål indenfor 1 spænd. Gør halv basisskade.
+
+
+Morgenstjerne
+Kræver: Styrke 10
+Basis: Styrke
+Type: Nærkampsvåben (1 spænd)
+Bruger: 2 Hu
+En tung kugle med pigge, fastgjort til et skaft.
+Gør basisskade.
+Teknik: Hårdt slag
+Kræver: to hænder
+Bruger: 3 Hu · 1 Sejd
+Slå et mål indenfor 1 spænd. Gør dobbelt basisskade.
+
+
+
+
+Rundskjold
+Kræver: Styrke 14
+Kan bruges til at blokere fysiske angreb.
+Når du bærer skjoldet i en hånd og vil blokere et angreb du kan se, får du +1d6 til at blokere.
+Teknik: Parér
+Bruger: 1 Hu · 1 Sejd
+I stedet for at blokere et fysisk angreb, kan du forsøge at parere. Rul Styrke for at forsvare dig. Hvis det lykkes, slår du modstanderens våben til side og kan forsøge at lave et modangreb, der ikke bruger Sejd.
+
+
+Magi
+En forkynder starter med besværgelserne Helende berøring og Hellig hammer.
+
+Helende berøring
+Kræver: Mystik 10 · Sakralt fokus
+Basis: Mystik
+Skole: Hellig
+Type: Mental
+Bruger: 1 Hu · 2 Sejd
+Berør en person indenfor 1 spænd og giv dem 10 Liv.
+
+
+Hellig hammer
+Kræver: Mystik 18 · Sakralt fokus
+Basis: Mystik
+Skole: Hellig
+Type: Fysisk
+Bruger: 2 Hu · 2 Sejd
+Skab en lysende hammer og slå den ned på en person indenfor 2 spænd.
+
+Hvis personen rammes, tager de dobbelt basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.
+
+
+
+Hedonist
+Startevne: Intuition 18
+En hedonist er en type, der har gjort sig til rette i de højere sociale lag af de store byer. De har lært den velansete fægtekunst og kæmper ofte med elegance og overskud.
+
+Klassefærdighed: Afledning
+Som hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.
+
+Klassefærdighed: Duelist
+Når du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen.
+
+Genstande
+En hedonist starter med en Kårde.
+
+Kårde
+Kræver: Behændighed 12
+Basis: Behændighed
+Type: Nærkampsvåben (1 spænd)
+Bruger: 1 Hu
+Et elegant sværd med en lang, smal klinge. Kården er yderst spids. Gør halv basisskade.
+Teknik: Touché
+Bruger: 2 Hu · 1 Sejd
+Træd 1 spænd frem og angrib i én glidende bevægelse. Hvis du rammer, gør du basisskade og får +1d6 på dit næste forsvar mod denne fjende, hvis den dig angriber inden din næste tur.
+
+
+
+
+
+
+Lovløs
+Startevne: Form 18
+I Risivik findes der mange små befolkninger af frie folk, som ikke vil bukke for jarlerne eller leve med landegrænser. De lever ofte i pagt med naturen, og nogle jæger mens andre plyndrer for at overleve.
+
+Klassefærdighed: Kontroltab
+Én gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode.
+
+Genstande
+En lovløs starter med en Flitsbue og enten et Langspyd eller en Krigshammer.
+
+Flitsbue
+Kræver: Behændighed 12 · to hænder
+Basis: Behændighed
+Type: Afstandsvåben
+Bruger: 1 Hu
+Bue og pil. Et angreb affyrer en pil op til 20 spænd. Gør halv basisskade.
+Teknik: Overtræk
+Kræver: to hænder
+Bruger: 1 Hu · 2 Sejd
+Træk buen helt ud og affyr en pil op til 30 spænd. Gør basisskade.
+
+
+Langspyd
+Kræver: Behændighed 12
+Basis: Behændighed
+Type: Nærkampsvåben (1-2 spænd)
+Bruger: 1 Hu
+Et langt og let spyd. Et angreb er et let hug mod et mål op til 2 spænd væk. Gør halv basisskade.
+Teknik: Spydkast
+Bruger: 2 Hu · 1 Sejd
+Kast spyddet op til 15 spænd efter et mål. Gør basisskade.
+
+
+
+
+Krigshammer
+Kræver: Styrke 12 · to hænder
+Basis: Styrke
+Type: Nærkampsvåben (1 spænd)
+Bruger: 2 Hu
+En tung tohåndshammer. Gør basisskade.
+Teknik: Tvingende slag
+Kræver: to hænder
+Bruger: 3 Hu · 1 Sejd
+Et brutalt angreb, der rykker målet. Hvis du rammer, gør du dobblet basisskade og skubber målet 1 spænd væk fra dig. Hvis målet rammer en væg eller anden forhindring, falder det omkuld.
+
+
+
+Lærd
+Startevne: Visdom 18
+De lærde er Risiviks akademiske magikere. Kan mestre tillært magi, der former elementerne.
+
+Klassefærdighed: Visdommens segl
+En gang per cyklus kan du, med dit profane fokus, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder.
+
+Genstande
+En lærd starter med et Profant fokus og et Kort sværd.
+
+Profant fokus
+Kræver: Visdom 14
+Basis: Visdom
+Type: Profant fokus
+Bruger: per besværgelse
+Et enkelt objekt (f.eks. stav, tryllestav, sfære), der kanaliserer profan magi.
+Teknik: Slag
+Bruger: 2 Hu
+Slå et mål indenfor 1 spænd. Gør halv basisskade.
+
+
+Kort sværd
+Kræver: Behændighed 10
+Basis: Behændighed
+Type: Nærkampsvåben (1 spænd)
+Bruger: 1 Hu
+Et enhåndssværd. Gør halv basisskade.
+Teknik: Gennembor
+Bruger: 2 Hu · 1 Sejd
+Spid målet med spidsen af sværdet. Hvis du rammer, tager målet basisskade og bliver ængsteligt.
+
+
+
+Magi
+En lærd starter med besværgelserne Iskrystal og Energioverførsel.
+
+Iskrystal
+Kræver: Visdom 14 · Profant fokus
+Basis: Visdom
+Skole: Natur
+Type: Fysisk
+Bruger: 2 Hu · 2 Sejd
+Afsend et projektil af is mod en person indenfor 10 spænd. Gør basisskade.
+
+Hvis den rammer med en fuldtræffer, sætter iskrystallen sig fast i den ramtes krop, og de har -1d6 til deres næste forsvarsrul.
+
+
+Energioverførsel
+Kræver: Visdom 16 · Sakralt fokus
+Basis: Visdom
+Skole: Forbindelse
+Type: Mental
+Bruger: 1 Hu + 1-2 Hu · 2 Sejd
+Tap din egen energi for at give den til en anden.
+
+Overfør Hu fra dig selv til en anden person, hvis Hu ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 2 Hu. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 1 Hu.
+
+
+
+
+Militarist
+Startevne: Styrke 18
+I Risivik er militaristerne en udbredt form for krigere. Mange er udlært fra en af rigernes hære, eller fra oprørske fraktioner, der søger at undergrave deres regering. Militaristerne har ofte taktiske og logiske sind, og angriber med kraftfuld præcision.
+
+Klassefærdighed: Ordre
+Som militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.
+
+Beklædning
+En militarist starter med en Læderrustning og Læderstøvler.
+
+Læderrustning
+Kræver: Styrke 15
+Type: Let rustning
+Simpel rustning i hærdet læder, der tager det værste.
+
+
+Genstande
+En militarist starter med et Rundskjold og enten et Klingespyd eller et Langsværd.
+
+Rundskjold
+Kræver: Styrke 14
+Kan bruges til at blokere fysiske angreb.
+Når du bærer skjoldet i en hånd og vil blokere et angreb du kan se, får du +1d6 til at blokere.
+Teknik: Parér
+Bruger: 1 Hu · 1 Sejd
+I stedet for at blokere et fysisk angreb, kan du forsøge at parere. Rul Styrke for at forsvare dig. Hvis det lykkes, slår du modstanderens våben til side og kan forsøge at lave et modangreb, der ikke bruger Sejd.
+
+
+
+Klingespyd
+Kræver: Styrke 14 · Behændighed 10
+Basis: Styrke
+Type: Nærkampsvåben (1 spænd)
+Bruger: 2 Hu
+Et tungt spyd med en klinge langs skaftet. Gør basisskade.
+Teknik: Rundhug
+Kræver: to hænder
+Bruger: 3 Hu · 1 Sejd
+Udstræk spyddet og drej hele vejen rundt om dig selv. Rul én gang for at angribe alle indenfor 1 spænd omkring dig.
+Gør basisskade til alle, der rammes.
+
+
+Langsværd
+Kræver: Styrke 16
+Basis: Styrke
+Type: Nærkampsvåben (1 spænd)
+Bruger: 2 Hu
+Et langt, tungt sværd med en bred, tveægget klinge. Gør basisskade.
+Teknik: Hoppende angreb
+Kræver: to hænder
+Bruger: 3 Hu · 1 Sejd
+Angrib et mål, ved at hoppe 1 spænd fremad og lande med et voldsomt stød.
+Gør dobbelt basisskade.
+
+
+
+
+
+
+
+
+Risiviks verden
+
+I Risivik findes ni territorier: Åmli med dets utallige fjorde, det bjergrige Kvengmord, skærgårdene i Kvenn, den enorme bjergkæde Krag, issletten Saeooejn, det velhavende Kildor, imperiets hovedsæde Gamle Roald, øgruppen Bandak, og Vørd med dets frodige jord.
+
+På tværs af Risiviks territorier gælder det at de fleste af dem, der ikke er forbundne, holder sig langt fra vandstenene. De frygter stenvandets indgriben i deres liv. Mange har aldrig selv set en vandsten, men har hørt historier om, hvordan vandstenene forvrænger døden og forvitrer livet, og har fået fortalt legender om de hovnes griske og frygtelige kraft. I flere kulturer er stenvandet tabu og for de fleste er det ikke en del af livet. I bystaten Guangalu anses de forbundne som forbandede og bliver jagtet og tilfangetaget af ordensmagterne, mens de i Vørd og Gamle Roald lever frit sammen med resten af befolkningen. For de forbundne er vandstenene en del af livet, hvad end de ser det som en velsignelse eller en forbandelse.
+
+Sociale interaktioner
+Hvis en spiller handler i klar overensstemmelse med en relation, en rolle eller en tidligere etableret sandhed, kræves intet rul. Rul bruges kun, når der er modstand eller risiko.
+
+Intuition: læsning, timing, tilstedeværelse
+
+Sind: overtalelse, modstand, manipulation
+
+Opdagelse
+Når du rejser gennem vandstenenes verden, vil du undervejs opdage nye ting, du kan bruge. Det kan være våben, besværgelser, udstyr, eller brugbare objekter, der kan være efterladt af dræbte fjender, fundet i skjulte skatte, givet som belønning eller opdaget på anden vis.
+
+Våben og udstyr
+Når du finder nyt udstyr, som våben, rustninger, beklædning eller vedhæng, kan du begynde at bruge udstyret med det samme, så længe du opfylder kravene.
+
+Magi
+Der findes mange besværgelser, der kan opdages i din færd i vandstenenes verden. Så længe du opfylder den pågældende besværgelses krav, kan du lære en besværgelse du finder, når du hviler ved en vandsten. Du kan lære de besværgelser du selv kender videre til en anden, når I begge hviler ved den samme vandsten og hvis den anden opfylder kravene til besværgelsen.
+
+Besværgelser kan være fysiske eller mentale og hvis en besværgelse gør skade, gør fysiske besværgelser fysisk skade og mentale besværgelser gør mental skade (se skadetyper).
+
+Øvrige ting
+Der kan også findes andre genstande, der ikke er beskrevet her. Reglerne for disse beskrives, hvis I finder genstandene. 
+
+Økonomi
+Risiviks gængse valuta hedder katlan. Katlan udstedes af Roaldimperiets møntner i Roaldhavn og er et lille stykke kobber præget med et billede af Roaldimperiets fader Kong Roald på den ene side og teksten KATLAN på den anden.
+
+Værdi af katlan
+Nedenfor er en tabel over gennemsnitlige priser på varer i Risivik.
+
+Vare
+Pris
+En liter mælk
+1 katlan
+Et brød
+2 katlan
+Et måltid på en kro
+10 katlan
+En høne
+20 katlan
+Et billigt kroophold med mad
+25 katlan
+En vogntur fra Falunstad til Guangalu
+35 katlan
+Et standard kroophold med mad
+40 katlan
+Et fint kroophold med mad
+80 katlan
+En ged
+100 katlan
+En gris
+200 katlan
+En ko
+300 katlan
+En billig kærre
+600 katlan
+
+
+
+
+
+
+
+
+
+
+Kamp
+
+Dette kapitel detaljerer forskellige regler og mekanikker, der er gode at kende, når kampen uundvigeligt indtræffer.
+
+Kampens orden
+Kamp
+Når spillerne angriber eller bliver angrebet, igangsættes en kamp. Kampen varer indtil en af siderne er nedkæmpet, eller til der er fundet en anden løsning på striden.
+
+Runde
+En kamp er bygget op af en eller flere runder. En runde er en gennemgang af sekvensen, hvor hver karakter der er involveret i kampen, har en tur. Hvis kampen ikke er færdig efter én runde, fortsætter den endnu en runde, og denne cyklus fortsætter til kampen er afsluttet.
+
+Tur
+I løbet af en runde har hver spiller en tur og hver fjende har mindst en tur. På din tur kan du tage så mange eller så få handlinger, som du har lyst til, og som din Hu tillader.
+
+Sekvens
+Sekvens bestemmer rækkefølgen for, hvornår karakterer handler i forhold til hinanden.
+Hver karakter har et sekvenstal, som bestemmes i starten af hver cyklus ved at rulle en sekvenspulje svarende til Form+Intuition. Dit sekvenstal svarer til summen af de øjne, du ruller. Det rullede sekvenstal er vedvarende, indtil du starter din næste cyklus.
+
+Sekvensen følger faldende sekvenstal: en karakter med sekvenstal 21 handler før en karakter med sekvenstal 17, der handler før en karakter med sekvenstal 8, osv.
+
+Sekvensen er cirkulær. Når spillerne indleder en kamp, vælger de selv i fællesskab, hvem der indleder konflikten – omvendt, hvis en fjende indleder en kamp mod spillerne, vælger Spilmesteren, hvem der indleder konflikten. Runden og sekvensen starter ved personen der indleder konflikten, som får den første tur. Herefter følges sekvensen i faldende rækkefølge og første runde varer indtil den, der indledte konflikten, har tur igen.
+
+Grænsetilfælde
+Hvis to spillere har samme sekvenstal, handler karakteren med højest Intuition først. Hvis dette også er lige, afgør de to spillere i fællesskab, fra runde til runde, hvem der handler først.
+
+Hvis en spiller og en fjende har samme sekvenstal, handler karakteren med højest Intuition først. Hvis dette også er lige, handler fjenden først.
+
+
+Angreb og forsvar
+Når en karakter vil angribe en anden, skal angriberen bruge en given mængde Hu for at lave angrebet. Hvis personen der bliver angrebet vil forsvare sig, ruller de to karakterer mod hinanden. Hvis forsvareren får det højeste antal træffere, undgås angrebet. Hvis angriberen får det højeste antal træffere, eller hvis angriber og forsvarer får samme antal træffere, rammer angrebet.
+
+Hvis forsvareren derimod ikke har nok Hu til at forsvare sig eller vælger ikke at forsvare sig, kræves intet rul og angrebet rammer automatisk.
+
+Spænd
+Et spænd er en gammel, kropslig måleenhed, brugt gennem århundrede på Bandak. Et spænd svarer omtrent til spændvidden mellem fingerspidserne med udstrakte arme. Hvis man skulle gøre det op i moderne måleenheder, ville et spænd svare til omkring halvanden meter eller omtrent fem fod.
+
+Bevægelse i kamp
+I løbet af en kamp kan du bevæge dig rundt i spænd, mod et Huforbrug som er vist i tabellen i afsnittet om Handlinger og Hu. Du kan bevæge dig gennem områder, hvor andre personer står, men du kan ikke slutte din tur på et område der overlapper med en andens.
+
+Reaktivt angreb
+Hvis en person, i løbet af deres tur, bevæger sig gennem et område, du står på, har du mulighed for at lave et reaktivt angreb mod dem. Dette foregår som et almindeligt et angreb. Det kan ikke være et angreb, der bruger Sejd.
+
+Brug af kort
+I kampsituationer kan det være brugbart at have et kort over kampområdet med miniaturer eller brikker til at repræsentere deltagerne. En enkel måde at gøre det på er, at have et simpelt kort hvor to centimeter svarer til ét spænd. Afstande måles generelt fra den handlende karakters center. Til at måle afstande kan man bruge en snor med knuder eller afmærkninger hvert spænd.
+
+Følgende kan bruges til at afgøre afstandsmåling:
+Indenfor et spænd: afstand måles fra den handlendes center. En karakter kan rammes hvis deres base berøres af denne radius.
+Lige linjer: en karakter påvirkes hvis linjen passerer gennem deres base.
+Områdeeffekter: en karakter påvirkes hvis halvdelen eller mere af deres base er indenfor effektens radius.
+
+Handlinger og Hu
+Når du er i kamp, tæller alle handlinger og det er derfor vigtigt at holde et øje på din Hu. Hver handling du kan tage i løbet af en kamp, koster et vist antal Hu, som er vist i tabellen for handlinger. Hver runde regenererer du et vist antal Hu i starten af din tur.
+
+Hvis du ikke har Hu nok til at forsvare dig mod et angreb, er du sårbar, og kan ikke forsvare dig; angriberen behøver altså ikke rulle for et angreb mod dig, men kan automatisk ramme dig.
+
+Nedenfor to tabeller over forskellige handlinger, du kan tage, og hvor meget Hu de hver især bruger. Den første tabel beskriver handlinger du kan tage på din tur og den anden beskriver handlinger udenfor din tur. Efter tabellerne findes uddybende beskrivelser af nogle handlinger.
+
+Handlinger på din tur
+Handling
+Beskrivelse
+Hu-forbrug
+Bevægelse
+Bevæg dig op til 3 spænd
+1 Hu
+Angreb
+Lav et angreb med et våben eller en besværgelse
+afhænger af angreb
+Besværgelse
+Kast en besværgelse
+afhænger af besværgelse
+Fasthold
+Forsøg at gribe og fastholde et mål indenfor 1 spænd
+2 Hu
+Brug en genstand
+Drik en Stenvandsflaske, brug en Livsknogle, aktivér et vedhængs effekt, eller anden brug af genstande
+1 Hu
+Udskift
+Skift ét stykke aktivt udstyr
+1 Hu
+Opsaml genstand
+Saml en genstand op
+1 Hu
+Rejs dig
+Rejs dig op, hvis du ligger på jorden
+1 Hu
+Fokusér
+Fokusér på en fjende og få +1d6 til forsvar, hvis målet angriber dig før din næste tur
+1 Hu
+
+
+
+
+Handlinger udenfor din tur
+Handling
+Beskrivelse
+Hu-forbrug
+Blokér
+Rul Styrke for at bruge skjold, våben, eller rustning til at blokere et fysisk angreb
+1 Hu
+Undvig
+Rul Behændighed for at undvige et fysisk angreb
+1 Hu
+Undslip
+Rul Sind for at undslippe et mentalt angreb
+1 Hu
+Undvigerul
+Rul Behændighed for at undvige et fysisk angreb og lave et rullefald hen til et tomt område indenfor 1 spænd
+2 Hu
+Hjælp
+Hjælp en allieret. Rul for at afgøre, hvor mange ekstra d6 du kan bidrage med
+1 Hu
+Reaktivt angreb
+Angrib en der bevæger sig gennem det område du står på
+afhænger af angreb
+
+
+Forsvar
+Handlingerne Blokér, Undvig, Undslip, og Undvigerul er alle forsvarshandlinger.
+
+Bevægelse
+Du kan som udgangspunkt bevæge dig 3 spænd per Hu. Nogle færdigheder, besværgelser, udstyr, tilstande kan påvirke hvor meget du kan bevæge dig for hver bevægelseshandling du tager, altså for hver Hu, du bruger.
+
+Fokuser
+Iagttag et mål og forbered dig på det værste. Få +1d6 til forsvar, hvis målet i fokus angriber dig inden din næste tur. Du kan kun fokusere på ét mål ad gangen.
+
+
+Fasthold
+Bruger: 2 Hu
+
+Grib og fasthold et mål indenfor 1 spænd. Rul Styrke mod målets Styrke eller Behændighed. For hver hånd du har ledig til at fastholde, får du +1d6.
+
+Hvis du lykkes, bliver målet grebet og fastholdt. Mens du fastholder målet:
+Målet kan ikke bevæge sig
+Din bevægelse reduceres med 2 spænd per Hu (sammen med målet)
+Du og målet har -2d6 til angrebs- og forsvarsrul (minimum 1d6)
+Du kan frit holde fast indtil målet bryder fri eller du giver slip
+
+Målet kan forsøge at bryde fri på deres tur:
+De bruger 2 Hu og ruller Styrke eller Behændighed mod dit Styrkerul
+Hvis de får flere træffere end dig, bryder de fri – ellers fortsætter fastholdelsen
+
+Hvis du rammes af et angreb mens du fastholder:
+Rul Styrke mod målets Styrke eller Behændighed
+Hvis du lykkes fortsætter fastholdelsen, hvis ikke bryder målet fri
+
+Kast et fastholdt mål
+Kræver: Du fastholder et mål
+Basis: Styrke
+Bruger: 2 Hu
+
+Rul Styrke mod målets Styrke eller Behændighed. Hvis du lykkes:
+Kast målet op til 2 spænd
+Målet tager halv basisskade, når det lander
+Fastholdelsen ophører
+
+Hvis du fejler:
+Målet kan, uden at bruge Hu,  øjeblikkeligt forsøge at bryde fri med +1d6
+
+
+Tilstande
+Udmattet
+Du kan blive udmattet, når din krop overbelastes af for eksempel sult, tørst, søvnmangel eller ekstreme temperaturer. Du kan have flere niveauer af udmattelse og hvert niveau sænker din samlede Hu-regenerering per runde med 1. Hvis din Hu-regenerering rammer 0 og du løber tør for Hu, falder du til jorden, bevidstløs.
+
+Det er Spilmesterens skøn, hvornår der er risiko for udmattelse. Du vil typisk skulle rulle Form og bestå en tærskel sat af Spilmesteren. Dit udmattelsesniveau øges, hvis du ikke består.
+
+Du kan sænke dit udmattelsesniveau igen ved at afhjælpe det, der gjorde dig udmattet. Hvis du blev udmattet af at være kold, kan du varme dig ved et bål. Hvis du blev udmattet af at være sulten, kan du spise et måltid. Og så videre.
+
+Udmattelse gælder på tværs af cyklusser – du kan altså generelt ikke afhjælpe din udmattelse ved at hvile ved en vandsten eller ved at dø og genopvågne.
+
+Du vil også få et niveau af udmattelse, hvis din Sejd reduceres til 0. Denne udmattelse kan afhjælpes ved at genvinde din Sejd til 1 eller mere. Hvis du er udmattet af Sejd-mangel og hviler ved en vandsten, vil din Sejd i såfald genvindes, og din udmattelse vil altså sænkes med 1 niveau.
+
+Bevidstløs
+Når du er bevidstløs kan du ikke tage nogle handlinger og du opfatter ikke hvad der sker omkring dig.
+
+Ængstelig
+-1d6 på alle rul i Sind.
+
+Forfærdet
+-2d6 på alle rul i Sind og -1 spænd bevægelse per Hu.
+
+Forgiftet
+Tag 1d6 skade i starten af din tur, hver gang du har en tur mens du er forgiftet.
+
+Tomhed
+Du kan ikke genskabe din egen vitalitet gennem Blodprisen, før den er genskabt på anden vis, eksmepelvis ved at bruge en Livsknogle. Når du har genskabt din vitalitet, er du fri fra tomheden.
+
+
+Læsioner
+Når du tager heftig fysisk skade, kan du få en læsion med potentielt fatale konsekvenser. Når du i løbet af én tur tager halvdelen eller mere af dit maksimale Liv i fysisk skade, får du en læsion. Dette kan højst ske for hver karakter én gang per runde. Hver læsion trækker én fra din maksimale Hu, ned til minimum 1 Hu. Hvis din maksimale Hu reduceres til under din nuværende Hu, sænkes din nuværende Hu til dit maksimale Hu.
+
+Kritiske læsioner
+Nogle læsioner kan medføre, at du mister førligheden af en arm eller et ben.
+
+Hvis du får en læsion som resultat af en kritisk fejl i dit forsvarsrul mod et fysisk angreb, skal du rulle en d6. Alt efter hvad du ruller, mister du førligheden af et af dine lemmer:
+
+1: Højre ben
+2: Venstre ben
+3: Højre arm
+4: Venstre arm
+5-6: Ingen lemmer mister førligheden
+
+Hvis du mister førligheden af en arm, kan du ikke længere bruge denne og kan altså kun have udstyr i den hånd, du har tilbage. Hvis du mister førligheden af begge arme, kan du ikke holde noget udstyr.
+
+Hvis du mister førligheden af et ben, bliver din bevægelse reduceret med 2 spænd per Hu. Hvis du mister førligheden af begge ben, bliver din bevægelse reduceret til 0 spænd per Hu.
+
+Skadetyper
+Der findes forskellige måder, du kan tage og give skade på. Den mest almindelige er fysisk skade. Dette kan ske hvis du bliver angrebet af våben eller fysiske besværgelser. Fysisk skade kan reduceres gennem rustninger og hvis du tager skade svarende til halvdelen eller mere af dit maksimale Liv, får du en læsion. Hvis skadetypen ikke er specificeret i reglerne, er der tale om fysisk skade.
+
+En anden type skade er mental skade. Dette kan udløses af besværgelser eller psykisk udfordrende oplevelser. Mental skade påvirkes ikke af rustninger og kan ikke give læsioner.
+
+Du kan også tage skade til din Sejd. Dette kan ske, hvis du bliver ramt af særlige former for angreb og besværgelser. Hvis din Sejd reduceres til 0, bliver du udmattet.
+
+
+Våben
+Basisskade og opgraderinger
+Hvert våben (fysisk våben eller fokus) har en basis, som afgør hvilken evne, det skalerer med: styrke, behændighed, visdom eller mystik. Hvor høj skade dit våben kan give, afhænger af din evne i våbenets basis. Sammen med en eventuel opgradering, giver det våbenets basisskade.
+
+Formlen for at beregne basisskade ser således ud:
+
+Basisskade = basis (evne-level) x opgraderingsmultiplikator
+
+Du kan se bilaget Basisskade for alle opgraderinger og skadeværdier, men det nemmeste er, at have et karakterark, der automatisk udregner skadeværdierne (som dette). Når der er tale om halv basisskade, rundes der op.
+
+Et våben eller fokus kan opgraderes op til fem gange og bliver gradvist stærkere med hver opgradering. Hvis dit våben ikke er opgraderet, svarer basisskaden til dit level i den pågældende evne. Hvis våbenet er opgraderet til +5, fordobles værdien for basisskade. For at få en opgradering, skal du have de foregående opgraderinger først. Våbenopgraderinger kræver Stenskår.
+Stenskår
+En flig af en vandsten. Føles varm og fugtig. Har en meget svag glød.
+
+Et Stenskår kan bruges til at opgradere udstyr i en smedje eller ved en vandsten.
+
+
+Hver opgradering bruger et antal Stenskår svarende til opgraderinges nummer. +1 bruger 1 Stenskår, +2 bruger 2 Stenskår, og så videre.
+
+Hvis du ikke har adgang til en smedje, kan du selv opgradere dine våben ved en vandsten. Dette kræver dog, ud over de nødvendige Stenskår, en pris i Dråber. Antallet af Dråber, der skal bruges, svarer til prisen for en evneforbedring ganget med antallet af Stenskår, der bruges til opgraderingen.
+
+To hænder
+Mange våben og deres teknikker kan bruges, når våbenet bæres i én hånd. Nogle våben og teknikker kræver dog, at du bruger begge hænder. Hvis et våben eller en teknik har kræver: to hænder i sin beskrivelse, kan du ikke bruge den, mens du holder et skjold eller en anden genstand i din anden hånd.
+
+Hvis tohåndskravet står ved teknikken, men ikke ved våbenet, kan du stadig angribe normalt med våbnet med en enkelt hånd, men kan ikke bruge dets teknik. Hvis det står ved både våben og teknik, skal begge hænder bruges for at kunne bruge våbenet.
+
+Improviserede våben
+I mangel på bedre kan du bruge objekter du finder som våben. Når du finde en ting, du vil bruge som våben, vil Spilmesteren bedømme hvilken basis, det har. Improviserede våben har et begrænset antal slag i sig, før de går i stykker; Spilmesteren vurderer hvor mange.
+
+Kamp uden våben
+Hvis du vil kæmpe uden våben, kan du slås med dine bare næver. Her kan du bruge enten Styrke eller Behændighed som basis. Hvert slag bruger 2 Hu og gør halv basisskade.
+
+Nærkamp
+Med mindre andet står beskrevet, kan du med et nærkampsvåben ramme fjender indenfor 1 spænd.
+
+Udstyr
+Du kan bruge en begrænset mængde udstyr ad gangen. Dit aktive udstyr kan bestå af:
+En rustning
+En hovedbeklædning
+Et vedhæng
+Op til en genstand per hånd (våben, skjold, fokus, eller anden håndholdt genstand).
+
+Du kan godt bære mere udstyr, end du har aktivt, men for at skifte til andet udstyr skal du bruge 1 Hu. Det gælder, uanset om du vil trække et nyt våben, tage et skjold frem eller bytte fokus. Rustninger og anden beklædning kan kun skiftes udenfor kamp.
+
+Rustninger
+Gode rustninger kan øge din chance for at overleve. Rustninger reducerer den fysiske skade du tager og kræver Styrke at bære. De findes i fire niveauer:
+
+Let rustning
+Kræver: Styrke 15
+Reduktion: 10% af fysisk skade
+
+Mellem rustning
+Kræver: Styrke 30
+Reduktion: 20% af fysisk skade
+
+Tung rustning
+Kræver: Styrke 45
+Bevægelse: -1 spænd per Hu
+Reduktion: 30% af fysisk skade
+
+Enorm rustning
+Kræver: Styrke 60
+Bevægelse: -1 spænd per Hu
+Behændighed: -1d6 til alle Behændighedsrul
+Reduktion: 40% af fysisk skade
+
+Forskydning
+Noget udstyr kan forskyde en af dine evner. Når du bruger udstyret aktivt, lægges forskydningen til dit evne-level. Det tæller i alle henseender (bortset fra når du beregner dit karakterlevel), som at dit evnelevel er lig med denne nye værdi.
+
+Eksempel: Du har Formlevel 19 – dit vitale maksimum er 95 Liv og din Formpulje er 3d6. Du finder og tager et vedhæng på, der giver +3 Form. Når du bruger vedhænget forskydes dit Formlevel til 22 – dit er vitale maksimum 108 Liv og din Formpulje er 4d6.
+
+
+
+Evnefærdigheder
+Evnefærdigheder er færdigheder og forbedringer, der kan låses op, når du rammer et bestemt level indenfor en given evne. Hver evne har en række evnefærdigheder, som kan låses op hvert 20. level, begyndende ved level 20.
+
+At låse op for en evnefærdighed koster et antal Dråber svarende til levelkravet for den pågældende evnefærdighed og kan kun gøres ved en vandsten.
+
+Liste over evnefærdigheder.
