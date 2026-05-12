@@ -31,7 +31,7 @@
 
                         <div class="grundlaeggende__emne">
                             <div>Klasse</div>
-                            <input type="text" id="karakterKlasse" placeholder="Asket">
+                            <input type="text" id="karakterKlasse" placeholder="Klasse">
                         </div>
 
                         <div class="grundlaeggende__emne">
@@ -58,15 +58,10 @@
                             </div>
                         </div>
                     </div>
-                    <div class="felt felt--vandsten">
-                        <div class="u-flex-column">
-                            <div class="felt__titel">Ved vandsten</div>
-                            <div class="vandsten__knap" id="stor-hvile-knap">Hvil</div>
-                            <div class="vandsten__knap" id="stor-doed-knap">Død</div>
-                        </div>
+                    <div class="grundlaeggende kolonne-b">
+                        <span style="cursor: default; margin-left: 0.15rem;">Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
+                        <textarea class="noter noter__faerdigheder" id="faerdigheder-noter-input" placeholder="Færdigheder"></textarea>
                     </div>
-
-
                 </div>
             </div>
         </div>
@@ -143,7 +138,7 @@
                         <div class="flaske-ikoner" id="flaske-ikoner">◉ ◉ ◉ ◉ ○</div>
 
                         <div class="justering justering--flaske" id="flaske-justering">
-                            <div class="justering__knapgruppe justering__knapgruppe--flaske">
+                            <div class="justering__knapgruppe justering__knapgruppe--kolonne">
                                 <div class="justering__knap justering__knap--lille" id="flaske-liv">Liv</div>
                                 <div class="justering__knap justering__knap--lille" id="flaske-sejd">Sejd</div>
                                 <div class="justering__knap justering__knap--lille" id="flaske-laesion">Læsion</div>
@@ -166,6 +161,19 @@
             <div id="status-indhold">
 
                 <div class="status__grid">
+                    <div class="stat vandsten" id="vandsten">
+                        <span class="stat__navn">Vandsten</span>
+                        <span class="stat__vaerdi">✺</span>
+                        <div class="justering justering--stat" id="vandsten-justering">
+                            <div class="justering__knapgruppe justering__knapgruppe--kolonne">
+                                <div class="justering__knap justering__knap--lille" id="stor-hvile-knap">Hvil</div>
+                                <div class="justering__knap justering__knap--lille" id="stor-doed-knap">Død</div>
+                            </div>
+                        </div>
+                    </div>
+
+
+
                     <div class="stat sekvens" id="sekvens">
                         <span class="stat__navn">Sekvens</span>
                         <span class="stat__vaerdi" id="sekvens-vaerdi">0</span>

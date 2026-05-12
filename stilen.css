@@ -283,54 +283,10 @@ textarea:focus-visible {
 }
 
 
-/* Inventar */
-.felt {
-    display: flex;
-    flex-direction: column;
-    gap: 0.5rem;
-    cursor: default;
-    height: fit-content;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    background-color: var(--svagt-felt);
-}
-
-.felt--vandsten {
-    width: 200px;
-    justify-self: end;
-}
-
-.felt__titel {
-    color: var(--tekst-mellem-haard);
-}
-
-.inventar__emne {
-    display: flex;
-    justify-content: space-between;
-    background-color: var(--sektion);
-    border-radius: 0.5rem;
-    padding: 0.25rem 0.5em;
-    cursor: pointer;
-}
-
-.inventar__emne:hover {
-    background-color: var(--hover);
-}
 
 
-/* Ved vandstenen */
-.vandsten__knap {
-    background-color: var(--knap);
-    text-align: center;
-    padding: 0.5rem;
-    border-radius: 0.5rem;
-    cursor: pointer;
-    height: fit-content;
-}
 
-.vandsten__knap:hover {
-    background-color: var(--hover);
-}
+
 
 
 
@@ -415,7 +371,7 @@ textarea:focus-visible {
 /* SEKTION: STATUS */
 .status__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
     gap: 0.5rem;
 }
 
@@ -446,6 +402,35 @@ textarea:focus-visible {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+
+
+
+/* Ved vandstenen */
+.felt--vandsten {
+    width: fit-content;
+    margin: 0.5rem 0 0 0;
+}
+
+.felt__raekke {
+    display: flex;
+    flex-direction: row;
+    gap: 0.5rem;
+}
+
+.vandsten__knap {
+    background-color: var(--knap);
+    width: 150px;
+    text-align: center;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    cursor: pointer;
+    height: fit-content;
+}
+
+.vandsten__knap:hover {
+    background-color: var(--hover);
 }
 
 
@@ -612,13 +597,62 @@ textarea:focus-visible {
 
 
 
-/* SEKTION: NOTER */
+/* SEKTION: INVENTAR OG NOTER */
 .noter {
     width: 100%;
     resize: none;
     overflow: hidden;
 }
 
+.felt {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+    cursor: default;
+    height: fit-content;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
+    background-color: var(--svagt-felt);
+}
+
+.felt__titel {
+    color: var(--tekst-mellem-haard);
+}
+
+.inventar__emne {
+    display: flex;
+    justify-content: space-between;
+    background-color: var(--sektion);
+    border-radius: 0.5rem;
+    padding: 0.25rem 0.5em;
+    cursor: pointer;
+}
+
+.inventar__emne:hover {
+    background-color: var(--hover);
+}
+
+/* Færdighedsnoter */
+.noter__faerdigheder {
+    min-height: 3rem;
+    overflow: hidden;
+    font-size: 0.7rem;
+}
+
+.vis-skjul {
+    background-color: var(--sektion-knap);
+    border-radius: 1rem;
+    font-size: 0.65rem;
+    width: fit-content;
+    color: var(--tekst-mellem-svag);
+    cursor: pointer;
+    padding: 0.1rem;
+}
+
+.vis-skjul:hover {
+    background-color: var(--hover);
+    color: var(--tekst-haard);
+}
 
 
 
@@ -681,7 +715,7 @@ textarea:focus-visible {
     margin: 0.25rem 0 0.25rem 0;
 }
 
-.justering__knapgruppe--flaske {
+.justering__knapgruppe--kolonne {
     flex-direction: column;
     width: 100%;
 }

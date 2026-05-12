@@ -22,6 +22,8 @@ function opdaterVistData() {
         document.getElementById('draaber').textContent = karakter.draaber;
         document.getElementById('draaber-efterladt').textContent = karakter.draaberEfterladt;
         document.getElementById('draaber-efterladt-beholder').classList.toggle('aktiv', karakter.draaberEfterladt > 0);
+        document.getElementById('faerdigheder-noter-input').value = karakter.faerdighedsnoter;
+        opdaterNoteOmraadeFaerdigheder();
     }
 
     function opdaterRessourcer() {
@@ -166,6 +168,12 @@ function opdaterNoteOmraade() {
     noter.style.height = noter.scrollHeight + 'px';
 }
 
+function opdaterNoteOmraadeFaerdigheder() {
+    const noter = document.getElementById('faerdigheder-noter-input');
+    noter.style.height = 'auto';
+    noter.style.height = noter.scrollHeight + 'px';
+}
+
 function opdaterNoteOmraadeVaaben() {
     const noter = document.getElementById('vaaben-noter-input');
     noter.style.minHeight = '3rem'
@@ -236,10 +244,6 @@ function visVaabenVaelgere() {
 
 
 
-
-
-
-
 // Vis/skjul vinduer
 function aabenVindue(vindueId) {
     const tilladte = ['karakter', 'ny-karakter', 'nulstil-karakter'];
@@ -254,6 +258,21 @@ function lukVindue(vindueId) {
 
 
 
+
+
+// Vis/skjul noter
+function visFaerdigheder() {
+    const knap = document.getElementById('faerdigheder-vis-skjul');
+    const noter = document.getElementById('faerdigheder-noter-input');
+
+    if (noter.classList.contains('skjult-indhold')) {
+        noter.classList.remove('skjult-indhold');
+        knap.textContent = 'skjul';
+    } else {
+        noter.classList.add('skjult-indhold');
+        knap.textContent = 'vis';
+    }
+}
 
 
 // =======================

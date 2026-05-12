@@ -24,13 +24,9 @@ klik('draabe-justering-minus', fjernDraaber);
 klik('draabe-justering-plus', tilfoejDraaber);
 klik('draaber-efterladt-beholder', samlDraaber);
 
-klik('stor-hvile-knap', () => aabenVindue('hvil'));
-klik('bekraeft-hvil', hvil);
-klik('annuller-hvil', () => lukVindue('hvil'));
+klik('faerdigheder-vis-skjul', visFaerdigheder)
 
-klik('stor-doed-knap', () => aabenVindue('doed'));
-klik('bekraeft-doed', doed);
-klik('annuller-doed', () => lukVindue('doed'));
+
 
 // Karakterhåndtering
 klik('rediger-knap', () => aabenVindue('karakter'));
@@ -91,6 +87,16 @@ klik('flaske-laesion', () => drikFlaske('laesion'));
 
 // Status
 klik('status-toggle', visStatusJusteringer);
+
+klik('vandsten', () => visJustering('vandsten'));
+
+klik('stor-hvile-knap', () => aabenVindue('hvil'));
+klik('bekraeft-hvil', hvil);
+klik('annuller-hvil', () => lukVindue('hvil'));
+
+klik('stor-doed-knap', () => aabenVindue('doed'));
+klik('bekraeft-doed', doed);
+klik('annuller-doed', () => lukVindue('doed'));
 
 klik('sekvens', () => visJustering('sekvens'));
 klik('sekvens-saet', saetSekvens);
@@ -231,7 +237,7 @@ document.getElementById('vaaben-noter-input').addEventListener('input', () => {
 
 
 
-// Gem karakternavn og klasse
+// Gem karakternavn, klasse, noter
 document.getElementById('karakterNavn').addEventListener('input', (e) => {
     karakter.navn = e.target.value;
     gemData();
@@ -244,6 +250,12 @@ document.getElementById('karakterKlasse').addEventListener('input', (e) => {
 
 document.getElementById('noter-input').addEventListener('input', (e) => {
     karakter.noter = e.target.value;
+    gemData();
+});
+
+document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
+    karakter.faerdighedsnoter = e.target.value;
+    opdaterNoteOmraadeFaerdigheder();
     gemData();
 });
 
