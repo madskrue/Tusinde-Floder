@@ -135,7 +135,6 @@ klik('evne-toggle', visEvneJusteringer);
 // Inventar og noter
 klik('inventar-vis-skjul', visInventar);
 
-
 document.querySelectorAll('.inventar__emne').forEach(emne => {
     emne.addEventListener('click', () => initInventar());
 });
@@ -228,6 +227,31 @@ document.addEventListener('keydown', (e) => {
 // ===============
 // === DIVERSE ===
 // ===============
+
+// Tooltip: våbennoter ved hover på aktivt våben
+const vaabenTooltip = document.getElementById('vaaben-tooltip');
+['styrke', 'behaendighed', 'visdom', 'mystik'].forEach(evne => {
+    const el = document.getElementById(`basisskade-evne-vaaben-${evne}`);
+
+    el.addEventListener('mouseenter', () => {
+        const id = karakter.vaelgtVaaben[evne];
+        const vaaben = (karakter.vaaben || []).find(v => v.id === id);
+        if (!vaaben || !vaaben.noter) return;
+        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + vaaben.noter;
+        vaabenTooltip.style.display = 'block';
+    });
+
+    el.addEventListener('mousemove', (e) => {
+        vaabenTooltip.style.left = (e.clientX + 14) + 'px';
+        vaabenTooltip.style.top  = (e.clientY + 14) + 'px';
+    });
+
+    el.addEventListener('mouseleave', () => {
+        vaabenTooltip.style.display = 'none';
+    });
+});
+
+
 
 // Håndter textarea-størrelse
 document.getElementById('noter-input').addEventListener('input', () => {

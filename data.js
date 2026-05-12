@@ -100,6 +100,22 @@ const standardasket = {
     klasse: "Asket",
     sind: 18,
     faerdighedsnoter: "Klassefærdighed: Indre ro\nNår du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.\n\nKlassefærdighed: Indre kraft\nDu kan omdanne 4 Sejd til 1 Hu. Færdigheden kan bruges én gang per runde.",
+    vaaben: [
+    {
+      id: "v_1778588560958_80gg6",
+      navn: "Knojern",
+      basis: "behaendighed",
+      opgradering: 0,
+      noter: "Kræver: Behændighed 10\nBasis: Behændighed\nType: Nærkampsvåben (1 spænd)\nBruger: 1 Hu\n\nEt simpelt knojern. Gør halv basisskade.\n\nTeknik: Knoglebrud\nBruger: 2 Hu · 1 Sejd\nKoncentrer kraften af dit slag til et enkelt punkt på dit måls krop. Gør basisskade og målet får -1d6 til deres næste angreb."
+    },
+    {
+      id: "v_1778593492944_sabsb",
+      navn: "Kæde",
+      basis: "behaendighed",
+      opgradering: 0,
+      noter: "Kræver: Behændighed 16 · Styrke 10\nBasis: Behændighed\nType: Nærkampsvåben (2 spænd)\nBruger: 1 Hu\n\nEn let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.\n\nTeknik: Svirp\nBruger: 2 Hu · 1 Sejd\nHvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig."
+    }
+  ],
 };
 
 const standardbytyv = {

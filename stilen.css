@@ -8,6 +8,7 @@
     --hover:  #fff;
     --besked: #ffffffaa;
     --besked-hover: #ffffff66;
+    --tooltip-baggrund: #eeeeee99;
 
     --tekst-haard:  #000;
     --tekst-mellem-haard: #333;
@@ -37,6 +38,7 @@ body.dark-mode {
     --hover:  #333;
     --besked: #000000aa;
     --besked-hover: #00000033;
+    --tooltip-baggrund: #22222299;
 
     --tekst-haard:  #fff;
     --tekst-mellem-haard: #eee;
@@ -553,6 +555,21 @@ textarea:focus-visible {
 
 .vaaben-valg:hover, .vaaben-valg.aktiv:hover {
     background-color: var(--tekst-svag);
+}
+
+.vaaben-tooltip {
+    display: none;
+    position: fixed;
+    background: var(--tooltip-baggrund);
+    backdrop-filter: blur(3px);
+    border-radius: 0.5rem;
+    padding: 0.5rem;
+    font-size: 0.7rem;
+    max-width: 300px;
+    white-space: pre-wrap;
+    pointer-events: none;
+    z-index: 500;
+    color: var(--tekst-mellem-haard);
 }
 
 
