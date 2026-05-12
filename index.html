@@ -34,6 +34,9 @@
                             <input type="text" id="karakterKlasse" placeholder="Klasse">
                         </div>
 
+                        
+                    </div>
+                    <div class="grundlaeggende kolonne-b">
                         <div class="grundlaeggende__emne">
                             <div>Level</div>
                             <div class="grundlaeggende__vaerdi">
@@ -57,12 +60,6 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="grundlaeggende kolonne-b">
-                        <div class="bjaelke">
-                            <span>Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
-                        </div>
-                        <textarea class="noter noter__faerdigheder" id="faerdigheder-noter-input" placeholder="Færdigheder"></textarea>
                     </div>
                 </div>
             </div>
@@ -463,20 +460,27 @@
                 <div class="sektion__titel" id="inventar-og-noter-titel">Inventar og noter</div>
             </div>
             <div id="inventar-og-noter-indhold">
-            <div class="u-grid-1-2">
-                <div class="felt" id="inventar-element">
-                    <div class="bjaelke">
-                        <span>Inventar</span> <span class="vis-skjul" id="inventar-vis-skjul">skjul</span>
+                <div class="u-grid-1-2">
+                    <div>
+                        <div class="bjaelke">
+                            <span>Inventar</span> <span class="vis-skjul" id="inventar-vis-skjul">skjul</span>
+                        </div>
+                        <div class="felt" id="inventar-emner">
+                            <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
+                            <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
+                        </div>
                     </div>
-                    <div id="inventar-emner">
-                        <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
-                        <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
+                    <div>
+                        <div class="bjaelke">
+                            <span>Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
+                        </div>
+                        <textarea class="noter noter__faerdigheder" id="faerdigheder-noter-input" placeholder="Færdigheder"></textarea>
                     </div>
                 </div>
-
-                
-                    <textarea class="noter" id="noter-input" placeholder="Her kan du skrive noter"></textarea>
+                <div class="bjaelke">
+                    <span>Noter</span> <span class="vis-skjul" id="noter-vis-skjul">skjul</span>
                 </div>
+                <textarea class="noter" id="noter-input" placeholder="Her kan du skrive noter"></textarea>
             </div>
         </div>
     </div>

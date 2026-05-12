@@ -226,14 +226,6 @@ textarea:focus-visible {
     opacity: 0.8;
 }
 
-.bjaelke {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-    cursor: default;
-}
-
-
 
 
 
@@ -245,7 +237,7 @@ textarea:focus-visible {
 /* SEKTION: GRUNDLÆGGENDE */
 .grundlaeggende__emne {
     display: grid;
-    grid-template-columns: 150px 1fr;
+    grid-template-columns: 80px 1fr;
     margin-bottom: 0.5rem;
     cursor: default;
 }
@@ -319,12 +311,11 @@ textarea:focus-visible {
 .ressource--liv:hover {background-color: #f4eeee;}
 .ressource--sejd:hover {background-color: #eeeef4;}
 .ressource--hu:hover {background-color: #eef2ee;}
-.ressource--flasker:hover {background-color: #f4f4ee;}
+.ressource--flasker:hover {background-color: var(--hover)}
 
 .dark-mode .ressource--liv:hover {background-color: #2c2222;}
 .dark-mode .ressource--sejd:hover {background-color: #22222f;}
 .dark-mode .ressource--hu:hover {background-color: #222622;}
-.dark-mode .ressource--flasker:hover {background-color: #292922;}
 
 .ressource__hoved {
     display: flex;
@@ -625,11 +616,20 @@ textarea:focus-visible {
 
 
 
-/* SEKTION: INVENTAR OG NOTER */
+/* SEKTION: INVENTAR, FÆRDIGHEDER, NOTER */
+.bjaelke {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: default;
+    margin-bottom: 0.25rem;
+}
+
 .noter {
     width: 100%;
     resize: none;
     overflow: hidden;
+    font-size: 0.75rem;
 }
 
 .felt {
@@ -640,7 +640,7 @@ textarea:focus-visible {
     height: fit-content;
     padding: 0.5rem;
     border-radius: 0.5rem;
-    background-color: var(--svagt-felt);
+    background-color: var(--felt);
 }
 
 .felt__titel {
@@ -654,17 +654,16 @@ textarea:focus-visible {
     color: var(--tekst-mellem-svag);
     border-radius: 0.5rem;
     cursor: pointer;
+    padding: 0 0.25rem;
 }
 
 .inventar__emne:hover {
     background-color: var(--hover);
 }
 
-/* Færdighedsnoter */
 .noter__faerdigheder {
     min-height: 3rem;
     overflow: hidden;
-    font-size: 0.7rem;
 }
 
 .vis-skjul {
@@ -1187,10 +1186,6 @@ textarea:focus-visible {
     
     .grundlaeggende__kolonner {
         grid-template-columns: 1fr;
-    }
-
-    .grundlaeggende__emne {
-        grid-template-columns: 75px 1fr;
     }
 
     .inventar__emne {

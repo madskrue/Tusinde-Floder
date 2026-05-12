@@ -24,8 +24,6 @@ klik('draabe-justering-minus', fjernDraaber);
 klik('draabe-justering-plus', tilfoejDraaber);
 klik('draaber-efterladt-beholder', samlDraaber);
 
-klik('faerdigheder-vis-skjul', visFaerdigheder);
-
 
 
 // Karakterhåndtering
@@ -134,6 +132,8 @@ klik('evne-toggle', visEvneJusteringer);
 
 // Inventar og noter
 klik('inventar-vis-skjul', visInventar);
+klik('faerdigheder-vis-skjul', visFaerdigheder);
+klik('noter-vis-skjul', visNoter);
 
 document.querySelectorAll('.inventar__emne').forEach(emne => {
     emne.addEventListener('click', () => initInventar());

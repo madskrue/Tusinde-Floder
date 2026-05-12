@@ -261,6 +261,19 @@ function lukVindue(vindueId) {
 
 
 // Vis/skjul noter
+function visInventar() {
+    const knap = document.getElementById('inventar-vis-skjul');
+    const emner = document.getElementById('inventar-emner');
+
+    if (emner.classList.contains('skjult-indhold')) {
+        emner.classList.remove('skjult-indhold');
+        knap.textContent = 'skjul';
+    } else {
+        emner.classList.add('skjult-indhold');
+        knap.textContent = 'vis';
+    }
+}
+
 function visFaerdigheder() {
     const knap = document.getElementById('faerdigheder-vis-skjul');
     const noter = document.getElementById('faerdigheder-noter-input');
@@ -274,18 +287,21 @@ function visFaerdigheder() {
     }
 }
 
-function visInventar() {
-    const knap = document.getElementById('inventar-vis-skjul');
-    const emner = document.getElementById('inventar-emner');
+function visNoter() {
+    const knap = document.getElementById('noter-vis-skjul');
+    const noter = document.getElementById('noter-input');
 
-    if (emner.classList.contains('skjult-indhold')) {
-        emner.classList.remove('skjult-indhold');
+    if (noter.classList.contains('skjult-indhold')) {
+        noter.classList.remove('skjult-indhold');
         knap.textContent = 'skjul';
     } else {
-        emner.classList.add('skjult-indhold');
+        noter.classList.add('skjult-indhold');
         knap.textContent = 'vis';
     }
 }
+
+
+
 
 
 // =======================
