@@ -24,7 +24,7 @@ klik('draabe-justering-minus', fjernDraaber);
 klik('draabe-justering-plus', tilfoejDraaber);
 klik('draaber-efterladt-beholder', samlDraaber);
 
-klik('faerdigheder-vis-skjul', visFaerdigheder)
+klik('faerdigheder-vis-skjul', visFaerdigheder);
 
 
 
@@ -133,6 +133,9 @@ klik('evne-toggle', visEvneJusteringer);
 });
 
 // Inventar og noter
+klik('inventar-vis-skjul', visInventar);
+
+
 document.querySelectorAll('.inventar__emne').forEach(emne => {
     emne.addEventListener('click', () => initInventar());
 });

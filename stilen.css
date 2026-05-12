@@ -224,6 +224,13 @@ textarea:focus-visible {
     opacity: 0.8;
 }
 
+.bjaelke {
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
+    cursor: default;
+}
+
 
 
 
@@ -396,6 +403,10 @@ textarea:focus-visible {
 
 .stat__vaerdi {
     font-size: 1.5em;
+}
+
+.stat__vaerdi--vandsten {
+    color: var(--tekst-aktiv);
 }
 
 .stat:not(.sekvens) {
@@ -623,8 +634,8 @@ textarea:focus-visible {
     display: flex;
     justify-content: space-between;
     background-color: var(--sektion);
+    color: var(--tekst-mellem-svag);
     border-radius: 0.5rem;
-    padding: 0.25rem 0.5em;
     cursor: pointer;
 }
 

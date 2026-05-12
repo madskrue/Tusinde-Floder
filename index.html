@@ -59,7 +59,9 @@
                         </div>
                     </div>
                     <div class="grundlaeggende kolonne-b">
-                        <span style="cursor: default; margin-left: 0.15rem;">Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
+                        <div class="bjaelke">
+                            <span>Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
+                        </div>
                         <textarea class="noter noter__faerdigheder" id="faerdigheder-noter-input" placeholder="Færdigheder"></textarea>
                     </div>
                 </div>
@@ -163,7 +165,7 @@
                 <div class="status__grid">
                     <div class="stat vandsten" id="vandsten">
                         <span class="stat__navn">Vandsten</span>
-                        <span class="stat__vaerdi">✺</span>
+                        <span class="stat__vaerdi stat__vaerdi--vandsten">✺</span>
                         <div class="justering justering--stat" id="vandsten-justering">
                             <div class="justering__knapgruppe justering__knapgruppe--kolonne">
                                 <div class="justering__knap justering__knap--lille" id="stor-hvile-knap">Hvil</div>
@@ -463,9 +465,13 @@
             <div id="inventar-og-noter-indhold">
             <div class="u-grid-1-2">
                 <div class="felt" id="inventar-element">
-                    <div class="felt__titel">Inventar</div>
-                    <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
-                    <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
+                    <div class="bjaelke">
+                        <span>Inventar</span> <span class="vis-skjul" id="inventar-vis-skjul">skjul</span>
+                    </div>
+                    <div id="inventar-emner">
+                        <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
+                        <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
+                    </div>
                 </div>
 
                 

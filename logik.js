@@ -274,6 +274,19 @@ function visFaerdigheder() {
     }
 }
 
+function visInventar() {
+    const knap = document.getElementById('inventar-vis-skjul');
+    const emner = document.getElementById('inventar-emner');
+
+    if (emner.classList.contains('skjult-indhold')) {
+        emner.classList.remove('skjult-indhold');
+        knap.textContent = 'skjul';
+    } else {
+        emner.classList.add('skjult-indhold');
+        knap.textContent = 'vis';
+    }
+}
+
 
 // =======================
 // === HJÆLPEBEREGNERE ===
@@ -1344,10 +1357,15 @@ function nulstilData() {
 }
 
 function hentStandardKlasse(klasse) {
-    const karakterVisningsnavn = {asket: 'Asket', bytyv: 'Bytyv', forkynder: 'Forkynder', hedonist: 'Hedonist', lovloes: 'Lovløs', laerd: 'Lærd', militarist: 'Militarist'};
-    const standard = standardKlasser[klasse];
-    if (!standard) return;
-    Object.assign(karakter, JSON.parse(JSON.stringify(standard)));
+    const karakterVisningsnavn = { asket: 'Asket', bytyv: 'Bytyv', forkynder: 'Forkynder', hedonist: 'Hedonist', lovloes: 'Lovløs', laerd: 'Lærd', militarist: 'Militarist' };
+    const diff = standardKlasser[klasse];
+    if (!diff) return;
+    Object.assign(karakter, JSON.parse(JSON.stringify(standardKarakter)), diff);
+    opdaterVistData();               // beregner livMax, sejdMax, huMax ud fra evnelevels
+    karakter.livNu  = karakter.livMax;
+    karakter.sejdNu = karakter.sejdMax;
+    karakter.huNu   = karakter.huMax;
+    karakter.flaskerNu = karakter.flaskerMax;
     gemData();
     opdaterVistData();
     visBesked(`Karakter nulstillet til ${karakterVisningsnavn[klasse]}`);
