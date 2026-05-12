@@ -242,14 +242,29 @@ const vaabenTooltip = document.getElementById('vaaben-tooltip');
     });
 
     el.addEventListener('mousemove', (e) => {
-        vaabenTooltip.style.left = (e.clientX + 14) + 'px';
-        vaabenTooltip.style.top  = (e.clientY + 14) + 'px';
+    const gap = 11; // Afstand fra cursor
+    let x = e.clientX + gap;
+    let y = e.clientY + gap;
+
+    // Hent tooltippens dimensioner og viewportens bredde
+    const tooltipBredde = vaabenTooltip.offsetWidth;
+    const viewportBredde = window.innerWidth;
+
+    // Tjek for kollision med højre side
+    if (x + tooltipBredde > viewportBredde) {
+        x = e.clientX - tooltipBredde - gap;
+    }
+
+    vaabenTooltip.style.left = x + 'px';
+    vaabenTooltip.style.top  = y + 'px';
     });
 
     el.addEventListener('mouseleave', () => {
         vaabenTooltip.style.display = 'none';
     });
 });
+
+
 
 
 

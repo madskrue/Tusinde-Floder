@@ -203,6 +203,23 @@ input::-webkit-inner-spin-button {
     padding: 0 0.5rem;
 }
 
+.sektion__knap--karakter {
+    font-size: 1.66rem;
+    line-height: 1;
+    padding: 0rem 0.9rem 0.1rem 0.8rem;
+    border-radius: 1rem;
+    width: fit-content;
+    height: fit-content;
+    opacity: 0.5;
+    background-color: var(--felt);
+    color: var(--tekst-haard);
+}
+
+.sektion__knap--karakter:hover {
+    background-color: var(--hover);
+    opacity: 1;
+}
+
 .sektion__knap--dark-mode {
     position: fixed;
     bottom: 1rem;
@@ -230,11 +247,18 @@ input::-webkit-inner-spin-button {
 /* ================= */
 
 /* SEKTION: GRUNDLÆGGENDE */
+.grundlaeggende__kolonner {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 1rem;
+}
+
 .grundlaeggende__emne {
     display: grid;
-    grid-template-columns: 80px 1fr;
+    grid-template-columns: 70px 1fr;
     margin-bottom: 0.5rem;
     cursor: default;
+    align-items: center;
 }
 
 .grundlaeggende__vaerdi {
@@ -308,9 +332,9 @@ input::-webkit-inner-spin-button {
 .ressource--hu:hover {background-color: #eef2ee;}
 .ressource--flasker:hover {background-color: var(--hover)}
 
-.dark-mode .ressource--liv:hover {background-color: #2c2222;}
-.dark-mode .ressource--sejd:hover {background-color: #22222f;}
-.dark-mode .ressource--hu:hover {background-color: #222622;}
+.dark-mode .ressource--liv:hover {background-color: #333030;}
+.dark-mode .ressource--sejd:hover {background-color: #303036;}
+.dark-mode .ressource--hu:hover {background-color: #313331;}
 
 .ressource__hoved {
     display: flex;
@@ -662,11 +686,10 @@ input::-webkit-inner-spin-button {
 }
 
 .vis-skjul {
-    background-color: var(--sektion-knap);
     border-radius: 1rem;
     font-size: 0.65rem;
     width: fit-content;
-    color: var(--tekst-mellem-svag);
+    color: var(--tekst-svag);
     cursor: pointer;
     padding: 0.1rem;
 }
@@ -1113,7 +1136,7 @@ input::-webkit-inner-spin-button {
 
 
 /* UTILITIES */
-.u-grid-split, .grundlaeggende__kolonner {
+.u-grid-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
@@ -1181,6 +1204,7 @@ input::-webkit-inner-spin-button {
     
     .grundlaeggende__kolonner {
         grid-template-columns: 1fr;
+        gap: 0;
     }
 
     .inventar__emne {
