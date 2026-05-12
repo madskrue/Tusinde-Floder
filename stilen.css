@@ -113,7 +113,7 @@ h1, h2, h3, h4, h5, h6 {
 
 
 
-/* Stil */
+/* Stil for input/textarea */
 input, textarea {
     height: fit-content;
     padding: 0.25em;
@@ -135,16 +135,11 @@ textarea:focus-visible {
     color: var(--tekst-haard);
 }
 
-
-
-
-
-
-
-
-
-
-
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
 
 
 

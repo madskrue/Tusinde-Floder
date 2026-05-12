@@ -1376,8 +1376,15 @@ function hentStandardKlasse(klasse) {
     const karakterVisningsnavn = { asket: 'Asket', bytyv: 'Bytyv', forkynder: 'Forkynder', hedonist: 'Hedonist', lovloes: 'Lovløs', laerd: 'Lærd', militarist: 'Militarist' };
     const diff = standardKlasser[klasse];
     if (!diff) return;
-    Object.assign(karakter, JSON.parse(JSON.stringify(standardKarakter)), diff);
-    opdaterVistData();               // beregner livMax, sejdMax, huMax ud fra evnelevels
+
+    const baseKarakter = JSON.parse(JSON.stringify(standardKarakter));
+    const klasseData = JSON.parse(JSON.stringify(diff));
+    const baseVaaben = baseKarakter.vaaben;
+    const klasseVaaben = klasseData.vaaben || [];
+    Object.assign(karakter, baseKarakter, klasseData);
+    karakter.vaaben = [...baseVaaben, ...klasseVaaben];
+
+    opdaterVistData(); // beregner livMax, sejdMax, huMax ud fra evnelevels
     karakter.livNu  = karakter.livMax;
     karakter.sejdNu = karakter.sejdMax;
     karakter.huNu   = karakter.huMax;
