@@ -198,6 +198,12 @@ input::-webkit-inner-spin-button {
     font-size: 0.7rem;
 }
 
+.sektion__knap--vaaben {
+    font-size: 0.7rem;
+    width: fit-content;
+    height: fit-content;
+}
+
 .sektion__knap--stor {
     font-size: 1.25rem;
     padding: 0 0.5rem;
@@ -236,6 +242,12 @@ input::-webkit-inner-spin-button {
 .sektion__knap--dark-mode:hover {
     background-color: #000;
     opacity: 0.8;
+}
+
+.dobbeltsektion {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
 }
 
 
@@ -301,12 +313,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
     color: var(--tekst-haard);
 }
-
-
-
-
-
-
 
 
 
@@ -390,7 +396,7 @@ input::-webkit-inner-spin-button {
 /* SEKTION: STATUS */
 .status__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
 }
 
@@ -427,9 +433,6 @@ input::-webkit-inner-spin-button {
     justify-content: center;
 }
 
-
-
-
 /* Ved vandstenen */
 .felt--vandsten {
     width: fit-content;
@@ -459,24 +462,20 @@ input::-webkit-inner-spin-button {
 
 
 
+
 /* SEKTION: VÅBEN OG BASISSKADE */
 .basisskade__grid {
     display: grid;
-    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
 
 .basisskade {
-    
     background-color: var(--felt);
     padding: 0.5em;
     border-radius: 0.5rem;
-    cursor: pointer;
+    cursor: default;
     height: fit-content;
-}
-
-.basisskade:hover {
-    background-color: var(--hover);
 }
 
 .basisskade__top {
@@ -531,19 +530,19 @@ input::-webkit-inner-spin-button {
 
 
 /* Våbenvælger */
-.vaaben-vaelger {
+.vaaben-raekke {
     display: flex;
-    flex-direction: row;
-    gap: 0.5em;
     flex-wrap: wrap;
+    gap: 0.5rem;
+    margin-bottom: 0.5rem;
+    min-height: 1.5rem;
+    cursor: default;
 }
 
-.vaaben-tom-vaelger {
+.vaaben-raekke-tom {
     font-size: 0.85em;
     color: var(--tekst-svag);
     padding: 0.25em;
-    text-align: center;
-    cursor: default;
 }
 
 .vaaben-valg {
@@ -1183,9 +1182,6 @@ input::-webkit-inner-spin-button {
 
 
 @media (max-width: 800px) {
-    .basisskade__grid {
-        grid-template-columns: 1fr 1fr;
-    }
 
     .ressource__grid {
         grid-template-columns: 1fr 1fr;
@@ -1193,6 +1189,10 @@ input::-webkit-inner-spin-button {
 
     .evne__grid {
         grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+
+    .basisskade__grid {
+        grid-template-columns: 1fr;
     }
 }
 
@@ -1215,7 +1215,15 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr;
     }
 
+    .dobbeltsektion {
+        grid-template-columns: 1fr;
+    }
+
     .status__grid {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .basisskade__grid {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -1243,6 +1251,10 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 450px) {
+    .basisskade__grid {
+        grid-template-columns: 1fr;
+    }
+
     .vindue__raekke {
         grid-template-columns: 80px 1fr 80px;
     }
@@ -1260,7 +1272,4 @@ input::-webkit-inner-spin-button {
         padding: 0;
     }
 
-    .basisskade__grid {
-        grid-template-columns: 1fr;
-    }
 }

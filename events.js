@@ -116,11 +116,7 @@ klik('laesioner-justering-minus', laesionerMinus);
 klik('laesioner-justering-plus', laesionerPlus);
 
 // Våben og basisskade
-klik('vaaben-toggle', visVaabenVaelgere)
-klik('basisskade-evne-styrke', () => visJustering('vaaben-vaelger-styrke'));
-klik('basisskade-evne-behaendighed', () => visJustering('vaaben-vaelger-behaendighed'));
-klik('basisskade-evne-visdom', () => visJustering('vaaben-vaelger-visdom'));
-klik('basisskade-evne-mystik', () => visJustering('vaaben-vaelger-mystik'));
+klik('vaaben-liste-knap', initVaabenListe);
 
 // Evner
 klik('evne-toggle', visEvneJusteringer);
@@ -146,7 +142,6 @@ klik('plus-stenskaar', () => aendrInventar('stenskaar', 1));
 klik('luk-inventar', () => lukVindue('inventar'));
 
 // Våbenvindue
-klik('vaaben-liste-knap', () => initVaabenListe());
 klik('luk-vaabenliste', () => lukVindue('vaabenliste'));
 klik('nyt-vaaben-knap', () => aabneVaabenDetalje(null));
 
@@ -237,7 +232,8 @@ const vaabenTooltip = document.getElementById('vaaben-tooltip');
         const id = karakter.vaelgtVaaben[evne];
         const vaaben = (karakter.vaaben || []).find(v => v.id === id);
         if (!vaaben || !vaaben.noter) return;
-        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + vaaben.noter;
+        const prefix = vaaben.opgradering ? '+' : '';
+        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + `<div>Opgradering: ${prefix}${vaaben.opgradering}</div><br>` + vaaben.noter;
         vaabenTooltip.style.display = 'block';
     });
 
