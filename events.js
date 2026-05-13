@@ -134,10 +134,7 @@ klik('inventar-vis-skjul', () => toggleVisSkjul('inventar-vis-skjul', 'inventar-
 klik('faerdigheder-vis-skjul', () => toggleVisSkjul('faerdigheder-vis-skjul', 'faerdigheder-noter-input'));
 klik('noter-vis-skjul', () => toggleVisSkjul('noter-vis-skjul', 'noter-input'));
 
-
-document.querySelectorAll('.inventar__emne').forEach(emne => {
-    emne.addEventListener('click', () => initInventar());
-});
+klik('inventar-emner', initInventar);
 
 klik('minus-flaske', () => aendrInventar('flaske', -1));
 klik('plus-flaske', () => aendrInventar('flaske', 1));

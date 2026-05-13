@@ -12,6 +12,7 @@
     <div class="sektion__knap sektion__knap--dark-mode" id="dark-mode-toggle">☽</div>
     
     <img class="tusindefloderpng" src="billeder/tusindefloder.png">
+    <img class="karakter-ubg" src="billeder/karakter-ubg.png">
 
     <div class="ark" id="beholder">
 
@@ -183,7 +184,6 @@
                                 <div class="justering__knapgruppe">
                                     <div class="justering__knap sekvens" id="sekvens-saet">↖︎</div>
                                 </div>
-                                <div class="evne__pulje" id="sekvens-pulje">1d6</div>
                             </div>
                         </div>
 
@@ -246,11 +246,11 @@
 
                 <div id="basisskade-indhold">
                     <div class="bjaelke">
-                        <span>Våben</span> <span class="vis-skjul" id="vaaben-vis-skjul">skjul</span>
+                        <span class="bjaelke__titel" id="vaaben-vis-skjul">Våben</span>
                     </div>
                     <div class="vaaben-raekke" id="vaaben-raekke"></div>
                     <div class="bjaelke">
-                        <span>Basisskade</span> <span class="vis-skjul" id="basisskade-vis-skjul">skjul</span>
+                        <span class="bjaelke__titel" id="basisskade-vis-skjul">Basisskade</span>
                     </div>
 
                     <div class="basisskade__grid" id="basisskade-beholder">
@@ -329,9 +329,12 @@
             <div id="evner-indhold">
                 <div class="evne__grid">
                     <div class="evne" id="form-evne">
-                        <div class="evne__navn">FORM</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">FORM</div>
+                            <div class="evne__level" id="form-level">12</div>
+                        </div>
                         <span class="evne__level" id="form-forskudt"></span>
-                        <div class="evne__level" id="form-level">12</div>
+                        
                         <div class="evne__pulje" id="form-pulje">2d6</div>
                         <div class="justering justering--evne-forskydning" id="form-forskydning-justering">
                             Forskydning
@@ -344,9 +347,11 @@
                     </div>
 
                     <div class="evne" id="sind-evne">
-                        <div class="evne__navn">SIND</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">SIND</div>
+                            <div class="evne__level" id="sind-level">18</div>
+                        </div>
                         <span class="evne__level" id="sind-forskudt"></span>
-                        <div class="evne__level" id="sind-level">18</div>
                         <div class="evne__pulje" id="sind-pulje">3d6</div>
                         <div class="justering justering--evne-forskydning" id="sind-forskydning-justering">
                             Forskydning
@@ -359,9 +364,11 @@
                     </div>
 
                     <div class="evne" id="intuition-evne">
-                        <div class="evne__navn">INTUITION</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">INTUITION</div>
+                            <div class="evne__level" id="intuition-level">8</div>
+                        </div>
                         <span class="evne__level" id="intuition-forskudt"></span>
-                        <div class="evne__level" id="intuition-level">8</div>
                         <div class="evne__pulje" id="intuition-pulje">2d6</div>
                         <div class="justering justering--evne-forskydning" id="intuition-forskydning-justering">
                             Forskydning
@@ -374,9 +381,11 @@
                     </div>
 
                     <div class="evne" id="styrke-evne">
-                        <div class="evne__navn">STYRKE</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">STYRKE</div>
+                            <div class="evne__level" id="styrke-level">10</div>
+                        </div>
                         <span class="evne__level" id="styrke-forskudt"></span>
-                        <div class="evne__level" id="styrke-level">10</div>
                         <div class="evne__pulje" id="styrke-pulje">2d6</div>
                         <div class="justering justering--evne-forskydning" id="styrke-forskydning-justering">
                             Forskydning
@@ -389,9 +398,11 @@
                     </div>
 
                     <div class="evne" id="behaendighed-evne">
-                        <div class="evne__navn">BEHÆNDIGHED</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">BEHÆNDIGHED</div>
+                            <div class="evne__level" id="behaendighed-level">15</div>
+                        </div>
                         <span class="evne__level" id="behaendighed-forskudt"></span>
-                        <div class="evne__level" id="behaendighed-level">15</div>
                         <div class="evne__pulje" id="behaendighed-pulje">3d6</div>
                         <div class="justering justering--evne-forskydning" id="behaendighed-forskydning-justering">
                             Forskydning
@@ -404,9 +415,11 @@
                     </div>
 
                     <div class="evne" id="visdom-evne">
-                        <div class="evne__navn">VISDOM</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">VISDOM</div>
+                            <div class="evne__level" id="visdom-level">4</div>
+                        </div>
                         <span class="evne__level" id="visdom-forskudt"></span>
-                        <div class="evne__level" id="visdom-level">4</div>
                         <div class="evne__pulje" id="visdom-pulje">1d6</div>
                         <div class="justering justering--evne-forskydning" id="visdom-forskydning-justering">
                             Forskydning
@@ -419,9 +432,11 @@
                     </div>
 
                     <div class="evne" id="mystik-evne">
-                        <div class="evne__navn">MYSTIK</div>
+                        <div class="evne__top">
+                            <div class="evne__navn">MYSTIK</div>
+                            <div class="evne__level" id="mystik-level">5</div>
+                        </div>
                         <span class="evne__level" id="mystik-forskudt"></span>
-                        <div class="evne__level" id="mystik-level">5</div>
                         <div class="evne__pulje" id="mystik-pulje">1d6</div>
                         <div class="justering justering--evne-forskydning" id="mystik-forskydning-justering">
                             Forskydning
@@ -446,22 +461,22 @@
                 <div class="u-grid-1-2">
                     <div>
                         <div class="bjaelke">
-                            <span>Inventar</span> <span class="vis-skjul" id="inventar-vis-skjul">skjul</span>
+                            <span class="bjaelke__titel" id="inventar-vis-skjul">Inventar</span>
                         </div>
-                        <div class="felt" id="inventar-emner">
+                        <div class="felt felt__inventar" id="inventar-emner">
                             <div class="inventar__emne">Stenvandsflasker<span id="stenvandsflasker">1</span></div>
                             <div class="inventar__emne">Stenskår<span id="stenskaar">1</span></div>
                         </div>
                     </div>
                     <div style="margin-bottom: 1rem;">
                         <div class="bjaelke">
-                            <span>Færdigheder</span> <span class="vis-skjul" id="faerdigheder-vis-skjul">skjul</span>
+                            <span class="bjaelke__titel" id="faerdigheder-vis-skjul">Færdigheder</span>
                         </div>
                         <textarea class="noter noter__faerdigheder" id="faerdigheder-noter-input" placeholder="Færdigheder"></textarea>
                     </div>
                 </div>
                 <div class="bjaelke">
-                    <span>Noter</span> <span class="vis-skjul" id="noter-vis-skjul">skjul</span>
+                    <span class="bjaelke__titel" id="noter-vis-skjul">Noter</span>
                 </div>
                 <textarea class="noter" id="noter-input" placeholder="Her kan du skrive noter"></textarea>
             </div>

@@ -96,8 +96,6 @@ function opdaterVistData() {
     }
 
     function opdaterStatus() {
-        const sekvenspulje = getPulje(karakter.form + karakter.forskydning.form) + getPulje(karakter.intuition + karakter.forskydning.intuition);
-        document.getElementById('sekvens-pulje').textContent = sekvenspulje + 'd6';
         document.getElementById('sekvens-vaerdi').textContent = karakter.sekvens;
         document.getElementById('haab-vaerdi').textContent = karakter.haab;
         document.getElementById('forvitring-vaerdi').textContent = karakter.forvitring;
@@ -199,7 +197,6 @@ function toggleVisSkjul(knapId, indholdId) {
     const indhold = document.getElementById(indholdId);
     const erSkjult = indhold.classList.toggle('skjul-indhold');
     knap.classList.toggle('skjult');
-    knap.textContent = erSkjult ? 'vis' : 'skjul';
 }
 
 // Åben/luk vinduer
@@ -230,7 +227,7 @@ function erEndeligDoed() {
 // Evnelevels og puljer
 function opdaterEvne(navn, level, forskydning) {
     document.getElementById(navn + '-level').textContent = level;
-    const pulje = getPulje(level);
+    const pulje = getPulje(level, forskydning);
     document.getElementById(navn + '-pulje').textContent = pulje + 'd6';
 
     const forskudtLevel = level + forskydning;
@@ -264,16 +261,16 @@ function opdaterFlaskeIkoner() {
 }
 
 // Udregn pulje
-function getPulje(level) {
-    if (level <= 6) return 1;
-    if (level <= 12) return 2;
-    if (level <= 20) return 3;
-    if (level <= 29) return 4;
-    if (level <= 39) return 5;
-    if (level <= 50) return 6;
-    if (level <= 63) return 7;
-    if (level <= 78) return 8;
-    if (level <= 94) return 9;
+function getPulje(level, forskydning) {
+    if (level + forskydning <= 6) return 1;
+    if (level + forskydning <= 12) return 2;
+    if (level + forskydning <= 20) return 3;
+    if (level + forskydning <= 29) return 4;
+    if (level + forskydning <= 39) return 5;
+    if (level + forskydning <= 50) return 6;
+    if (level + forskydning <= 63) return 7;
+    if (level + forskydning <= 78) return 8;
+    if (level + forskydning <= 94) return 9;
     return 10;
 }
 

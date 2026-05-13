@@ -36,7 +36,7 @@ body.dark-mode {
     --sektion: #1e1e1e;
     --felt: #232323;
     --svagt-felt: #1c1c1c;
-    --hover:  #333;
+    --hover:  #444;
     --besked: #000000aa;
     --besked-hover: #00000033;
     --tooltip-baggrund: #22222299;
@@ -153,6 +153,18 @@ input::-webkit-inner-spin-button {
     width: 150px;
     left: 50%;
     transform: translateX(-50%);
+    opacity: .25;
+    pointer-events: none;
+}
+
+.karakter-ubg {
+    z-index: 0;
+    position: fixed;
+    width: 200px;
+    height: auto;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
     opacity: .25;
     pointer-events: none;
 }
@@ -533,6 +545,7 @@ input::-webkit-inner-spin-button {
 .vaaben-raekke {
     display: flex;
     flex-wrap: wrap;
+    width: fit-content;
     gap: 0.25rem;
     margin-bottom: 0.5rem;
     padding: 0.25rem;
@@ -561,7 +574,8 @@ input::-webkit-inner-spin-button {
 }
 
 .vaaben-valg.aktiv {
-    background-color: var(--hover);
+    color: var(--tekst-aktiv);
+    font-weight: 600;
 }
 
 .vaaben-valg:hover, .vaaben-valg.aktiv:hover {
@@ -593,6 +607,7 @@ input::-webkit-inner-spin-button {
 .evne {
     display: flex;
     flex-direction: column;
+    gap: 0.25rem;
     background-color: var(--felt);
     align-items: center;
     padding: 0.5em;
@@ -605,12 +620,26 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
+.evne__top {
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
 .evne__navn {
     color: var(--tekst-mellem-haard);
 }
 
 .evne__level {
     color: var(--tekst-svag);
+}
+
+.evne__pulje {
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+    border: 0.1px solid var(--tekst-svag);
+    margin: 0.15rem;
 }
 
 .evne__level--forskudt-op {
@@ -637,6 +666,16 @@ input::-webkit-inner-spin-button {
     margin-bottom: 0.25rem;
 }
 
+.bjaelke__titel {
+    padding: 0 0.25rem;
+    border-radius: 1rem;
+    cursor: pointer;
+}
+
+.bjaelke__titel:hover {
+    background-color: var(--hover);
+}
+
 .noter {
     width: 100%;
     resize: none;
@@ -659,18 +698,19 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-haard);
 }
 
+.felt__inventar {
+    cursor: pointer;
+    margin-bottom: 0.5rem;
+}
+
+.felt__inventar:hover {
+    background-color: var(--hover);
+}
+
 .inventar__emne {
     display: flex;
     justify-content: space-between;
-    background-color: var(--sektion);
     color: var(--tekst-mellem-svag);
-    border-radius: 0.5rem;
-    cursor: pointer;
-    padding: 0 0.25rem;
-}
-
-.inventar__emne:hover {
-    background-color: var(--hover);
 }
 
 .noter__faerdigheder {
@@ -678,22 +718,9 @@ input::-webkit-inner-spin-button {
     overflow: hidden;
 }
 
-.vis-skjul {
-    border-radius: 1rem;
-    font-size: 0.65rem;
-    width: fit-content;
-    color: var(--tekst-svag);
-    cursor: pointer;
-    padding: 0.1rem;
-}
-
-.vis-skjul:hover {
-    background-color: var(--hover);
-    color: var(--tekst-haard);
-}
-
 .skjult {
     background-color: var(--hover);
+    color: var(--tekst-haard);
 }
 
 
@@ -783,6 +810,7 @@ input::-webkit-inner-spin-button {
 }
 
 .justering--evne-forskydning {
+    margin-top: 0.25rem;
     flex-direction: column;
     font-size: 0.7rem;
     gap: 0.5rem;
@@ -794,6 +822,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    margin-bottom: 0.25rem;
 }
 
 
