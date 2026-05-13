@@ -132,8 +132,6 @@ function opdaterVistData() {
     }
 }
 
-
-
 // Vis besked
 function visBesked(tekst) {
     const container = document.getElementById('besked-beholder');
@@ -151,46 +149,11 @@ function fjernBesked(el) {
     el.addEventListener('animationend', () => el.remove(), { once: true });
 }
 
-
-
 // Skjul sektioner
 function toggleSektion(type) {
     const sektion = document.getElementById(type + '-indhold');
-    sektion.classList.toggle('skjult-indhold');
+    sektion.classList.toggle('skjul-indhold');
 }
-
-
-
-// Ændre størrelse på noteområde
-function opdaterNoteOmraade() {
-    const noter = document.getElementById('noter-input');
-    noter.style.height = 'auto';
-    noter.style.height = noter.scrollHeight + 'px';
-}
-
-function opdaterNoteOmraadeFaerdigheder() {
-    const noter = document.getElementById('faerdigheder-noter-input');
-    noter.style.height = 'auto';
-    noter.style.height = noter.scrollHeight + 'px';
-}
-
-function opdaterNoteOmraadeVaaben() {
-    const noter = document.getElementById('vaaben-noter-input');
-    noter.style.minHeight = '3rem'
-    noter.style.height = 'auto';
-    noter.style.height = noter.scrollHeight + 'px';
-}
-
-
-
-// Hjælpefunktion: Tjek endelig død
-function erEndeligDoed() {
-    if (!karakter.endeligtDoed) return false;
-        visBesked('Du er endeligt død.');
-        return true;
-}
-
-
 
 // Vis/skjul justeringer
 function visJustering(type) {
@@ -230,11 +193,16 @@ function visEvneJusteringer() {
     });
 }
 
+// Vis/skjul-knapper
+function toggleVisSkjul(knapId, indholdId) {
+    const knap = document.getElementById(knapId);
+    const indhold = document.getElementById(indholdId);
+    const erSkjult = indhold.classList.toggle('skjul-indhold');
+    knap.classList.toggle('skjult');
+    knap.textContent = erSkjult ? 'vis' : 'skjul';
+}
 
-
-
-
-// Vis/skjul vinduer
+// Åben/luk vinduer
 function aabenVindue(vindueId) {
     const tilladte = ['karakter', 'ny-karakter', 'nulstil-karakter'];
     if (erEndeligDoed() && !tilladte.includes(vindueId)) return;
@@ -248,55 +216,16 @@ function lukVindue(vindueId) {
 
 
 
-
-
-// Vis/skjul noter
-function visInventar() {
-    const knap = document.getElementById('inventar-vis-skjul');
-    const emner = document.getElementById('inventar-emner');
-
-    if (emner.classList.contains('skjult-indhold')) {
-        emner.classList.remove('skjult-indhold');
-        knap.textContent = 'skjul';
-    } else {
-        emner.classList.add('skjult-indhold');
-        knap.textContent = 'vis';
-    }
-}
-
-function visFaerdigheder() {
-    const knap = document.getElementById('faerdigheder-vis-skjul');
-    const noter = document.getElementById('faerdigheder-noter-input');
-
-    if (noter.classList.contains('skjult-indhold')) {
-        noter.classList.remove('skjult-indhold');
-        knap.textContent = 'skjul';
-    } else {
-        noter.classList.add('skjult-indhold');
-        knap.textContent = 'vis';
-    }
-}
-
-function visNoter() {
-    const knap = document.getElementById('noter-vis-skjul');
-    const noter = document.getElementById('noter-input');
-
-    if (noter.classList.contains('skjult-indhold')) {
-        noter.classList.remove('skjult-indhold');
-        knap.textContent = 'skjul';
-    } else {
-        noter.classList.add('skjult-indhold');
-        knap.textContent = 'vis';
-    }
-}
-
-
-
-
-
 // =======================
 // === HJÆLPEBEREGNERE ===
 // =======================
+
+// Tjek endelig død
+function erEndeligDoed() {
+    if (!karakter.endeligtDoed) return false;
+        visBesked('Du er endeligt død.');
+        return true;
+}
 
 // Evnelevels og puljer
 function opdaterEvne(navn, level, forskydning) {
@@ -326,8 +255,6 @@ function opdaterEvne(navn, level, forskydning) {
     }
 }
 
-
-
 // Flasker
 function opdaterFlaskeIkoner() {
     const fyldte = '◉ '.repeat(karakter.flaskerNu).trim();
@@ -335,8 +262,6 @@ function opdaterFlaskeIkoner() {
     const ikoner = [fyldte, tomme].filter(s => s).join(' ');
     document.getElementById('flaske-ikoner').textContent = ikoner;
 }
-
-
 
 // Udregn pulje
 function getPulje(level) {
@@ -352,9 +277,7 @@ function getPulje(level) {
     return 10;
 }
 
-
-
-// Liv
+// Liv, Sejd, Hu
 function getVitalMax(form) {
     if (form <= 20) return form * 5;
     if (form <= 40) return 100 + (form - 20) * 4;
@@ -364,12 +287,10 @@ function getVitalMax(form) {
     return 300 + (form - 100);
 }
 
-// Sejd
 function getSejdMax(sind) {
     return sind;
 }
 
-// Hu
 function getHuMax(intuition) {
     if (intuition <= 9) return 5;
     if (intuition <= 29) return 6;
@@ -385,8 +306,6 @@ function getHuRegen(intuition) {
     if (intuition <= 69) return 6;
     return 7;
 }
-
-
 
 
 
@@ -427,8 +346,6 @@ function samlDraaber() {
     opdaterVistData();
 }
 
-
-
 // Liv
 function livSkade() {
     const skade = parseInt(document.getElementById('liv-input').value) || 0;
@@ -449,8 +366,6 @@ function livGenvind() {
     document.getElementById('liv-input').value = '';
     opdaterVistData();
 }
-
-
 
 // Sejd
 function sejdBrug() {
@@ -495,8 +410,6 @@ function sejdGenvind() {
     opdaterVistData();
 }
 
-
-
 // Hu
 function huBrug() {
     if (karakter.huNu === 0) {
@@ -525,8 +438,6 @@ function tjekBevidstloeshed() {
         visBesked('Du er bevidstløs.');
     }
 }
-
-
 
 // Flasker
 function drikFlaske(type) {
@@ -568,35 +479,6 @@ function drikFlaske(type) {
 
 
 
-// Inventar
-function initInventar() {
-    const flaskeTal = document.getElementById('antal-flaske');
-    const stenskaarTal = document.getElementById('antal-stenskaar');
-
-    flaskeTal.textContent = karakter.flaskerMax;
-    stenskaarTal.textContent = karakter.stenskaar;
-
-    aabenVindue('inventar');
-}
-
-function aendrInventar(emne, aendring) {
-    if (emne === 'flaske') {
-        const nytAntal = Math.max(0, karakter.flaskerMax + aendring);
-        karakter.flaskerMax = nytAntal;
-        karakter.flaskerNu = Math.min(karakter.flaskerNu, nytAntal);
-        document.getElementById('antal-flaske').textContent = nytAntal;
-    } else if (emne === 'stenskaar') {
-        const nytAntal = Math.max(0,karakter.stenskaar + aendring);
-        karakter.stenskaar = nytAntal;
-        document.getElementById('antal-stenskaar').textContent = nytAntal;
-    }
-    opdaterVistData();
-}
-
-
-
-
-
 // ===============
 // === STATIUS ===
 // ===============
@@ -610,8 +492,6 @@ function saetSekvens() {
     opdaterVistData();
 }
 
-
-
 // Håb
 function haabMinus() {
     karakter.haab = Math.max(0, karakter.haab - 1);
@@ -623,8 +503,6 @@ function haabPlus() {
     opdaterVistData();
 }
 
-
-
 // Forvitring
 function forvitringMinus() {
     karakter.forvitring = Math.max(0, karakter.forvitring - 1);
@@ -635,7 +513,6 @@ function forvitringPlus() {
     karakter.forvitring = karakter.forvitring + 1;
     opdaterVistData();
 }
-
 
 // Udmattelse
 function udmattelseMinus() {
@@ -653,8 +530,6 @@ function udmattelsePlus() {
     tjekBevidstloeshed();
 }
 
-
-
 // Læsioner
 function laesionerMinus() {
     karakter.laesioner = Math.max(0, karakter.laesioner - 1);
@@ -666,15 +541,7 @@ function laesionerPlus() {
     opdaterVistData();
 }
 
-
-
-
-
-// ======================
-// === VED VANDSTENEN ===
-// ======================
-
-// Hvile ved vandsten
+// Vandsten
 function hvil() {
     if (karakter.sejdNu <= 0 && karakter.udmattelse > 0) {
         karakter.udmattelse -= 1;
@@ -688,9 +555,6 @@ function hvil() {
     lukVindue('hvil');
 }
 
-
-
-// Død
 function doed() {
     karakter.forvitring++;
     const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
@@ -717,6 +581,97 @@ function doed() {
 
 
 
+// ===========================
+// === VÅBEN OG BASISSKADE ===
+// ===========================
+
+function opdaterVaabenRaekke() {
+    const container = document.getElementById('vaaben-raekke');
+    container.innerHTML = '';
+
+    if (!karakter.vaaben || karakter.vaaben.length === 0) {
+        const tom = document.createElement('div');
+        tom.className = 'vaaben-raekke-tom';
+        tom.textContent = 'Ingen våben.';
+        container.appendChild(tom);
+        return;
+    }
+
+    for (const vaaben of karakter.vaaben) {
+        const evne = vaaben.basis;
+        const erValgt = karakter.valgtVaaben[evne] === vaaben.id;
+        const el = document.createElement('div');
+        el.className = 'vaaben-valg' + (erValgt ? ' aktiv' : '');
+        el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
+
+        el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            karakter.valgtVaaben[evne] = erValgt ? null : vaaben.id;
+            gemData();
+            opdaterVistData();
+        });
+
+        container.appendChild(el);
+    }
+}
+
+function opdaterBasisskader() {
+    opdaterVaabenRaekke();
+
+    vaabenEvner.forEach(evne => {
+        const vaabenId = karakter.valgtVaaben ? karakter.valgtVaaben[evne] : null;
+        const vaaben = (karakter.vaaben || []).find(v => v.id === vaabenId);
+        const boks = document.getElementById(`basisskade-evne-${evne}`);
+
+        if (vaaben) {
+            boks.classList.remove('skjul-indhold');
+            saetBasisskade(evne);
+        } else {
+            boks.classList.add('skjul-indhold');
+        }
+    });
+}
+
+function beregnBasisskade(evne) {
+    const id = karakter.valgtVaaben ? karakter.valgtVaaben[evne] : null;
+    if (!id) return '-';
+    const vaaben = (karakter.vaaben || []).find(v => v.id === id);
+    if (!vaaben) return 0;
+    return Math.round((karakter[evne] + karakter.forskydning[evne]) * (1 + vaaben.opgradering * 0.2));
+}
+
+function saetBasisskade(evne) {
+    const basisskade = beregnBasisskade(evne);
+    document.getElementById(`basisskade-${evne}`).textContent = basisskade;
+
+    const vaabenViser = document.getElementById(`basisskade-evne-vaaben-${evne}`);
+    const omraade = document.getElementById(`basisskade-omraade-${evne}`);
+    const vaabenId = karakter.valgtVaaben[evne];
+    const vaaben = karakter.vaaben.find(v => v.id === vaabenId);
+
+    if (!vaaben) {
+        vaabenViser.classList.add('intet-vaaben');
+        vaabenViser.textContent = "Intet våben";
+        omraade.classList.add('skjul-indhold');
+    } else {
+        if (vaaben.opgradering === 0) {
+            vaabenViser.textContent = vaaben.navn;
+        } else {
+            vaabenViser.textContent = vaaben.navn + ' +' + vaaben.opgradering;
+        }
+        vaabenViser.classList.remove('intet-vaaben');
+        omraade.classList.remove('skjul-indhold');
+    }
+
+    if (basisskade === '-') {
+        document.getElementById(`basisskade-halv-${evne}`).textContent = '-';
+        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = '-';
+    } else {
+        document.getElementById(`basisskade-halv-${evne}`).textContent = Math.ceil(basisskade / 2);
+        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = basisskade * 2;
+    }
+}
+
 
 
 // =============
@@ -734,6 +689,55 @@ function forskydningMinus(evne) {
 }
 
 
+
+// =========================
+// === INVENTAR OG NOTER ===
+// =========================
+
+// Inventar
+function initInventar() {
+    const flaskeTal = document.getElementById('antal-flaske');
+    const stenskaarTal = document.getElementById('antal-stenskaar');
+
+    flaskeTal.textContent = karakter.flaskerMax;
+    stenskaarTal.textContent = karakter.stenskaar;
+
+    aabenVindue('inventar');
+}
+
+function aendrInventar(emne, aendring) {
+    if (emne === 'flaske') {
+        const nytAntal = Math.max(0, karakter.flaskerMax + aendring);
+        karakter.flaskerMax = nytAntal;
+        karakter.flaskerNu = Math.min(karakter.flaskerNu, nytAntal);
+        document.getElementById('antal-flaske').textContent = nytAntal;
+    } else if (emne === 'stenskaar') {
+        const nytAntal = Math.max(0,karakter.stenskaar + aendring);
+        karakter.stenskaar = nytAntal;
+        document.getElementById('antal-stenskaar').textContent = nytAntal;
+    }
+    opdaterVistData();
+}
+
+// Ændre størrelse på noteområde
+function opdaterNoteOmraade() {
+    const noter = document.getElementById('noter-input');
+    noter.style.height = 'auto';
+    noter.style.height = noter.scrollHeight + 'px';
+}
+
+function opdaterNoteOmraadeFaerdigheder() {
+    const noter = document.getElementById('faerdigheder-noter-input');
+    noter.style.height = 'auto';
+    noter.style.height = noter.scrollHeight + 'px';
+}
+
+function opdaterNoteOmraadeVaaben() {
+    const noter = document.getElementById('vaaben-noter-input');
+    noter.style.minHeight = '3rem'
+    noter.style.height = 'auto';
+    noter.style.height = noter.scrollHeight + 'px';
+}
 
 
 
@@ -905,13 +909,14 @@ function bekraeftEvneForbedringer() {
         karakter[evne] += evneForbedringer[evne];
     }
     karakter.draaber -= total;
- 
+    
     opdaterVistData();
     lukVindue('evneforbedring');
     visBesked(`Evner forbedret. ${total} Dråber brugt.`);
+    hvil();
 }
  
-// Specialinfo-hjælpere til evneforbedring
+// Specialinfo-hjælpere til Liv, Sejd, Hu
 function evneLivInfo(gammelForm, nyForm) {
     const gammelLiv = getVitalMax(gammelForm);
     const nytLiv = getVitalMax(nyForm);
@@ -939,8 +944,6 @@ function evneHuInfo(gammelIntuition, nyIntuition) {
     if (gammelRegen !== nyRegen) dele.push(`Regen ${gammelRegen} → <span class="ny-vaerdi">${nyRegen}</span> Hu/runde`);
     return dele.join(', ');
 }
-
-
 
 
 
@@ -972,9 +975,7 @@ function beregnVaabenOpgraderingOmkostning(fra, til, vedVandsten) {
     return { stenskaar, draaber };
 }
 
-
-
-// --- VÅBENLISTE ---
+// --- Åben våben-vindue ---
 function initVaabenListe() {
     const liste = document.getElementById('vaaben-liste');
     liste.innerHTML = '';
@@ -1004,9 +1005,7 @@ function initVaabenListe() {
     aabenVindue('vaabenliste');
 }
 
-
-
-// --- VÅBENDETALJE ---
+// --- Våbendetaljer ---
 function aabneVaabenDetalje(id) {
     aktivtVaabenId = id;
 
@@ -1096,11 +1095,11 @@ function gemVaaben() {
     } else {
         const idx = karakter.vaaben.findIndex(v => v.id === aktivtVaabenId);
         if (idx !== -1) {
-            // Hvis basis er ændret, fjern det fra vaelgtVaaben på den gamle evne
+            // Hvis basis er ændret, fjern det fra valgtVaaben på den gamle evne
             const gammelBasis = karakter.vaaben[idx].basis;
             if (gammelBasis !== vaabenDetaljeState.basis &&
-                karakter.vaelgtVaaben[gammelBasis] === aktivtVaabenId) {
-                karakter.vaelgtVaaben[gammelBasis] = null;
+                karakter.valgtVaaben[gammelBasis] === aktivtVaabenId) {
+                karakter.valgtVaaben[gammelBasis] = null;
             }
             karakter.vaaben[idx] = {
                 id: aktivtVaabenId,
@@ -1128,8 +1127,8 @@ function sletVaaben() {
     karakter.vaaben = karakter.vaaben.filter(v => v.id !== aktivtVaabenId);
 
     for (const evne of vaabenEvner) {
-        if (karakter.vaelgtVaaben[evne] === aktivtVaabenId) {
-            karakter.vaelgtVaaben[evne] = null;
+        if (karakter.valgtVaaben[evne] === aktivtVaabenId) {
+            karakter.valgtVaaben[evne] = null;
         }
     }
 
@@ -1140,9 +1139,7 @@ function sletVaaben() {
     visBesked('Våben slettet.');
 }
 
-
-
-// --- OPGRADERINGSMODAL ---
+// Opgradering
 function initVaabenOpgradering() {
     if (!vaabenDetaljeState) return;
 
@@ -1169,7 +1166,6 @@ function opdaterVaabenOpgraderingVindue() {
         orig, vaabenOpgVindueNiveau, vaabenOpgVindueVedVandsten
     );
 
-    // Niveau-visning
     const niveauEl = document.getElementById('vaabenopg-niveau');
     if (vaabenOpgVindueNiveau > orig) {
         niveauEl.innerHTML = `${orig > 0 ? '+' : ''}${orig} → <span class="ny-vaerdi">${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}</span>`;
@@ -1177,7 +1173,6 @@ function opdaterVaabenOpgraderingVindue() {
         niveauEl.textContent = `${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}`;
     }
 
-    // Ressource-info
     document.getElementById('vaabenopg-stenskaar-info').innerHTML = stenskaar > 0
         ? `${karakter.stenskaar} → <span class="ny-vaerdi ny-vaerdi--draaber">${karakter.stenskaar - stenskaar}</span>`
         : `${karakter.stenskaar}`;
@@ -1187,11 +1182,9 @@ function opdaterVaabenOpgraderingVindue() {
         ? `${karakter.draaber} → <span class="ny-vaerdi ny-vaerdi--draaber">${karakter.draaber - draaber}</span>`
         : `${karakter.draaber}`;
 
-    // Sted-toggle
     document.getElementById('vaabenopg-smedje').classList.toggle('aktiv', !vaabenOpgVindueVedVandsten);
     document.getElementById('vaabenopg-vandsten').classList.toggle('aktiv', vaabenOpgVindueVedVandsten);
 
-    // Samlet omkostning
     const omk = document.getElementById('vaabenopg-total-omkostning');
     if (stenskaar > 0) {
         let tekst = `${stenskaar} Stenskår`;
@@ -1201,7 +1194,6 @@ function opdaterVaabenOpgraderingVindue() {
         omk.textContent = '–';
     }
 
-    // +/- knapper
     document.getElementById('vaabenopg-minus').disabled =
         vaabenOpgVindueNiveau <= orig;
     document.getElementById('vaabenopg-plus').disabled =
@@ -1209,7 +1201,6 @@ function opdaterVaabenOpgraderingVindue() {
     document.getElementById('vaabenopg-niveau-badge').textContent = 
     `${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}`;
 
-    // Bekræft-knap
     const harRaad = stenskaar <= karakter.stenskaar &&
                     (!vaabenOpgVindueVedVandsten || draaber <= karakter.draaber);
     const harAendring = vaabenOpgVindueNiveau !== vaabenDetaljeState.midlertidigOpgradering;
@@ -1225,99 +1216,6 @@ function bekraeftVaabenOpgradering() {
     opdaterVaabenOpgraderingKnap();
     lukVindue('vaabenopgradering');
 }
-
-
-
-// --- VAABENVAELGER OG BASISSKADE ---
-function opdaterVaabenRaekke() {
-    const container = document.getElementById('vaaben-raekke');
-    container.innerHTML = '';
-
-    if (!karakter.vaaben || karakter.vaaben.length === 0) {
-        const tom = document.createElement('div');
-        tom.className = 'vaaben-raekke-tom';
-        tom.textContent = 'Ingen våben.';
-        container.appendChild(tom);
-        return;
-    }
-
-    for (const vaaben of karakter.vaaben) {
-        const evne = vaaben.basis;
-        const erValgt = karakter.vaelgtVaaben[evne] === vaaben.id;
-        const el = document.createElement('div');
-        el.className = 'vaaben-valg' + (erValgt ? ' aktiv' : '');
-        el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
-
-        el.addEventListener('click', (e) => {
-            e.stopPropagation();
-            karakter.vaelgtVaaben[evne] = erValgt ? null : vaaben.id;
-            gemData();
-            opdaterVistData();
-        });
-
-        container.appendChild(el);
-    }
-}
-
-function opdaterBasisskader() {
-    opdaterVaabenRaekke();
-
-    vaabenEvner.forEach(evne => {
-        const vaabenId = karakter.vaelgtVaaben ? karakter.vaelgtVaaben[evne] : null;
-        const vaaben = (karakter.vaaben || []).find(v => v.id === vaabenId);
-        const boks = document.getElementById(`basisskade-evne-${evne}`);
-
-        if (vaaben) {
-            boks.classList.remove('skjult-indhold');
-            saetBasisskade(evne);
-        } else {
-            boks.classList.add('skjult-indhold');
-        }
-    });
-}
-
-function beregnBasisskade(evne) {
-    const id = karakter.vaelgtVaaben ? karakter.vaelgtVaaben[evne] : null;
-    if (!id) return '-';
-    const vaaben = (karakter.vaaben || []).find(v => v.id === id);
-    if (!vaaben) return 0;
-    return Math.round((karakter[evne] + karakter.forskydning[evne]) * (1 + vaaben.opgradering * 0.2));
-}
-
-function saetBasisskade(evne) {
-    const basisskade = beregnBasisskade(evne);
-    document.getElementById(`basisskade-${evne}`).textContent = basisskade;
-
-    const vaabenViser = document.getElementById(`basisskade-evne-vaaben-${evne}`);
-    const omraade = document.getElementById(`basisskade-omraade-${evne}`);
-    const vaabenId = karakter.vaelgtVaaben[evne];
-    const vaaben = karakter.vaaben.find(v => v.id === vaabenId);
-
-    if (!vaaben) {
-        vaabenViser.classList.add('intet-vaaben');
-        vaabenViser.textContent = "Intet våben";
-        omraade.classList.add('skjult-indhold');
-    } else {
-        if (vaaben.opgradering === 0) {
-            vaabenViser.textContent = vaaben.navn;
-        } else {
-            vaabenViser.textContent = vaaben.navn + ' +' + vaaben.opgradering;
-        }
-        vaabenViser.classList.remove('intet-vaaben');
-        omraade.classList.remove('skjult-indhold');
-    }
-
-    if (basisskade === '-') {
-        document.getElementById(`basisskade-halv-${evne}`).textContent = '-';
-        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = '-';
-    } else {
-        document.getElementById(`basisskade-halv-${evne}`).textContent = Math.ceil(basisskade / 2);
-        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = basisskade * 2;
-    }
-}
-
-
-
 
 
 

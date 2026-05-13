@@ -33,7 +33,6 @@
                             <div>Klasse</div>
                             <input type="text" id="karakterKlasse" placeholder="Klasse">
                         </div>
-
                         
                     </div>
                     <div class="grundlaeggende kolonne-b">
@@ -173,8 +172,6 @@
                             </div>
                         </div>
 
-
-
                         <div class="stat sekvens" id="sekvens">
                             <span class="stat__navn">Sekvens</span>
                             <span class="stat__vaerdi" id="sekvens-vaerdi">0</span>
@@ -209,6 +206,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="stat udmattelse" id="udmattelse">
                             <span class="stat__navn">Udmattelse</span>
                             <span class="stat__vaerdi" id="udmattelse-vaerdi">0</span>
@@ -219,6 +217,7 @@
                                 </div>
                             </div>
                         </div>
+
                         <div class="stat laesioner" id="laesioner">
                             <span class="stat__navn">Læsioner</span>
                             <span class="stat__vaerdi" id="laesioner-vaerdi">0</span>
@@ -244,17 +243,20 @@
                 </div>
 
                 <div id="basisskade-indhold">
-
+                    <div class="bjaelke">
+                        <span>Våben</span> <span class="vis-skjul" id="vaaben-vis-skjul">skjul</span>
+                    </div>
                     <div class="vaaben-raekke" id="vaaben-raekke"></div>
+                    <div class="bjaelke">
+                        <span>Basisskade</span> <span class="vis-skjul" id="basisskade-vis-skjul">skjul</span>
+                    </div>
 
                     <div class="basisskade__grid" id="basisskade-beholder">
-                        
                         <div class="basisskade" id="basisskade-evne-styrke">
                             <div class="basisskade__top">
-                                <div class="basisskade__navn">Styrke</div>
                                 <div class="basisskade__vaaben" id="basisskade-evne-vaaben-styrke"></div>
+                                <div class="basisskade__navn">Styrke</div>
                             </div>
-
                             <div class="basisskade__vaerdier" id="basisskade-omraade-styrke">
                                 <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-styrke">0</div>
                                 <div class="basisskade__halv-dobbelt">
@@ -266,10 +268,9 @@
 
                         <div class="basisskade" id="basisskade-evne-behaendighed">
                             <div class="basisskade__top">
-                                <div class="basisskade__navn">Behændighed</div>
                                 <div class="basisskade__vaaben" id="basisskade-evne-vaaben-behaendighed"></div>
+                                <div class="basisskade__navn">Behændighed</div>
                             </div>
-
                             <div class="basisskade__vaerdier" id="basisskade-omraade-behaendighed">
                                 <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-behaendighed">0</div>
                                 <div class="basisskade__halv-dobbelt">
@@ -281,8 +282,8 @@
 
                         <div class="basisskade" id="basisskade-evne-visdom">
                             <div class="basisskade__top">
-                                <div class="basisskade__navn">Visdom</div>
                                 <div class="basisskade__vaaben" id="basisskade-evne-vaaben-visdom"></div>
+                                <div class="basisskade__navn">Visdom</div>
                             </div>
                             <div class="basisskade__vaerdier" id="basisskade-omraade-visdom">
                                 <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-visdom">0</div>
@@ -295,8 +296,8 @@
 
                         <div class="basisskade" id="basisskade-evne-mystik">
                             <div class="basisskade__top">
-                                <div class="basisskade__navn">Mystik</div>
                                 <div class="basisskade__vaaben" id="basisskade-evne-vaaben-mystik"></div>
+                                <div class="basisskade__navn">Mystik</div>
                             </div>
                             <div class="basisskade__vaerdier" id="basisskade-omraade-mystik">
                                 <div class="basisskade__vaerdi basisskade__vaerdi--stor" id="basisskade-mystik">0</div>
@@ -309,7 +310,6 @@
                     </div>
                 </div>
             </div>
-
         </div>
 
 
@@ -325,7 +325,6 @@
             </div>
 
             <div id="evner-indhold">
-
                 <div class="evne__grid">
                     <div class="evne" id="form-evne">
                         <div class="evne__navn">FORM</div>
@@ -674,14 +673,13 @@
 
 
 
-
-
-
     <div id="endeligtdoed" class="vindue__baggrund vindue__baggrund--endeligtdoed">
         <div class="vindue__blok vindue__blok--endeligtdoed">
         Du er endeligt død.
         </div>
     </div>
+
+
 
     <div class="vindue__baggrund" id="karakter-vindue">
         <div class="vindue__blok">
@@ -697,6 +695,8 @@
             <input type="file" id="importer-input" accept=".json" style="display:none;">
         </div>
     </div>
+
+
 
     <div class="vindue__baggrund" id="ny-karakter-vindue">
         <div class="vindue__blok">
@@ -715,6 +715,8 @@
         </div>
     </div>
 
+
+
      <div class="vindue__baggrund" id="nulstil-karakter-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Bekræft nulstilling</div>
@@ -725,6 +727,8 @@
             </div>
         </div>
     </div>
+
+
 
     <!-- Scripts -->
     <script src="data.js"></script>

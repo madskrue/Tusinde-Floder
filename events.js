@@ -118,6 +118,9 @@ klik('laesioner-justering-plus', laesionerPlus);
 // Våben og basisskade
 klik('vaaben-liste-knap', initVaabenListe);
 
+klik('vaaben-vis-skjul', () => toggleVisSkjul('vaaben-vis-skjul', 'vaaben-raekke'));
+klik('basisskade-vis-skjul', () => toggleVisSkjul('basisskade-vis-skjul', 'basisskade-beholder'));
+
 // Evner
 klik('evne-toggle', visEvneJusteringer);
 ['form', 'sind', 'intuition', 'styrke', 'behaendighed', 'visdom', 'mystik'].forEach(evne => {
@@ -127,9 +130,10 @@ klik('evne-toggle', visEvneJusteringer);
 });
 
 // Inventar og noter
-klik('inventar-vis-skjul', visInventar);
-klik('faerdigheder-vis-skjul', visFaerdigheder);
-klik('noter-vis-skjul', visNoter);
+klik('inventar-vis-skjul', () => toggleVisSkjul('inventar-vis-skjul', 'inventar-emner'));
+klik('faerdigheder-vis-skjul', () => toggleVisSkjul('faerdigheder-vis-skjul', 'faerdigheder-noter-input'));
+klik('noter-vis-skjul', () => toggleVisSkjul('noter-vis-skjul', 'noter-input'));
+
 
 document.querySelectorAll('.inventar__emne').forEach(emne => {
     emne.addEventListener('click', () => initInventar());
@@ -229,7 +233,7 @@ const vaabenTooltip = document.getElementById('vaaben-tooltip');
     const el = document.getElementById(`basisskade-evne-vaaben-${evne}`);
 
     el.addEventListener('mouseenter', () => {
-        const id = karakter.vaelgtVaaben[evne];
+        const id = karakter.valgtVaaben[evne];
         const vaaben = (karakter.vaaben || []).find(v => v.id === id);
         if (!vaaben || !vaaben.noter) return;
         const prefix = vaaben.opgradering ? '+' : '';
@@ -322,7 +326,7 @@ document.getElementById('importer-input').addEventListener('change', (e) => {
             const data = JSON.parse(e.target.result);
             Object.assign(karakter, data);
             if (!karakter.vaaben) karakter.vaaben = [];
-            if (!karakter.vaelgtVaaben) {karakter.vaelgtVaaben = { styrke: null, behaendighed: null, visdom: null, mystik: null };}
+            if (!karakter.valgtVaaben) {karakter.valgtVaaben = { styrke: null, behaendighed: null, visdom: null, mystik: null };}
             if (!karakter.draaberEfterladt) karakter.draaberEfterladt = 0;
             opdaterVistData();
             visBesked('Karakter indlæst.');

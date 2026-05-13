@@ -34,7 +34,7 @@ let karakter = {
     },
 
     vaaben: [], // array af { id, navn, basis, opgradering, noter }
-    vaelgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
+    valgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
 
     stenskaar: 0,
     flaskerMax: 1,
@@ -82,23 +82,8 @@ const standardKarakter = {
         mystik: 0,
     },
 
-    vaaben: [
-        {
-        id: "v_1778595720325_sy7da",
-        navn: "Håndgemæng",
-        basis: "styrke",
-        opgradering: 0,
-        noter: "Hvis du vil kæmpe uden våben, kan du slås med dine bare næver. Her kan du bruge enten Styrke eller Behændighed som basis. Hvert slag bruger 2 Hu og gør halv basisskade."
-        },
-        {
-        id: "v_1778595762620_o69p5",
-        navn: "Håndgemæng",
-        basis: "behaendighed",
-        opgradering: 0,
-        noter: "Hvis du vil kæmpe uden våben, kan du slås med dine bare næver. Her kan du bruge enten Styrke eller Behændighed som basis. Hvert slag bruger 2 Hu og gør halv basisskade."
-        }
-    ],
-    vaelgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
+    vaaben: [],
+    valgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
 
     stenskaar: 0,
     flaskerMax: 1,

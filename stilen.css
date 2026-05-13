@@ -61,7 +61,10 @@ body.dark-mode {
 
 
 
-/* CSS RESET */
+/* ================= */
+/* === CSS RESET === */
+/* ================= */
+
 *, *::before, *::after {
 box-sizing: border-box;
 }
@@ -111,8 +114,6 @@ h1, h2, h3, h4, h5, h6 {
     isolation: isolate;
 }
 
-
-
 /* Stil for input/textarea */
 input, textarea {
     height: fit-content;
@@ -148,7 +149,7 @@ input::-webkit-inner-spin-button {
 /* =========== */
 /* === ARK === */
 /* =========== */
-/* Ark */
+
 .ark {
     background-color: var(--ark);
     padding: 0.5rem;
@@ -161,9 +162,6 @@ input::-webkit-inner-spin-button {
     font-size: 0.8rem;
 }
 
-
-
-/* Sektion */
 .sektion {
     background-color: var(--sektion);
     border-radius: 0.5rem;
@@ -184,6 +182,7 @@ input::-webkit-inner-spin-button {
 
 .sektion__knap {
     background-color: var(--sektion-knap);
+    color: var(--tekst-svag);
     height: 100%;
     padding: 0.25rem 0.5rem;
     border-radius: 1rem;
@@ -192,6 +191,7 @@ input::-webkit-inner-spin-button {
 
 .sektion__knap:hover {
     background-color: var(--hover);
+    color: var(--tekst-haard);
 }
 
 .sektion__knap--lille {
@@ -252,8 +252,6 @@ input::-webkit-inner-spin-button {
 
 
 
-
-
 /* ================= */
 /* === SEKTIONER === */
 /* ================= */
@@ -288,7 +286,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-
 /* Dråber */
 .draaber__top {
     display: flex;
@@ -313,10 +310,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
     color: var(--tekst-haard);
 }
-
-
-
-
 
 /* SEKTION: RESSOURCER */
 .ressource__grid {
@@ -389,10 +382,6 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-pris);
 }
 
-
-
-
-
 /* SEKTION: STATUS */
 .status__grid {
     display: grid;
@@ -459,10 +448,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-
-
-
-
 /* SEKTION: VÅBEN OG BASISSKADE */
 .basisskade__grid {
     display: grid;
@@ -483,15 +468,16 @@ input::-webkit-inner-spin-button {
     justify-content: space-between;
 }
 
-.basisskade__navn {
-    text-transform: uppercase;
-    color: var(--tekst-mellem-haard);
-}
-
 .basisskade__vaaben {
     font-size: 0.6rem;
     color: var(--tekst-aktiv);
     font-weight: 600;
+}
+
+.basisskade__navn {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--tekst-mellem-haard);
 }
 
 .intet-vaaben {
@@ -527,16 +513,17 @@ input::-webkit-inner-spin-button {
     gap: 1rem;
 }
 
-
-
 /* Våbenvælger */
 .vaaben-raekke {
     display: flex;
     flex-wrap: wrap;
-    gap: 0.5rem;
+    gap: 0.25rem;
     margin-bottom: 0.5rem;
+    padding: 0.25rem;
     min-height: 1.5rem;
     cursor: default;
+    background-color: var(--felt);
+    border-radius: 0.5rem;
 }
 
 .vaaben-raekke-tom {
@@ -547,8 +534,8 @@ input::-webkit-inner-spin-button {
 
 .vaaben-valg {
     font-size: 0.85em;
-    padding: 0.25em 0.5em;
-    border-radius: 0.5rem;
+    padding: 0.1rem 0.5rem;
+    border-radius: 1rem;
     cursor: pointer;
     background-color: var(--sektion);
     margin-top: 0.25em;
@@ -559,7 +546,6 @@ input::-webkit-inner-spin-button {
 
 .vaaben-valg.aktiv {
     background-color: var(--hover);
-    font-weight: 600;
 }
 
 .vaaben-valg:hover, .vaaben-valg.aktiv:hover {
@@ -580,10 +566,6 @@ input::-webkit-inner-spin-button {
     z-index: 500;
     color: var(--tekst-mellem-haard);
 }
-
-
-
-
 
 /* SEKTION: EVNER */
 .evne__grid {
@@ -629,10 +611,6 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-haard);
     font-size: 1.4rem;
 }
-
-
-
-
 
 /* SEKTION: INVENTAR, FÆRDIGHEDER, NOTER */
 .bjaelke {
@@ -698,6 +676,9 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-haard);
 }
 
+.skjult {
+    background-color: var(--hover);
+}
 
 
 
@@ -723,6 +704,7 @@ input::-webkit-inner-spin-button {
 
 .justering input {
     width: 100%;
+    font-size: 0.7rem;
     background-color: var(--felt);
 }
 
@@ -752,8 +734,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-
-
 /* Modifiers */
 .justering--draaber {
     margin: 0.25rem 0 0.25rem 0;
@@ -776,10 +756,6 @@ input::-webkit-inner-spin-button {
     gap: 0.25rem;
 }
 
-.justering--stat input {
-    font-size: 0.7rem;
-}
-
 .justering--slet-vaaben {
     font-size: 0.8rem;
     flex-direction: column;
@@ -794,8 +770,6 @@ input::-webkit-inner-spin-button {
     padding-left: 0.5rem;
     gap: 0;
 }
-
-
 
 
 
@@ -844,8 +818,6 @@ input::-webkit-inner-spin-button {
     from { transform: translateX(0); opacity: 1; }
     to   { transform: translateX(calc(-100% - 3em)); opacity: 0; }
 }
-
-
 
 
 
@@ -939,8 +911,6 @@ input::-webkit-inner-spin-button {
     backdrop-filter: blur(1px);
 }
 
-
-
 /* Vinduerækker */
 .vindue__raekke {
     display: grid;
@@ -987,10 +957,6 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-svag);
     margin-top:2px;
 }
-
-
-
-
 
 /* Vindueknapper */
 .vindue__knapgruppe {
@@ -1048,10 +1014,6 @@ input::-webkit-inner-spin-button {
 .vindue__knapgruppe--karakter {
     flex-direction: column;
 }
-
-
-
-
 
 /* Våben og opgraderingsvindue */
 .vaabendetaljer {
@@ -1132,9 +1094,9 @@ input::-webkit-inner-spin-button {
 
 
 
-
-
-/* UTILITIES */
+/* ================= */
+/* === UTILITIES === */
+/* ================= */
 .u-grid-split {
     display: grid;
     grid-template-columns: 1fr 1fr;
@@ -1176,9 +1138,10 @@ input::-webkit-inner-spin-button {
     background-color: var(--advarsel-hover);
 }
 
-.skjult-indhold {
+.skjul-indhold {
     display: none;
 }
+
 
 
 @media (max-width: 800px) {
@@ -1195,7 +1158,6 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr;
     }
 }
-
 
 @media (max-width: 600px) {
     body {
