@@ -230,16 +230,6 @@ function visEvneJusteringer() {
     });
 }
 
-function visVaabenVaelgere() {
-    if (erEndeligDoed()) return;
-    
-    const justeringer = document.querySelectorAll('.justering.vaaben-vaelger');
-    const alleAktive = Array.from(justeringer).every(el => el.classList.contains('justering--aktiv'));
-    justeringer.forEach(el => {
-        el.classList.toggle('justering--aktiv', !alleAktive);
-    });
-}
-
 
 
 
@@ -1239,28 +1229,24 @@ function bekraeftVaabenOpgradering() {
 
 
 // --- VAABENVAELGER OG BASISSKADE ---
-function opdaterVaabenVaelger(evne) {
-    const container = document.getElementById(`vaaben-vaelger-${evne}`);
-    if (!container) return;
+function opdaterVaabenRaekke() {
+    const container = document.getElementById('vaaben-raekke');
     container.innerHTML = '';
 
-    const relevanteVaaben = (karakter.vaaben || []).filter(v => v.basis === evne);
-
-    if (relevanteVaaben.length === 0) {
-        container.innerHTML = '<div class="vaaben-tom-vaelger">Ingen våben</div>';
+    if (!karakter.vaaben || karakter.vaaben.length === 0) {
+        const tom = document.createElement('div');
+        tom.className = 'vaaben-raekke-tom';
+        tom.textContent = 'Ingen våben.';
+        container.appendChild(tom);
         return;
     }
 
-    for (const vaaben of relevanteVaaben) {
+    for (const vaaben of karakter.vaaben) {
+        const evne = vaaben.basis;
         const erValgt = karakter.vaelgtVaaben[evne] === vaaben.id;
         const el = document.createElement('div');
         el.className = 'vaaben-valg' + (erValgt ? ' aktiv' : '');
-
-        if (vaaben.opgradering === 0) {
-            el.textContent = vaaben.navn;
-        } else {
-            el.textContent = vaaben.navn + ' +' + vaaben.opgradering;
-        }
+        el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
 
         el.addEventListener('click', (e) => {
             e.stopPropagation();
@@ -1268,8 +1254,26 @@ function opdaterVaabenVaelger(evne) {
             gemData();
             opdaterVistData();
         });
+
         container.appendChild(el);
     }
+}
+
+function opdaterBasisskader() {
+    opdaterVaabenRaekke();
+
+    vaabenEvner.forEach(evne => {
+        const vaabenId = karakter.vaelgtVaaben ? karakter.vaelgtVaaben[evne] : null;
+        const vaaben = (karakter.vaaben || []).find(v => v.id === vaabenId);
+        const boks = document.getElementById(`basisskade-evne-${evne}`);
+
+        if (vaaben) {
+            boks.classList.remove('skjult-indhold');
+            saetBasisskade(evne);
+        } else {
+            boks.classList.add('skjult-indhold');
+        }
+    });
 }
 
 function beregnBasisskade(evne) {
@@ -1312,12 +1316,6 @@ function saetBasisskade(evne) {
     }
 }
 
-function opdaterBasisskader() {
-    vaabenEvner.forEach(evne => {
-        saetBasisskade(evne);
-        opdaterVaabenVaelger(evne);
-    });
-}
 
 
 
