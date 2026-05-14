@@ -179,7 +179,7 @@ input::-webkit-inner-spin-button {
     z-index: 1;
     background-color: var(--ark);
     padding: 0.5rem;
-    max-width: 1000px;
+    max-width: 1200px;
     border-radius: 1rem;
     margin: auto;
     display: flex;
@@ -296,6 +296,10 @@ input::-webkit-inner-spin-button {
     margin-bottom: 0.5rem;
     cursor: default;
     align-items: center;
+}
+
+.grundlaeggende__emne--venstre {
+    grid-template-columns: 70px 1fr 1fr;
 }
 
 .grundlaeggende__vaerdi {
@@ -1198,14 +1202,18 @@ input::-webkit-inner-spin-button {
 
 
 
+@media (max-width: 920px) {
+    .evne__grid {
+        grid-template-columns: 1fr 1fr 1fr 1fr;
+    }
+}
+
+
+
 @media (max-width: 800px) {
 
     .ressource__grid {
         grid-template-columns: 1fr 1fr;
-    }
-
-    .evne__grid {
-        grid-template-columns: 1fr 1fr 1fr 1fr;
     }
 
     .basisskade__grid {
@@ -1221,6 +1229,10 @@ input::-webkit-inner-spin-button {
     .grundlaeggende__kolonner {
         grid-template-columns: 1fr;
         gap: 0;
+    }
+
+    .grundlaeggende__emne--venstre {
+    grid-template-columns: 70px 1fr;
     }
 
     .inventar__emne {
@@ -1280,6 +1292,10 @@ input::-webkit-inner-spin-button {
 
     .vindue__knapgruppe button {
         min-width: 24px;
+    }
+
+    .evne__grid {
+        grid-template-columns: 1fr;
     }
 }
 
