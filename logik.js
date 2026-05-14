@@ -827,7 +827,7 @@ function opdaterEvneInfo(evne) {
     const nytLevel = nuvaerendeLvl + antalForbedringer;
     const nuvaerendePulje = getPulje(nuvaerendeLvl, 0);
     const nyPulje = getPulje(nytLevel, 0);
- 
+
     let info = '';
     if (antalForbedringer > 0) {
         info = `Level ${nuvaerendeLvl} → <span class="ny-vaerdi">${nytLevel}</span> (${nuvaerendePulje}d6`;

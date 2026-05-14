@@ -967,7 +967,7 @@ input::-webkit-inner-spin-button {
 /* Vinduerækker */
 .vindue__raekke {
     display: grid;
-    grid-template-columns: 120px 1fr 100px;
+    grid-template-columns: 120px 1fr 120px;
     align-items: center;
     gap: 1em;
     padding: 0.5em;
@@ -1016,6 +1016,7 @@ input::-webkit-inner-spin-button {
     display: flex;
     flex-direction: row;
     gap: 0.5rem;
+    justify-content: space-between;
 }
 
 .vindue__knap {
