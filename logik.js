@@ -825,8 +825,8 @@ function opdaterEvneInfo(evne) {
     const nuvaerendeLvl = evneVindueData.evner[evne];
     const antalForbedringer = evneForbedringer[evne];
     const nytLevel = nuvaerendeLvl + antalForbedringer;
-    const nuvaerendePulje = getPulje(nuvaerendeLvl);
-    const nyPulje = getPulje(nytLevel);
+    const nuvaerendePulje = getPulje(nuvaerendeLvl, 0);
+    const nyPulje = getPulje(nytLevel, 0);
  
     let info = '';
     if (antalForbedringer > 0) {
