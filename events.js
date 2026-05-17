@@ -237,7 +237,7 @@ const vaabenTooltip = document.getElementById('vaaben-tooltip');
     el.addEventListener('mouseenter', () => {
         const id = karakter.valgtVaaben[evne];
         const vaaben = (karakter.vaaben || []).find(v => v.id === id);
-        if (!vaaben || !vaaben.noter) return;
+        if (!vaaben) return;
         const prefix = vaaben.opgradering ? '+' : '';
         vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + `<div>Opgradering: ${prefix}${vaaben.opgradering}</div><br>` + vaaben.noter;
         vaabenTooltip.style.display = 'block';
