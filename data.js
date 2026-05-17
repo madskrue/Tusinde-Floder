@@ -96,11 +96,8 @@ const standardKarakter = {
 
 
 
-// Klasser
-const standardasket = {
-    klasse: "Asket",
-    sind: 18,
-    faerdighedsnoter: "Klassefærdighed: Indre ro\nNår du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.\n\nKlassefærdighed: Indre kraft\nDu kan omdanne 4 Sejd til 1 Hu. Færdigheden kan bruges én gang per runde.",
+// Alle våben
+const alleVaaben = {
     vaaben: [
         {
         id: "v_knojern_asket",
@@ -114,16 +111,8 @@ const standardasket = {
         navn: "Kæde",
         basis: "behaendighed",
         opgradering: 0,
-        noter: "Kræver: Behændighed 16 · Styrke 10\nBasis: Behændighed\nType: Nærkampsvåben (2 spænd)\nBruger: 1 Hu\n\nEn let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.\n\nTeknik: Svirp\nBruger: 2 Hu · 1 Sejd\nHvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig."
-        }
-    ],
-};
-
-const standardbytyv = {
-    klasse: "Bytyv",
-    behaendighed: 18,
-    faerdighedsnoter: "Klassefærdighed: Baghold\nSom bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
-    vaaben: [
+        noter: "Kræver: Behændighed 15 · Styrke 10\nBasis: Behændighed\nType: Nærkampsvåben (2 spænd)\nBruger: 1 Hu\n\nEn let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.\n\nTeknik: Svirp\nBruger: 2 Hu · 1 Sejd\nHvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig."
+        },
         {
         id: "v_tvillingedolke_bytyv",
         navn: "Tvillingedolke",
@@ -138,14 +127,6 @@ const standardbytyv = {
         opgradering: 0,
         noter: "Kræver: Behændighed 12\nBasis: Behændighed\nType: Nærkampsvåben (1 spænd)\nBruger: 1 Hu\n\nEn lang dolk med en savtakket klinge. Gør halv basisskade.\n\nTeknik: Flænsning\nBruger: 2 Hu · 1 Sejd\nSkær et dybt sår i målet. Hvis de rammes, tager de basisskade nu og begynder at bløde. I starten af målets næste tur, tager de halv basisskade."
         },
-    ],
-};
-
-const standardforkynder = {
-    klasse: "Forkynder",
-    mystik: 18,
-    faerdighedsnoter: "Klassefærdighed: Bøn\nSom forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
-    vaaben: [
         {
         id: "v_sakral_leder_forkynder",
         navn: "Sakral Leder",
@@ -160,14 +141,6 @@ const standardforkynder = {
         opgradering: 0,
         noter: "Kræver: Styrke 10\nBasis: Styrke\nType: Nærkampsvåben (1 spænd)\nBruger: 2 Hu\n\nEn tung kugle med pigge, fastgjort til et skaft. Gør basisskade.\n\nTeknik: Hårdt slag\nKræver: to hænder\nBruger: 3 Hu · 1 Sejd\nSlå et mål indenfor 1 spænd. Gør dobbelt basisskade."
         },
-    ]
-};
-
-const standardhedonist = {
-    klasse: "Hedonist",
-    intuition: 18,
-    faerdighedsnoter: "Klassefærdighed: Afledning\nSom hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.\n\nKlassefærdighed: Duelist\nNår du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen.",
-    vaaben: [
         {
         id: "v_kaarde_hedonist",
         navn: "Kårde",
@@ -175,14 +148,6 @@ const standardhedonist = {
         opgradering: 0,
         noter: "Kræver: Behændighed 12\nBasis: Behændighed\nType: Nærkampsvåben (1 spænd)\nBruger: 1 Hu\n\nEt elegant sværd med en lang, smal klinge. Kården er yderst spids. Gør halv basisskade.\n\nTeknik: Touché\nBruger: 2 Hu · 1 Sejd\nTræd 1 spænd frem og angrib i én glidende bevægelse. Hvis du rammer, gør du basisskade og får +1d6 på dit næste forsvar mod denne fjende, hvis den dig angriber inden din næste tur."
         },
-    ],
-};
-
-const standardlovloes = {
-    klasse: "Lovløs",
-    form: 18,
-    faerdighedsnoter: "Klassefærdighed: Kontroltab\nÉn gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode.",
-    vaaben: [
         {
         id: "v_flitsbue_lovloes",
         navn: "Flitsbue",
@@ -204,14 +169,6 @@ const standardlovloes = {
         opgradering: 0,
         noter: "Kræver: Styrke 12 · to hænder\nBasis: Styrke\nType: Nærkampsvåben (1 spænd)\nBruger: 2 Hu\n\nEn tung tohåndshammer. Gør basisskade.\n\nTeknik: Tvingende slag\nKræver: to hænder\nBruger: 3 Hu · 1 Sejd\nEt brutalt angreb, der rykker målet. Hvis du rammer, gør du dobblet basisskade og skubber målet 1 spænd væk fra dig. Hvis målet rammer en væg eller anden forhindring, falder det omkuld."
         },
-    ],
-};
-
-const standardlaerd = {
-    klasse: "Lærd",
-    visdom: 18,
-    faerdighedsnoter: "Klassefærdighed: Visdommens segl\nEn gang per cyklus kan du, med dit profane fokus, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder.",
-    vaaben: [
         {
         id: "v_profan_leder_laerd",
         navn: "Profan Leder",
@@ -226,14 +183,6 @@ const standardlaerd = {
         opgradering: 0,
         noter: "Kræver: Behændighed 10\nBasis: Behændighed\nType: Nærkampsvåben (1 spænd)\nBruger: 1 Hu\n\nEt enhåndssværd. Gør halv basisskade.\n\nTeknik: Gennembor\nBruger: 2 Hu · 1 Sejd\nSpid målet med spidsen af sværdet. Hvis du rammer, tager målet basisskade og bliver ængsteligt."
         },
-    ],
-};
-
-const standardmilitarist = {
-    klasse: "Militarist",
-    styrke: 18,
-    faerdighedsnoter: "Klassefærdighed: Ordre\nSom militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.",
-    vaaben: [
         {
         id: "v_klingespyd_militarist",
         navn: "Klingespyd",
@@ -248,5 +197,78 @@ const standardmilitarist = {
         opgradering: 0,
         noter: "Kræver: Styrke 16\nBasis: Styrke\nType: Nærkampsvåben (1 spænd)\nBruger: 2 Hu\n\nEt langt, tungt sværd med en bred, tveægget klinge. Gør basisskade.\n\nTeknik: Hoppende angreb\nKræver: to hænder\nBruger: 3 Hu · 1 Sejd\nAngrib et mål, ved at hoppe 1 spænd fremad og lande med et voldsomt stød. Gør dobbelt basisskade."
         },
+    ]
+}
+
+
+
+// Klasser
+const standardasket = {
+    klasse: "Asket",
+    sind: 18,
+    faerdighedsnoter: "Klassefærdighed: Indre ro\nNår du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.\n\nKlassefærdighed: Indre kraft\nDu kan omdanne 4 Sejd til 1 Hu. Færdigheden kan bruges én gang per runde.",
+    vaaben: [
+        {id: "v_knojern_asket"},
+        {id: "v_kaede_asket"},
+    ],
+};
+
+const standardbytyv = {
+    klasse: "Bytyv",
+    behaendighed: 18,
+    faerdighedsnoter: "Klassefærdighed: Baghold\nSom bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
+    vaaben: [
+        {id: "v_tvillingedolke_bytyv"},
+        {id: "v_langdolk_bytyv"},
+    ],
+};
+
+const standardforkynder = {
+    klasse: "Forkynder",
+    mystik: 18,
+    faerdighedsnoter: "Klassefærdighed: Bøn\nSom forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
+    vaaben: [
+        {id: "v_sakral_leder_forkynder"},
+        {id: "v_morgenstjerne_forkynder"},
+    ]
+};
+
+const standardhedonist = {
+    klasse: "Hedonist",
+    intuition: 18,
+    faerdighedsnoter: "Klassefærdighed: Afledning\nSom hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.\n\nKlassefærdighed: Duelist\nNår du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen.",
+    vaaben: [
+        {id: "v_kaarde_hedonist"},
+    ],
+};
+
+const standardlovloes = {
+    klasse: "Lovløs",
+    form: 18,
+    faerdighedsnoter: "Klassefærdighed: Kontroltab\nÉn gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode.",
+    vaaben: [
+        {id: "v_flitsbue_lovloes"},
+        {id: "v_langspyd_lovloes"},
+        {id: "v_krigshammer_lovloes"},
+    ],
+};
+
+const standardlaerd = {
+    klasse: "Lærd",
+    visdom: 18,
+    faerdighedsnoter: "Klassefærdighed: Visdommens segl\nEn gang per cyklus kan du, med dit profane fokus, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder.",
+    vaaben: [
+        {id: "v_profan_leder_laerd"},
+        {id: "v_kort_svaerd_laerd"},
+    ],
+};
+
+const standardmilitarist = {
+    klasse: "Militarist",
+    styrke: 18,
+    faerdighedsnoter: "Klassefærdighed: Ordre\nSom militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.",
+    vaaben: [
+        {id: "v_klingespyd_militarist"},
+        {id: "v_langsvaerd_militarist"},
     ],
 };

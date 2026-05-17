@@ -1273,7 +1273,11 @@ function hentStandardKlasse(klasse) {
     const baseKarakter = JSON.parse(JSON.stringify(standardKarakter));
     const klasseData = JSON.parse(JSON.stringify(diff));
     const baseVaaben = baseKarakter.vaaben;
-    const klasseVaaben = klasseData.vaaben || [];
+    const klasseVaabenRef = klasseData.vaaben || [];
+    const klasseVaaben = klasseVaabenRef.map(ref => {
+        return alleVaaben.vaaben.find(v => v.id === ref.id);
+    });
+
     Object.assign(karakter, baseKarakter, klasseData);
     karakter.vaaben = [...baseVaaben, ...klasseVaaben];
 
