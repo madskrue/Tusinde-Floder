@@ -14,7 +14,7 @@ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
 });
 
 // Sektionskjulere
-['grundlaeggende', 'ressourcer', 'status', 'basisskade', 'evner', 'inventar-og-noter'].forEach(sektion => {
+['grundlaeggende', 'ressourcer', 'status', 'basisskade', 'evner', 'inventar-og-noter', 'cyklus', 'magi'].forEach(sektion => {
     klik(`${sektion}-titel`, () => toggleSektion(sektion));
 });
 
@@ -124,6 +124,13 @@ klik('vaaben-liste-knap', initVaabenListe);
 
 klik('vaaben-vis-skjul', () => toggleVisSkjul('vaaben-vis-skjul', 'vaaben-raekke'));
 klik('basisskade-vis-skjul', () => toggleVisSkjul('basisskade-vis-skjul', 'basisskade-beholder'));
+
+// Cyklusfærdigheder
+klik('cyklus-a-titel', () => toggleVisSkjul('cyklus-a-titel', 'cyklus-a-info'));
+klik('cyklus-b-titel', () => toggleVisSkjul('cyklus-b-titel', 'cyklus-b-info'));
+klik('cyklus-a-brug', () => cyklusBrug('a'));
+klik('cyklus-b-brug', () => cyklusBrug('b'));
+
 
 // Evner
 klik('evne-toggle', visEvneJusteringer);

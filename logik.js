@@ -199,6 +199,20 @@ function toggleVisSkjul(knapId, indholdId) {
     knap.classList.toggle('skjult');
 }
 
+// Cyklusfærdigheder
+function cyklusBrug(id) {
+    const knap = document.getElementById(`cyklus-${id}-brug`);
+    const titel = document.getElementById(`cyklus-${id}-titel`);
+    const info = document.getElementById(`cyklus-${id}-info`);
+    
+    knap.classList.toggle('brugt');
+    titel.classList.toggle('brugt');
+    info.classList.toggle('brugt');
+
+    const brugt = knap.classList.contains('brugt');
+    knap.textContent = (brugt ? 'Brugt' : 'Brug');
+}
+
 // Åben/luk vinduer
 function aabenVindue(vindueId) {
     const tilladte = ['karakter', 'ny-karakter', 'nulstil-karakter'];
