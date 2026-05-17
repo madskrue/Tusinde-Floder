@@ -39,7 +39,10 @@ klik('nulstil-knap', () => {
     lukVindue('karakter');
     aabenVindue('nulstil-karakter');}
 );
-klik('annuller-karakter', () => lukVindue('karakter'));
+klik('annuller-karakter', () => {
+    if (document.getElementById('beholder').style.display === 'none') return;
+    lukVindue('karakter')}
+);
 
 
 ['asket', 'bytyv', 'forkynder', 'hedonist', 'lovloes', 'laerd', 'militarist'].forEach(klasse => {
@@ -47,14 +50,15 @@ klik('annuller-karakter', () => lukVindue('karakter'));
 });
 
 klik('annuller-ny-karakter', () => {
-    lukVindue('ny-karakter')
+    lukVindue('ny-karakter');
     aabenVindue('karakter');
 });
 
 
 klik('bekraeft-nulstil', () => {
     nulstilData();
-    lukVindue('nulstil-karakter')
+    lukVindue('nulstil-karakter');
+    lukVindue('ny-karakter');
 });
 
 klik('annuller-nulstil', () => {
@@ -203,14 +207,15 @@ document.getElementById('sekvens-input').addEventListener('keydown', (e) => {if 
 // Luk vinduer
 document.querySelectorAll('.vindue__baggrund').forEach(vindue => {
     vindue.addEventListener('click', (e) => {
-        if (e.target === vindue) {
-            vindue.style.display = 'none';
-        }
+        if (e.target !== vindue) return;
+        if (document.getElementById('beholder').style.display === 'none') return;
+        vindue.style.display = 'none';
     });
 });
 
 document.addEventListener('keydown', (e) => {
     if (e.key !== 'Escape') return;
+    if (document.getElementById('beholder').style.display === 'none') return;
     document.querySelectorAll('.vindue__baggrund').forEach(vindue => {
         vindue.style.display = 'none';
     });
@@ -260,8 +265,6 @@ const vaabenTooltip = document.getElementById('vaaben-tooltip');
         vaabenTooltip.style.display = 'none';
     });
 });
-
-
 
 
 
@@ -326,6 +329,7 @@ document.getElementById('importer-input').addEventListener('change', (e) => {
             if (!karakter.valgtVaaben) {karakter.valgtVaaben = { styrke: null, behaendighed: null, visdom: null, mystik: null };}
             if (!karakter.draaberEfterladt) karakter.draaberEfterladt = 0;
             opdaterVistData();
+            visArk();
             visBesked('Karakter indlæst.');
         } catch {
             visBesked('Fejl: Kunne ikke læse filen.');
@@ -347,4 +351,11 @@ if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
 }
 indlaesData();
+
+if (!localStorage.getItem('karakterark')) {
+    document.getElementById('beholder').style.display = 'none';
+    document.getElementById('eksporter-knap').style.display = 'none';
+    aabenVindue('karakter');
+}
+
 opdaterVistData();

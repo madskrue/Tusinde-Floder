@@ -211,6 +211,12 @@ function lukVindue(vindueId) {
     document.getElementById(vindueId + '-vindue').style.display = 'none';
 }
 
+// Vis ark
+function visArk() {
+    document.getElementById('beholder').style.display = '';
+    document.getElementById('eksporter-knap').style.display = '';
+}
+
 
 
 // =======================
@@ -1262,6 +1268,7 @@ function nulstilData() {
     Object.assign(karakter, JSON.parse(JSON.stringify(standardKarakter)));
     gemData();
     opdaterVistData();
+    visArk();
     visBesked('Karakter nulstillet.');
 }
 
@@ -1288,6 +1295,8 @@ function hentStandardKlasse(klasse) {
     karakter.flaskerNu = karakter.flaskerMax;
     gemData();
     opdaterVistData();
+    visArk();
     visBesked(`Karakter nulstillet til ${karakterVisningsnavn[klasse]}`);
     lukVindue('ny-karakter');
+    initEvneVindue();
 }
