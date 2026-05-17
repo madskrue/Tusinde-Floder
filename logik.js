@@ -600,7 +600,7 @@ function opdaterVaabenRaekke() {
 
     if (!karakter.vaaben || karakter.vaaben.length === 0) {
         const tom = document.createElement('div');
-        tom.className = 'vaaben-raekke-tom';
+        tom.className = 'emne-raekke-tom';
         tom.textContent = 'Ingen våben.';
         container.appendChild(tom);
         return;
@@ -610,7 +610,7 @@ function opdaterVaabenRaekke() {
         const evne = vaaben.basis;
         const erValgt = karakter.valgtVaaben[evne] === vaaben.id;
         const el = document.createElement('div');
-        el.className = 'vaaben-valg' + (erValgt ? ' aktiv' : '');
+        el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
         el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
 
         el.addEventListener('click', (e) => {
@@ -680,6 +680,14 @@ function saetBasisskade(evne) {
         document.getElementById(`basisskade-dobbelt-${evne}`).textContent = basisskade * 2;
     }
 }
+
+
+
+// =================
+// === BEREDSKAB ===
+// =================
+
+// funktoin a la opdaterVaabenRaekke
 
 
 

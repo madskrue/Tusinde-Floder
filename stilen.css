@@ -553,7 +553,7 @@ input::-webkit-inner-spin-button {
 }
 
 /* Våbenvælger */
-.vaaben-raekke {
+.emne-raekke {
     display: flex;
     flex-wrap: wrap;
     width: fit-content;
@@ -566,13 +566,13 @@ input::-webkit-inner-spin-button {
     border-radius: 0.5rem;
 }
 
-.vaaben-raekke-tom {
+.emne-raekke-tom {
     font-size: 0.85em;
     color: var(--tekst-svag);
     padding: 0.25em;
 }
 
-.vaaben-valg {
+.emne-valg {
     font-size: 0.85em;
     padding: 0.1rem 0.5rem;
     border-radius: 1rem;
@@ -584,12 +584,12 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
 }
 
-.vaaben-valg.aktiv {
+.emne-valg.aktiv {
     color: var(--tekst-aktiv);
     font-weight: 600;
 }
 
-.vaaben-valg:hover, .vaaben-valg.aktiv:hover {
+.emne-valg:hover, .emne-valg.aktiv:hover {
     background-color: var(--tekst-svag);
 }
 
