@@ -908,6 +908,7 @@ input::-webkit-inner-spin-button {
     min-width: 300px;
     background: var(--sektion);
     padding: 2em 2em 2.5em 2em;
+    border: 0.5px solid var(--tekst-svag);
     border-radius: 0.5rem;
     width: fit-content;
     height: fit-content;

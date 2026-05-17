@@ -35,7 +35,7 @@ function opdaterVistData() {
         function beregnRessourcer() {
             const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
             karakter.livVital = vitalMax;
-            karakter.livMax = karakter.livVital - (karakter.forvitring * Math.ceil(karakter.livVital / 10));
+            karakter.livMax = karakter.livVital - (karakter.forvitring * Math.ceil(karakter.livVital / 20));
             if (karakter.livNu > karakter.livMax) karakter.livNu = karakter.livMax;
 
             if (karakter.livMax > 0) {
@@ -222,6 +222,12 @@ function visArk() {
 // =======================
 // === HJÆLPEBEREGNERE ===
 // =======================
+
+// Rustningsgrad – til fremtidig implementering af rustninger
+function beregnRustningsgrad(reduktion) {
+    const rustningsgrad = Math.ceil( karakter.livMax * (reduktion / 100) );
+    return rustningsgrad;
+}
 
 // Tjek endelig død
 function erEndeligDoed() {
