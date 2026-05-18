@@ -155,21 +155,12 @@ function toggleSektion(type) {
 
 // Vælg fane
 function vaelgFane(type) {
-    const faneblade = document.querySelectorAll('.faneblad');
-    faneblade.forEach(el => {
-        el.classList.remove('faneblad--aktiv');
+    document.querySelectorAll('.faneblad--aktiv, .fane__titel--aktiv').forEach(el => {
+        el.classList.remove('faneblad--aktiv', 'fane__titel--aktiv');
     });
 
-    const fanetitler = document.querySelectorAll('.fane__titel');
-    fanetitler.forEach(el => {
-        el.classList.remove('fane__titel--aktiv');
-    });
-
-    const valgtFane = document.getElementById(`${type}-indhold`);
-    valgtFane.classList.add('faneblad--aktiv');
-
-    const valgtTitel = document.getElementById(`${type}-titel`);
-    valgtTitel.classList.add('fane__titel--aktiv');
+    document.getElementById(`${type}-indhold`).classList.add('faneblad--aktiv');
+    document.getElementById(`${type}-titel`).classList.add('fane__titel--aktiv');
 }
 
 // Vis/skjul justeringer
