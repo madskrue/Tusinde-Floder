@@ -153,6 +153,25 @@ function toggleSektion(type) {
     sektion.classList.toggle('skjul-indhold');
 }
 
+// Vælg fane
+function vaelgFane(type) {
+    const faneblade = document.querySelectorAll('.faneblad');
+    faneblade.forEach(el => {
+        el.classList.remove('faneblad--aktiv');
+    });
+
+    const fanetitler = document.querySelectorAll('.fane__titel');
+    fanetitler.forEach(el => {
+        el.classList.remove('fane__titel--aktiv');
+    });
+
+    const valgtFane = document.getElementById(`${type}-indhold`);
+    valgtFane.classList.add('faneblad--aktiv');
+
+    const valgtTitel = document.getElementById(`${type}-titel`);
+    valgtTitel.classList.add('fane__titel--aktiv');
+}
+
 // Vis/skjul justeringer
 function visJustering(type) {
     if (erEndeligDoed() && type !== 'forvitring') return;

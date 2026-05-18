@@ -35,7 +35,7 @@ body.dark-mode {
     --baggrund: #000;
     --ark: #1a1a1a;
     --sektion: #1e1e1e;
-    --felt: #232323;
+    --felt: #262626;
     --svagt-felt: #1c1c1c;
     --hover:  #444;
     --besked: #000000aa;
@@ -214,6 +214,7 @@ input::-webkit-inner-spin-button {
     text-transform: uppercase;
     color: var(--sektion-titel);
     cursor: pointer;
+    width: fit-content;
 }
 
 .sektion__knap {
@@ -285,6 +286,42 @@ input::-webkit-inner-spin-button {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
+}
+
+.faner {
+    display: flex;
+    gap: 0.5rem;
+    margin-top: 0.25rem;
+}
+
+.fane__titel {
+    background-color: var(--svagt-felt);
+    color: var(--tekst-svag);
+    padding: 0 0.5rem;
+    border-radius: 0.5rem 0.5rem 0 0;
+    cursor: pointer;
+    font-size: 0.7rem;
+    text-transform: uppercase;
+}
+
+.fane__titel:hover {
+    color: var(--tekst-haard);
+}
+
+.fane__titel--aktiv {
+    color: var(--tekst-haard);
+    background-color: var(--felt);
+}
+
+.faneblad {
+    display: none;
+    background-color: var(--felt);
+    padding: 0.5rem;
+    border-radius: 0 0.5rem 0.5rem 0.5rem;
+}
+
+.faneblad--aktiv {
+    display: block;
 }
 
 
@@ -497,7 +534,7 @@ input::-webkit-inner-spin-button {
 }
 
 .basisskade {
-    background-color: var(--felt);
+    background-color: var(--sektion);
     padding: 0.5em;
     border-radius: 0.5rem;
     cursor: default;
@@ -538,7 +575,7 @@ input::-webkit-inner-spin-button {
 }
 
 .basisskade__vaerdi--stor {
-    background-color: var(--sektion);
+    background-color: var(--felt);
     font-size: 1.5em;
     padding: 0.25em 0.5em;
     width: fit-content;

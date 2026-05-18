@@ -14,7 +14,7 @@ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
 });
 
 // Sektionskjulere
-['grundlaeggende', 'ressourcer', 'status', 'basisskade', 'evner', 'inventar-og-noter', 'cyklus', 'magi'].forEach(sektion => {
+['grundlaeggende', 'ressourcer', 'status', 'beredskab', 'evner', 'inventar-og-noter'].forEach(sektion => {
     klik(`${sektion}-titel`, () => toggleSektion(sektion));
 });
 
@@ -24,7 +24,12 @@ klik('draabe-justering-minus', fjernDraaber);
 klik('draabe-justering-plus', tilfoejDraaber);
 klik('draaber-efterladt-beholder', samlDraaber);
 
-
+// 
+['basisskade', 'cyklus', 'magi'].forEach(fane => {
+    klik(`${fane}-titel`, () => {
+        vaelgFane(fane)
+    })
+});
 
 // Karakterhåndtering
 klik('rediger-knap', () => aabenVindue('karakter'));
