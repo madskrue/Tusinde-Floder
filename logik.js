@@ -7,7 +7,6 @@ function opdaterVistData() {
     opdaterGrundlaeggende();
     opdaterRessourcer();
     opdaterStatus();
-    opdaterBasisskader()
     opdaterEvner();
     opdaterInventarOgNoter();
     gemData();
@@ -648,62 +647,28 @@ function opdaterVaabenRaekke() {
     }
 }
 
-function opdaterBasisskader() {
-    opdaterVaabenRaekke();
+function beregnBasisskade(vaaben) {
+    const basisLevel = karakter[vaaben.basis] + karakter.forskydning[vaaben.basis];
+    const basisDel = basisLevel * (1 + vaaben.opgradering * 0.2);
+    const tillaegsDel = vaaben.tillaegsevne
+        ? (karakter[vaaben.tillaegsevne] + karakter.forskydning[vaaben.tillaegsevne])
+          * (vaaben.tillaegsTaeller / vaaben.tillaegsNaevner)
+        : 0;
+    return Math.round(basisDel + tillaegsDel);
+}
 
-    vaabenEvner.forEach(evne => {
-        const vaabenId = karakter.valgtVaaben ? karakter.valgtVaaben[evne] : null;
-        const vaaben = (karakter.vaaben || []).find(v => v.id === vaabenId);
-        const boks = document.getElementById(`basisskade-evne-${evne}`);
+function genererVaabenKort(vaaben) {
+    // få den til at lave kort
+}
 
-        if (vaaben) {
-            boks.classList.remove('skjul-indhold');
-            saetBasisskade(evne);
-        } else {
-            boks.classList.add('skjul-indhold');
-        }
+
+function opdaterVaabenKort() {
+    karakter.vaaben.forEach(vaaben => {
+        genererVaabenKort(vaaben);
     });
 }
 
-function beregnBasisskade(evne) {
-    const id = karakter.valgtVaaben ? karakter.valgtVaaben[evne] : null;
-    if (!id) return '-';
-    const vaaben = (karakter.vaaben || []).find(v => v.id === id);
-    if (!vaaben) return 0;
-    return Math.round((karakter[evne] + karakter.forskydning[evne]) * (1 + vaaben.opgradering * 0.2));
-}
 
-function saetBasisskade(evne) {
-    const basisskade = beregnBasisskade(evne);
-    document.getElementById(`basisskade-${evne}`).textContent = basisskade;
-
-    const vaabenViser = document.getElementById(`basisskade-evne-vaaben-${evne}`);
-    const omraade = document.getElementById(`basisskade-omraade-${evne}`);
-    const vaabenId = karakter.valgtVaaben[evne];
-    const vaaben = karakter.vaaben.find(v => v.id === vaabenId);
-
-    if (!vaaben) {
-        vaabenViser.classList.add('intet-vaaben');
-        vaabenViser.textContent = "Intet våben";
-        omraade.classList.add('skjul-indhold');
-    } else {
-        if (vaaben.opgradering === 0) {
-            vaabenViser.textContent = vaaben.navn;
-        } else {
-            vaabenViser.textContent = vaaben.navn + ' +' + vaaben.opgradering;
-        }
-        vaabenViser.classList.remove('intet-vaaben');
-        omraade.classList.remove('skjul-indhold');
-    }
-
-    if (basisskade === '-') {
-        document.getElementById(`basisskade-halv-${evne}`).textContent = '-';
-        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = '-';
-    } else {
-        document.getElementById(`basisskade-halv-${evne}`).textContent = Math.ceil(basisskade / 2);
-        document.getElementById(`basisskade-dobbelt-${evne}`).textContent = basisskade * 2;
-    }
-}
 
 
 

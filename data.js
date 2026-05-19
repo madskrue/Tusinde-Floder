@@ -185,9 +185,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Våbenbeskrivelse.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { },
 
@@ -216,9 +216,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et simpelt knojern. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 10 },
 
@@ -247,9 +247,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "En let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 15, styrke: 10 },
 
@@ -278,9 +278,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Kræver to hænder. Et sæt af to mindre dolke, en til hver hånd. Et angreb er et stød med en af dolkene. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 15 },
 
@@ -309,9 +309,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "En lang dolk med en savtakket klinge. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 12 },
 
@@ -340,9 +340,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et enkelt objekt (f.eks. ikon, stav, relikvie), der kanaliserer sakral magi.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { mystik: 14 },
 
@@ -370,9 +370,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "En tung kugle med pigge, fastgjort til et skaft. Gør basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { styrke: 10 },
 
@@ -401,9 +401,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et elegant sværd med en lang, smal klinge. Kården er yderst spids. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 12 },
 
@@ -432,9 +432,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Kræver to hænder. Bue og pil. Et angreb affyrer en pil op til 20 spænd. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 12 },
 
@@ -463,9 +463,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et langt og let spyd. Et angreb er et let hug mod et mål op til 2 spænd væk. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 12 },
 
@@ -494,9 +494,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Kræver to hænder. En tung tohåndshammer. Gør basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { styrke: 12 },
 
@@ -525,9 +525,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et enkelt objekt (f.eks. stav, tryllestav, sfære), der kanaliserer profan magi.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { visdom: 14 },
 
@@ -555,9 +555,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et enhåndssværd. Gør halv basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { behaendighed: 10 },
 
@@ -586,9 +586,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et tungt spyd med en klinge langs skaftet. Gør basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { styrke: 15, behaendighed: 12 },
 
@@ -617,9 +617,9 @@ const alleVaaben = {
         opgradering: 0,
         beskrivelse: "Et langt, tungt sværd med en bred, tveægget klinge. Gør basisskade.",
 
-        tillægsevne: null,
-        tillægsTaeller: null,
-        tillægsNaevner: null,
+        tillaegsevne: null,
+        tillaegsTaeller: null,
+        tillaegsNaevner: null,
 
         levelKrav: { styrke: 15 },
 
@@ -630,8 +630,8 @@ const alleVaaben = {
 
         teknik: {
             navn: "Hoppende angreb",
-            skadeFaktor: 1,
-            hu: 2,
+            skadeFaktor: 2,
+            hu: 3,
             sejd: 1,
             beskrivelse: "Kræver to hænder. Angrib et mål, ved at hoppe 1 spænd fremad og lande med et voldsomt stød. Gør dobbelt basisskade."
         },
