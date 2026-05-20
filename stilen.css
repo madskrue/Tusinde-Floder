@@ -533,11 +533,8 @@ input::-webkit-inner-spin-button {
     flex-wrap: wrap;
     width: fit-content;
     gap: 0.25rem;
-    margin-bottom: 0.5rem;
-    padding: 0.25rem;
-    min-height: 1.5rem;
+    margin: 0.5rem 0;
     cursor: default;
-    background-color: var(--felt);
     border-radius: 0.5rem;
 }
 
@@ -548,7 +545,7 @@ input::-webkit-inner-spin-button {
 }
 
 .emne-valg {
-    font-size: 0.85em;
+    font-size: 0.65rem;
     padding: 0.1rem 0.5rem;
     border-radius: 1rem;
     cursor: pointer;
@@ -560,6 +557,7 @@ input::-webkit-inner-spin-button {
 }
 
 .emne-valg.aktiv {
+    background-color: var(--sektion-knap);
     color: var(--tekst-aktiv);
     font-weight: 600;
 }
@@ -1251,6 +1249,7 @@ input::-webkit-inner-spin-button {
 }
 
 .vaabendetaljer__opgraderingsselektor {
+    width: fit-content;
     padding: 0.1em 0.5em;
     border-radius: 0.5rem;
     background-color: var(--sektion);

@@ -1262,7 +1262,7 @@ function opdaterVaabenOpgraderingVindue() {
         if (vaabenOpgVindueVedVandsten) tekst += `, ${draaber} Dråber`;
         omk.innerHTML = `<span class="ny-vaerdi ny-vaerdi--draaber">${tekst}</span>`;
     } else {
-        omk.textContent = '–';
+        omk.textContent = '-';
     }
 
     document.getElementById('vaabenopg-minus').disabled =
