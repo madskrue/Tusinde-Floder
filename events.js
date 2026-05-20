@@ -239,8 +239,16 @@ document.addEventListener('keydown', (e) => {
 // ===============
 
 // Håndter textarea-størrelse
-document.getElementById('noter-input').addEventListener('input', () => {
+document.getElementById('noter-input').addEventListener('input', (e) => {
+    karakter.noter = e.target.value;
     opdaterNoteOmraade('noter-input');
+    gemData();
+});
+
+document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
+    karakter.faerdighedsnoter = e.target.value;
+    opdaterNoteOmraade('faerdigheder-noter-input');
+    gemData();
 });
 
 document.getElementById('vaaben-detalje-beskrivelse').addEventListener('input', () => {
@@ -255,15 +263,9 @@ document.getElementById('vaaben-noter-input').addEventListener('input', () => {
     opdaterNoteOmraade('vaaben-noter-input');
 });
 
-document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
-    karakter.faerdighedsnoter = e.target.value;
-    opdaterNoteOmraade('faerdigheder-noter-input');
-    gemData();
-});
 
 
-
-// Gem karakternavn, klasse, noter
+// Gem karakternavn, klasse
 document.getElementById('karakterNavn').addEventListener('input', (e) => {
     karakter.navn = e.target.value;
     gemData();
@@ -271,11 +273,6 @@ document.getElementById('karakterNavn').addEventListener('input', (e) => {
 
 document.getElementById('karakterKlasse').addEventListener('input', (e) => {
     karakter.klasse = e.target.value;
-    gemData();
-});
-
-document.getElementById('noter-input').addEventListener('input', (e) => {
-    karakter.noter = e.target.value;
     gemData();
 });
 

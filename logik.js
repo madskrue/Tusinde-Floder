@@ -685,7 +685,7 @@ function genererVaabenKort(vaaben) {
 
     kort.innerHTML = `
     <div class="vaabenkort__top">
-        <div class="vaabenkort__titel" id="kort-${vaaben.navn}">${vaaben.navn}</div>
+        <div class="vaabenkort__titel" id="kort-${vaaben.navn}">${vaaben.navn}${ vaaben.opgradering ? ' +' + vaaben.opgradering : ''}</div>
         <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${vaaben.basis}</div>
     </div>
 
@@ -1097,7 +1097,9 @@ function aabneVaabenDetalje(id) {
             midlertidigOpgradering: vaaben.opgradering,
             vedVandsten: false,
             beskrivelse: vaaben.beskrivelse,
-            teknik: vaaben.teknik.navn + '\n' + vaaben.teknik.beskrivelse,
+            teknik: vaaben.teknik
+                ? (vaaben.teknik.navn + (vaaben.teknik.beskrivelse ? '\n' + vaaben.teknik.beskrivelse : ''))
+                : '',
             noter: vaaben.noter || '',
         };
     }
@@ -1146,6 +1148,12 @@ function opdaterVaabenOpgraderingKnap() {
 function gemVaaben() {
     const navn = document.getElementById('vaaben-navn-input').value.trim() || 'Unavngivet';
     const noter = document.getElementById('vaaben-noter-input').value;
+    const beskrivelse = document.getElementById('vaaben-detalje-beskrivelse').value;
+
+    const teknikTekst = document.getElementById('vaaben-detalje-teknik').value;
+    const foersteLinje = teknikTekst.indexOf('\n');
+    const teknikNavn = foersteLinje === -1 ? teknikTekst : teknikTekst.slice(0, foersteLinje);
+    const teknikBeskrivelse = foersteLinje === -1 ? '' : teknikTekst.slice(foersteLinje + 1).trim();
 
     const { stenskaar, draaber } = beregnVaabenOpgraderingOmkostning(
         vaabenDetaljeState.originalOpgradering,
@@ -1153,33 +1161,36 @@ function gemVaaben() {
         vaabenDetaljeState.vedVandsten
     );
 
+    const eksisterende = aktivtVaabenId !== null
+        ? karakter.vaaben.find(v => v.id === aktivtVaabenId)
+        : null;
+
+    const nytVaaben = {
+        id: aktivtVaabenId ?? genererVaabenId(),
+        navn,
+        basis: vaabenDetaljeState.basis,
+        opgradering: vaabenDetaljeState.midlertidigOpgradering,
+        beskrivelse,
+        angreb: eksisterende?.angreb ?? { skadeFaktor: 0.5, hu: 1 },
+        teknik: {
+            navn: teknikNavn || 'Teknik',
+            beskrivelse: teknikBeskrivelse,
+            skadeFaktor: eksisterende?.teknik?.skadeFaktor ?? 1,
+            hu: eksisterende?.teknik?.hu ?? 2,
+            sejd: eksisterende?.teknik?.sejd ?? 1,
+        },
+        tillaegsevne: eksisterende?.tillaegsevne ?? null,
+        tillaegsTaeller: eksisterende?.tillaegsTaeller ?? null,
+        tillaegsNaevner: eksisterende?.tillaegsNaevner ?? null,
+        noter,
+    };
+
     if (aktivtVaabenId === null) {
-        const nytId = genererVaabenId();
-        karakter.vaaben.push({
-            id: nytId,
-            navn,
-            basis: vaabenDetaljeState.basis,
-            opgradering: vaabenDetaljeState.midlertidigOpgradering,
-            noter,
-        });
-        aktivtVaabenId = nytId;
+        aktivtVaabenId = nytVaaben.id;
+        karakter.vaaben.push(nytVaaben);
     } else {
         const idx = karakter.vaaben.findIndex(v => v.id === aktivtVaabenId);
-        if (idx !== -1) {
-            // Hvis basis er ændret, fjern det fra valgtVaaben på den gamle evne
-            const gammelBasis = karakter.vaaben[idx].basis;
-            if (gammelBasis !== vaabenDetaljeState.basis &&
-                karakter.valgtVaaben[gammelBasis] === aktivtVaabenId) {
-                karakter.valgtVaaben[gammelBasis] = null;
-            }
-            karakter.vaaben[idx] = {
-                id: aktivtVaabenId,
-                navn,
-                basis: vaabenDetaljeState.basis,
-                opgradering: vaabenDetaljeState.midlertidigOpgradering,
-                noter,
-            };
-        }
+        if (idx !== -1) karakter.vaaben[idx] = nytVaaben;
     }
 
     karakter.stenskaar = Math.max(0, karakter.stenskaar - stenskaar);
@@ -1196,13 +1207,7 @@ function gemVaaben() {
 function sletVaaben() {
     if (aktivtVaabenId === null) return;
     karakter.vaaben = karakter.vaaben.filter(v => v.id !== aktivtVaabenId);
-
-    for (const evne of vaabenEvner) {
-        if (karakter.valgtVaaben[evne] === aktivtVaabenId) {
-            karakter.valgtVaaben[evne] = null;
-        }
-    }
-
+    karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== aktivtVaabenId);
     aktivtVaabenId = null;
     opdaterVistData();
     lukVindue('vaabendetalje');
