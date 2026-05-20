@@ -127,9 +127,6 @@ klik('laesioner-justering-plus', laesionerPlus);
 // Våben og basisskade
 klik('vaaben-liste-knap', initVaabenListe);
 
-klik('vaaben-vis-skjul', () => toggleVisSkjul('vaaben-vis-skjul', 'vaaben-raekke'));
-klik('basisskade-vis-skjul', () => toggleVisSkjul('basisskade-vis-skjul', 'basisskade-beholder'));
-
 // Cyklusfærdigheder
 klik('cyklus-a-titel', () => toggleVisSkjul('cyklus-a-titel', 'cyklus-a-info'));
 klik('cyklus-b-titel', () => toggleVisSkjul('cyklus-b-titel', 'cyklus-b-info'));
@@ -241,45 +238,6 @@ document.addEventListener('keydown', (e) => {
 // === DIVERSE ===
 // ===============
 
-// Tooltip: våbennoter ved hover på aktivt våben
-const vaabenTooltip = document.getElementById('vaaben-tooltip');
-['styrke', 'behaendighed', 'visdom', 'mystik'].forEach(evne => {
-    const el = document.getElementById(`basisskade-evne-vaaben-${evne}`);
-
-    el.addEventListener('mouseenter', () => {
-        const id = karakter.valgtVaaben[evne];
-        const vaaben = (karakter.vaaben || []).find(v => v.id === id);
-        if (!vaaben) return;
-        const prefix = vaaben.opgradering ? '+' : '';
-        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + `<div>Opgradering: ${prefix}${vaaben.opgradering}</div><br>` + vaaben.noter;
-        vaabenTooltip.style.display = 'block';
-    });
-
-    el.addEventListener('mousemove', (e) => {
-    const gap = 11; // Afstand fra cursor
-    let x = e.clientX + gap;
-    let y = e.clientY + gap;
-
-    // Hent tooltippens dimensioner og viewportens bredde
-    const tooltipBredde = vaabenTooltip.offsetWidth;
-    const viewportBredde = window.innerWidth;
-
-    // Tjek for kollision med højre side
-    if (x + tooltipBredde > viewportBredde) {
-        x = e.clientX - tooltipBredde - gap;
-    }
-
-    vaabenTooltip.style.left = x + 'px';
-    vaabenTooltip.style.top  = y + 'px';
-    });
-
-    el.addEventListener('mouseleave', () => {
-        vaabenTooltip.style.display = 'none';
-    });
-});
-
-
-
 // Håndter textarea-størrelse
 document.getElementById('noter-input').addEventListener('input', () => {
     opdaterNoteOmraade()
@@ -338,7 +296,6 @@ document.getElementById('importer-input').addEventListener('change', (e) => {
             const data = JSON.parse(e.target.result);
             Object.assign(karakter, data);
             if (!karakter.vaaben) karakter.vaaben = [];
-            if (!karakter.valgtVaaben) {karakter.valgtVaaben = { styrke: null, behaendighed: null, visdom: null, mystik: null };}
             if (!karakter.draaberEfterladt) karakter.draaberEfterladt = 0;
             opdaterVistData();
             visArk();

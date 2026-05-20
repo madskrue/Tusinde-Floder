@@ -9,6 +9,8 @@ function opdaterVistData() {
     opdaterStatus();
     opdaterEvner();
     opdaterInventarOgNoter();
+    opdaterVaabenRaekke();
+    opdaterVaabenKort();
     gemData();
     opdaterDoedVisning();
 
@@ -630,15 +632,18 @@ function opdaterVaabenRaekke() {
     }
 
     for (const vaaben of karakter.vaaben) {
-        const evne = vaaben.basis;
-        const erValgt = karakter.valgtVaaben[evne] === vaaben.id;
+        const erValgt = karakter.valgteVaaben.includes(vaaben.id);
         const el = document.createElement('div');
         el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
         el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
 
         el.addEventListener('click', (e) => {
             e.stopPropagation();
-            karakter.valgtVaaben[evne] = erValgt ? null : vaaben.id;
+            if (karakter.valgteVaaben.includes(vaaben.id)) {
+                karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== vaaben.id);
+            } else {
+                karakter.valgteVaaben.push(vaaben.id);
+            }
             gemData();
             opdaterVistData();
         });
@@ -657,26 +662,87 @@ function beregnBasisskade(vaaben) {
     return Math.round(basisDel + tillaegsDel);
 }
 
-function genererVaabenKort(vaaben) {
-    // få den til at lave kort
-}
-
-
+// Våbenkort
 function opdaterVaabenKort() {
-    karakter.vaaben.forEach(vaaben => {
-        genererVaabenKort(vaaben);
-    });
+    document.getElementById('basisskade-beholder').innerHTML = '';
+    karakter.vaaben
+        .filter(v => karakter.valgteVaaben.includes(v.id))
+        .forEach(vaaben => genererVaabenKort(vaaben));
 }
 
+function genererVaabenKort(vaaben) {
+    const kort = document.createElement('div');
+    kort.className = 'vaabenkort';
+    kort.id = `basisskade-${vaaben.id}`;
+
+    const basisskade = beregnBasisskade(vaaben)
+
+    const angrebSkade = Math.ceil( basisskade * vaaben.angreb.skadeFaktor );
+    const teknikSkade = Math.ceil( basisskade * vaaben.teknik.skadeFaktor );
+
+    const angrebHuForbrug = `${vaaben.angreb.hu} Hu`
+    const teknikHuForbrug = `${vaaben.teknik.hu} Hu`
+
+    kort.innerHTML = `
+    <div class="vaabenkort__top">
+        <div class="vaabenkort__titel" id="kort-${vaaben.navn}">${vaaben.navn}</div>
+        <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${vaaben.basis}</div>
+    </div>
 
 
 
+    <div class="vaabenkort__data">
+        <div class="vaabenkort__angreb">
+            <div class="vaabenkort__vaerdi" id="${vaaben.navn}-angreb-skade">${angrebSkade}</div>
+            <div class="vaabenkort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="vaabenkort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
+        </div>
 
-// =================
-// === BEREDSKAB ===
-// =================
 
-// funktoin a la opdaterVaabenRaekke
+
+        <div class="vaabenkort__linje">
+            <div class="vaabenkort__teknik">
+                <div id="${vaaben.teknik.navn}-titel" class="vaabenkort__teknik-titel">${vaaben.teknik.navn}</div>
+                <div class="vaabenkort__forbrug">${vaaben.teknik.hu ? vaaben.teknik.hu + ' Hu' : ''}
+                <span class="vaabenkort__forbrug">${vaaben.teknik.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
+                    
+            </div>
+            <div class="vaabenkort__teknikvaerdi" id="${vaaben.navn}-teknik-skade">${teknikSkade}</div>
+        </div>
+    </div>
+    `;
+
+    document.getElementById('basisskade-beholder').appendChild(kort);
+
+    const vaabenTooltip = document.getElementById('vaaben-tooltip');
+    const el = document.getElementById(`kort-${vaaben.navn}`);
+
+    el.addEventListener('mouseenter', () => {
+        const prefix = vaaben.opgradering ? '+' : '';
+        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + `<div>Opgradering: ${prefix}${vaaben.opgradering}</div><br>` + vaaben.beskrivelse + '<br><br>Teknik: ' + `${vaaben.teknik.navn} <br>` + vaaben.teknik.beskrivelse;
+        vaabenTooltip.style.display = 'block';
+    });
+
+    el.addEventListener('mousemove', (e) => {
+    const gap = 11;
+    let x = e.clientX + gap;
+    let y = e.clientY + gap;
+
+    const tooltipBredde = vaabenTooltip.offsetWidth;
+    const viewportBredde = window.innerWidth;
+
+    if (x + tooltipBredde > viewportBredde) {
+        x = e.clientX - tooltipBredde - gap;
+    }
+
+    vaabenTooltip.style.left = x + 'px';
+    vaabenTooltip.style.top  = y + 'px';
+    });
+
+    el.addEventListener('mouseleave', () => {
+        vaabenTooltip.style.display = 'none';
+    });
+
+}
 
 
 

@@ -1,4 +1,7 @@
-// Karakterdata
+// ================================
+// ========= KARAKTERDATA =========
+// ================================
+
 let karakter = {
     navn: "",
     klasse: "",
@@ -34,7 +37,7 @@ let karakter = {
     },
 
     vaaben: [], // array af { id, navn, basis, opgradering, noter }
-    valgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
+    valgteVaaben: [],
 
     stenskaar: 0,
     flaskerMax: 1,
@@ -44,10 +47,6 @@ let karakter = {
     noter: "",
     faerdighedsnoter: "",
 }
-
-
-
-
 
 // Udgangspunkt
 const standardKarakter = {
@@ -85,7 +84,7 @@ const standardKarakter = {
     },
 
     vaaben: [],
-    valgtVaaben: { styrke: null, behaendighed: null, visdom: null, mystik: null },
+    valgteVaaben: [],
 
     stenskaar: 0,
     flaskerMax: 1,
@@ -98,7 +97,9 @@ const standardKarakter = {
 
 
 
-
+// ===========================
+// ========= KLASSER =========
+// ===========================
 
 // Klasser
 const standardasket = {
@@ -174,6 +175,10 @@ const standardmilitarist = {
 
 
 
+
+// =========================
+// ========= VÅBEN =========
+// =========================
 
 // Alle våben
 const alleVaaben = {
@@ -639,4 +644,29 @@ const alleVaaben = {
         noter: ""
         },
     ]
-}
+};
+
+
+
+
+
+const alleBesvaergelser = {
+    besvaergelser: [
+        {
+        id: "skabelon",
+        navn: "Besværgelsesnavn",
+        basis: "Evne",
+        beskrivelse: "Beskrivelse.",
+
+        levelKrav: { },
+
+        angreb: {
+            skadeFaktor: 1,
+            hu: 1,
+            sejd: 1,
+        },
+
+        noter: ""
+        },
+    ]
+};

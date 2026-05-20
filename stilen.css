@@ -526,71 +526,7 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-/* SEKTION: VÅBEN OG BASISSKADE */
-.basisskade__grid {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 0.5rem;
-}
-
-.basisskade {
-    background-color: var(--sektion);
-    padding: 0.5em;
-    border-radius: 0.5rem;
-    cursor: default;
-    height: fit-content;
-}
-
-.basisskade__top {
-    display: flex;
-    justify-content: space-between;
-}
-
-.basisskade__vaaben {
-    font-size: 0.6rem;
-    color: var(--tekst-aktiv);
-    font-weight: 600;
-}
-
-.basisskade__navn {
-    font-size: 0.6rem;
-    text-transform: uppercase;
-    color: var(--tekst-mellem-haard);
-}
-
-.intet-vaaben {
-    color: var(--tekst-svag);
-    font-weight: 400;
-}
-
-.basisskade__vaerdier {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-}
-
-.basisskade__vaerdi {
-    padding: 0.25em 0.5em;
-    border-radius: 0.5em;
-}
-
-.basisskade__vaerdi--stor {
-    background-color: var(--felt);
-    font-size: 1.5em;
-    padding: 0.25em 0.5em;
-    width: fit-content;
-    align-self: center;
-    border-radius: 0.5rem;
-}
-
-.basisskade__halv-dobbelt {
-    font-size: 0.65rem;
-    margin: 0.5rem 0 0.25rem;
-    display: flex;
-    justify-content: center;
-    gap: 1rem;
-}
-
+/* SEKTION: BEREDSKAB */
 /* Våbenvælger */
 .emne-raekke {
     display: flex;
@@ -647,7 +583,100 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-haard);
 }
 
-/* SEKTION: BEREDSKAB */
+/* Våbenkort */
+.basisskade__grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.vaabenkort {
+    background-color: var(--sektion);
+    padding: 0.5em;
+    border-radius: 0.5rem;
+    cursor: default;
+    height: fit-content;
+}
+
+.vaabenkort__top {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 0.25rem;
+}
+
+.vaabenkort__titel {
+    font-size: 0.6rem;
+    color: var(--tekst-aktiv);
+    font-weight: 600;
+}
+
+.vaabenkort__basis {
+    font-size: 0.6rem;
+    text-transform: uppercase;
+    color: var(--tekst-mellem-haard);
+}
+
+.intet-vaaben {
+    color: var(--tekst-svag);
+    font-weight: 400;
+}
+
+.vaabenkort__data {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.vaabenkort__forbrug {
+    font-size: 0.7rem;
+    color: var(--tekst-svag);
+}
+
+.vaabenkort__beskrivelse {
+    font-size: 0.7rem;
+}
+
+.vaabenkort__angreb {
+    margin: auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+}
+
+.vaabenkort__angreb {
+    background-color: var(--felt);
+    padding: 0.25rem 1rem;
+    border-radius: 0.5rem;
+}
+
+.vaabenkort__linje {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    background-color: var(--felt);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+.vaabenkort__teknik-titel {
+    font-size: 0.75rem;
+    color: var(--tekst-mellem-svag);
+}
+
+.vaabenkort__vaerdi {
+    font-size: 1.2rem;
+}
+
+.vaabenkort__teknikvaerdi {
+    font-size: 0.9rem;
+    background-color: var(--sektion);
+    padding: 0.25rem 0.5rem;
+    border-radius: 0.5rem;
+}
+
+/* Færdigheder */
 .valgte-faerdigheder {
     display: flex;
     flex-direction: column;
