@@ -599,21 +599,27 @@ input::-webkit-inner-spin-button {
 }
 
 .vaabenkort__top {
+    font-size: 0.65rem;
     display: flex;
     justify-content: space-between;
     margin-bottom: 0.25rem;
 }
 
 .vaabenkort__titel {
-    font-size: 0.6rem;
     color: var(--tekst-aktiv);
     font-weight: 600;
 }
 
 .vaabenkort__basis {
-    font-size: 0.6rem;
     text-transform: uppercase;
     color: var(--tekst-mellem-haard);
+}
+
+.vaabenkort__basis--tillaeg {
+    margin-top: -0.25rem;
+    font-size: 0.6rem;
+    color: var(--tekst-svag);
+    text-transform: uppercase;
 }
 
 .intet-vaaben {

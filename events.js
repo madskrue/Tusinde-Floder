@@ -240,11 +240,25 @@ document.addEventListener('keydown', (e) => {
 
 // Håndter textarea-størrelse
 document.getElementById('noter-input').addEventListener('input', () => {
-    opdaterNoteOmraade()
+    opdaterNoteOmraade('noter-input');
+});
+
+document.getElementById('vaaben-detalje-beskrivelse').addEventListener('input', () => {
+    opdaterNoteOmraade('vaaben-detalje-beskrivelse');
+});
+
+document.getElementById('vaaben-detalje-teknik').addEventListener('input', () => {
+    opdaterNoteOmraade('vaaben-detalje-teknik');
 });
 
 document.getElementById('vaaben-noter-input').addEventListener('input', () => {
-    opdaterNoteOmraadeVaaben()
+    opdaterNoteOmraade('vaaben-noter-input');
+});
+
+document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
+    karakter.faerdighedsnoter = e.target.value;
+    opdaterNoteOmraade('faerdigheder-noter-input');
+    gemData();
 });
 
 
@@ -262,12 +276,6 @@ document.getElementById('karakterKlasse').addEventListener('input', (e) => {
 
 document.getElementById('noter-input').addEventListener('input', (e) => {
     karakter.noter = e.target.value;
-    gemData();
-});
-
-document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
-    karakter.faerdighedsnoter = e.target.value;
-    opdaterNoteOmraadeFaerdigheder();
     gemData();
 });
 

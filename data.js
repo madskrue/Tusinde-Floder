@@ -650,6 +650,10 @@ const alleVaaben = {
 
 
 
+// ================================
+// ========= BESVÆRGELSER =========
+// ================================
+
 const alleBesvaergelser = {
     besvaergelser: [
         {

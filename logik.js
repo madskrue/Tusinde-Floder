@@ -24,7 +24,7 @@ function opdaterVistData() {
         document.getElementById('draaber-efterladt').textContent = karakter.draaberEfterladt;
         document.getElementById('draaber-efterladt-beholder').classList.toggle('aktiv', karakter.draaberEfterladt > 0);
         document.getElementById('faerdigheder-noter-input').value = karakter.faerdighedsnoter;
-        opdaterNoteOmraadeFaerdigheder();
+        opdaterNoteOmraade('faerdigheder-noter-input');
     }
 
     function opdaterRessourcer() {
@@ -119,7 +119,7 @@ function opdaterVistData() {
         document.getElementById('stenskaar').textContent = karakter.stenskaar;
 
         document.getElementById('noter-input').value = karakter.noter;
-        opdaterNoteOmraade();
+        opdaterNoteOmraade('noter-input');
     }
 
     function opdaterDoedVisning() {
@@ -689,15 +689,16 @@ function genererVaabenKort(vaaben) {
         <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${vaaben.basis}</div>
     </div>
 
-
+    <div class="vaabenkort__top">
+        <div></div>
+        <div class="vaabenkort__basis--tillaeg">${ vaaben.tillaegsevne ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
+    </div>
 
     <div class="vaabenkort__data">
         <div class="vaabenkort__angreb">
             <div class="vaabenkort__vaerdi" id="${vaaben.navn}-angreb-skade">${angrebSkade}</div>
             <div class="vaabenkort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="vaabenkort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
         </div>
-
-
 
         <div class="vaabenkort__linje">
             <div class="vaabenkort__teknik">
@@ -714,7 +715,7 @@ function genererVaabenKort(vaaben) {
     document.getElementById('basisskade-beholder').appendChild(kort);
 
     const vaabenTooltip = document.getElementById('vaaben-tooltip');
-    const el = document.getElementById(`kort-${vaaben.navn}`);
+    const el = document.getElementById(`basisskade-${vaaben.id}`);
 
     el.addEventListener('mouseenter', () => {
         const prefix = vaaben.opgradering ? '+' : '';
@@ -792,24 +793,14 @@ function aendrInventar(emne, aendring) {
 }
 
 // Ændre størrelse på noteområde
-function opdaterNoteOmraade() {
-    const noter = document.getElementById('noter-input');
-    noter.style.height = 'auto';
-    noter.style.height = noter.scrollHeight + 'px';
-}
-
-function opdaterNoteOmraadeFaerdigheder() {
-    const noter = document.getElementById('faerdigheder-noter-input');
-    noter.style.height = 'auto';
-    noter.style.height = noter.scrollHeight + 'px';
-}
-
-function opdaterNoteOmraadeVaaben() {
-    const noter = document.getElementById('vaaben-noter-input');
+function opdaterNoteOmraade(felt) {
+    const noter = document.getElementById(felt);
     noter.style.minHeight = '3rem'
     noter.style.height = 'auto';
     noter.style.height = noter.scrollHeight + 'px';
 }
+
+
 
 
 
@@ -1081,7 +1072,9 @@ function initVaabenListe() {
 function aabneVaabenDetalje(id) {
     aktivtVaabenId = id;
 
-    opdaterNoteOmraadeVaaben()
+    opdaterNoteOmraade('vaaben-detalje-beskrivelse');
+    opdaterNoteOmraade('vaaben-detalje-teknik');
+    opdaterNoteOmraade('vaaben-noter-input');
 
     if (id === null) {
         vaabenDetaljeState = {
@@ -1090,6 +1083,8 @@ function aabneVaabenDetalje(id) {
             originalOpgradering: 0,
             midlertidigOpgradering: 0,
             vedVandsten: false,
+            beskrivelse: '',
+            teknik: '',
             noter: '',
         };
     } else {
@@ -1101,6 +1096,8 @@ function aabneVaabenDetalje(id) {
             originalOpgradering: vaaben.opgradering,
             midlertidigOpgradering: vaaben.opgradering,
             vedVandsten: false,
+            beskrivelse: vaaben.beskrivelse,
+            teknik: vaaben.teknik.navn + '\n' + vaaben.teknik.beskrivelse,
             noter: vaaben.noter || '',
         };
     }
@@ -1108,6 +1105,8 @@ function aabneVaabenDetalje(id) {
     document.getElementById('vaabendetalje-titel').textContent =
         id === null ? 'Nyt våben' : 'Rediger våben';
     document.getElementById('vaaben-navn-input').value = vaabenDetaljeState.navn;
+    document.getElementById('vaaben-detalje-beskrivelse').value = vaabenDetaljeState.beskrivelse;
+    document.getElementById('vaaben-detalje-teknik').value = vaabenDetaljeState.teknik;
     document.getElementById('vaaben-noter-input').value = vaabenDetaljeState.noter;
     document.getElementById('slet-vaaben').style.display = id === null ? 'none' : '';
 
