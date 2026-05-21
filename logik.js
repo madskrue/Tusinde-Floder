@@ -23,8 +23,6 @@ function opdaterVistData() {
         document.getElementById('draaber').textContent = karakter.draaber;
         document.getElementById('draaber-efterladt').textContent = karakter.draaberEfterladt;
         document.getElementById('draaber-efterladt-beholder').classList.toggle('aktiv', karakter.draaberEfterladt > 0);
-        document.getElementById('faerdigheder-noter-input').value = karakter.faerdighedsnoter;
-        opdaterNoteOmraade('faerdigheder-noter-input');
     }
 
     function opdaterRessourcer() {

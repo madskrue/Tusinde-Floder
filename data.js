@@ -36,7 +36,10 @@ let karakter = {
         mystik: 0,
     },
 
-    vaaben: [], // array af { id, navn, basis, opgradering, noter }
+    faerdigheder: [],
+    valgteFaerdigheder: [],
+
+    vaaben: [],
     valgteVaaben: [],
 
     stenskaar: 0,
@@ -45,7 +48,6 @@ let karakter = {
     endeligtDoed: false,
 
     noter: "",
-    faerdighedsnoter: "",
 }
 
 // Udgangspunkt
@@ -83,6 +85,9 @@ const standardKarakter = {
         mystik: 0,
     },
 
+    faerdigheder: [],
+    valgteFaerdigheder: [],
+
     vaaben: [],
     valgteVaaben: [],
 
@@ -92,7 +97,6 @@ const standardKarakter = {
     endeligtDoed: false,
 
     noter: "",
-    faerdighedsnoter: "",
 };
 
 
@@ -105,7 +109,10 @@ const standardKarakter = {
 const standardasket = {
     klasse: "Asket",
     sind: 18,
-    faerdighedsnoter: "Klassefærdighed: Indre ro\nNår du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.\n\nKlassefærdighed: Indre kraft\nDu kan omdanne 4 Sejd til 1 Hu. Færdigheden kan bruges én gang per runde.",
+    faerdigheder: [
+        {id: "klasse_asket_indre-ro"},
+        {id: "klasse_asket_indre-kraft"},
+    ],
     vaaben: [
         {id: "v_knojern_asket"},
         {id: "v_kaede_asket"},
@@ -115,7 +122,9 @@ const standardasket = {
 const standardbytyv = {
     klasse: "Bytyv",
     behaendighed: 18,
-    faerdighedsnoter: "Klassefærdighed: Baghold\nSom bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
+    faerdigheder: [
+        {id: "klasse_bytyv_baghold"},
+    ],
     vaaben: [
         {id: "v_tvillingedolke_bytyv"},
         {id: "v_langdolk_bytyv"},
@@ -125,7 +134,9 @@ const standardbytyv = {
 const standardforkynder = {
     klasse: "Forkynder",
     mystik: 18,
-    faerdighedsnoter: "Klassefærdighed: Bøn\nSom forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
+    faerdigheder: [
+        {id: "klasse_forkynder_boen"},
+    ],
     vaaben: [
         {id: "v_sakral_leder_forkynder"},
         {id: "v_morgenstjerne_forkynder"},
@@ -135,7 +146,10 @@ const standardforkynder = {
 const standardhedonist = {
     klasse: "Hedonist",
     intuition: 18,
-    faerdighedsnoter: "Klassefærdighed: Afledning\nSom hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.\n\nKlassefærdighed: Duelist\nNår du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen.",
+    faerdigheder: [
+        {id: "klasse_hedonist_afledning"},
+        {id: "klasse_hedonist_duelist"},
+    ],
     vaaben: [
         {id: "v_kaarde_hedonist"},
     ],
@@ -144,7 +158,9 @@ const standardhedonist = {
 const standardlovloes = {
     klasse: "Lovløs",
     form: 18,
-    faerdighedsnoter: "Klassefærdighed: Kontroltab\nÉn gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode.",
+    faerdigheder: [
+        {id: "klasse_lovloes_kontroltab"},
+    ],
     vaaben: [
         {id: "v_flitsbue_lovloes"},
         {id: "v_langspyd_lovloes"},
@@ -155,7 +171,9 @@ const standardlovloes = {
 const standardlaerd = {
     klasse: "Lærd",
     visdom: 18,
-    faerdighedsnoter: "Klassefærdighed: Visdommens segl\nEn gang per cyklus kan du, med dit profane fokus, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder.",
+    faerdigheder: [
+        {id: "klasse_laerd_visdommens-segl"},
+    ],
     vaaben: [
         {id: "v_profan_leder_laerd"},
         {id: "v_kort_svaerd_laerd"},
@@ -165,7 +183,9 @@ const standardlaerd = {
 const standardmilitarist = {
     klasse: "Militarist",
     styrke: 18,
-    faerdighedsnoter: "Klassefærdighed: Ordre\nSom militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.",
+    faerdigheder: [
+        {id: "klasse_militarist_ordre"},
+    ],
     vaaben: [
         {id: "v_klingespyd_militarist"},
         {id: "v_langsvaerd_militarist"},
@@ -650,6 +670,118 @@ const alleVaaben = {
 
 
 
+// ===============================
+// ========= FÆRDIGHEDER =========
+// ===============================
+
+const alleFaerdigheder = {
+    faerdigheder: [
+        {
+        id: "skabelon",
+        navn: "Færdighedsnavn",
+        kvalifikation: "Klasse/Evne",
+        type: "passiv/aktiv",
+        beskrivelse: "Beskrivelse.",
+        },
+
+
+
+        // Klassefærdigheder
+        {
+        id: "klasse_asket_indre-ro",
+        navn: "Indre ro",
+        kvalifikation: "Asket",
+        type: "aktiv",
+        beskrivelse: "Når du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus.",
+        },
+
+        {
+        id: "klasse_asket_indre-kraft",
+        navn: "Indre kraft",
+        kvalifikation: "Asket",
+        type: "aktiv",
+        beskrivelse: "Du kan omdanne 6 Sejd til 2 Hu. Færdigheden kan bruges én gang per cyklus.",
+        },
+
+        {
+        id: "klasse_bytyv_baghold",
+        navn: "Baghold",
+        kvalifikation: "Bytyv",
+        type: "aktiv",
+        beskrivelse: "Som bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
+        },
+
+        {
+        id: "klasse_forkynder_boen",
+        navn: "Bøn",
+        kvalifikation: "Forkynder",
+        type: "aktiv",
+        beskrivelse: "Som forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
+        },
+
+        {
+        id: "klasse_hedonist_afledning",
+        navn: "Afledning",
+        kvalifikation: "Hedonist",
+        type: "aktiv",
+        beskrivelse: "Som hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.",
+        },
+
+        {
+        id: "klasse_hedonist_duelist",
+        navn: "Duelist",
+        kvalifikation: "Hedonist",
+        type: "passiv",
+        beskrivelse: "Når du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen.",
+        },
+
+        {
+        id: "klasse_lovloes_kontroltab",
+        navn: "Kontroltab",
+        kvalifikation: "Lovløs",
+        type: "aktiv",
+        beskrivelse: "Én gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode.",
+        },
+
+        {
+        id: "klasse_laerd_visdommens-segl",
+        navn: "Visdommens segl",
+        kvalifikation: "Lærd",
+        type: "aktiv",
+        beskrivelse: "En gang per cyklus kan du, med dit profane fokus, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder.",
+        },
+
+        {
+        id: "klasse_militarist_ordre",
+        navn: "Ordre",
+        kvalifikation: "Militarist",
+        type: "aktiv",
+        beskrivelse: "Som militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.",
+        },
+
+
+
+        // Evnefærdigheder
+        {
+        id: "evne_sind_disciplin-1",
+        navn: "Disciplin 1",
+        kvalifikation: "Sind",
+        type: "aktiv",
+        beskrivelse: "Saml dit sind og genvind Sejd. Rul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus.",
+        },
+
+        {
+        id: "evne_intuition_skarp",
+        navn: "Skarp",
+        kvalifikation: "Intuition",
+        type: "passiv",
+        beskrivelse: "Når du ruller initiativ, kan du vælge at rulle to gange og bruge det højeste resultat.",
+        },
+    ]
+};
+
+
+
 // ================================
 // ========= BESVÆRGELSER =========
 // ================================
@@ -664,10 +796,12 @@ const alleBesvaergelser = {
 
         levelKrav: { },
 
+        goerSkade: false,
+
         angreb: {
-            skadeFaktor: 1,
-            hu: 1,
-            sejd: 1,
+            skadeFaktor: null,
+            hu: null,
+            sejd: null,
         },
 
         noter: ""

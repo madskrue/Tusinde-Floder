@@ -852,11 +852,6 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-svag);
 }
 
-.noter__faerdigheder {
-    min-height: 3rem;
-    overflow: hidden;
-}
-
 
 
 /* =================== */

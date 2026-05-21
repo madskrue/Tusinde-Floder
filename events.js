@@ -144,7 +144,6 @@ klik('evne-toggle', visEvneJusteringer);
 
 // Inventar og noter
 klik('inventar-vis-skjul', () => toggleVisSkjul('inventar-vis-skjul', 'inventar-emner'));
-klik('faerdigheder-vis-skjul', () => toggleVisSkjul('faerdigheder-vis-skjul', 'faerdigheder-noter-input'));
 klik('noter-vis-skjul', () => toggleVisSkjul('noter-vis-skjul', 'noter-input'));
 
 klik('inventar-emner', initInventar);
@@ -242,12 +241,6 @@ document.addEventListener('keydown', (e) => {
 document.getElementById('noter-input').addEventListener('input', (e) => {
     karakter.noter = e.target.value;
     opdaterNoteOmraade('noter-input');
-    gemData();
-});
-
-document.getElementById('faerdigheder-noter-input').addEventListener('input', (e) => {
-    karakter.faerdighedsnoter = e.target.value;
-    opdaterNoteOmraade('faerdigheder-noter-input');
     gemData();
 });
 
