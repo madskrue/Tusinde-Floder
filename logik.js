@@ -703,8 +703,7 @@ function genererVaabenKort(vaaben) {
             </div>
             <div class="kort__teknikvaerdi" id="${vaaben.navn}-teknik-skade">${teknikSkade}</div>
         </div>
-    </div>
-    `;
+    </div>`;
 
     document.getElementById('basisskade-beholder').appendChild(kort);
 
@@ -741,9 +740,6 @@ function genererVaabenKort(vaaben) {
         vaabenTooltip.style.display = 'none';
     });
 }
-
-
-
 
 
 
@@ -811,8 +807,7 @@ function genererFaerdighedsKort(faerdighed) {
     </div>
 
     <div class="kort__top">
-        <div class="brug-knap" id="cyklus-brug-${id}">Brug</div>
-        <div class="kort__basis--type">${faerdighed.type}</div>
+        ${ faerdighed.type === "aktiv" ? `<div class="brug-knap" id="cyklus-brug-${id}">Brug</div>` : `<div class="kort__basis--type">${faerdighed.type}</div>`}
     </div>
 
     <div class="kort__data" id="info-${id}">
@@ -823,9 +818,11 @@ function genererFaerdighedsKort(faerdighed) {
 
     document.getElementById('faerdighed-beholder').appendChild(kort);
 
+    if (faerdighed.type === "aktiv") {
     document.getElementById(`cyklus-brug-${id}`).addEventListener('click', () => {
         cyklusBrug(id)
     });
+    }
 }
 
 function cyklusBrug(id) {
@@ -842,6 +839,7 @@ function cyklusBrug(id) {
     const brugt = knap.classList.contains('brugt');
     knap.textContent = (brugt ? 'Brugt' : 'Brug');
 }
+
 
 
 // =============

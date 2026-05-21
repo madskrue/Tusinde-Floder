@@ -221,8 +221,8 @@ input::-webkit-inner-spin-button {
 .sektion__knap {
     background-color: var(--sektion-knap);
     color: var(--tekst-svag);
-    height: 100%;
-    padding: 0.25rem 0.5rem;
+    height: fit-content;
+    padding: 0.1rem 0.5rem;
     border-radius: 1rem;
     cursor: pointer;
 }
@@ -623,7 +623,6 @@ input::-webkit-inner-spin-button {
 }
 
 .kort__basis--type {
-    margin-top: -0.25rem;
     font-size: 0.6rem;
     color: var(--tekst-svag);
     text-transform: lowercase;
@@ -690,10 +689,11 @@ input::-webkit-inner-spin-button {
 }
 
 .brug-knap {
-    background-color: var(--felt);
-    color: var(--tekst-haard);
+    background-color: var(--tekst-haard);
+    color: var(--tekst-haard-rev);
     font-weight: 600;
     padding: 0 0.25rem;
+    margin-left: 0.25rem;
     border-radius: 1rem;
     cursor: pointer;
 }
@@ -708,6 +708,9 @@ input::-webkit-inner-spin-button {
     cursor: default;
 }
 
+.brug-knap.brugt, .brug-knap.brugt:hover {
+    background-color: var(--sektion);
+}
 
 
 
