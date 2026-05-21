@@ -582,13 +582,13 @@ input::-webkit-inner-spin-button {
 }
 
 /* Våbenkort */
-.basisskade__grid {
+.kort__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 0.5rem;
 }
 
-.vaabenkort {
+.kort {
     background-color: var(--sektion);
     padding: 0.5em;
     border-radius: 0.5rem;
@@ -596,28 +596,36 @@ input::-webkit-inner-spin-button {
     height: fit-content;
 }
 
-.vaabenkort__top {
+.kort__top {
     font-size: 0.65rem;
     display: flex;
     justify-content: space-between;
+    align-items: center;
     margin-bottom: 0.25rem;
 }
 
-.vaabenkort__titel {
+.kort__titel {
     color: var(--tekst-aktiv);
     font-weight: 600;
 }
 
-.vaabenkort__basis {
+.kort__basis {
     text-transform: uppercase;
     color: var(--tekst-mellem-haard);
 }
 
-.vaabenkort__basis--tillaeg {
+.kort__basis--tillaeg {
     margin-top: -0.25rem;
     font-size: 0.6rem;
     color: var(--tekst-svag);
     text-transform: uppercase;
+}
+
+.kort__basis--type {
+    margin-top: -0.25rem;
+    font-size: 0.6rem;
+    color: var(--tekst-svag);
+    text-transform: lowercase;
 }
 
 .intet-vaaben {
@@ -625,22 +633,22 @@ input::-webkit-inner-spin-button {
     font-weight: 400;
 }
 
-.vaabenkort__data {
+.kort__data {
     display: flex;
     flex-direction: column;
     gap: 0.5rem;
 }
 
-.vaabenkort__forbrug {
+.kort__forbrug {
     font-size: 0.7rem;
     color: var(--tekst-svag);
 }
 
-.vaabenkort__beskrivelse {
+.kort__beskrivelse {
     font-size: 0.7rem;
 }
 
-.vaabenkort__angreb {
+.kort__angreb {
     margin: auto;
     display: flex;
     flex-direction: column;
@@ -648,13 +656,13 @@ input::-webkit-inner-spin-button {
     text-align: center;
 }
 
-.vaabenkort__angreb {
+.kort__angreb {
     background-color: var(--felt);
     padding: 0.25rem 1rem;
     border-radius: 0.5rem;
 }
 
-.vaabenkort__linje {
+.kort__linje {
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -664,77 +672,43 @@ input::-webkit-inner-spin-button {
     border-radius: 0.5rem;
 }
 
-.vaabenkort__teknik-titel {
+.kort__teknik-titel {
     font-size: 0.75rem;
     color: var(--tekst-mellem-svag);
 }
 
-.vaabenkort__vaerdi {
+.kort__vaerdi {
     font-size: 1.2rem;
 }
 
-.vaabenkort__teknikvaerdi {
+.kort__teknikvaerdi {
     font-size: 0.9rem;
     background-color: var(--sektion);
     padding: 0.25rem 0.5rem;
     border-radius: 0.5rem;
 }
 
-/* Færdigheder */
-.valgte-faerdigheder {
-    display: flex;
-    flex-direction: column;
-    gap: 1rem;
-}
-
-.faerdighed {
-    display: grid;
-    grid-template-columns: 1fr 2fr;
-}
-
-.faerdighed__venstre {
-    display: flex;
-    flex-direction: column;
-}
-
-.faerdighed__titel {
-    width: fit-content;
-    border-radius: 1rem;
-    padding: 0 0.25rem;
+.brug-knap {
+    background-color: var(--felt);
+    color: var(--tekst-haard);
     font-weight: 600;
+    padding: 0 0.25rem;
+    border-radius: 1rem;
     cursor: pointer;
 }
 
-.faerdighed__titel:hover {
+.brug-knap:hover {
     background-color: var(--hover);
-}
-
-.faerdighed__info {
-    font-size: 0.7rem;
-    cursor: default;
-}
-
-.emne-valg--faerdighed {
-    background-color: var(--tekst-mellem-haard);
-    color: var(--tekst-haard-rev);
-    font-weight: 600;
-    margin: 0.5rem 1rem;
-}
-
-.emne-valg--faerdighed:hover {
-    background-color: var(--besked);
-    color: var(--tekst-haard);
 }
 
 .brugt, .brugt:hover {
     color: var(--tekst-svag);
+    font-weight: 400;
     cursor: default;
 }
 
-.emne-valg--faerdighed.brugt, .emne-valg--faerdighed.brugt:hover {
-    background-color: var(--svagt-felt);
-    font-weight: 400;
-}
+
+
 
 /* SEKTION: EVNER */
 .evne__grid {
@@ -1348,7 +1322,7 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr 1fr;
     }
 
-    .basisskade__grid {
+    .kort__grid {
         grid-template-columns: 1fr;
     }
 }
@@ -1387,7 +1361,7 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr 1fr;
     }
 
-    .basisskade__grid {
+    .kort__grid {
         grid-template-columns: 1fr 1fr;
     }
 
@@ -1415,7 +1389,7 @@ input::-webkit-inner-spin-button {
 }
 
 @media (max-width: 450px) {
-    .basisskade__grid {
+    .kort__grid {
         grid-template-columns: 1fr;
     }
 

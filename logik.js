@@ -11,6 +11,7 @@ function opdaterVistData() {
     opdaterInventarOgNoter();
     opdaterVaabenRaekke();
     opdaterVaabenKort();
+    opdaterFaerdighedsKort();
     gemData();
     opdaterDoedVisning();
 
@@ -206,20 +207,6 @@ function toggleVisSkjul(knapId, indholdId) {
     const indhold = document.getElementById(indholdId);
     const erSkjult = indhold.classList.toggle('skjul-indhold');
     knap.classList.toggle('skjult');
-}
-
-// Cyklusfærdigheder
-function cyklusBrug(id) {
-    const knap = document.getElementById(`cyklus-${id}-brug`);
-    const titel = document.getElementById(`cyklus-${id}-titel`);
-    const info = document.getElementById(`cyklus-${id}-info`);
-    
-    knap.classList.toggle('brugt');
-    titel.classList.toggle('brugt');
-    info.classList.toggle('brugt');
-
-    const brugt = knap.classList.contains('brugt');
-    knap.textContent = (brugt ? 'Brugt' : 'Brug');
 }
 
 // Åben/luk vinduer
@@ -678,7 +665,7 @@ function opdaterVaabenKort() {
 
 function genererVaabenKort(vaaben) {
     const kort = document.createElement('div');
-    kort.className = 'vaabenkort';
+    kort.className = 'kort';
     kort.id = `basisskade-${vaaben.id}`;
 
     const basisskade = beregnBasisskade(vaaben)
@@ -689,31 +676,31 @@ function genererVaabenKort(vaaben) {
     const angrebHuForbrug = `${vaaben.angreb.hu} Hu`
     const teknikHuForbrug = `${vaaben.teknik.hu} Hu`
 
-    kort.innerHTML = `
-    <div class="vaabenkort__top">
-        <div class="vaabenkort__titel" id="kort-${vaaben.navn}">${vaaben.navn}${ vaaben.opgradering ? ' +' + vaaben.opgradering : ''}</div>
-        <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${evneVisningsnavn[vaaben.basis]}</div>
+    kort.innerHTML = 
+    `<div class="kort__top">
+        <div class="kort__titel" id="kort-${vaaben.navn}">${vaaben.navn}${ vaaben.opgradering ? ' +' + vaaben.opgradering : ''}</div>
+        <div class="kort__basis" id="${vaaben.navn}-basis">${evneVisningsnavn[vaaben.basis]}</div>
     </div>
 
-    <div class="vaabenkort__top">
+    <div class="kort__top">
         <div></div>
-        <div class="vaabenkort__basis--tillaeg">${ evneVisningsnavn[vaaben.tillaegsevne] ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
+        <div class="kort__basis--tillaeg">${ evneVisningsnavn[vaaben.tillaegsevne] ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
     </div>
 
-    <div class="vaabenkort__data">
-        <div class="vaabenkort__angreb">
-            <div class="vaabenkort__vaerdi" id="${vaaben.navn}-angreb-skade">${angrebSkade}</div>
-            <div class="vaabenkort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="vaabenkort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
+    <div class="kort__data">
+        <div class="kort__angreb">
+            <div class="kort__vaerdi" id="${vaaben.navn}-angreb-skade">${angrebSkade}</div>
+            <div class="kort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="kort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
         </div>
 
-        <div class="vaabenkort__linje">
-            <div class="vaabenkort__teknik">
-                <div id="${vaaben.teknik.navn}-titel" class="vaabenkort__teknik-titel">${vaaben.teknik.navn}</div>
-                <div class="vaabenkort__forbrug">${vaaben.teknik.hu ? vaaben.teknik.hu + ' Hu' : ''}
-                <span class="vaabenkort__forbrug">${vaaben.teknik.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
+        <div class="kort__linje">
+            <div class="kort__teknik">
+                <div id="${vaaben.teknik.navn}-titel" class="kort__teknik-titel">${vaaben.teknik.navn}</div>
+                <div class="kort__forbrug">${vaaben.teknik.hu ? vaaben.teknik.hu + ' Hu' : ''}
+                <span class="kort__forbrug">${vaaben.teknik.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
                     
             </div>
-            <div class="vaabenkort__teknikvaerdi" id="${vaaben.navn}-teknik-skade">${teknikSkade}</div>
+            <div class="kort__teknikvaerdi" id="${vaaben.navn}-teknik-skade">${teknikSkade}</div>
         </div>
     </div>
     `;
@@ -752,9 +739,65 @@ function genererVaabenKort(vaaben) {
     el.addEventListener('mouseleave', () => {
         vaabenTooltip.style.display = 'none';
     });
-
 }
 
+
+
+
+
+
+// Færdighedskort
+function opdaterFaerdighedsKort() {
+    document.getElementById('faerdighed-beholder').innerHTML = '';
+    karakter.faerdigheder
+       // .filter(v => karakter.valgteVaaben.includes(v.id))
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed));
+}
+
+function genererFaerdighedsKort(faerdighed) {
+    const id = faerdighed.id;
+    const kort = document.createElement('div');
+    kort.className = 'kort';
+    kort.id = `faerdighedskort-${faerdighed.id}`;
+
+    kort.innerHTML = 
+    `<div class="kort__top">
+        <div class="kort__titel" id="titel-${id}">${faerdighed.navn}</div>
+        <div class="kort__basis" id="kvalifikation-${id}">${faerdighed.kvalifikation}</div>
+    </div>
+
+    <div class="kort__top">
+        <div class="brug-knap" id="cyklus-brug-${id}">Brug</div>
+        <div class="kort__basis--type">${faerdighed.type}</div>
+    </div>
+
+    <div class="kort__data" id="info-${id}">
+        <div class="kort__linje">
+            <div class="kort__beskrivelse">${faerdighed.beskrivelse}</div>
+        </div>
+    </div>`;
+
+    document.getElementById('faerdighed-beholder').appendChild(kort);
+
+    document.getElementById(`cyklus-brug-${id}`).addEventListener('click', () => {
+        cyklusBrug(id)
+    });
+}
+
+function cyklusBrug(id) {
+    const knap = document.getElementById(`cyklus-brug-${id}`);
+    const titel = document.getElementById(`titel-${id}`);
+    const kval = document.getElementById(`kvalifikation-${id}`);
+    const info = document.getElementById(`info-${id}`);
+    
+    knap.classList.toggle('brugt');
+    titel.classList.toggle('brugt');
+    kval.classList.toggle('brugt');
+    info.classList.toggle('brugt');
+
+    const brugt = knap.classList.contains('brugt');
+    knap.textContent = (brugt ? 'Brugt' : 'Brug');
+}
 
 
 // =============
@@ -1376,9 +1419,15 @@ function hentStandardKlasse(klasse) {
     const klasseVaaben = klasseVaabenRef.map(ref => {
         return alleVaaben.vaaben.find(v => v.id === ref.id);
     });
+    const baseFaerdigheder = baseKarakter.faerdigheder;
+    const klasseFaerdighederRef = klasseData.faerdigheder || [];
+    const klasseFaerdigheder = klasseFaerdighederRef.map(ref => {
+        return alleFaerdigheder.faerdigheder.find(v => v.id === ref.id);
+    });
 
     Object.assign(karakter, baseKarakter, klasseData);
     karakter.vaaben = [...baseVaaben, ...klasseVaaben];
+    karakter.faerdigheder = [...baseFaerdigheder, ...klasseFaerdigheder];
 
     opdaterVistData(); // beregner livMax, sejdMax, huMax ud fra evnelevels
     karakter.livNu  = karakter.livMax;

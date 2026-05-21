@@ -128,10 +128,7 @@ klik('laesioner-justering-plus', laesionerPlus);
 klik('vaaben-liste-knap', initVaabenListe);
 
 // Cyklusfærdigheder
-klik('cyklus-a-titel', () => toggleVisSkjul('cyklus-a-titel', 'cyklus-a-info'));
-klik('cyklus-b-titel', () => toggleVisSkjul('cyklus-b-titel', 'cyklus-b-info'));
-klik('cyklus-a-brug', () => cyklusBrug('a'));
-klik('cyklus-b-brug', () => cyklusBrug('b'));
+
 
 
 // Evner
