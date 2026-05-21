@@ -343,6 +343,14 @@ function getHuRegen(intuition) {
 
 
 
+
+
+// ===================================================
+// ====================== ARKET ======================
+// ===================================================
+
+
+
 // ==================
 // === RESSOURCER ===
 // ==================
@@ -615,9 +623,9 @@ function doed() {
 
 
 
-// ===========================
-// === VÅBEN OG BASISSKADE ===
-// ===========================
+// =================
+// === BEREDSKAB ===
+// =================
 
 function opdaterVaabenRaekke() {
     const container = document.getElementById('vaaben-raekke');
@@ -686,12 +694,12 @@ function genererVaabenKort(vaaben) {
     kort.innerHTML = `
     <div class="vaabenkort__top">
         <div class="vaabenkort__titel" id="kort-${vaaben.navn}">${vaaben.navn}${ vaaben.opgradering ? ' +' + vaaben.opgradering : ''}</div>
-        <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${vaaben.basis}</div>
+        <div class="vaabenkort__basis" id="${vaaben.navn}-basis">${evneVisningsnavn[vaaben.basis]}</div>
     </div>
 
     <div class="vaabenkort__top">
         <div></div>
-        <div class="vaabenkort__basis--tillaeg">${ vaaben.tillaegsevne ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
+        <div class="vaabenkort__basis--tillaeg">${ evneVisningsnavn[vaaben.tillaegsevne] ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
     </div>
 
     <div class="vaabenkort__data">
@@ -719,7 +727,11 @@ function genererVaabenKort(vaaben) {
 
     el.addEventListener('mouseenter', () => {
         const prefix = vaaben.opgradering ? '+' : '';
-        vaabenTooltip.innerHTML = `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn}</div>` + `<div>Opgradering: ${prefix}${vaaben.opgradering}</div><br>` + vaaben.beskrivelse + '<br><br>Teknik: ' + `${vaaben.teknik.navn} <br>` + vaaben.teknik.beskrivelse;
+        vaabenTooltip.innerHTML = 
+        `<div style="color: var(--tekst-aktiv); font-weight: 600;">${vaaben.navn} <span>${ vaaben.opgradering ? '+' + vaaben.opgradering : ''}</span></div>` // Navn
+        + vaaben.beskrivelse // Beskrivelse
+        + '<br><br>Teknik: ' + `${vaaben.teknik.navn} <br>` // Tekniknavn
+        + vaaben.teknik.beskrivelse; // Teknikbeskrivelse
         vaabenTooltip.style.display = 'block';
     });
 
@@ -801,6 +813,12 @@ function opdaterNoteOmraade(felt) {
 }
 
 
+
+
+
+// =====================================================
+// ====================== VINDUER ======================
+// =====================================================
 
 
 
@@ -1295,9 +1313,12 @@ function bekraeftVaabenOpgradering() {
 
 
 
-// ======================
-// === DATAHÅNDTERING ===
-// ======================
+
+
+// ============================================================
+// ====================== DATAHÅNDTERING ======================
+// ============================================================
+
 const standardKlasser = {
     asket: standardasket,
     bytyv: standardbytyv,
