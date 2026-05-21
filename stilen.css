@@ -202,6 +202,7 @@ input::-webkit-inner-spin-button {
     background-color: var(--sektion);
     border-radius: 0.5rem;
     padding: 0.5rem;
+    height: fit-content;
 }
 
 .sektion__top {
@@ -581,7 +582,7 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-haard);
 }
 
-/* Våbenkort */
+/* Kort til våben, færdigheder, magi */
 .kort__grid {
     display: grid;
     grid-template-columns: 1fr 1fr;

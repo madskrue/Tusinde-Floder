@@ -11,6 +11,7 @@ function opdaterVistData() {
     opdaterInventarOgNoter();
     opdaterVaabenRaekke();
     opdaterVaabenKort();
+    opdaterFaerdighedsRaekke();
     opdaterFaerdighedsKort();
     gemData();
     opdaterDoedVisning();
@@ -612,6 +613,7 @@ function doed() {
 // === BEREDSKAB ===
 // =================
 
+// Våben
 function opdaterVaabenRaekke() {
     const container = document.getElementById('vaaben-raekke');
     container.innerHTML = '';
@@ -655,7 +657,6 @@ function beregnBasisskade(vaaben) {
     return Math.round(basisDel + tillaegsDel);
 }
 
-// Våbenkort
 function opdaterVaabenKort() {
     document.getElementById('basisskade-beholder').innerHTML = '';
     karakter.vaaben
@@ -746,11 +747,54 @@ function genererVaabenKort(vaaben) {
 
 
 
-// Færdighedskort
+// Færdigheder
+function opdaterFaerdighedsRaekke() {
+    const container = document.getElementById('faerdighed-raekke');
+    container.innerHTML = '';
+
+    if (!karakter.faerdigheder || karakter.faerdigheder.length === 0) {
+        const tom = document.createElement('div');
+        tom.className = 'emne-raekke-tom';
+        tom.textContent = 'Ingen færdigheder.';
+        container.appendChild(tom);
+        return;
+    }
+
+    for (const faerdighed of karakter.faerdigheder) {
+        const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
+        const el = document.createElement('div');
+        el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
+        el.textContent = faerdighed.navn;
+
+        const maksAktive = 2;
+        el.addEventListener('click', (e) => {
+            e.stopPropagation();
+
+            const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
+
+            if (erValgt) {
+                karakter.valgteFaerdigheder =
+                    karakter.valgteFaerdigheder.filter(id => id !== faerdighed.id);
+            } else {
+                if (karakter.valgteFaerdigheder.length >= maksAktive) {
+                    visBesked('Du kan kun have højst 2 færdigheder aktive ad gangen.');
+                    return;
+                }
+                karakter.valgteFaerdigheder.push(faerdighed.id);
+            }
+
+            gemData();
+            opdaterVistData();
+        });
+
+        container.appendChild(el);
+    }
+}
+
 function opdaterFaerdighedsKort() {
     document.getElementById('faerdighed-beholder').innerHTML = '';
     karakter.faerdigheder
-       // .filter(v => karakter.valgteVaaben.includes(v.id))
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
         .forEach(faerdighed => genererFaerdighedsKort(faerdighed));
 }
 
@@ -1422,7 +1466,7 @@ function hentStandardKlasse(klasse) {
     const baseFaerdigheder = baseKarakter.faerdigheder;
     const klasseFaerdighederRef = klasseData.faerdigheder || [];
     const klasseFaerdigheder = klasseFaerdighederRef.map(ref => {
-        return alleFaerdigheder.faerdigheder.find(v => v.id === ref.id);
+        return alleFaerdigheder.klassefaerdigheder.find(v => v.id === ref.id);
     });
 
     Object.assign(karakter, baseKarakter, klasseData);

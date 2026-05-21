@@ -194,8 +194,6 @@ const standardmilitarist = {
 
 
 
-
-
 // =========================
 // ========= VÅBEN =========
 // =========================
@@ -668,25 +666,12 @@ const alleVaaben = {
 
 
 
-
-
 // ===============================
 // ========= FÆRDIGHEDER =========
 // ===============================
 
 const alleFaerdigheder = {
-    faerdigheder: [
-        {
-        id: "skabelon",
-        navn: "Færdighedsnavn",
-        kvalifikation: "Klasse/Evne",
-        type: "passiv/aktiv",
-        beskrivelse: "Beskrivelse.",
-        },
-
-
-
-        // Klassefærdigheder
+    klassefaerdigheder: [
         {
         id: "klasse_asket_indre-ro",
         navn: "Indre ro",
@@ -708,7 +693,7 @@ const alleFaerdigheder = {
         navn: "Baghold",
         kvalifikation: "Bytyv",
         type: "aktiv",
-        beskrivelse: "Som bytyv kan du udnytte skjul og overraskelse til at få fordel over dine fjender. Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
+        beskrivelse: "Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus.",
         },
 
         {
@@ -716,7 +701,7 @@ const alleFaerdigheder = {
         navn: "Bøn",
         kvalifikation: "Forkynder",
         type: "aktiv",
-        beskrivelse: "Som forkynder kan du kalde på din guddoms beskyttelse. Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
+        beskrivelse: "Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul.",
         },
 
         {
@@ -724,7 +709,7 @@ const alleFaerdigheder = {
         navn: "Afledning",
         kvalifikation: "Hedonist",
         type: "aktiv",
-        beskrivelse: "Som hedonist kan du bruge dine sociale færdigheder til at aflede andres opmærksomhed. Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.",
+        beskrivelse: "Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig.",
         },
 
         {
@@ -759,24 +744,270 @@ const alleFaerdigheder = {
         beskrivelse: "Som militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus.",
         },
 
+    ],
 
+    evnefaerdigheder: [
+        // Form
+        {
+        id: "evne_form_fast-stand",
+        navn: "Fast stand",
+        kvalifikation: "Form",
+        type: "aktiv",
+        levelKrav: { form: 20 },
+        beskrivelse: "Én gang per cyklus kan du aktivere din indre styrke og stå fast.\n\nI 1 runde halveres al skade mod dig og din bevægelse på din næste tur reduceres med 1 spænd per Hu.",
+        },
+        {
+        id: "evne_form_urokkelig",
+        navn: "Urokkelig",
+        kvalifikation: "Form",
+        type: "aktiv",
+        levelKrav: { form: 30 },
+        beskrivelse: "Én gang per cyklus kan du samle al din indre styrke.\n\nI 2 runder reduceres al skade mod dig med 90%. Du får urokkelig stand: i disse 2 runder - til slutning af din tur om 2 runder - kan ingen kan flytte dig, heller ikke dig selv, og du kan ikke tage nogle handlinger.",
+        },
+        {
+        id: "evne_form_til-stede",
+        navn: "Til stede",
+        kvalifikation: "Form",
+        type: "aktiv",
+        levelKrav: { form: 40 },
+        beskrivelse: "Én gang per cyklus kan du lade stærke smerter passere.\n\nI 2 runder kan du ignorere én (ikke kritisk) læsion.",
+        },
+        {
+        id: "evne_form_afbød",
+        navn: "Afbød",
+        kvalifikation: "Form",
+        type: "aktiv",
+        levelKrav: { form: 50 },
+        beskrivelse: "Én gang per cyklus kan du afbøde al skade fra ét angreb, der rammer dig.",
+        },
+        {
+        id: "evne_form_udød",
+        navn: "Udød",
+        kvalifikation: "Form",
+        type: "aktiv",
+        levelKrav: { form: 60 },
+        beskrivelse: "Én gang per cyklus, når dit Liv reduceres til 0, kan du samle dine sidste kræfter til i stedet at blive på 1 Liv og undgå at dø.",
+        },
 
-        // Evnefærdigheder
+        // Sind
         {
         id: "evne_sind_disciplin-1",
         navn: "Disciplin 1",
         kvalifikation: "Sind",
         type: "aktiv",
-        beskrivelse: "Saml dit sind og genvind Sejd. Rul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus.",
+        levelKrav: { sind: 20 },
+        beskrivelse: "Saml dit sind og genvind Sejd.\n\nRul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus.",
+        },
+        {
+        id: "evne_sind_mental-modstand",
+        navn: "Mental modstand",
+        kvalifikation: "Sind",
+        type: "aktiv",
+        levelKrav: { sind: 30 },
+        beskrivelse: "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at halvere den skade, du tager fra det ene angreb.",
+        },
+        {
+        id: "evne_sind_disciplin-2",
+        navn: "Disciplin 2",
+        kvalifikation: "Sind",
+        type: "aktiv",
+        levelKrav: { sind: 40 },
+        beskrivelse: "Saml dit sind og genvind Sejd.\n\nRul din Sind-pulje, og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus.",
+        },
+        {
+        id: "evne_sind_mental-mur",
+        navn: "Mental mur",
+        kvalifikation: "Sind",
+        type: "aktiv",
+        levelKrav: { sind: 50 },
+        beskrivelse: "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at afbøde al skade fra det ene angreb.",
+        },
+        {
+        id: "evne_sind_disciplin-3",
+        navn: "Disciplin 3",
+        kvalifikation: "Sind",
+        type: "aktiv",
+        levelKrav: { sind: 60 },
+        beskrivelse: "Saml dit sind og genvind Sejd.\n\nRul en pulje af Sind + Form + Intuition og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus.",
         },
 
+        // Intuition
         {
         id: "evne_intuition_skarp",
         navn: "Skarp",
         kvalifikation: "Intuition",
         type: "passiv",
+        levelKrav: { intuition: 20 },
         beskrivelse: "Når du ruller initiativ, kan du vælge at rulle to gange og bruge det højeste resultat.",
         },
+        {
+        id: "evne_intuition_byt",
+        navn: "Byt",
+        kvalifikation: "Intuition",
+        type: "aktiv",
+        levelKrav: { intuition: 30 },
+        beskrivelse: "Som det første i starten af din tur kan du vælge at bytte din tur med en allieret. \n\nDin allierede har nu tur i stedet for dig og din tur udskydes til din allieredes plads i initiativrækken.",
+        },
+        {
+        id: "evne_intuition_fokuseret",
+        navn: "Fokuseret",
+        kvalifikation: "Intuition",
+        type: "passiv",
+        levelKrav: { intuition: 50 },
+        beskrivelse: "Det koster ikke længere Hu for dig at bruge Fokusér-handlingen.",
+        },
+        
+        // Styrke
+        {
+        id: "evne_styrke_kald",
+        navn: "Kald",
+        kvalifikation: "Styrke",
+        type: "aktiv",
+        levelKrav: { styrke: 20 },
+        beskrivelse: "Én gang per cyklus kan du lave et kald mod himlen. Du kan fordoble skaden på dine næste to angreb, men reducerer din maksimale Hu med 1 indtil næste cyklus.",
+        },
+        {
+        id: "evne_styrke_skælv",
+        navn: "Skælv",
+        kvalifikation: "Styrke",
+        type: "aktiv",
+        levelKrav: { styrke: 30 },
+        beskrivelse: "Én gang per cyklus, på din tur, kan du trampe i jorden med en sådan kraft, at alle indenfor 1 spænd bliver kastet til jorden og tager skade svarende til dit Styrkelevel.",
+        },
+        {
+        id: "evne_styrke_energiudladning",
+        navn: "Energiudladning",
+        kvalifikation: "Styrke",
+        type: "aktiv",
+        levelKrav: { styrke: 40 },
+        beskrivelse: "Én gang per cyklus kan du samle din fysiske kraft i ét angreb. Dit næste angreb på denne tur ignorerer al skadesreduktion og angrebets skade fordobles. Hvis angrebet rammer med en fuldtræffer, kastes målet 3 spænd væk fra dig.",
+        },
+        {
+        id: "evne_styrke_lemlæstelse",
+        navn: "Lemlæstelse",
+        kvalifikation: "Styrke",
+        type: "aktiv",
+        levelKrav: { styrke: 50 },
+        beskrivelse: "Én gang per cyklus, når du laver et angreb, kan du bruge din kraft til at påføre dit mål en automatisk læsion. Målet får en læsion selvom du ikke har påført skade svarende til halvdelen af deres maksimale Liv.",
+        },
+
+        // Behændighed
+        {
+        id: "evne_behændighed_spæn",
+        navn: "Spæn",
+        kvalifikation: "Behændighed",
+        type: "aktiv",
+        levelKrav: { behændighed: 20 },
+        beskrivelse: "Én gang per cyklus, på din tur, kan du fordoble det antal spænd du kan bevæge dig per Hu indtil starten af din næste tur.",
+        },
+        {
+        id: "evne_behændighed_flugt",
+        navn: "Flugt",
+        kvalifikation: "Behændighed",
+        type: "aktiv",
+        levelKrav: { behændighed: 30 },
+        beskrivelse: "Én gang per cyklus, på din tur, kan du bevæge dig op til 15 spænd og undgå alle reaktive angreb.",
+        },
+        {
+        id: "evne_behændighed_hast",
+        navn: "Hast",
+        kvalifikation: "Behændighed",
+        type: "aktiv",
+        levelKrav: { behændighed: 40 },
+        beskrivelse: "Én gang per cyklus, når du laver et angreb, kan du lave et ekstra angreb, der ikke koster Sejd, uden bruge Hu på dette ekstra angreb.",
+        },
+        {
+        id: "evne_behændighed_ruller",
+        navn: "Ruller",
+        kvalifikation: "Behændighed",
+        type: "passiv",
+        levelKrav: { behændighed: 50 },
+        beskrivelse: "Det koster nu kun 1 Hu for dig at lave Undvigerul.",
+        },
+        {
+        id: "evne_behændighed_dans",
+        navn: "Dans",
+        kvalifikation: "Behændighed",
+        type: "aktiv",
+        levelKrav: { behændighed: 60 },
+        beskrivelse: "Én gang per cyklus kan du bevæge dig som en uforudsigelig danser. I 2 runder kan du bevæge dig gennem fjender uden at udløse reaktive angreb, og du får +2d6 til alle undvigerul- og undvigelseshandlinger.",
+        },
+
+        // Visdom
+        {
+        id: "evne_visdom_klarhed",
+        navn: "Klarhed",
+        kvalifikation: "Visdom",
+        type: "aktiv",
+        levelKrav: { visdom: 20 },
+        beskrivelse: "Én gang per cyklus kan du bruge din ophobede viden for at opnå kortvarig klarhed. Du får +2d6 til dit næste rul, men du bruger 5 Sejd og din maksimale Sejd reduceres med 5 indtil næste cyklus.",
+        },
+        {
+        id: "evne_visdom_vidensdeling",
+        navn: "Vidensdeling",
+        kvalifikation: "Visdom",
+        type: "aktiv",
+        levelKrav: { visdom: 30 },
+        beskrivelse: "Én gang per cyklus kan du dele din viden med dine allierede. Vælg op til 3 allierede indenfor 8 spænd. De får alle +1d6 til deres næste rul i enten Visdom eller Sind, efter eget valg.",
+        },
+        {
+        id: "evne_visdom_vaks",
+        navn: "Vaks",
+        kvalifikation: "Visdom",
+        type: "aktiv",
+        levelKrav: { visdom: 40 },
+        beskrivelse: "Én gang per cyklus, når du laver et rul i Visdom eller Sind, kan du vælge at rulle alle terninger om. Det er resultatet af det nye rul, der gælder.",
+        },
+        {
+        id: "evne_visdom_cyklisk-forståelse",
+        navn: "Cyklisk forståelse",
+        kvalifikation: "Visdom",
+        type: "aktiv",
+        levelKrav: { visdom: 60 },
+        beskrivelse: "Én gang per cyklus kan du bruge din forståelse af den cykliske natur.\n\nHvis du tidligere i denne cyklus har brugt en anden evnefærdighed, der ellers kun kan bruges én gang per cyklus, kan du bruge den igen uden at betale dens omkostninger.",
+        },
+
+        // Mystik
+        {
+        id: "evne_mystik_offer",
+        navn: "Offer",
+        kvalifikation: "Mystik",
+        type: "aktiv",
+        levelKrav: { mystik: 20 },
+        beskrivelse: "Én gang per cyklus kan du ofre dit helbred og tage skade svarende til halvdelen af dit maksimale Liv (uden at få en læsion) for at hele dybe sår. Du kan helbrede op til 2 læsioner på enten dig selv eller en allieret, du berører.",
+        },
+        {
+        id: "evne_mystik_tidslig-forståelse",
+        navn: "Tidslig forståelse",
+        kvalifikation: "Mystik",
+        type: "aktiv",
+        levelKrav: { mystik: 30 },
+        beskrivelse: "Én gang per cyklus kan du rette dit sind til cyklussens tidslighed for at forudse en begivenhed.\n\nDu kan bede Spilmesteren fortælle dig hvilken handling, en fjende du kan se, vil tage på deres næste tur. Spilmesteren skal svare efter bedste evne.",
+        },
+        {
+        id: "evne_mystik_katlas-bøn",
+        navn: "Katlas bøn",
+        kvalifikation: "Mystik",
+        type: "aktiv",
+        levelKrav: { mystik: 40 },
+        beskrivelse: "Én gang per cyklus, hvis en person dør indenfor 2 spænd af dig, kan du umiddelbart efter bede en bøn, hvorefter den døde genopstår på stedet, uden forvitring, med halvdelen af sit maks Liv og med en ekstra læsion.",
+        },
+        {
+        id: "evne_mystik_deling",
+        navn: "Deling",
+        kvalifikation: "Mystik",
+        type: "aktiv",
+        levelKrav: { mystik: 50 },
+        beskrivelse: "Én gang per cyklus kan du røre en person og give dem en del af din kraft.\n\nSkaden af målets næste angreb (der ikke bruger Sejd) fordobles, mens skaden af dit næste angreb halveres.",
+        },
+        {
+        id: "evne_mystik_livshæver",
+        navn: "Livshæver",
+        kvalifikation: "Mystik",
+        type: "aktiv",
+        levelKrav: { mystik: 60 },
+        beskrivelse: "Én gang per cyklus, når en fjende dør indenfor 2 spænd af dig, kan du trække deres ånd ind i dig selv. Rul Mystik mod deres Form. Hvis du lykkes, genvinder du Liv svarende til dit Mystiklevel.",
+        }
     ]
 };
 
