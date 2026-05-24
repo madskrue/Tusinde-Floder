@@ -692,7 +692,7 @@ function genererVaabenKort(vaaben) {
 
     <div class="kort__top">
         <div></div>
-        <div class="kort__basis--tillaeg">${ evneVisningsnavn[vaaben.tillaegsevne] ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + vaaben.tillaegsevne : ''}</div>
+        <div class="kort__basis--tillaeg">${ vaaben.tillaegsevne ? '+' + vaaben.tillaegsTaeller + '/' + vaaben.tillaegsNaevner + ' ' + evneVisningsnavn[vaaben.tillaegsevne] : ''}</div>
     </div>
 
     <div class="kort__data">
@@ -1498,7 +1498,7 @@ function importerData() {
 }
 
 function nulstilData() {
-    Object.assign(karakter, JSON.parse(JSON.stringify(standardKarakter)));
+    Object.assign(karakter, JSON.parse(JSON.stringify(karakterGrundlag)));
     gemData();
     opdaterVistData();
     visArk();
@@ -1510,7 +1510,7 @@ function hentStandardKlasse(klasse) {
     const diff = standardKlasser[klasse];
     if (!diff) return;
 
-    const baseKarakter = JSON.parse(JSON.stringify(standardKarakter));
+    const baseKarakter = JSON.parse(JSON.stringify(karakterGrundlag));
     const klasseData = JSON.parse(JSON.stringify(diff));
     const baseVaaben = baseKarakter.vaaben;
     const klasseVaabenRef = klasseData.vaaben || [];
