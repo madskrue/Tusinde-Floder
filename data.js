@@ -1,54 +1,6 @@
-// ================================
-// ========= KARAKTERDATA =========
-// ================================
-
-let karakter = {
-    navn: "",
-    klasse: "",
-    draaber: 0,
-    draaberEfterladt: 0,
-
-    livNu: 1,
-    sejdNu: 1,
-    huNu: 1,
-
-    sekvens: 0,
-    haab: 0,
-    forvitring: 0,
-    laesioner: 0,
-    udmattelse: 0,
-
-    form: 1,
-    sind: 1,
-    intuition: 1,
-    styrke: 1,
-    behaendighed: 1,
-    visdom: 1,
-    mystik: 1,
-
-    forskydning: {
-        form: 0,
-        sind: 0,
-        intuition: 0,
-        styrke: 0,
-        behaendighed: 0,
-        visdom: 0,
-        mystik: 0,
-    },
-
-    faerdigheder: [],
-    valgteFaerdigheder: [],
-
-    vaaben: [],
-    valgteVaaben: [],
-
-    stenskaar: 0,
-    flaskerMax: 1,
-    flaskerNu: 1,
-    endeligtDoed: false,
-
-    noter: "",
-}
+// ===========================
+// ========= KLASSER =========
+// ===========================
 
 // Udgangspunkt
 const standardKarakter = {
@@ -98,12 +50,6 @@ const standardKarakter = {
 
     noter: "",
 };
-
-
-
-// ===========================
-// ========= KLASSER =========
-// ===========================
 
 // Klasser
 const standardasket = {

@@ -124,12 +124,8 @@ klik('laesioner', () => visJustering('laesioner'));
 klik('laesioner-justering-minus', laesionerMinus);
 klik('laesioner-justering-plus', laesionerPlus);
 
-// Våben og basisskade
+// Våben
 klik('vaaben-liste-knap', initVaabenListe);
-
-// Cyklusfærdigheder
-
-
 
 // Evner
 klik('evne-toggle', visEvneJusteringer);
@@ -144,7 +140,6 @@ klik('inventar-vis-skjul', () => toggleVisSkjul('inventar-vis-skjul', 'inventar-
 klik('noter-vis-skjul', () => toggleVisSkjul('noter-vis-skjul', 'noter-input'));
 
 klik('inventar-emner', initInventar);
-
 klik('minus-flaske', () => aendrInventar('flaske', -1));
 klik('plus-flaske', () => aendrInventar('flaske', 1));
 klik('minus-stenskaar', () => aendrInventar('stenskaar', -1));
@@ -191,9 +186,6 @@ klik('annuller-vaabenopgradering', () => lukVindue('vaabenopgradering'));
 klik('bekraeft-evne', bekraeftEvneForbedringer);
 klik('annuller-evne', () => lukVindue('evneforbedring'));
 klik('evneforbedringsknap', () => initEvneVindue());
-
-
-
 
 
 

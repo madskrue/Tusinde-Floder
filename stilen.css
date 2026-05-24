@@ -529,13 +529,30 @@ input::-webkit-inner-spin-button {
 
 /* SEKTION: BEREDSKAB */
 /* Våbenvælger */
+.emne-raekke-beholder {
+    background-color: var(--sektion);
+    border-radius: 0.5rem;
+    padding: 0.25rem;
+    margin: 0.5rem 0;
+    cursor: default;
+}
+
+.emne-raekke__titel {
+    color: var(--tekst-svag);
+    font-size: 0.65rem;
+    width: fit-content;
+    cursor: pointer;
+}
+
+.emne-raekke__titel:hover {
+    color: var(--tekst-haard);
+}
+
 .emne-raekke {
     display: flex;
     flex-wrap: wrap;
     width: fit-content;
     gap: 0.25rem;
-    margin: 0.5rem 0;
-    cursor: default;
     border-radius: 0.5rem;
 }
 
@@ -550,7 +567,7 @@ input::-webkit-inner-spin-button {
     padding: 0.1rem 0.5rem;
     border-radius: 1rem;
     cursor: pointer;
-    background-color: var(--sektion);
+    background-color: var(--felt);
     margin-top: 0.25em;
     text-align: center;
     width: fit-content;
@@ -558,7 +575,7 @@ input::-webkit-inner-spin-button {
 }
 
 .emne-valg.aktiv {
-    background-color: var(--sektion-knap);
+    background-color: var(--ark);
     color: var(--tekst-aktiv);
     font-weight: 600;
 }
