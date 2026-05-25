@@ -104,10 +104,10 @@ klik('bekraeft-hvil', hvil);
     klik('annuller-faerdighed-menu', () => lukVindue('faerdighed-menu'));
 
     klik('faerdighed-beredskab-knap', () => {
-        aabenVindue('faerdighed');
-        opdaterFaerdighedsberedskabsvindue();
+        aabenVindue('faerdighed-beredskab');
+        opdaterAktiveringsKort();
     });
-    klik('annuller-faerdighed-beredskab', () => lukVindue('faerdighed'));
+    klik('annuller-faerdighed-beredskab', () => lukVindue('faerdighed-beredskab'));
 
 // Evneforbedringsvindue
     klik('bekraeft-evne', bekraeftEvneForbedringer);

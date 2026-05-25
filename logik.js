@@ -62,7 +62,7 @@ function opdaterVistData() {
     opdaterInventarOgNoter();
     opdaterVaabenRaekke();
     opdaterVaabenKort();
-    opdaterFaerdighedsKort();
+    opdaterBrugsKort();
     gemData();
     opdaterDoedVisning();
 
@@ -663,20 +663,14 @@ function doed() {
 // === BEREDSKAB ===
 // =================
 
-// Kort
-function opretKort(beholder, id) {
-    const kort = document.createElement('div');
-    kort.className = 'kort';
-    kort.id = id + '-kort';
-    beholder.appendChild(kort);
-    return kort;
-}
-
 // Våben
 function genererVaabenKort(vaaben) {
     const beholder = document.getElementById('basisskade-beholder');
     const id = vaaben.id;
-    const kort = opretKort(beholder, id);
+    const kort = document.createElement('div');
+    kort.className = 'kort';
+    kort.id = id + '-kort';
+    beholder.appendChild(kort);
 
     const basisskade = beregnBasisskade(vaaben)
     const angrebSkade = Math.ceil( basisskade * vaaben.angreb.skadeFaktor );
@@ -799,11 +793,14 @@ function beregnBasisskade(vaaben) {
     return Math.round(basisDel + tillaegsDel);
 }
 
+
+
 // Færdigheder
-function genererFaerdighedsKort(faerdighed, beholderid) {
-    const beholder = document.getElementById(beholderid);
+function opretFaerdighedskort(faerdighed) {
     const id = faerdighed.id;
-    const kort = opretKort(beholder, id);
+    const kort = document.createElement('div');
+    kort.className = 'kort';
+    kort.id = id + '-kort';
 
     kort.innerHTML = 
     `<div class="kort__top">
@@ -811,8 +808,8 @@ function genererFaerdighedsKort(faerdighed, beholderid) {
         <div class="kort__basis" id="kvalifikation-${id}">${faerdighed.kvalifikation}</div>
     </div>
 
-    <div class="kort__top">
-        ${ faerdighed.type === "aktiv" && beholderid === 'faerdighed-beholder' ? `<div class="brug-knap" id="cyklus-brug-${id}">Brug</div>` : `<div class="kort__basis--type">${faerdighed.type}</div>`}
+    <div class="kort__top" id="brug-knap-beholder-${id}">
+        <div class="kort__basis--type">${faerdighed.type}</div>
     </div>
 
     <div class="kort__data" id="info-${id}">
@@ -821,98 +818,122 @@ function genererFaerdighedsKort(faerdighed, beholderid) {
         </div>
     </div>`;
 
+    return kort;
+}
 
+function brugsKort(faerdighed) {
+    const id = faerdighed.id;
+    const kort = opretFaerdighedskort(faerdighed);
+    const kortBeholder = document.getElementById('faerdighed-beholder');
+    kortBeholder.appendChild(kort);
 
-    if (beholderid === 'faerdighed-beholder') {
+    
+    if (faerdighed.type === "aktiv") {
+        const knap = document.createElement('div');
+        const beholder = document.getElementById(`brug-knap-beholder-${id}`);
+        knap.className = 'brug-knap';
+        knap.id = `cyklus-brug-${id}`;
+        knap.textContent = 'Brug';
+        beholder.appendChild(knap);
+        knap.addEventListener('click', () => cyklusBrug(id));
+    }
 
-        if (faerdighed.type === "aktiv") {
-        document.getElementById(`cyklus-brug-${id}`).addEventListener('click', () => {
-            cyklusBrug(id)
-        });
-        }
-
-        function cyklusBrug(id) {
-            const knap = document.getElementById(`cyklus-brug-${id}`);
-            const titel = document.getElementById(`titel-${id}`);
-            const kval = document.getElementById(`kvalifikation-${id}`);
-            const info = document.getElementById(`info-${id}`);
-            
-            knap.classList.toggle('brugt');
-            titel.classList.toggle('brugt');
-            kval.classList.toggle('brugt');
-            info.classList.toggle('brugt');
-
-            const brugt = knap.classList.contains('brugt');
-            knap.textContent = (brugt ? 'Brugt' : 'Brug');
-        }
-    } else if (beholderid === 'faerdighed-beholder-vindue') {
+    function cyklusBrug() {
+        const knap = document.getElementById(`cyklus-brug-${id}`);
         const titel = document.getElementById(`titel-${id}`);
         const kval = document.getElementById(`kvalifikation-${id}`);
         const info = document.getElementById(`info-${id}`);
-        const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
-        const maksAktive = 2;
+        
+        knap.classList.toggle('inaktiv');
+        titel.classList.toggle('inaktiv');
+        kval.classList.toggle('inaktiv');
+        info.classList.toggle('inaktiv');
 
-        if (!erValgt) {
-            titel.classList.add('brugt');
-            kval.classList.add('brugt');
-            info.classList.add('brugt');
-        }
-
-        kort.addEventListener('click', () => {
-            aktiverFaerdighed(id)
-        });
-
-        function aktiverFaerdighed(id) {
-            const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
-            if (erValgt) {
-                    titel.classList.toggle('brugt');
-                    kval.classList.toggle('brugt');
-                    info.classList.toggle('brugt');
-                karakter.valgteFaerdigheder =
-                    karakter.valgteFaerdigheder.filter(id => id !== faerdighed.id);
-            } else {
-                if (karakter.valgteFaerdigheder.length >= maksAktive) {
-                    visBesked('Du kan kun have højst 2 aktive færdigheder.');
-                    return;
-                }
-                karakter.valgteFaerdigheder.push(faerdighed.id);
-                titel.classList.toggle('brugt');
-                kval.classList.toggle('brugt');
-                info.classList.toggle('brugt');
-            }
-
-            gemData();
-            opdaterVistData();
-            opdaterFaerdighedsberedskabsvindue();
-        }
+        const brugt = knap.classList.contains('inaktiv');
+        knap.textContent = (brugt ? 'Brugt' : 'Brug');
     }
 }
 
-function opdaterFaerdighedsKort() {
+function aktiveringsKort(faerdighed) {
+    const id = faerdighed.id;
+    const kort = opretFaerdighedskort(faerdighed);
+    const kortBeholder = document.getElementById('faerdighed-beholder-vindue');
+    kortBeholder.appendChild(kort);
+
+    const titel = document.getElementById(`titel-${id}`);
+    const kval = document.getElementById(`kvalifikation-${id}`);
+    const info = document.getElementById(`info-${id}`);
+    const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
+    const maksAktive = 2;
+
+    if (!erValgt) {
+        titel.classList.add('inaktiv');
+        kval.classList.add('inaktiv');
+        info.classList.add('inaktiv');
+    }
+
+    kort.addEventListener('click', () => {
+        aktiverFaerdighed(id)
+    });
+
+    function aktiverFaerdighed(id) {
+        const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
+        if (erValgt) {
+                titel.classList.add('inaktiv');
+                kval.classList.add('inaktiv');
+                info.classList.add('inaktiv');
+            karakter.valgteFaerdigheder =
+                karakter.valgteFaerdigheder.filter(id => id !== faerdighed.id);
+        } else {
+            if (karakter.valgteFaerdigheder.length >= maksAktive) {
+                visBesked('Du kan kun have højst 2 aktive færdigheder.');
+                return;
+            }
+            karakter.valgteFaerdigheder.push(faerdighed.id);
+            titel.classList.remove('inaktiv');
+            kval.classList.remove('inaktiv');
+            info.classList.remove('inaktiv');
+        }
+
+        gemData();
+        opdaterVistData();
+        opdaterAktiveringsKort();
+    }
+}
+
+function opdaterBrugsKort() {
     document.getElementById('faerdighed-beholder').innerHTML = '';
     alleFaerdigheder.klassefaerdigheder
         .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder'));
+        .forEach(faerdighed => brugsKort(faerdighed));
     alleFaerdigheder.evnefaerdigheder
         .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder'));
+        .forEach(faerdighed => brugsKort(faerdighed));
 }
 
-// Nuværende udgave
-function opdaterFaerdighedsberedskabsvindue() {
+function opdaterAktiveringsKort() {
     document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
     alleFaerdigheder.klassefaerdigheder
         .filter(v => v.kvalifikation.includes(karakter.klasse))
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
+        .forEach(faerdighed => aktiveringsKort(faerdighed));
     alleFaerdigheder.evnefaerdigheder
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
+        .forEach(faerdighed => aktiveringsKort(faerdighed));
 }
 
+
+
 // Fremtidig udgave hvor kun kvalificerede færdigheder vises
-function opdaterFaerdighedsberedskabsvindueV2() {
+function opdaterAktiveringsKortV2() {
     document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
     karakter.faerdigheder
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
+        .forEach(faerdighed => aktiveringsKort(faerdighed));
+}
+
+function opdaterBrugsKortV2() {
+    document.getElementById('faerdighed-beholder').innerHTML = '';
+    karakter.faerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => brugsKort(faerdighed));
 }
 
 

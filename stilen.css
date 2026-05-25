@@ -719,13 +719,13 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-.brugt, .brugt:hover {
+.inaktiv, .inaktiv:hover {
     color: var(--tekst-svag);
     font-weight: 400;
     cursor: default;
 }
 
-.brug-knap.brugt, .brug-knap.brugt:hover {
+.brug-knap.inaktiv, .brug-knap.inaktiv:hover {
     background-color: var(--sektion);
 }
 
