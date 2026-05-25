@@ -1176,17 +1176,17 @@ const vaabenEvneNavne = {
     styrke: 'Styrke', behaendighed: 'Behændighed', visdom: 'Visdom', mystik: 'Mystik'
 };
 
-let aktivtVaabenId = null;
-let vaabenDetaljeState = null;
-let vaabenOpgVindueNiveau = 0;
-let vaabenOpgVindueVedVandsten = false;
+let vaabenRedigeresID = null;
+let vaabenRedigeringData = null;
+let valgtOpgraderingsNiveau = 0;
+let opgraderingVedVandsten = false;
 
 function genererVaabenId() {
     return 'v_' + Date.now() + '_' + Math.random().toString(36).slice(2, 7);
 }
 
 // Beregner stenskår og dråber for opgradering fra 'fra' til 'til'
-function beregnVaabenOpgraderingOmkostning(fra, til, vedVandsten) {
+function beregnOpgraderingspris(fra, til, vedVandsten) {
     let stenskaar = 0;
     for (let i = fra + 1; i <= til; i++) stenskaar += i;
     const karakterLevel = karakter.form + karakter.sind + karakter.intuition +
@@ -1196,7 +1196,7 @@ function beregnVaabenOpgraderingOmkostning(fra, til, vedVandsten) {
 }
 
 // --- Åben våben-vindue ---
-function initVaabenListe() {
+function genererVaabenliste() {
     const liste = document.getElementById('vaaben-liste');
     liste.innerHTML = '';
 
@@ -1217,7 +1217,7 @@ function initVaabenListe() {
                 <div>${vaabenEvneNavne[vaaben.basis]}</div>
                 <div class="vaabendetaljer__opgraderingspil">›</div>
             `;
-            raekke.addEventListener('click', () => aabneVaabenDetalje(vaaben.id));
+            raekke.addEventListener('click', () => aabnVaabendetaljevindue(vaaben.id));
             liste.appendChild(raekke);
         }
     }
@@ -1226,15 +1226,15 @@ function initVaabenListe() {
 }
 
 // --- Våbendetaljer ---
-function aabneVaabenDetalje(id) {
-    aktivtVaabenId = id;
+function aabnVaabendetaljevindue(id) {
+    vaabenRedigeresID = id;
 
     opdaterNoteOmraade('vaaben-detalje-beskrivelse');
     opdaterNoteOmraade('vaaben-detalje-teknik');
     opdaterNoteOmraade('vaaben-noter-input');
 
     if (id === null) {
-        vaabenDetaljeState = {
+        vaabenRedigeringData = {
             navn: '',
             basis: 'styrke',
             originalOpgradering: 0,
@@ -1247,7 +1247,7 @@ function aabneVaabenDetalje(id) {
     } else {
         const vaaben = karakter.vaaben.find(v => v.id === id);
         if (!vaaben) return;
-        vaabenDetaljeState = {
+        vaabenRedigeringData = {
             navn: vaaben.navn,
             basis: vaaben.basis,
             originalOpgradering: vaaben.opgradering,
@@ -1263,10 +1263,10 @@ function aabneVaabenDetalje(id) {
 
     document.getElementById('vaabendetalje-titel').textContent =
         id === null ? 'Nyt våben' : 'Rediger våben';
-    document.getElementById('vaaben-navn-input').value = vaabenDetaljeState.navn;
-    document.getElementById('vaaben-detalje-beskrivelse').value = vaabenDetaljeState.beskrivelse;
-    document.getElementById('vaaben-detalje-teknik').value = vaabenDetaljeState.teknik;
-    document.getElementById('vaaben-noter-input').value = vaabenDetaljeState.noter;
+    document.getElementById('vaaben-navn-input').value = vaabenRedigeringData.navn;
+    document.getElementById('vaaben-detalje-beskrivelse').value = vaabenRedigeringData.beskrivelse;
+    document.getElementById('vaaben-detalje-teknik').value = vaabenRedigeringData.teknik;
+    document.getElementById('vaaben-noter-input').value = vaabenRedigeringData.noter;
     document.getElementById('slet-vaaben').style.display = id === null ? 'none' : '';
 
     opdaterVaabenBasisToggle();
@@ -1278,22 +1278,22 @@ function aabneVaabenDetalje(id) {
 
 function opdaterVaabenBasisToggle() {
     document.querySelectorAll('#vaaben-basis-toggle .vaabendetaljer__opgraderingsselektor').forEach(el => {
-        el.classList.toggle('aktiv', el.dataset.basis === vaabenDetaljeState.basis);
+        el.classList.toggle('aktiv', el.dataset.basis === vaabenRedigeringData.basis);
     });
 }
 
 function opdaterVaabenOpgraderingKnap() {
     const opgraderingstal = document.getElementById('opgraderingstal');
     const knap = document.getElementById('aaben-vaabenopgradering');
-    const orig = vaabenDetaljeState.originalOpgradering;
-    const mid = vaabenDetaljeState.midlertidigOpgradering;
+    const orig = vaabenRedigeringData.originalOpgradering;
+    const mid = vaabenRedigeringData.midlertidigOpgradering;
 
     if (mid > orig) {
-        const { stenskaar, draaber } = beregnVaabenOpgraderingOmkostning(
-            orig, mid, vaabenDetaljeState.vedVandsten
+        const { stenskaar, draaber } = beregnOpgraderingspris(
+            orig, mid, vaabenRedigeringData.vedVandsten
         );
         let kostTekst = `${stenskaar} Stenskår`;
-        if (vaabenDetaljeState.vedVandsten && draaber > 0) kostTekst += `, ${draaber} Dråber`;
+        if (vaabenRedigeringData.vedVandsten && draaber > 0) kostTekst += `, ${draaber} Dråber`;
 
         opgraderingstal.innerHTML = `${orig > 0 ? '+' : ''}${orig} → <span class="ny-vaerdi">${mid > 0 ? '+' : ''}${mid}</span>
             <span class="vaabendetaljer__opgraderingspris">(${kostTekst})</span>`;
@@ -1312,21 +1312,21 @@ function gemVaaben() {
     const teknikNavn = foersteLinje === -1 ? teknikTekst : teknikTekst.slice(0, foersteLinje);
     const teknikBeskrivelse = foersteLinje === -1 ? '' : teknikTekst.slice(foersteLinje + 1).trim();
 
-    const { stenskaar, draaber } = beregnVaabenOpgraderingOmkostning(
-        vaabenDetaljeState.originalOpgradering,
-        vaabenDetaljeState.midlertidigOpgradering,
-        vaabenDetaljeState.vedVandsten
+    const { stenskaar, draaber } = beregnOpgraderingspris(
+        vaabenRedigeringData.originalOpgradering,
+        vaabenRedigeringData.midlertidigOpgradering,
+        vaabenRedigeringData.vedVandsten
     );
 
-    const eksisterende = aktivtVaabenId !== null
-        ? karakter.vaaben.find(v => v.id === aktivtVaabenId)
+    const eksisterende = vaabenRedigeresID !== null
+        ? karakter.vaaben.find(v => v.id === vaabenRedigeresID)
         : null;
 
     const nytVaaben = {
-        id: aktivtVaabenId ?? genererVaabenId(),
+        id: vaabenRedigeresID ?? genererVaabenId(),
         navn,
-        basis: vaabenDetaljeState.basis,
-        opgradering: vaabenDetaljeState.midlertidigOpgradering,
+        basis: vaabenRedigeringData.basis,
+        opgradering: vaabenRedigeringData.midlertidigOpgradering,
         beskrivelse,
         angreb: eksisterende?.angreb ?? { skadeFaktor: 0.5, hu: 1 },
         teknik: {
@@ -1342,68 +1342,68 @@ function gemVaaben() {
         noter,
     };
 
-    if (aktivtVaabenId === null) {
-        aktivtVaabenId = nytVaaben.id;
+    if (vaabenRedigeresID === null) {
+        vaabenRedigeresID = nytVaaben.id;
         karakter.vaaben.push(nytVaaben);
     } else {
-        const idx = karakter.vaaben.findIndex(v => v.id === aktivtVaabenId);
+        const idx = karakter.vaaben.findIndex(v => v.id === vaabenRedigeresID);
         if (idx !== -1) karakter.vaaben[idx] = nytVaaben;
     }
 
     karakter.stenskaar = Math.max(0, karakter.stenskaar - stenskaar);
-    if (vaabenDetaljeState.vedVandsten) {
+    if (vaabenRedigeringData.vedVandsten) {
         karakter.draaber = Math.max(0, karakter.draaber - draaber);
     }
 
     opdaterVistData();
     lukVindue('vaabendetalje');
-    initVaabenListe();
+    genererVaabenliste();
     visBesked(stenskaar > 0 ? `Våben gemt. ${stenskaar} Stenskår brugt.` : 'Våben gemt.');
 }
 
 function sletVaaben() {
-    if (aktivtVaabenId === null) return;
-    karakter.vaaben = karakter.vaaben.filter(v => v.id !== aktivtVaabenId);
-    karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== aktivtVaabenId);
-    aktivtVaabenId = null;
+    if (vaabenRedigeresID === null) return;
+    karakter.vaaben = karakter.vaaben.filter(v => v.id !== vaabenRedigeresID);
+    karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== vaabenRedigeresID);
+    vaabenRedigeresID = null;
     opdaterVistData();
     lukVindue('vaabendetalje');
-    initVaabenListe();
+    genererVaabenliste();
     visBesked('Våben slettet.');
 }
 
 // Opgradering
-function initVaabenOpgradering() {
-    if (!vaabenDetaljeState) return;
+function aabnVaabenopgraderingsvindue() {
+    if (!vaabenRedigeringData) return;
 
-    vaabenOpgVindueNiveau = vaabenDetaljeState.midlertidigOpgradering;
-    vaabenOpgVindueVedVandsten = vaabenDetaljeState.vedVandsten;
+    valgtOpgraderingsNiveau = vaabenRedigeringData.midlertidigOpgradering;
+    opgraderingVedVandsten = vaabenRedigeringData.vedVandsten;
 
     const navn = document.getElementById('vaaben-navn-input').value.trim() || 'Unavngivet';
     document.getElementById('vaabenopgradering-titel').textContent = navn + ' · Opgradering';
 
-    opdaterVaabenOpgraderingVindue();
+    opdaterVaabenopgraderingsvindue();
     aabenVindue('vaabenopgradering');
 }
 
 function aendrVaabenOpgraderingNiveau(retning) {
-    const nyt = vaabenOpgVindueNiveau + retning;
-    if (nyt < vaabenDetaljeState.originalOpgradering || nyt > 5) return;
-    vaabenOpgVindueNiveau = nyt;
-    opdaterVaabenOpgraderingVindue();
+    const nyt = valgtOpgraderingsNiveau + retning;
+    if (nyt < vaabenRedigeringData.originalOpgradering || nyt > 5) return;
+    valgtOpgraderingsNiveau = nyt;
+    opdaterVaabenopgraderingsvindue();
 }
 
-function opdaterVaabenOpgraderingVindue() {
-    const orig = vaabenDetaljeState.originalOpgradering;
-    const { stenskaar, draaber } = beregnVaabenOpgraderingOmkostning(
-        orig, vaabenOpgVindueNiveau, vaabenOpgVindueVedVandsten
+function opdaterVaabenopgraderingsvindue() {
+    const orig = vaabenRedigeringData.originalOpgradering;
+    const { stenskaar, draaber } = beregnOpgraderingspris(
+        orig, valgtOpgraderingsNiveau, opgraderingVedVandsten
     );
 
     const niveauEl = document.getElementById('vaabenopg-niveau');
-    if (vaabenOpgVindueNiveau > orig) {
-        niveauEl.innerHTML = `${orig > 0 ? '+' : ''}${orig} → <span class="ny-vaerdi">${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}</span>`;
+    if (valgtOpgraderingsNiveau > orig) {
+        niveauEl.innerHTML = `${orig > 0 ? '+' : ''}${orig} → <span class="ny-vaerdi">${valgtOpgraderingsNiveau > 0 ? '+' : ''}${valgtOpgraderingsNiveau}</span>`;
     } else {
-        niveauEl.textContent = `${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}`;
+        niveauEl.textContent = `${valgtOpgraderingsNiveau > 0 ? '+' : ''}${valgtOpgraderingsNiveau}`;
     }
 
     document.getElementById('vaabenopg-stenskaar-info').innerHTML = stenskaar > 0
@@ -1411,41 +1411,41 @@ function opdaterVaabenOpgraderingVindue() {
         : `${karakter.stenskaar}`;
 
     document.getElementById('vaabenopg-draaber-info').innerHTML =
-        vaabenOpgVindueVedVandsten && draaber > 0
+        opgraderingVedVandsten && draaber > 0
         ? `${karakter.draaber} → <span class="ny-vaerdi ny-vaerdi--draaber">${karakter.draaber - draaber}</span>`
         : `${karakter.draaber}`;
 
-    document.getElementById('vaabenopg-smedje').classList.toggle('aktiv', !vaabenOpgVindueVedVandsten);
-    document.getElementById('vaabenopg-vandsten').classList.toggle('aktiv', vaabenOpgVindueVedVandsten);
+    document.getElementById('vaabenopg-smedje').classList.toggle('aktiv', !opgraderingVedVandsten);
+    document.getElementById('vaabenopg-vandsten').classList.toggle('aktiv', opgraderingVedVandsten);
 
     const omk = document.getElementById('vaabenopg-total-omkostning');
     if (stenskaar > 0) {
         let tekst = `${stenskaar} Stenskår`;
-        if (vaabenOpgVindueVedVandsten) tekst += `, ${draaber} Dråber`;
+        if (opgraderingVedVandsten) tekst += `, ${draaber} Dråber`;
         omk.innerHTML = `<span class="ny-vaerdi ny-vaerdi--draaber">${tekst}</span>`;
     } else {
         omk.textContent = '-';
     }
 
     document.getElementById('vaabenopg-minus').disabled =
-        vaabenOpgVindueNiveau <= orig;
+        valgtOpgraderingsNiveau <= orig;
     document.getElementById('vaabenopg-plus').disabled =
-        vaabenOpgVindueNiveau >= 5;
+        valgtOpgraderingsNiveau >= 5;
     document.getElementById('vaabenopg-niveau-badge').textContent = 
-    `${vaabenOpgVindueNiveau > 0 ? '+' : ''}${vaabenOpgVindueNiveau}`;
+    `${valgtOpgraderingsNiveau > 0 ? '+' : ''}${valgtOpgraderingsNiveau}`;
 
     const harRaad = stenskaar <= karakter.stenskaar &&
-                    (!vaabenOpgVindueVedVandsten || draaber <= karakter.draaber);
-    const harAendring = vaabenOpgVindueNiveau !== vaabenDetaljeState.midlertidigOpgradering;
+                    (!opgraderingVedVandsten || draaber <= karakter.draaber);
+    const harAendring = valgtOpgraderingsNiveau !== vaabenRedigeringData.midlertidigOpgradering;
     const knap = document.getElementById('bekraeft-vaabenopgradering');
     const aktiv = harRaad && harAendring;
     knap.style.opacity = aktiv ? '' : '0.4';
     knap.style.pointerEvents = aktiv ? '' : 'none';
 }
 
-function bekraeftVaabenOpgradering() {
-    vaabenDetaljeState.midlertidigOpgradering = vaabenOpgVindueNiveau;
-    vaabenDetaljeState.vedVandsten = vaabenOpgVindueVedVandsten;
+function bekraeftVaabenopgradering() {
+    vaabenRedigeringData.midlertidigOpgradering = valgtOpgraderingsNiveau;
+    vaabenRedigeringData.vedVandsten = opgraderingVedVandsten;
     opdaterVaabenOpgraderingKnap();
     lukVindue('vaabenopgradering');
 }

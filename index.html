@@ -287,7 +287,6 @@
             <div class="sektion__top">
                 <div class="sektion__titel" id="evner-titel">Evner</div>
                 <div class="u-flex-row">
-                    <div class="sektion__knap sektion__knap--lille" id="evneforbedringsknap">Evneforbedring</div>
                     <div class="sektion__knap" id="evne-toggle">+/-</div>
                 </div>
             </div>
@@ -490,11 +489,14 @@
 
     <div class="vindue__baggrund" id="hvil-vindue">
         <div class="vindue__blok">
-            <div class="vindue__titel">Hvil</div>
-            <div class="vindue__tekst">Vil du hvile ved en vandsten?</div>
-            <div class="vindue__knapgruppe">
+            <div class="vindue__titel">Ved vandsten</div>
+            <div class="vindue__tekst">Hvad vil du gøre?</div>
+            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+                <div class="vindue__knap" id="bekraeft-hvil">Hvil</div>
+                <div class="vindue__knap" id="evneforbedringsknap">Evneforbedring</div>
+                <div class="vindue__knap" id="faerdighedsknap">Færdigheder</div>
+                <div class="vindue__knap" id="-----">Besværgelser</div>
                 <div class="vindue__knap vindue__knap--annuller" id="annuller-hvil">Annuller</div>
-                <div class="vindue__knap" id="bekraeft-hvil">Bekræft</div>
             </div>
         </div>
     </div>
@@ -536,6 +538,20 @@
                 <div class="vindue__knap" id="bekraeft-evne">Bekræft forbedringer</div>
             </div>
         </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="faerdighed-vindue">
+        <div class="vindue__blok vindue__blok--kompleks">
+            <div class="vindue__titel">Færdigheder</div>
+            <div class="vindue__tekst">Vælg aktive færdigheder</div>
+            <div id="faerdighed-beholder-vindue"></div>
+            <div class="vindue__fod">
+                <div class="vindue__knapgruppe">
+                    <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed">Luk</div>
+                    <div class="vindue__knap" id="--------">Nyt våben</div>
+                </div>
+            </div>
         </div>
     </div>
 

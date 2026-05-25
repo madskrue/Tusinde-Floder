@@ -98,8 +98,13 @@ klik('status-toggle', visStatusJusteringer);
 klik('vandsten', () => visJustering('vandsten'));
 
 klik('stor-hvile-knap', () => aabenVindue('hvil'));
+
+// Hvile
 klik('bekraeft-hvil', hvil);
 klik('annuller-hvil', () => lukVindue('hvil'));
+
+klik('faerdighedsknap', () => aabenVindue('faerdighed'));
+klik('annuller-faerdighed', () => lukVindue('faerdighed'));
 
 klik('stor-doed-knap', () => aabenVindue('doed'));
 klik('bekraeft-doed', doed);
@@ -125,7 +130,7 @@ klik('laesioner-justering-minus', laesionerMinus);
 klik('laesioner-justering-plus', laesionerPlus);
 
 // Våben
-klik('vaaben-liste-knap', initVaabenListe);
+klik('vaaben-liste-knap', genererVaabenliste);
 
 // Evner
 klik('evne-toggle', visEvneJusteringer);
@@ -148,7 +153,7 @@ klik('luk-inventar', () => lukVindue('inventar'));
 
 // Våbenvindue
 klik('luk-vaabenliste', () => lukVindue('vaabenliste'));
-klik('nyt-vaaben-knap', () => aabneVaabenDetalje(null));
+klik('nyt-vaaben-knap', () => aabnVaabendetaljevindue(null));
 
 document.querySelectorAll('#vaaben-basis-toggle .vaabendetaljer__opgraderingsselektor').forEach(el => {
     el.addEventListener('click', () => {
@@ -157,7 +162,7 @@ document.querySelectorAll('#vaaben-basis-toggle .vaabendetaljer__opgraderingssel
     });
 });
 
-klik('aaben-vaabenopgradering', () => initVaabenOpgradering());
+klik('aaben-vaabenopgradering', () => aabnVaabenopgraderingsvindue());
 klik('gem-vaaben', gemVaaben);
 klik('slet-vaaben', () => visJustering('slet-vaaben-bekraeft'));
 klik('slet-vaaben-annuller', () => visJustering('slet-vaaben-bekraeft'));
@@ -165,7 +170,7 @@ klik('slet-vaaben-slet', sletVaaben);
 
 klik('annuller-vaabendetalje', () => {
     lukVindue('vaabendetalje');
-    initVaabenListe();
+    genererVaabenliste();
 });
 
 // Opgraderingsvindue
@@ -173,13 +178,13 @@ klik('vaabenopg-minus', () => aendrVaabenOpgraderingNiveau(-1));
 klik('vaabenopg-plus', () => aendrVaabenOpgraderingNiveau(1));
 klik('vaabenopg-smedje', () => {
     vaabenOpgVindueVedVandsten = false;
-    opdaterVaabenOpgraderingVindue();
+    opdaterVaabenopgraderingsvindue();
 });
 klik('vaabenopg-vandsten', () => {
     vaabenOpgVindueVedVandsten = true;
-    opdaterVaabenOpgraderingVindue();
+    opdaterVaabenopgraderingsvindue();
 });
-klik('bekraeft-vaabenopgradering', bekraeftVaabenOpgradering);
+klik('bekraeft-vaabenopgradering', bekraeftVaabenopgradering);
 klik('annuller-vaabenopgradering', () => lukVindue('vaabenopgradering'));
 
 // Evneforbedringsvindue
