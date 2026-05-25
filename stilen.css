@@ -731,6 +731,20 @@ input::-webkit-inner-spin-button {
 
 
 
+.faerdighed-beholder-vindue {
+    height: 600px;
+    overflow: scroll;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0.5rem;
+}
+
+.faerdighed-beholder-vindue .kort {
+    background-color: var(--ark);
+    height: fit-content;
+}
+
+
 /* SEKTION: EVNER */
 .evne__grid {
     display: grid;
@@ -1371,10 +1385,6 @@ input::-webkit-inner-spin-button {
     }
 
     .dobbeltsektion {
-        grid-template-columns: 1fr;
-    }
-
-    .faerdighed {
         grid-template-columns: 1fr;
     }
 

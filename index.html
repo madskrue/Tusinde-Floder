@@ -14,6 +14,8 @@
     <img class="tusindefloderpng" src="billeder/tusindefloder.png">
     <img class="boelgernepng" src="billeder/boelgerne.png">
 
+    <!-- === Ark === -->
+
     <div class="ark" id="beholder">
 
         <!-- Grundlæggende -->
@@ -259,9 +261,6 @@
 
                     <!-- Cyklus -->
                     <div class="faneblad" id="cyklus-indhold">
-                        <div class="emne-raekke-beholder">
-                            <div class="emne-raekke" id="faerdighed-raekke"></div>
-                        </div>
                         <div class="kort__grid" id="faerdighed-beholder"></div>
                     </div>
 
@@ -447,17 +446,19 @@
 
 
 
+    <!-- === Misc === -->
+
     <!-- Våben-tooltip -->
     <div id="vaaben-tooltip" class="vaaben-tooltip"></div>
-
-
 
     <!-- Besked -->
     <div class="besked-beholder" id="besked-beholder"></div>
 
 
 
-    <!-- Vinduer -->
+    <!-- === Vinduer === -->
+
+    <!-- Inventar -->
     <div class="vindue__baggrund" id="inventar-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Inventar</div>
@@ -487,27 +488,16 @@
         </div>
     </div>
 
+    <!-- Vandsten -->
     <div class="vindue__baggrund" id="hvil-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Ved vandsten</div>
             <div class="vindue__tekst">Hvad vil du gøre?</div>
             <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
-                <div class="vindue__knap" id="bekraeft-hvil">Hvil</div>
                 <div class="vindue__knap" id="evneforbedringsknap">Evneforbedring</div>
                 <div class="vindue__knap" id="faerdighedsknap">Færdigheder</div>
                 <div class="vindue__knap" id="-----">Besværgelser</div>
-                <div class="vindue__knap vindue__knap--annuller" id="annuller-hvil">Annuller</div>
-            </div>
-        </div>
-    </div>
-
-    <div class="vindue__baggrund" id="doed-vindue">
-        <div class="vindue__blok">
-            <div class="vindue__titel">Død</div>
-            <div class="vindue__tekst">Vil du dø og genopstå ved en vandsten?</div>
-            <div class="vindue__knapgruppe">
-                <div class="vindue__knap vindue__knap--annuller" id="annuller-doed">Annuller</div>
-                <div class="vindue__knap" id="bekraeft-doed">Bekræft</div>
+                <div class="vindue__knap vindue__knap--annuller" id="bekraeft-hvil">Hvil</div>
             </div>
         </div>
     </div>
@@ -545,18 +535,34 @@
         <div class="vindue__blok vindue__blok--kompleks">
             <div class="vindue__titel">Færdigheder</div>
             <div class="vindue__tekst">Vælg aktive færdigheder</div>
-            <div id="faerdighed-beholder-vindue"></div>
+            <div class="faerdighed-beholder-vindue" id="faerdighed-beholder-vindue"></div>
             <div class="vindue__fod">
                 <div class="vindue__knapgruppe">
-                    <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed">Luk</div>
-                    <div class="vindue__knap" id="--------">Nyt våben</div>
+                    <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed">Tilbage</div>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- Død -->
+    <div class="vindue__baggrund" id="doed-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Død</div>
+            <div class="vindue__tekst">Vil du dø og genopstå ved en vandsten?</div>
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-doed">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-doed">Bekræft</div>
+            </div>
+        </div>
+    </div>
 
+    <div id="endeligtdoed" class="vindue__baggrund vindue__baggrund--endeligtdoed">
+        <div class="vindue__blok vindue__blok--endeligtdoed">
+        Du er endeligt død.
+        </div>
+    </div>
 
+    <!-- Våben og opgradering -->
     <div class="vindue__baggrund" id="vaabenliste-vindue">
         <div class="vindue__blok vindue__blok--kompleks">
             <div class="vindue__titel">Våben og opgraderinger</div>
@@ -675,16 +681,7 @@
         </div>
     </div>
 
-
-
-    <div id="endeligtdoed" class="vindue__baggrund vindue__baggrund--endeligtdoed">
-        <div class="vindue__blok vindue__blok--endeligtdoed">
-        Du er endeligt død.
-        </div>
-    </div>
-
-
-
+    <!-- Karakterhåndtering -->
     <div class="vindue__baggrund" id="karakter-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Karakter</div>
@@ -698,8 +695,6 @@
             <input type="file" id="importer-input" accept=".json" style="display:none;">
         </div>
     </div>
-
-
 
     <div class="vindue__baggrund" id="ny-karakter-vindue">
         <div class="vindue__blok">
@@ -719,8 +714,6 @@
         </div>
     </div>
 
-
-
      <div class="vindue__baggrund" id="nulstil-karakter-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Bekræft nulstilling</div>
@@ -734,7 +727,7 @@
 
 
 
-    <!-- Scripts -->
+    <!-- === Scripts === -->
     <script src="data.js"></script>
     <script src="logik.js"></script>
     <script src="events.js"></script>

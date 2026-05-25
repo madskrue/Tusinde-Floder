@@ -101,9 +101,11 @@ klik('stor-hvile-knap', () => aabenVindue('hvil'));
 
 // Hvile
 klik('bekraeft-hvil', hvil);
-klik('annuller-hvil', () => lukVindue('hvil'));
 
-klik('faerdighedsknap', () => aabenVindue('faerdighed'));
+klik('faerdighedsknap', () => {
+    aabenVindue('faerdighed');
+    opdaterFaerdighedsvindue();
+});
 klik('annuller-faerdighed', () => lukVindue('faerdighed'));
 
 klik('stor-doed-knap', () => aabenVindue('doed'));

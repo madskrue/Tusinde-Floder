@@ -62,7 +62,6 @@ function opdaterVistData() {
     opdaterInventarOgNoter();
     opdaterVaabenRaekke();
     opdaterVaabenKort();
-    opdaterFaerdighedsRaekke();
     opdaterFaerdighedsKort();
     gemData();
     opdaterDoedVisning();
@@ -673,6 +672,7 @@ function opretKort(beholder, id) {
     return kort;
 }
 
+// Våben
 function genererVaabenKort(vaaben) {
     const beholder = document.getElementById('basisskade-beholder');
     const id = vaaben.id;
@@ -749,51 +749,6 @@ function genererVaabenKort(vaaben) {
     }
 }
 
-function genererFaerdighedsKort(faerdighed) {
-    const beholder = document.getElementById('faerdighed-beholder');
-    const id = faerdighed.id;
-    const kort = opretKort(beholder, id);
-
-    kort.innerHTML = 
-    `<div class="kort__top">
-        <div class="kort__titel" id="titel-${id}">${faerdighed.navn}</div>
-        <div class="kort__basis" id="kvalifikation-${id}">${faerdighed.kvalifikation}</div>
-    </div>
-
-    <div class="kort__top">
-        ${ faerdighed.type === "aktiv" ? `<div class="brug-knap" id="cyklus-brug-${id}">Brug</div>` : `<div class="kort__basis--type">${faerdighed.type}</div>`}
-    </div>
-
-    <div class="kort__data" id="info-${id}">
-        <div class="kort__linje">
-            <div class="kort__beskrivelse">${faerdighed.beskrivelse}</div>
-        </div>
-    </div>`;
-
-
-
-    if (faerdighed.type === "aktiv") {
-    document.getElementById(`cyklus-brug-${id}`).addEventListener('click', () => {
-        cyklusBrug(id)
-    });
-    }
-
-    function cyklusBrug(id) {
-        const knap = document.getElementById(`cyklus-brug-${id}`);
-        const titel = document.getElementById(`titel-${id}`);
-        const kval = document.getElementById(`kvalifikation-${id}`);
-        const info = document.getElementById(`info-${id}`);
-        
-        knap.classList.toggle('brugt');
-        titel.classList.toggle('brugt');
-        kval.classList.toggle('brugt');
-        info.classList.toggle('brugt');
-
-        const brugt = knap.classList.contains('brugt');
-        knap.textContent = (brugt ? 'Brugt' : 'Brug');
-    }
-}
-
 function opdaterVaabenKort() {
     document.getElementById('basisskade-beholder').innerHTML = '';
     karakter.vaaben
@@ -801,14 +756,6 @@ function opdaterVaabenKort() {
         .forEach(vaaben => genererVaabenKort(vaaben));
 }
 
-function opdaterFaerdighedsKort() {
-    document.getElementById('faerdighed-beholder').innerHTML = '';
-    karakter.faerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => genererFaerdighedsKort(faerdighed));
-}
-
-// Våben
 function opdaterVaabenRaekke() {
     const container = document.getElementById('vaaben-raekke');
     container.innerHTML = '';
@@ -853,47 +800,111 @@ function beregnBasisskade(vaaben) {
 }
 
 // Færdigheder
-function opdaterFaerdighedsRaekke() {
-    const container = document.getElementById('faerdighed-raekke');
-    container.innerHTML = '';
+function genererFaerdighedsKort(faerdighed, beholderid) {
+    const beholder = document.getElementById(beholderid);
+    const id = faerdighed.id;
+    const kort = opretKort(beholder, id);
 
-    if (!karakter.faerdigheder || karakter.faerdigheder.length === 0) {
-        const tom = document.createElement('div');
-        tom.className = 'emne-raekke-tom';
-        tom.textContent = 'Ingen færdigheder.';
-        container.appendChild(tom);
-        return;
-    }
+    kort.innerHTML = 
+    `<div class="kort__top">
+        <div class="kort__titel" id="titel-${id}">${faerdighed.navn}</div>
+        <div class="kort__basis" id="kvalifikation-${id}">${faerdighed.kvalifikation}</div>
+    </div>
 
-    for (const faerdighed of karakter.faerdigheder) {
+    <div class="kort__top">
+        ${ faerdighed.type === "aktiv" && beholderid === 'faerdighed-beholder' ? `<div class="brug-knap" id="cyklus-brug-${id}">Brug</div>` : `<div class="kort__basis--type">${faerdighed.type}</div>`}
+    </div>
+
+    <div class="kort__data" id="info-${id}">
+        <div class="kort__linje">
+            <div class="kort__beskrivelse">${faerdighed.beskrivelse}</div>
+        </div>
+    </div>`;
+
+
+
+    if (beholderid === 'faerdighed-beholder') {
+
+        if (faerdighed.type === "aktiv") {
+        document.getElementById(`cyklus-brug-${id}`).addEventListener('click', () => {
+            cyklusBrug(id)
+        });
+        }
+
+        function cyklusBrug(id) {
+            const knap = document.getElementById(`cyklus-brug-${id}`);
+            const titel = document.getElementById(`titel-${id}`);
+            const kval = document.getElementById(`kvalifikation-${id}`);
+            const info = document.getElementById(`info-${id}`);
+            
+            knap.classList.toggle('brugt');
+            titel.classList.toggle('brugt');
+            kval.classList.toggle('brugt');
+            info.classList.toggle('brugt');
+
+            const brugt = knap.classList.contains('brugt');
+            knap.textContent = (brugt ? 'Brugt' : 'Brug');
+        }
+    } else if (beholderid === 'faerdighed-beholder-vindue') {
+        const titel = document.getElementById(`titel-${id}`);
+        const kval = document.getElementById(`kvalifikation-${id}`);
+        const info = document.getElementById(`info-${id}`);
         const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
-        const el = document.createElement('div');
-        el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
-        el.textContent = faerdighed.navn;
-
         const maksAktive = 2;
-        el.addEventListener('click', (e) => {
-            e.stopPropagation();
 
+        if (!erValgt) {
+            titel.classList.add('brugt');
+            kval.classList.add('brugt');
+            info.classList.add('brugt');
+        }
+
+        kort.addEventListener('click', () => {
+            aktiverFaerdighed(id)
+        });
+
+        function aktiverFaerdighed(id) {
             const erValgt = karakter.valgteFaerdigheder.includes(faerdighed.id);
-
             if (erValgt) {
+                    titel.classList.toggle('brugt');
+                    kval.classList.toggle('brugt');
+                    info.classList.toggle('brugt');
                 karakter.valgteFaerdigheder =
                     karakter.valgteFaerdigheder.filter(id => id !== faerdighed.id);
             } else {
                 if (karakter.valgteFaerdigheder.length >= maksAktive) {
-                    visBesked('Du kan kun have højst 2 færdigheder aktive ad gangen.');
+                    visBesked('Du kan kun have højst 2 aktive færdigheder.');
                     return;
                 }
                 karakter.valgteFaerdigheder.push(faerdighed.id);
+                titel.classList.toggle('brugt');
+                kval.classList.toggle('brugt');
+                info.classList.toggle('brugt');
             }
 
             gemData();
             opdaterVistData();
-        });
-
-        container.appendChild(el);
+            opdaterFaerdighedsvindue();
+        }
     }
+}
+
+function opdaterFaerdighedsKort() {
+    document.getElementById('faerdighed-beholder').innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder'));
+    alleFaerdigheder.evnefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder'));
+}
+
+function opdaterFaerdighedsvindue() {
+    document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => v.kvalifikation.includes(karakter.klasse))
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
+    alleFaerdigheder.evnefaerdigheder
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
 }
 
 
@@ -1133,7 +1144,6 @@ function bekraeftEvneForbedringer() {
     opdaterVistData();
     lukVindue('evneforbedring');
     visBesked(`Evner forbedret. ${total} Dråber brugt.`);
-    hvil();
 }
  
 // Specialinfo-hjælpere til Liv, Sejd, Hu
