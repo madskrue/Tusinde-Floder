@@ -92,25 +92,40 @@ klik('flaske-liv', () => drikFlaske('liv'));
 klik('flaske-sejd', () => drikFlaske('sejd'));
 klik('flaske-laesion', () => drikFlaske('laesion'));
 
-// Status
-klik('status-toggle', visStatusJusteringer);
 
-klik('vandsten', () => visJustering('vandsten'));
-
-klik('stor-hvile-knap', () => aabenVindue('hvil'));
 
 // Hvile
+klik('vandsten', () => visJustering('vandsten'));
+klik('hvil-knap', () => aabenVindue('hvil'));
 klik('bekraeft-hvil', hvil);
 
-klik('faerdighedsknap', () => {
-    aabenVindue('faerdighed');
-    opdaterFaerdighedsvindue();
-});
-klik('annuller-faerdighed', () => lukVindue('faerdighed'));
+// Færdigheder
+    klik('faerdighedsknap', () => aabenVindue('faerdighed-menu'));
+    klik('annuller-faerdighed-menu', () => lukVindue('faerdighed-menu'));
 
+    klik('faerdighed-beredskab-knap', () => {
+        aabenVindue('faerdighed');
+        opdaterFaerdighedsberedskabsvindue();
+    });
+    klik('annuller-faerdighed-beredskab', () => lukVindue('faerdighed'));
+
+// Evneforbedringsvindue
+    klik('bekraeft-evne', bekraeftEvneForbedringer);
+    klik('annuller-evne', () => lukVindue('evneforbedring'));
+    klik('evneforbedringsknap', () => initEvneVindue());
+
+// Død
 klik('stor-doed-knap', () => aabenVindue('doed'));
 klik('bekraeft-doed', doed);
 klik('annuller-doed', () => lukVindue('doed'));
+
+
+// Status
+klik('status-toggle', visStatusJusteringer);
+
+
+
+
 
 klik('sekvens', () => visJustering('sekvens'));
 klik('sekvens-saet', saetSekvens);
@@ -153,6 +168,8 @@ klik('minus-stenskaar', () => aendrInventar('stenskaar', -1));
 klik('plus-stenskaar', () => aendrInventar('stenskaar', 1));
 klik('luk-inventar', () => lukVindue('inventar'));
 
+
+
 // Våbenvindue
 klik('luk-vaabenliste', () => lukVindue('vaabenliste'));
 klik('nyt-vaaben-knap', () => aabnVaabendetaljevindue(null));
@@ -188,11 +205,6 @@ klik('vaabenopg-vandsten', () => {
 });
 klik('bekraeft-vaabenopgradering', bekraeftVaabenopgradering);
 klik('annuller-vaabenopgradering', () => lukVindue('vaabenopgradering'));
-
-// Evneforbedringsvindue
-klik('bekraeft-evne', bekraeftEvneForbedringer);
-klik('annuller-evne', () => lukVindue('evneforbedring'));
-klik('evneforbedringsknap', () => initEvneVindue());
 
 
 

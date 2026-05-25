@@ -171,7 +171,7 @@
                             <span class="stat__vaerdi stat__vaerdi--vandsten">✺</span>
                             <div class="justering justering--stat" id="vandsten-justering">
                                 <div class="justering__knapgruppe justering__knapgruppe--kolonne">
-                                    <div class="justering__knap justering__knap--lille" id="stor-hvile-knap">Hvil</div>
+                                    <div class="justering__knap justering__knap--lille" id="hvil-knap">Hvil</div>
                                     <div class="justering__knap justering__knap--lille" id="stor-doed-knap">Død</div>
                                 </div>
                             </div>
@@ -493,10 +493,10 @@
         <div class="vindue__blok">
             <div class="vindue__titel">Ved vandsten</div>
             <div class="vindue__tekst">Hvad vil du gøre?</div>
-            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+            <div class="vindue__knapgruppe vindue__knapgruppe--lodret">
                 <div class="vindue__knap" id="evneforbedringsknap">Evneforbedring</div>
                 <div class="vindue__knap" id="faerdighedsknap">Færdigheder</div>
-                <div class="vindue__knap" id="-----">Besværgelser</div>
+                <div class="vindue__knap">BesværgelserX</div>
                 <div class="vindue__knap vindue__knap--annuller" id="bekraeft-hvil">Hvil</div>
             </div>
         </div>
@@ -531,14 +531,25 @@
         </div>
     </div>
 
+    <div class="vindue__baggrund" id="faerdighed-menu-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Færdigheder</div>
+            <div class="vindue__knapgruppe vindue__knapgruppe--lodret">
+                <div class="vindue__knap" id="faerdighed-beredskab-knap">Færdighedsberedskab</div>
+                <div class="vindue__knap" id="laer-faerdigheder-knap">Lær færdighederX</div>
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed-menu">Tilbage</div>
+            </div>
+        </div>
+    </div>
+
     <div class="vindue__baggrund" id="faerdighed-vindue">
         <div class="vindue__blok vindue__blok--kompleks">
-            <div class="vindue__titel">Færdigheder</div>
+            <div class="vindue__titel">Færdighedsberedskab</div>
             <div class="vindue__tekst">Vælg aktive færdigheder</div>
             <div class="faerdighed-beholder-vindue" id="faerdighed-beholder-vindue"></div>
             <div class="vindue__fod">
                 <div class="vindue__knapgruppe">
-                    <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed">Tilbage</div>
+                    <div class="vindue__knap vindue__knap--annuller" id="annuller-faerdighed-beredskab">Tilbage</div>
                 </div>
             </div>
         </div>
@@ -686,7 +697,7 @@
         <div class="vindue__blok">
             <div class="vindue__titel">Karakter</div>
             <div class="vindue__tekst">Gem eller indlæs karakter</div>
-            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+            <div class="vindue__knapgruppe vindue__knapgruppe--lodret">
                 <div class="vindue__knap" id="ny-karakter">Ny karakter</div>
                 <div class="vindue__knap" id="eksporter-knap">Gem karakter</div>
                 <div class="vindue__knap" id="importer-knap">Indlæs karakter</div>
@@ -700,7 +711,7 @@
         <div class="vindue__blok">
             <div class="vindue__titel">Ny karakter</div>
             <div class="vindue__tekst">Vælg klasse.</div>
-            <div class="vindue__knapgruppe vindue__knapgruppe--karakter">
+            <div class="vindue__knapgruppe vindue__knapgruppe--lodret">
                 <div class="vindue__knap" id="asket-knap">Asket</div>
                 <div class="vindue__knap" id="bytyv-knap">Bytyv</div>
                 <div class="vindue__knap" id="forkynder-knap">Forkynder</div>

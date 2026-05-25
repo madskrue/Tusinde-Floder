@@ -1205,7 +1205,7 @@ input::-webkit-inner-spin-button {
     cursor: not-allowed;
 }
 
-.vindue__knapgruppe--karakter {
+.vindue__knapgruppe--lodret {
     flex-direction: column;
 }
 
@@ -1417,6 +1417,9 @@ input::-webkit-inner-spin-button {
         flex-direction: column;
     }
 
+    .faerdighed-beholder-vindue {
+    grid-template-columns: 1fr 1fr;
+}
 }
 
 @media (max-width: 450px) {

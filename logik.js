@@ -883,7 +883,7 @@ function genererFaerdighedsKort(faerdighed, beholderid) {
 
             gemData();
             opdaterVistData();
-            opdaterFaerdighedsvindue();
+            opdaterFaerdighedsberedskabsvindue();
         }
     }
 }
@@ -898,12 +898,20 @@ function opdaterFaerdighedsKort() {
         .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder'));
 }
 
-function opdaterFaerdighedsvindue() {
+// Nuværende udgave
+function opdaterFaerdighedsberedskabsvindue() {
     document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
     alleFaerdigheder.klassefaerdigheder
         .filter(v => v.kvalifikation.includes(karakter.klasse))
         .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
     alleFaerdigheder.evnefaerdigheder
+        .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
+}
+
+// Fremtidig udgave hvor kun kvalificerede færdigheder vises
+function opdaterFaerdighedsberedskabsvindueV2() {
+    document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
+    karakter.faerdigheder
         .forEach(faerdighed => genererFaerdighedsKort(faerdighed, 'faerdighed-beholder-vindue'));
 }
 
@@ -1145,7 +1153,7 @@ function bekraeftEvneForbedringer() {
     lukVindue('evneforbedring');
     visBesked(`Evner forbedret. ${total} Dråber brugt.`);
 }
- 
+
 // Specialinfo-hjælpere til Liv, Sejd, Hu
 function evneLivInfo(gammelForm, nyForm) {
     const gammelLiv = getVitalMax(gammelForm);
