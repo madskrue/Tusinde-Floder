@@ -969,22 +969,573 @@ const alleFaerdigheder = {
 const alleBesvaergelser = {
     besvaergelser: [
         {
-        id: "skabelon",
+        // === SKABELON === //
+
+        id: "b_skole_navn",
         navn: "Besværgelsesnavn",
+        beskrivelse: "Besværgelsesbeskrivelse.",
+
+        skole: "Skole",
         basis: "Evne",
-        beskrivelse: "Beskrivelse.",
-
         levelKrav: { },
+        fokusKrav: null,    // "sakralt" / "profant" / null
+        type: null,         // "fysisk" / "mental" / null
+        effekt: null,       // "skade" / "heling" / "helbredelse" / "kontrol" / null
+        hu: null,           // tal / null
+        sejd: null,         // tal / null
+        skadeFaktor: null,  // tal / null
+        heling: null,       // "mængde" / null
+        },
+    
 
-        goerSkade: false,
 
-        angreb: {
-            skadeFaktor: null,
-            hu: null,
-            sejd: null,
+        // === HELLIG === //
+        {
+        id: "b_hellig_helende-beroering",
+        navn: "Helende berøring",
+        beskrivelse: "Berør en person indenfor 1 spænd og giv dem 10 Liv.",
+
+        skole: "Hellig",
+        basis: "mystik",
+        levelKrav: { mystik: 10 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "heling",
+        hu: 1,
+        sejd: 2,
+        skadeFaktor: null,
+        heling: 10,
         },
 
-        noter: ""
+        {
+        id: "b_hellig_hellig-beroering",
+        navn: "Hellig berøring",
+        beskrivelse: "Berør en person indenfor 1 spænd og fjern én negativ mental effekt (f.eks. ængstelig, forfærdelse).",
+
+        skole: "Hellig",
+        basis: "mystik",
+        levelKrav: { mystik: 14 },
+        fokusKrav: "sakralt",
+        type: "mental",
+        effekt: "helbredelse",
+        hu: 1,
+        sejd: 3,
+        skadeFaktor: null,
+        heling: null,
         },
+
+        {
+        id: "b_hellig_hellig-hammer",
+        navn: "Hellig hammer",
+        beskrivelse: "Skab en lysende hammer og slå den ned på en person indenfor 2 spænd.\n\nHvis personen rammes, tager de dobbelt basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
+
+        skole: "Hellig",
+        basis: "mystik",
+        levelKrav: { mystik: 18 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 3,
+        sejd: 2,
+        skadeFaktor: 2,
+        heling: null,
+        },
+
+        {
+        id: "b_hellig_helende-aura",
+        navn: "Helende aura",
+        beskrivelse: "Du heler alle allierede indenfor 1 spænd af dig 4 Liv per tur indtil starten af din næste tur.",
+
+        skole: "Hellig",
+        basis: "mystik",
+        levelKrav: { mystik: 20 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "heling",
+        hu: 2,
+        sejd: 8,
+        skadeFaktor: null,
+        heling: 4,
+        },
+
+        {
+        id: "b_hellig_sakral-stråle",
+        navn: "Sakral stråle",
+        beskrivelse: "Skab en koncentreret, lysende stråle, der skyder frem i en lige linje. Hvis du forsøger at ramme et mål, der er mere end 10 spænd væk, har du -1d6 per 10 spænd målet er væk. Strålen trænger igennem alle personer, den rammer, indtil den stoppes af en solid genstand eller blokeres.\n\nAlle der rammes tager basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
+
+        skole: "Hellig",
+        basis: "mystik",
+        levelKrav: { mystik: 26 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 3,
+        sejd: 6,
+        skadeFaktor: 1,
+        heling: null,
+        },
+
+
+
+        // === RÅD === //
+        {
+        id: "b_raad_hudsult",
+        navn: "Hudsult",
+        beskrivelse: "Knæl ved et lig indenfor 1 spænd. Spis af ligets kød og genvind Liv svarende til dit Mystiklevel.",
+
+        skole: "Råd",
+        basis: "mystik",
+        levelKrav: { mystik: 21 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "heling",
+        hu: 1,
+        sejd: 5,
+        skadeFaktor: 1,
+        heling: "basis",
+        },
+
+        {
+        id: "b_raad_nekrose",
+        navn: "Nekrose",
+        beskrivelse: "Grib fat i et måls kropsdel (arm eller ben) indenfor 1 spænd og forsøg at holde fast (følger normale regler for fastholdelse): rul Styrke mod målets Styrke eller Behændighed.\n\nHvis du lykkes med at gribe fat, tager målet halv basisskade (Mystik).\n\nHvis du kan opretholde fastholdelsen indtil starten af din næste tur uden at miste grebet, får målet en kritisk læsion; kropsdelen visner og kan ikke længere bruges.",
+
+        skole: "Råd",
+        basis: "mystik",
+        levelKrav: { mystik: 24 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 2,
+        sejd: 6,
+        skadeFaktor: 0.5,
+        heling: null,
+        },
+
+        {
+        id: "b_raad_opstoed",
+        navn: "Opstød",
+        beskrivelse: "Fald til jorden og tøm din maves indhold ud over et område med en radius på 2 spænd fra dit center. Gør basisskade.\n\nAlle der rammes, skal rulle Form og få 2 eller flere træffere. Hvis ikke de får 2 eller flere træffere, er de forgiftet i 2 runder.",
+
+        skole: "Råd",
+        basis: "mystik",
+        levelKrav: { mystik: 27 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 3,
+        sejd: 7,
+        skadeFaktor: 1,
+        heling: null,
+        },
+
+        {
+        id: "b_raad_sepsis",
+        navn: "Sepsis",
+        beskrivelse: "Berør et mål, der har en læsion indenfor 1 spænd og inficer såret. Lav et angrebsrul for at føre dine fingre ind i læsionen.\n\nHvis du rammer, gør du halv basisskade og kan rulle Mystik mod målets Form. Hvis du får samme antal eller flere træffere end målet, forgifter du deres blod gennem 3 runder:\n\nI første runde er målets maksimale Hu og regenerering af Hu reduceret med 3. I anden runde er målets maks Hu og regenerering reduceret med 2. I tredje runde er målets maks Hu og regenerering reduceret med 1.",
+
+        skole: "Råd",
+        basis: "mystik",
+        levelKrav: { mystik: 30 },
+        fokusKrav: "sakralt",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 1,
+        sejd: 8,
+        skadeFaktor: 0.5,
+        heling: null,
+        },
+
+        
+    
+        // === SEER === //
+        {
+        id: "b_seer_se",
+        navn: "Se",
+        beskrivelse: "Rør en person og få øjeblikkeligt et syn fra deres liv.\n\nRul Mystik mod deres Sind. Hvis du består, beskriver Spilmesteren et billede fra deres levede fortid eller potentielle fremtid.",
+
+        skole: "Seer",
+        basis: "mystik",
+        levelKrav: { mystik: 14 },
+        fokusKrav: "sakralt",
+        type: "mental",
+        effekt: "information",
+        hu: 1,
+        sejd: 4,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_seer_traed-ind",
+        navn: "Træd ind",
+        beskrivelse: "Træd ind i en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du se gennem deres øjne, høre gennem deres ører, føle gennem deres hænder. Varer et minut eller til du træder ud igen.",
+
+        skole: "Seer",
+        basis: "mystik",
+        levelKrav: { mystik: 18 },
+        fokusKrav: "sakralt",
+        type: "mental",
+        effekt: "information",
+        hu: 2,
+        sejd: 7,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_seer_besaet",
+        navn: "Besæt",
+        beskrivelse: "Besæt en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du overtage kontrollen af deres krop. Varer et minut eller til du slipper kontrollen.",
+
+        skole: "Seer",
+        basis: "mystik",
+        levelKrav: { mystik: 36 },
+        fokusKrav: "sakralt",
+        type: "mental",
+        effekt: "kontrol",
+        hu: 4,
+        sejd: 20,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+
+
+        // === NATUR === //
+        {
+        id: "b_natur_iskrystal",
+        navn: "Iskrystal",
+        beskrivelse: "Afsend et projektil af is mod en person indenfor 10 spænd. Gør halv basisskade.\n\nHvis den rammer med en fuldtræffer, sætter iskrystallen sig fast i den ramtes krop, og de har -1d6 til deres næste forsvarsrul.",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 14 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 1,
+        sejd: 1,
+        skadeFaktor: 0.5,
+        heling: null,
+        },
+
+        {
+        id: "b_natur_vindstoed",
+        navn: "Vindstød",
+        beskrivelse: "Manipulér luften til at bevæge sig hastigt afsted.\n\nRul Visdom. Antallet af træffere afgør kraften af besværgelsen.\n\n1 træffer: Brise\n2 træffere: Vind\n3 træffere: Kuling\n4 træffere: Storm\n5 eller flere træffere: Orkan",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 16 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 3,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_natur_afladning",
+        navn: "Afladning",
+        beskrivelse: "Aflad en statisk puls fra dit fokus to et mål indenfor 2 spænd. Gør dobbelt basisskade.",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 18 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 2,
+        sejd: 5,
+        skadeFaktor: 2,
+        heling: null,
+        },
+
+        {
+        id: "b_natur_istap",
+        navn: "Istap",
+        beskrivelse: "Form en stor istap et sted i luften indenfor 4 spænd. Istappen bliver hængende i tre ture efter din tur og falder ned derefter.\n\nHvis der står en person under istappen når den falder, ruller du Visdom og offeret har -2d6 til at undvige eller blokere den.\n\nHvis istappen rammer, gør den dobbelt basisskade.",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 22 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 1,
+        sejd: 6,
+        skadeFaktor: 2,
+        heling: null,
+        },
+
+        {
+        id: "b_natur_elektrisk-segl",
+        navn: "Elektrisk segl",
+        beskrivelse: "Tegn et segl i luften med dit fokus indenfor 1 spænd. En elektrisk puls forsegles og udløses automatisk, hvis en person berører seglet. Kan også udløses på din tur for 1 Hu og række op til 1 spænd. Gør basisskade.\n\nVarer i 2 runder eller til seglet udløses.",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 27 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 2,
+        sejd: 6,
+        skadeFaktor: 1,
+        heling: null,
+        },
+
+        {
+        id: "b_natur_hagl",
+        navn: "Hagl",
+        beskrivelse: "Nedkald en voldsom haglstorm.\n\nRul Visdom. Alle indenfor et område med en radius af 3 spænd fra dit center ruller for at blokere eller undvige haglene.\n\nGør basisskade til alle, der rammes.",
+        skole: "Natur",
+        basis: "visdom",
+        levelKrav: { visdom: 36 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "skade",
+        hu: 3,
+        sejd: 13,
+        skadeFaktor: 1,
+        heling: null,
+        },
+
+        // === MANIPULATION === //
+        {
+        id: "b_manipulation_ubehag",
+        navn: "Ubehag",
+        beskrivelse: "Kig en person, som du kan se og som kan se dig, i øjnene og skræm dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet ængsteligt i en runde.",
+        skole: "Manipulation",
+        basis: "visdom",
+        levelKrav: { visdom: 17 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "kontrol",
+        hu: 1,
+        sejd: 3,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_manipulation_tjeneste",
+        navn: "Tjeneste",
+        beskrivelse: "Gennemtræng sindet af en person som du kan se indenfor 6 spænd og tving dem til at hjælpe dig.\n\nRul Visdom mod deres Sind. Hvis du består, vil personen bruge 1 Hu på at opfylde en tjeneste, du beder dem om på deres næste tur.",
+        skole: "Manipulation",
+        basis: "visdom",
+        levelKrav: { visdom: 18 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "kontrol",
+        hu: 1,
+        sejd: 3,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_manipulation_frygt",
+        navn: "Frygt",
+        beskrivelse: "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en dyb frygt i dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet forfærdet i en runde og vil desuden forsøge at gemme sig fra dig på sin næste tur. De kan ikke tage andre handlinger på den tur, men kan stadig forsvare sig fra andre angreb.",
+        skole: "Manipulation",
+        basis: "visdom",
+        levelKrav: { visdom: 26 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 7,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_manipulation_paranoia",
+        navn: "Paranoia",
+        beskrivelse: "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en eksistentiel angst i dem.\n\nRul Visdom mod deres Sind. Hvis du består, vil målet se alle som fjender i en runde og vil gøre alt for at forsvare sig mod dem.",
+        skole: "Manipulation",
+        basis: "visdom",
+        levelKrav: { visdom: 32 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 10,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+
+
+        // === FORBINDELSE === //
+        {
+        id: "b_forbindelse_energioverfoersel",
+        navn: "Energioverførsel",
+        beskrivelse: "Tap din egen energi for at give den til en anden.\n\nOverfør Hu fra dig selv til en anden person, hvis Hu ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 2 Hu. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 1 Hu.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 16 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "kontrol",
+        hu: null,
+        huTekst: "1 + 1-2",
+        sejd: 2,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_forbindelse_forstaaelse",
+        navn: "Forståelse",
+        beskrivelse: "Kig en person, som du kan se og som kan se dig, i øjnene og analyser dem.\n\nRul Visdom mod deres Sind. Hvis du består, lærer du en af følgende efter eget valg: deres maksimale Liv, deres højeste evne, eller en af deres svagheder.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 20 },
+        fokusKrav: "profant",
+        type: "mental",
+        effekt: "information",
+        hu: 1,
+        sejd: 6,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_forbindelse_helbredsoverfoersel",
+        navn: "Helbredsoverførsel",
+        beskrivelse: "Tap dit eget helbred for at give det til en anden.\n\nOverfør Liv fra dig selv til en anden person, hvis Liv ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 20 Liv. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 10 Liv.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 23 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "heling",
+        hu: 1,
+        sejd: 4,
+        skadeFaktor: null,
+        heling: null,
+        helingTekst: "10-20",
+        },
+
+        {
+        id: "b_forbindelse_sammenfoejelse",
+        navn: "Sammenføjelse",
+        beskrivelse: "Kast en besværgelse over to personer for at forbinde dem fysisk.\n\nKastes mod to personer der rører hinanden, du kan se, indenfor 6 spænd. Hvis de begge fejler, eller hvis begge er villige, forbindes deres kroppe, hvor de er i kontakt. De sammenføjes og må bevæge sig sammen med kun ét spænd per Hu. De har -1d6 til forsvar mod fysiske angreb, men +1d6 til at ramme med angreb.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 30 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 10,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_forbindelse_ekstra-jeg",
+        navn: "Ekstra jeg",
+        beskrivelse: "Lav en åbning til dine indvolde og lad en lille version af dig selv fødes.\n\nDit lille, ekstra jeg fødes nøgen, er omtrent en ottendedel af din størrelse, og har evnelevels svarende til en fjerdedel af dine.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 37 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 4,
+        sejd: 14,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_forbindelse_amalgam",
+        navn: "Amalgam",
+        beskrivelse: "Lad to blive en.\n\nOmfavn en villig allieret. Jeres kroppe og jeres sind smelter sammen til et amalgam af jeres personer.\n\nNår I er et amalgam, lægges jeres evne-levels sammen, hvilket også bestemmer jeres nye terningerpuljer, Liv, Sejd og Hu. Derudover sammenlægges den skade I har taget, Sejd I har brugt, jeres forvitring og jeres læsioner. I har nu én tur i stedet for to og jeres Initiativtal er gennemsnittet af de tal, I havde før, rundet op. Amalgammet kan bruge alle besværgelser hver af jer kendte, begge jeres klassefærdigheder, og de evnefærdigheder jeres nye levels giver adgang til.\n\nJeres amalgam må beslutte hvilket udstyr, det tager med - det kan kun bære én rustning og én genstand i hver af dets to hænder, dog kan det bære to vedhæng.\n\nJeres amalgam varer til næste cyklus. Hvis amalgammet dør, genopvågner I begge, på hvad der ville have været amalgammets næste tur. Hvis amalgammet hviler ved en vandsten, ophæves det og splittes til de to, I var før.",
+
+        skole: "Forbindelse",
+        basis: "visdom",
+        levelKrav: { visdom: 46 },
+        fokusKrav: "profant",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 4,
+        sejd: 20,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+
+
+        // === BØLGEMAGI === //
+        {
+        id: "b_boelgemagi_sammentraek-rum",
+        navn: "Sammentræk rum",
+        beskrivelse: "Træk alle indenfor 3 spænd af dig 1 spænd mod dig.",
+        skole: "Bølgemagi",
+        basis: ["visdom", "mystik"],
+        levelKrav: { visdom: 14, mystik: 14 },
+        fokusKrav: "bølgefokus",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 4,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_boelgemagi_udvid-rum",
+        navn: "Udvid rum",
+        beskrivelse: "Skub alle indenfor 3 spænd af dig 1 spænd væk fra dig.",
+        skole: "Bølgemagi",
+        basis: ["visdom", "mystik"],
+        levelKrav: { visdom: 15, mystik: 15 },
+        fokusKrav: "bølgefokus",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 6,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_boelgemagi_vend-rum",
+        navn: "Vend rum",
+        beskrivelse: "Form rummet omkring dig og skab en øjeblikkelig portal til et sted du kan se indenfor 8 spænd. Hvis der står en anden person det sted, du teleporterer hen, bytter I plads og personen teleporterers til det sted, du stod på før rummet vendte.",
+        skole: "Bølgemagi",
+        basis: ["visdom", "mystik"],
+        levelKrav: { visdom: 16, mystik: 16 },
+        fokusKrav: "bølgefokus",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 8,
+        skadeFaktor: null,
+        heling: null,
+        },
+
+        {
+        id: "b_boelgemagi_faseskift",
+        navn: "Faseskift",
+        beskrivelse: "Træd delvist ud af den stabile fase i et øjeblik. Du kan gå gennem andre personer i denne tur uden at tage reaktive angreb og du kan ikke rammes af fysiske angreb indtil din næste tur.",
+        skole: "Bølgemagi",
+        basis:  ["visdom", "mystik"],
+        levelKrav: { visdom: 17, mystik: 17 },
+        fokusKrav: "bølgefokus",
+        type: "fysisk",
+        effekt: "kontrol",
+        hu: 2,
+        sejd: 12,
+        skadeFaktor: null,
+        heling: null,
+        }
     ]
 };
