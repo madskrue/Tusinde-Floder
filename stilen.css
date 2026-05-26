@@ -731,9 +731,24 @@ input::-webkit-inner-spin-button {
 
 
 
-.faerdighed-beholder-vindue {
+.faerdighed-meta-beholder-vindue {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
     height: 600px;
     overflow: scroll;
+}
+
+.vindue__beam {
+    background-color: var(--felt);
+    color: var(--tekst-svag);
+    width: 100%;
+    text-transform: uppercase;
+    border-radius: 1rem;
+    margin-top: 1rem;
+}
+
+.faerdighed-beholder-vindue {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
     gap: 0.5rem;
@@ -1415,6 +1430,10 @@ input::-webkit-inner-spin-button {
 
     .vaabendetaljer__opgraderingsselektor-toggle {
         flex-direction: column;
+    }
+
+    .faerdighed-meta-beholder-vindue {
+        height: 400px;
     }
 
     .faerdighed-beholder-vindue {

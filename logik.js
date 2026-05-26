@@ -35,6 +35,7 @@ let karakter = {
 
     faerdigheder: [],
     valgteFaerdigheder: [],
+    brugteFaerdigheder: [],
 
     vaaben: [],
     valgteVaaben: [],
@@ -629,6 +630,7 @@ function hvil() {
     karakter.sejdNu = karakter.sejdMax;
     karakter.huNu = getHuMax(karakter.intuition + karakter.forskydning.intuition);
     karakter.flaskerNu = karakter.flaskerMax;
+    karakter.brugteFaerdigheder = [];
     opdaterVistData();
     lukVindue('hvil');
 }
@@ -821,44 +823,69 @@ function opretFaerdighedskort(faerdighed) {
     return kort;
 }
 
+function opdaterBrugsKort() {
+    document.getElementById('faerdighed-beholder').innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => brugsKort(faerdighed));
+    alleFaerdigheder.evnefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => brugsKort(faerdighed));
+}
+
 function brugsKort(faerdighed) {
     const id = faerdighed.id;
     const kort = opretFaerdighedskort(faerdighed);
-    const kortBeholder = document.getElementById('faerdighed-beholder');
-    kortBeholder.appendChild(kort);
+    document.getElementById('faerdighed-beholder').appendChild(kort);
 
-    
-    if (faerdighed.type === "aktiv") {
-        const knap = document.createElement('div');
-        const beholder = document.getElementById(`brug-knap-beholder-${id}`);
-        knap.className = 'brug-knap';
-        knap.id = `cyklus-brug-${id}`;
-        knap.textContent = 'Brug';
-        beholder.appendChild(knap);
-        knap.addEventListener('click', () => cyklusBrug(id));
-    }
+    if (faerdighed.type !== "aktiv") return;
 
-    function cyklusBrug() {
-        const knap = document.getElementById(`cyklus-brug-${id}`);
-        const titel = document.getElementById(`titel-${id}`);
-        const kval = document.getElementById(`kvalifikation-${id}`);
-        const info = document.getElementById(`info-${id}`);
-        
-        knap.classList.toggle('inaktiv');
-        titel.classList.toggle('inaktiv');
-        kval.classList.toggle('inaktiv');
-        info.classList.toggle('inaktiv');
+    const knap = document.createElement('div');
+    knap.className = 'brug-knap';
+    knap.id = `cyklus-brug-${id}`;
+    knap.textContent = 'Brug';
+    document.getElementById(`brug-knap-beholder-${id}`).appendChild(knap);
 
-        const brugt = knap.classList.contains('inaktiv');
-        knap.textContent = (brugt ? 'Brugt' : 'Brug');
-    }
+    saetBrugtVisning(id, karakter.brugteFaerdigheder.includes(id));
+    knap.addEventListener('click', () => {
+        const brugt = karakter.brugteFaerdigheder.includes(id);
+        if (brugt) {
+            karakter.brugteFaerdigheder = karakter.brugteFaerdigheder.filter(f => f !== id);
+        } else {
+            karakter.brugteFaerdigheder.push(id);
+        }
+        saetBrugtVisning(id, !brugt);
+        gemData();
+    });
 }
 
-function aktiveringsKort(faerdighed) {
+function saetBrugtVisning(id, brugt) {
+    const elementer = [
+        document.getElementById(`cyklus-brug-${id}`),
+        document.getElementById(`titel-${id}`),
+        document.getElementById(`kvalifikation-${id}`),
+        document.getElementById(`info-${id}`),
+    ];
+    elementer.forEach(el => el.classList.toggle('inaktiv', brugt));
+    document.getElementById(`cyklus-brug-${id}`).textContent = brugt ? 'Brugt' : 'Brug';
+}
+
+function opdaterValgsKort() {
+    const klasseBeholder = document.getElementById('klassefaerdigheder-valg');
+    klasseBeholder.innerHTML = '';
+    const evneBeholder = document.getElementById('evnefaerdigheder-valg');
+    evneBeholder.innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => v.kvalifikation.includes(karakter.klasse))
+        .forEach(faerdighed => valgsKort(faerdighed, klasseBeholder));
+    alleFaerdigheder.evnefaerdigheder
+        .forEach(faerdighed => valgsKort(faerdighed, evneBeholder));
+}
+
+function valgsKort(faerdighed, beholder) {
     const id = faerdighed.id;
     const kort = opretFaerdighedskort(faerdighed);
-    const kortBeholder = document.getElementById('faerdighed-beholder-vindue');
-    kortBeholder.appendChild(kort);
+    beholder.appendChild(kort);
 
     const titel = document.getElementById(`titel-${id}`);
     const kval = document.getElementById(`kvalifikation-${id}`);
@@ -897,44 +924,11 @@ function aktiveringsKort(faerdighed) {
 
         gemData();
         opdaterVistData();
-        opdaterAktiveringsKort();
+        opdaterValgsKort();
     }
 }
 
-function opdaterBrugsKort() {
-    document.getElementById('faerdighed-beholder').innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
-    alleFaerdigheder.evnefaerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
-}
 
-function opdaterAktiveringsKort() {
-    document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
-        .filter(v => v.kvalifikation.includes(karakter.klasse))
-        .forEach(faerdighed => aktiveringsKort(faerdighed));
-    alleFaerdigheder.evnefaerdigheder
-        .forEach(faerdighed => aktiveringsKort(faerdighed));
-}
-
-
-
-// Fremtidig udgave hvor kun kvalificerede færdigheder vises
-function opdaterAktiveringsKortV2() {
-    document.getElementById('faerdighed-beholder-vindue').innerHTML = '';
-    karakter.faerdigheder
-        .forEach(faerdighed => aktiveringsKort(faerdighed));
-}
-
-function opdaterBrugsKortV2() {
-    document.getElementById('faerdighed-beholder').innerHTML = '';
-    karakter.faerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
-}
 
 
 
@@ -1551,20 +1545,19 @@ function hentStandardKlasse(klasse) {
 
     const baseKarakter = JSON.parse(JSON.stringify(karakterGrundlag));
     const klasseData = JSON.parse(JSON.stringify(diff));
-    const baseVaaben = baseKarakter.vaaben;
     const klasseVaabenRef = klasseData.vaaben || [];
     const klasseVaaben = klasseVaabenRef.map(ref => {
         return alleVaaben.vaaben.find(v => v.id === ref.id);
     });
-    const baseFaerdigheder = baseKarakter.faerdigheder;
     const klasseFaerdighederRef = klasseData.faerdigheder || [];
     const klasseFaerdigheder = klasseFaerdighederRef.map(ref => {
         return alleFaerdigheder.klassefaerdigheder.find(v => v.id === ref.id);
     });
 
     Object.assign(karakter, baseKarakter, klasseData);
-    karakter.vaaben = [...baseVaaben, ...klasseVaaben];
-    karakter.faerdigheder = [...baseFaerdigheder, ...klasseFaerdigheder];
+    karakter.vaaben = [...klasseVaaben];
+    karakter.faerdigheder = klasseFaerdigheder.map(f => f.id);
+    karakter.valgteFaerdigheder = klasseFaerdigheder.map(f => f.id);
 
     opdaterVistData(); // beregner livMax, sejdMax, huMax ud fra evnelevels
     karakter.livNu  = karakter.livMax;

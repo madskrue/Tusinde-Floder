@@ -103,11 +103,17 @@ klik('bekraeft-hvil', hvil);
     klik('faerdighedsknap', () => aabenVindue('faerdighed-menu'));
     klik('annuller-faerdighed-menu', () => lukVindue('faerdighed-menu'));
 
-    klik('faerdighed-beredskab-knap', () => {
-        aabenVindue('faerdighed-beredskab');
-        opdaterAktiveringsKort();
+    klik('faerdighed-valg-knap', () => {
+        aabenVindue('faerdighed-valg');
+        opdaterValgsKort();
     });
-    klik('annuller-faerdighed-beredskab', () => lukVindue('faerdighed-beredskab'));
+    klik('annuller-faerdighed-valg', () => lukVindue('faerdighed-valg'));
+
+    klik('faerdighed-laer-knap', () => {
+        aabenVindue('faerdighed-laer');
+        opdaterValgsKort();
+    });
+    klik('annuller-faerdighed-laer', () => lukVindue('faerdighed-laer'));
 
 // Evneforbedringsvindue
     klik('bekraeft-evne', bekraeftEvneForbedringer);
