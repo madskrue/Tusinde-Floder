@@ -970,9 +970,7 @@ function laerKortUkendt(faerdighed, beholder) {
     })
 
     function laerFaerdighed(id) {
-        const draaber = karakter.draaber;
-
-        if (draaber < pris) {
+        if (karakter.draaber < pris) {
             visBesked('Du har ikke nok Dråber.');
             return;
         }
@@ -984,8 +982,10 @@ function laerKortUkendt(faerdighed, beholder) {
         }
 
         karakter.faerdigheder.push(id);
+        karakter.draaber -= pris;
         gemData();
         opdaterLaerKort();
+        opdaterVistData();
     }
 }
 
