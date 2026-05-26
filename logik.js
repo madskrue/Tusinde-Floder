@@ -879,6 +879,7 @@ function opdaterValgsKort() {
         .filter(v => v.kvalifikation.includes(karakter.klasse))
         .forEach(faerdighed => valgsKort(faerdighed, klasseBeholder));
     alleFaerdigheder.evnefaerdigheder
+        .filter(v => karakter.faerdigheder.includes(v.id))
         .forEach(faerdighed => valgsKort(faerdighed, evneBeholder));
 }
 
@@ -925,6 +926,66 @@ function valgsKort(faerdighed, beholder) {
         gemData();
         opdaterVistData();
         opdaterValgsKort();
+    }
+}
+
+function opdaterLaerKort() {
+    const kendteBeholder = document.getElementById('kendte-faerdigheder-laer');
+    kendteBeholder.innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => v.kvalifikation.includes(karakter.klasse))
+        .forEach(faerdighed => laerKortKendt(faerdighed, kendteBeholder));
+    alleFaerdigheder.evnefaerdigheder
+        .filter(v => karakter.faerdigheder.includes(v.id))
+        .forEach(faerdighed => laerKortKendt(faerdighed, kendteBeholder));
+
+    const ukendteBeholder = document.getElementById('ukendte-faerdigheder-laer');
+    ukendteBeholder.innerHTML = '';
+    alleFaerdigheder.evnefaerdigheder
+        .filter(v => !karakter.faerdigheder.includes(v.id))
+        .forEach(faerdighed => laerKortUkendt(faerdighed, ukendteBeholder));
+}
+
+function laerKortKendt(faerdighed, beholder) {
+    const kort = opretFaerdighedskort(faerdighed);
+    beholder.appendChild(kort);
+}
+
+function laerKortUkendt(faerdighed, beholder) {
+    const knap = document.createElement('div');
+    const kort = opretFaerdighedskort(faerdighed);
+    const knapOgKort = document.createElement('div');
+    const pris = faerdighed.levelKrav ? Object.values(faerdighed.levelKrav)[0] : null;
+
+    knapOgKort.className = 'knap-og-kort';
+    knap.className = 'laas-op-knap';
+    knap.innerHTML = `Lås op: ${pris} Dråber`;
+
+    knapOgKort.appendChild(knap);
+    knapOgKort.appendChild(kort);
+    beholder.appendChild(knapOgKort);
+
+    knap.addEventListener('click', () => {
+        laerFaerdighed(faerdighed.id)
+    })
+
+    function laerFaerdighed(id) {
+        const draaber = karakter.draaber;
+
+        if (draaber < pris) {
+            visBesked('Du har ikke nok Dråber.');
+            return;
+        }
+
+        const [evne, kravLevel] = Object.entries(faerdighed.levelKrav)[0];
+        if (karakter[evne] < kravLevel) {
+            visBesked(`${faerdighed.navn} kræver ${evneVisningsnavn[evne]} ${kravLevel}.`);
+            return;
+        }
+
+        karakter.faerdigheder.push(id);
+        gemData();
+        opdaterLaerKort();
     }
 }
 

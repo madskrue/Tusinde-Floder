@@ -111,7 +111,7 @@ klik('bekraeft-hvil', hvil);
 
     klik('faerdighed-laer-knap', () => {
         aabenVindue('faerdighed-laer');
-        opdaterValgsKort();
+        opdaterLaerKort();
     });
     klik('annuller-faerdighed-laer', () => lukVindue('faerdighed-laer'));
 

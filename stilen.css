@@ -759,6 +759,29 @@ input::-webkit-inner-spin-button {
     height: fit-content;
 }
 
+.knap-og-kort {
+    display: flex;
+    flex-direction: column;
+}
+
+.laas-op-knap {
+    width: fit-content;
+    margin: 0 auto;
+    background-color: var(--tekst-mellem-haard);
+    color: var(--tekst-haard-rev);
+    font-size: 0.65rem;
+    font-weight: 600;
+    padding: 0 0.5rem;
+    border-radius: 1rem 1rem 0 0;
+    cursor: pointer;
+}
+
+.laas-op-knap:hover {
+    background-color: var(--tekst-haard-rev);
+    color: var(--tekst-haard);
+}
+
+
 
 /* SEKTION: EVNER */
 .evne__grid {
