@@ -40,6 +40,9 @@ let karakter = {
     vaaben: [],
     valgteVaaben: [],
 
+    besvaergelser: [],
+    valgteBesvaergelser: [],
+
     stenskaar: 0,
     flaskerMax: 1,
     flaskerNu: 1,

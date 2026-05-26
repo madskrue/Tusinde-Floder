@@ -44,6 +44,9 @@ const karakterGrundlag = {
     vaaben: [],
     valgteVaaben: [],
 
+    besvaergelser: [],
+    valgteBesvaergelser: [],
+
     stenskaar: 0,
     flaskerMax: 1,
     flaskerNu: 1,
@@ -980,7 +983,7 @@ const alleBesvaergelser = {
         levelKrav: { },
         fokusKrav: null,    // "sakralt" / "profant" / null
         type: null,         // "fysisk" / "mental" / null
-        effekt: null,       // "skade" / "heling" / "helbredelse" / "kontrol" / null
+        effekt: null,       // "skade" / "heling" / "helbredelse" / "kontrol" / "information"
         hu: null,           // tal / null
         sejd: null,         // tal / null
         skadeFaktor: null,  // tal / null
