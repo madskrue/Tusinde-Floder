@@ -67,6 +67,7 @@ function opdaterVistData() {
     opdaterVaabenRaekke();
     opdaterVaabenKort();
     opdaterBrugsKort();
+    opdaterValgteMagiKort()
     gemData();
     opdaterDoedVisning();
 
@@ -995,10 +996,11 @@ function laerKortUkendt(faerdighed, beholder) {
 
 
 // Besværgelser
-function lavAlleMagiKort() {
-    alleBesvaergelser.besvaergelser.forEach(besvaergelse =>{
-        magiKortSkade(besvaergelse);
-    })
+function opdaterValgteMagiKort() {
+    document.getElementById('magi-beholder').innerHTML = '';
+    alleBesvaergelser.besvaergelser
+        .filter(b => karakter.valgteBesvaergelser.includes(b.id))
+        .forEach(besvaergelse => magiKort(besvaergelse));
 }
 
 function tjekLeder(lederKrav) {
@@ -1008,7 +1010,7 @@ function tjekLeder(lederKrav) {
     ) ?? null;
 }
 
-function magiKortSkade(besvaergelse) {
+function magiKort(besvaergelse) {
     // Grundlæggende opbygning
     const id = besvaergelse.id;
     const kort = document.createElement('div');
@@ -1033,6 +1035,7 @@ function magiKortSkade(besvaergelse) {
 
     beholder.appendChild(kort);
 
+    // Dataopbygning
     const dataBeholder = document.getElementById(`${besvaergelse.id}-kort-data`);
     const lederKrav = besvaergelse.lederKrav;
     const leder = tjekLeder(lederKrav);
@@ -1045,7 +1048,6 @@ function magiKortSkade(besvaergelse) {
         return;
     }
 
-    // Dataopbygning
     const basisskade = beregnBasisskade(leder);
     const angrebSkade = besvaergelse.skadeFaktor ? Math.ceil( basisskade * besvaergelse.skadeFaktor ) : '';
     const farve = besvaergelse.effekt === "skade" ? 'style="color: var(--forskudt-ned)"' : "heling" ? 'style="color: var(--forskudt-op)"' : '';
@@ -1053,7 +1055,7 @@ function magiKortSkade(besvaergelse) {
     dataBeholder.innerHTML =
     `<div class="kort__angreb">
         <div class="kort__vaerdi" ${farve}>${angrebSkade}</div>
-        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${besvaergelse.sejd ? '· ' + besvaergelse.sejd + ' Sejd' : ''}</span></div>
+        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${besvaergelse.sejd ? ' · ' + besvaergelse.sejd + ' Sejd' : ''}</span></div>
     </div>
 
     <div class="kort__linje">
@@ -1693,6 +1695,7 @@ function hentStandardKlasse(klasse) {
     karakter.vaaben = [...klasseVaaben];
     karakter.faerdigheder = klasseFaerdigheder.map(f => f.id);
     karakter.valgteFaerdigheder = klasseFaerdigheder.map(f => f.id);
+    karakter.valgteBesvaergelser = (karakter.besvaergelser || []).map(b => b.id ?? b);
 
     opdaterVistData(); // beregner livMax, sejdMax, huMax ud fra evnelevels
     karakter.livNu  = karakter.livMax;

@@ -90,7 +90,11 @@ const standardforkynder = {
     vaaben: [
         {id: "v_sakral_leder_forkynder"},
         {id: "v_morgenstjerne_forkynder"},
-    ]
+    ],
+    besvaergelser: [
+        {id: "b_hellig_helende-beroering"},
+        {id: "b_hellig_hellig-hammer"},
+    ],
 };
 
 const standardhedonist = {
@@ -127,6 +131,10 @@ const standardlaerd = {
     vaaben: [
         {id: "v_profan_leder_laerd"},
         {id: "v_kort_svaerd_laerd"},
+    ],
+    besvaergelser: [
+        {id: "b_natur_iskrystal"},
+        {id: "b_forbindelse_energioverfoersel"},
     ],
 };
 
