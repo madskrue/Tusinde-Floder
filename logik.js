@@ -664,9 +664,9 @@ function doed() {
 
 
 
-// =================
-// === BEREDSKAB ===
-// =================
+// =========================
+// === BEREDSKAB OG KORT ===
+// =========================
 
 // Våben
 function genererVaabenKort(vaaben) {
@@ -677,7 +677,7 @@ function genererVaabenKort(vaaben) {
     kort.id = id + '-kort';
     beholder.appendChild(kort);
 
-    const basisskade = beregnBasisskade(vaaben)
+    const basisskade = beregnBasisskade(vaaben);
     const angrebSkade = Math.ceil( basisskade * vaaben.angreb.skadeFaktor );
     const teknikSkade = Math.ceil( basisskade * vaaben.teknik.skadeFaktor );
     const angrebHuForbrug = `${vaaben.angreb.hu} Hu`
@@ -991,6 +991,77 @@ function laerKortUkendt(faerdighed, beholder) {
         opdaterVistData();
     }
 }
+
+
+
+// Besværgelser
+function lavAlleMagiKort() {
+    alleBesvaergelser.besvaergelser.forEach(besvaergelse =>{
+        magiKortSkade(besvaergelse);
+    })
+}
+
+function tjekLeder(lederKrav) {
+    return karakter.vaaben.find(v =>
+        karakter.valgteVaaben.includes(v.id) &&
+        v.leder === lederKrav
+    ) ?? null;
+}
+
+function magiKortSkade(besvaergelse) {
+    // Grundlæggende opbygning
+    const id = besvaergelse.id;
+    const kort = document.createElement('div');
+    const beholder = document.getElementById('magi-beholder');
+
+    kort.className = 'kort';
+    kort.id = id + '-kort';
+
+    kort.innerHTML = 
+    `<div class="kort__top">
+        <div class="kort__titel">${besvaergelse.navn}</div>
+        <div class="kort__basis">${evneVisningsnavn[besvaergelse.basis]}</div>
+    </div>
+
+    <div class="kort__top">
+        <div class="kort__basis--tillaeg">${besvaergelse.skole}</div>
+        <div class="kort__basis--tillaeg">${besvaergelse.type}</div>
+        <div class="kort__basis--tillaeg">${besvaergelse.effekt}</div>
+    </div>
+
+    <div id="${id}-kort-data" class="kort__data"></div>`;
+
+    beholder.appendChild(kort);
+
+    const dataBeholder = document.getElementById(`${besvaergelse.id}-kort-data`);
+    const lederKrav = besvaergelse.lederKrav;
+    const leder = tjekLeder(lederKrav);
+
+    if(leder === null) {
+        dataBeholder.innerHTML = 
+        `<div class="kort__angreb">
+            <div class="kort__beskrivelse">Du mangler en ${lederKrav} Leder.</div>
+        </div>`;
+        return;
+    }
+
+    // Dataopbygning
+    const basisskade = beregnBasisskade(leder);
+    const angrebSkade = besvaergelse.skadeFaktor ? Math.ceil( basisskade * besvaergelse.skadeFaktor ) : '';
+    const farve = besvaergelse.effekt === "skade" ? 'style="color: var(--forskudt-ned)"' : "heling" ? 'style="color: var(--forskudt-op)"' : '';
+
+    dataBeholder.innerHTML =
+    `<div class="kort__angreb">
+        <div class="kort__vaerdi" ${farve}>${angrebSkade}</div>
+        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${besvaergelse.sejd ? '· ' + besvaergelse.sejd + ' Sejd' : ''}</span></div>
+    </div>
+
+    <div class="kort__linje">
+        <div class="kort__beskrivelse">${besvaergelse.beskrivelse}</div>
+    </div>`
+}
+
+
 
 
 

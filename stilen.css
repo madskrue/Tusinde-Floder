@@ -658,11 +658,12 @@ input::-webkit-inner-spin-button {
 
 .kort__forbrug {
     font-size: 0.7rem;
-    color: var(--tekst-svag);
+    color: var(--tekst-mellem-svag);
 }
 
 .kort__beskrivelse {
     font-size: 0.7rem;
+    white-space: pre-wrap;
 }
 
 .kort__angreb {
