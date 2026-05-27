@@ -1187,6 +1187,27 @@ function tjekMagiLevelKrav(besvaergelse) {
 
 
 
+function tilfoejVaaben() {
+    const input = document.getElementById('tilfoej-vaaben-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return;}
+
+    const vaaben = alleVaaben.vaaben.find(v => tekst.includes(v.id));
+
+    if (!vaaben) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.vaaben.push({...vaaben});
+    gemData();
+    genererVaabenliste();
+    visBesked(`Du har fået ${vaaben.navn}.`);
+    input.value = '';
+}
+
+
+
 
 
 // =============

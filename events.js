@@ -165,6 +165,7 @@ klik('laesioner-justering-plus', laesionerPlus);
 
 // Våben
 klik('vaaben-liste-knap', genererVaabenliste);
+klik('tilfoej-vaaben-knap', tilfoejVaaben);
 
 // Evner
 klik('evne-toggle', visEvneJusteringer);
@@ -237,6 +238,7 @@ document.getElementById('sejd-input').addEventListener('keydown', (e) =>{if (e.k
 document.getElementById('draaber-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') tilfoejDraaber();});
 document.getElementById('sekvens-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') saetSekvens();});
 document.getElementById('laer-magi-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') laerMagi();});
+document.getElementById('tilfoej-vaaben-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') tilfoejVaaben();});
 
 
 // Luk vinduer
