@@ -720,12 +720,6 @@ input::-webkit-inner-spin-button {
     background-color: var(--hover);
 }
 
-.inaktiv, .inaktiv:hover {
-    color: var(--tekst-svag);
-    font-weight: 400;
-    cursor: default;
-}
-
 .brug-knap.inaktiv, .brug-knap.inaktiv:hover {
     background-color: var(--sektion);
 }
@@ -758,6 +752,10 @@ input::-webkit-inner-spin-button {
 .faerdighed-beholder-vindue .kort {
     background-color: var(--ark);
     height: fit-content;
+}
+
+.faerdighed-beholder-vindue--besvaergelse {
+    grid-template-columns: 1fr 1fr;
 }
 
 .knap-og-kort {
@@ -1397,6 +1395,12 @@ input::-webkit-inner-spin-button {
 
 .hvid-kant {
     border: 0.5px solid #fff;
+}
+
+.inaktiv, .inaktiv:hover {
+    color: var(--tekst-svag);
+    font-weight: 400;
+    cursor: default;
 }
 
 

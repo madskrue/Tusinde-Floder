@@ -1096,7 +1096,96 @@ function magiKortValg(besvaergelse) {
     </div>`
 
     // BESVÆRGELSER SKAL KUNNE AKTIVERES LIGESOM FÆRDIGHEDER
+    const erValgt = karakter.valgteBesvaergelser.includes(besvaergelse.id);
+    const maksAktive = 3;
+    const titel = kort.querySelector('.kort__titel');
+    const basis = kort.querySelector('.kort__basis');
+    const forbrug = kort.querySelectorAll('.kort__forbrug');
+
+    if (!erValgt) {
+        kort.classList.add('inaktiv');
+        titel.classList.add('inaktiv');
+        basis.classList.add('inaktiv');
+        forbrug.forEach(e => e.classList.add('inaktiv'));
+    }
+
+    kort.addEventListener('click', () => {
+        aktiverMagi(besvaergelse);
+    });
+
+    function aktiverMagi(id) {
+        const kvalificeret = tjekMagiLevelKrav(besvaergelse);
+        const erValgt = karakter.valgteBesvaergelser.includes(besvaergelse.id);
+
+        if (erValgt) {
+            kort.classList.add('inaktiv');
+            titel.classList.add('inaktiv');
+            basis.classList.add('inaktiv');
+            forbrug.forEach(e => e.classList.add('inaktiv'));
+
+            karakter.valgteBesvaergelser =
+                karakter.valgteBesvaergelser.filter(id => id !== besvaergelse.id);
+        } else {
+            if (karakter.valgteBesvaergelser.length >= maksAktive) {
+                visBesked('Du kan kun have højst 3 aktive besværgelser.');
+                return;
+            }
+
+            if (!kvalificeret) {
+                visBesked(`Du møder ikke kravene for at kunne bruge ${besvaergelse.navn}`);
+                return;
+            }
+            karakter.valgteBesvaergelser.push(besvaergelse.id);
+            kort.classList.remove('inaktiv');
+            titel.classList.remove('inaktiv');
+            basis.classList.remove('inaktiv');
+            forbrug.forEach(e => e.classList.remove('inaktiv'));
+        }
+
+        gemData();
+        opdaterVistData();
+        opdaterMagiKortValg();
+    }
 }
+
+function laerMagi() {
+    const input = document.getElementById('laer-magi-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return;}
+
+    const besvaergelse = alleBesvaergelser.besvaergelser.find(b => tekst.includes(b.id));
+
+    if (!besvaergelse) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.besvaergelser.push(besvaergelse.id);
+    gemData();
+    opdaterMagiKortValg();
+    visBesked(`Du har lært ${besvaergelse.navn}.`);
+    input.value = '';
+}
+
+function tjekMagiLevelKrav(besvaergelse) {
+    const { levelKrav } = besvaergelse;
+
+    if (!levelKrav || Object.keys(levelKrav).length === 0) {
+        return true;
+    }
+
+    for (const [evne, level] of Object.entries(levelKrav)) {
+        const karakterEvneLevel = (karakter[evne] || 0) + (karakter.forskydning?.[evne] || 0)
+
+        if (karakterEvneLevel < level) {
+            return false;
+        }
+    }
+
+    return true;
+}
+
+
 
 
 
