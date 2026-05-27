@@ -698,7 +698,7 @@ function genererVaabenKort(vaaben) {
     <div class="kort__data">
         <div class="kort__angreb">
             <div class="kort__vaerdi" id="${vaaben.navn}-angreb-skade">${angrebSkade}</div>
-            <div class="kort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="kort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.teknik.sejd + ' Sejd' : ''}</span></div>
+            <div class="kort__forbrug">${vaaben.angreb.hu ? vaaben.angreb.hu + ' Hu' : ''}<span class="kort__forbrug">${vaaben.angreb.sejd ? '· ' + vaaben.angreb.sejd + ' Sejd' : ''}</span></div>
         </div>
 
         <div class="kort__linje">

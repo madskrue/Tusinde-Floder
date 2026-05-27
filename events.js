@@ -194,7 +194,7 @@ klik('nyt-vaaben-knap', () => aabnVaabendetaljevindue(null));
 
 document.querySelectorAll('#vaaben-basis-toggle .vaabendetaljer__opgraderingsselektor').forEach(el => {
     el.addEventListener('click', () => {
-        vaabenDetaljeState.basis = el.dataset.basis;
+        vaabenRedigeringData.basis = el.dataset.basis;
         opdaterVaabenBasisToggle();
     });
 });
@@ -214,11 +214,11 @@ klik('annuller-vaabendetalje', () => {
 klik('vaabenopg-minus', () => aendrVaabenOpgraderingNiveau(-1));
 klik('vaabenopg-plus', () => aendrVaabenOpgraderingNiveau(1));
 klik('vaabenopg-smedje', () => {
-    vaabenOpgVindueVedVandsten = false;
+    opgraderingVedVandsten = false;
     opdaterVaabenopgraderingsvindue();
 });
 klik('vaabenopg-vandsten', () => {
-    vaabenOpgVindueVedVandsten = true;
+    opgraderingVedVandsten = true;
     opdaterVaabenopgraderingsvindue();
 });
 klik('bekraeft-vaabenopgradering', bekraeftVaabenopgradering);
