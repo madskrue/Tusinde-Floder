@@ -67,7 +67,7 @@ function opdaterVistData() {
     opdaterVaabenRaekke();
     opdaterVaabenKort();
     opdaterBrugsKort();
-    opdaterValgteMagiKort()
+    opdaterMagiKortBrug();
     gemData();
     opdaterDoedVisning();
 
@@ -964,6 +964,9 @@ function laerKortUkendt(faerdighed, beholder) {
     knapOgKort.className = 'knap-og-kort';
     knap.className = 'laas-op-knap';
     knap.innerHTML = `Lås op: ${pris} Dråber`;
+    kort.classList.add('hvid-kant');
+
+    // VIS KORT ANERLEDES HVIS MAN IKKE OPFYLDER LEVEL-KRAV
 
     knapOgKort.appendChild(knap);
     knapOgKort.appendChild(kort);
@@ -996,11 +999,11 @@ function laerKortUkendt(faerdighed, beholder) {
 
 
 // Besværgelser
-function opdaterValgteMagiKort() {
+function opdaterMagiKortBrug() {
     document.getElementById('magi-beholder').innerHTML = '';
     alleBesvaergelser.besvaergelser
         .filter(b => karakter.valgteBesvaergelser.includes(b.id))
-        .forEach(besvaergelse => magiKort(besvaergelse));
+        .forEach(besvaergelse => magiKortBrug(besvaergelse));
 }
 
 function tjekLeder(lederKrav) {
@@ -1010,11 +1013,9 @@ function tjekLeder(lederKrav) {
     ) ?? null;
 }
 
-function magiKort(besvaergelse) {
-    // Grundlæggende opbygning
-    const id = besvaergelse.id;
+function opretMagiKort(besvaergelse, sted) {
+    const id = besvaergelse.id + '-' + sted;
     const kort = document.createElement('div');
-    const beholder = document.getElementById('magi-beholder');
 
     kort.className = 'kort';
     kort.id = id + '-kort';
@@ -1033,10 +1034,18 @@ function magiKort(besvaergelse) {
 
     <div id="${id}-kort-data" class="kort__data"></div>`;
 
+    return kort;
+}
+
+function magiKortBrug(besvaergelse) {
+    // Grundlæggende opbygning
+    const beholder = document.getElementById('magi-beholder');
+    const kort = opretMagiKort(besvaergelse, 'brug');
+
     beholder.appendChild(kort);
 
     // Dataopbygning
-    const dataBeholder = document.getElementById(`${besvaergelse.id}-kort-data`);
+    const dataBeholder = document.getElementById(`${besvaergelse.id}-brug-kort-data`);
     const lederKrav = besvaergelse.lederKrav;
     const leder = tjekLeder(lederKrav);
 
@@ -1063,9 +1072,31 @@ function magiKort(besvaergelse) {
     </div>`
 }
 
+function opdaterMagiKortValg() {
+    document.getElementById('kendt-magi').innerHTML = '';
+    alleBesvaergelser.besvaergelser
+        .filter(b => karakter.besvaergelser.includes(b.id))
+        .forEach(besvaergelse => magiKortValg(besvaergelse));
+}
 
+function magiKortValg(besvaergelse) {
+    const beholder = document.getElementById('kendt-magi');
+    const kort = opretMagiKort(besvaergelse, 'valg');
+    beholder.appendChild(kort);
 
+    const dataBeholder = document.getElementById(`${besvaergelse.id}-valg-kort-data`);
 
+    dataBeholder.innerHTML =
+    `<div class="kort__angreb">
+        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${besvaergelse.sejd ? ' · ' + besvaergelse.sejd + ' Sejd' : ''}</span></div>
+    </div>
+
+    <div class="kort__linje">
+        <div class="kort__beskrivelse">${besvaergelse.beskrivelse}</div>
+    </div>`
+
+    // BESVÆRGELSER SKAL KUNNE AKTIVERES LIGESOM FÆRDIGHEDER
+}
 
 
 
@@ -1695,7 +1726,8 @@ function hentStandardKlasse(klasse) {
     karakter.vaaben = [...klasseVaaben];
     karakter.faerdigheder = klasseFaerdigheder.map(f => f.id);
     karakter.valgteFaerdigheder = klasseFaerdigheder.map(f => f.id);
-    karakter.valgteBesvaergelser = (karakter.besvaergelser || []).map(b => b.id ?? b);
+    karakter.besvaergelser = (karakter.besvaergelser || []).map(b => typeof b === 'string' ? b : b.id);
+    karakter.valgteBesvaergelser = [...karakter.besvaergelser];
 
     opdaterVistData(); // beregner livMax, sejdMax, huMax ud fra evnelevels
     karakter.livNu  = karakter.livMax;

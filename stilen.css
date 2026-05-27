@@ -773,6 +773,7 @@ input::-webkit-inner-spin-button {
     font-size: 0.65rem;
     font-weight: 600;
     padding: 0 0.5rem;
+    border: 0.5px solid #fff;
     border-radius: 1rem 1rem 0 0;
     cursor: pointer;
 }
@@ -956,6 +957,11 @@ input::-webkit-inner-spin-button {
     padding: 0.15rem 0.5rem;
     width: 100%;
     text-align: center;
+}
+
+.justering__knap--xs {
+    font-size: 0.7rem;
+    width: fit-content;
 }
 
 .justering__knap:hover {
@@ -1220,6 +1226,15 @@ input::-webkit-inner-spin-button {
     background-color: var(--sektion);
 }
 
+.vindue__input-holder {
+    display: flex;
+    justify-content: center;
+    color: var(--tekst-svag);
+    gap: 1rem;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
 .vindue__knapgruppe button {
     padding: 1px 1px;
     border: none;
@@ -1378,6 +1393,10 @@ input::-webkit-inner-spin-button {
 
 .skjult {
     background-color: var(--hover);
+}
+
+.hvid-kant {
+    border: 0.5px solid #fff;
 }
 
 

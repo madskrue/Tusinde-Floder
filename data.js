@@ -60,8 +60,8 @@ const standardasket = {
     klasse: "Asket",
     sind: 18,
     faerdigheder: [
-        {id: "klasse_asket_indre-ro"},
-        {id: "klasse_asket_indre-kraft"},
+        {id: "f_klasse_asket_indre-ro"},
+        {id: "f_klasse_asket_indre-kraft"},
     ],
     vaaben: [
         {id: "v_knojern_asket"},
@@ -73,7 +73,7 @@ const standardbytyv = {
     klasse: "Bytyv",
     behaendighed: 18,
     faerdigheder: [
-        {id: "klasse_bytyv_baghold"},
+        {id: "f_klasse_bytyv_baghold"},
     ],
     vaaben: [
         {id: "v_tvillingedolke_bytyv"},
@@ -85,7 +85,7 @@ const standardforkynder = {
     klasse: "Forkynder",
     mystik: 18,
     faerdigheder: [
-        {id: "klasse_forkynder_boen"},
+        {id: "f_klasse_forkynder_boen"},
     ],
     vaaben: [
         {id: "v_sakral_leder_forkynder"},
@@ -101,8 +101,8 @@ const standardhedonist = {
     klasse: "Hedonist",
     intuition: 18,
     faerdigheder: [
-        {id: "klasse_hedonist_afledning"},
-        {id: "klasse_hedonist_duelist"},
+        {id: "f_klasse_hedonist_afledning"},
+        {id: "f_klasse_hedonist_duelist"},
     ],
     vaaben: [
         {id: "v_kaarde_hedonist"},
@@ -113,7 +113,7 @@ const standardlovloes = {
     klasse: "Lovløs",
     form: 18,
     faerdigheder: [
-        {id: "klasse_lovloes_kontroltab"},
+        {id: "f_klasse_lovloes_kontroltab"},
     ],
     vaaben: [
         {id: "v_flitsbue_lovloes"},
@@ -126,7 +126,7 @@ const standardlaerd = {
     klasse: "Lærd",
     visdom: 18,
     faerdigheder: [
-        {id: "klasse_laerd_visdommens-segl"},
+        {id: "f_klasse_laerd_visdommens-segl"},
     ],
     vaaben: [
         {id: "v_profan_leder_laerd"},
@@ -142,7 +142,7 @@ const standardmilitarist = {
     klasse: "Militarist",
     styrke: 18,
     faerdigheder: [
-        {id: "klasse_militarist_ordre"},
+        {id: "f_klasse_militarist_ordre"},
     ],
     vaaben: [
         {id: "v_klingespyd_militarist"},
@@ -647,7 +647,7 @@ const alleVaaben = {
 const alleFaerdigheder = {
     klassefaerdigheder: [
         {
-        id: "klasse_asket_indre-ro",
+        id: "f_klasse_asket_indre-ro",
         navn: "Indre ro",
         kvalifikation: "Asket",
         type: "aktiv",
@@ -655,7 +655,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_asket_indre-kraft",
+        id: "f_klasse_asket_indre-kraft",
         navn: "Indre kraft",
         kvalifikation: "Asket",
         type: "aktiv",
@@ -663,7 +663,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_bytyv_baghold",
+        id: "f_klasse_bytyv_baghold",
         navn: "Baghold",
         kvalifikation: "Bytyv",
         type: "aktiv",
@@ -671,7 +671,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_forkynder_boen",
+        id: "f_klasse_forkynder_boen",
         navn: "Bøn",
         kvalifikation: "Forkynder",
         type: "aktiv",
@@ -679,7 +679,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_hedonist_afledning",
+        id: "f_klasse_hedonist_afledning",
         navn: "Afledning",
         kvalifikation: "Hedonist",
         type: "aktiv",
@@ -687,7 +687,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_hedonist_duelist",
+        id: "f_klasse_hedonist_duelist",
         navn: "Duelist",
         kvalifikation: "Hedonist",
         type: "passiv",
@@ -695,7 +695,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_lovloes_kontroltab",
+        id: "f_klasse_lovloes_kontroltab",
         navn: "Kontroltab",
         kvalifikation: "Lovløs",
         type: "aktiv",
@@ -703,7 +703,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_laerd_visdommens-segl",
+        id: "f_klasse_laerd_visdommens-segl",
         navn: "Visdommens segl",
         kvalifikation: "Lærd",
         type: "aktiv",
@@ -711,7 +711,7 @@ const alleFaerdigheder = {
         },
 
         {
-        id: "klasse_militarist_ordre",
+        id: "f_klasse_militarist_ordre",
         navn: "Ordre",
         kvalifikation: "Militarist",
         type: "aktiv",
@@ -723,7 +723,7 @@ const alleFaerdigheder = {
     evnefaerdigheder: [
         // Form
         {
-        id: "evne_form_fast-stand",
+        id: "f_evne_form_fast-stand",
         navn: "Fast stand",
         kvalifikation: "Form 20",
         type: "aktiv",
@@ -731,7 +731,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du aktivere din indre styrke og stå fast.\n\nI 1 runde halveres al skade mod dig og din bevægelse på din næste tur reduceres med 1 spænd per Hu.",
         },
         {
-        id: "evne_form_urokkelig",
+        id: "f_evne_form_urokkelig",
         navn: "Urokkelig",
         kvalifikation: "Form 30",
         type: "aktiv",
@@ -739,7 +739,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du samle al din indre styrke.\n\nI 2 runder reduceres al skade mod dig med 90%. Du får urokkelig stand: i disse 2 runder - til slutning af din tur om 2 runder - kan ingen kan flytte dig, heller ikke dig selv, og du kan ikke tage nogle handlinger.",
         },
         {
-        id: "evne_form_til-stede",
+        id: "f_evne_form_til-stede",
         navn: "Til stede",
         kvalifikation: "Form 40",
         type: "aktiv",
@@ -747,7 +747,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du lade stærke smerter passere.\n\nI 2 runder kan du ignorere én (ikke kritisk) læsion.",
         },
         {
-        id: "evne_form_afbød",
+        id: "f_evne_form_afbød",
         navn: "Afbød",
         kvalifikation: "Form 50",
         type: "aktiv",
@@ -755,7 +755,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du afbøde al skade fra ét angreb, der rammer dig.",
         },
         {
-        id: "evne_form_udød",
+        id: "f_evne_form_udød",
         navn: "Udød",
         kvalifikation: "Form 60",
         type: "aktiv",
@@ -765,7 +765,7 @@ const alleFaerdigheder = {
 
         // Sind
         {
-        id: "evne_sind_disciplin-1",
+        id: "f_evne_sind_disciplin-1",
         navn: "Disciplin 1",
         kvalifikation: "Sind 20",
         type: "aktiv",
@@ -773,7 +773,7 @@ const alleFaerdigheder = {
         beskrivelse: "Saml dit sind og genvind Sejd.\n\nRul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus.",
         },
         {
-        id: "evne_sind_mental-modstand",
+        id: "f_evne_sind_mental-modstand",
         navn: "Mental modstand",
         kvalifikation: "Sind 30",
         type: "aktiv",
@@ -781,7 +781,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at halvere den skade, du tager fra det ene angreb.",
         },
         {
-        id: "evne_sind_disciplin-2",
+        id: "f_evne_sind_disciplin-2",
         navn: "Disciplin 2",
         kvalifikation: "Sind 40",
         type: "aktiv",
@@ -789,7 +789,7 @@ const alleFaerdigheder = {
         beskrivelse: "Saml dit sind og genvind Sejd.\n\nRul din Sind-pulje, og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus.",
         },
         {
-        id: "evne_sind_mental-mur",
+        id: "f_evne_sind_mental-mur",
         navn: "Mental mur",
         kvalifikation: "Sind 50",
         type: "aktiv",
@@ -797,7 +797,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at afbøde al skade fra det ene angreb.",
         },
         {
-        id: "evne_sind_disciplin-3",
+        id: "f_evne_sind_disciplin-3",
         navn: "Disciplin 3",
         kvalifikation: "Sind 60",
         type: "aktiv",
@@ -807,7 +807,7 @@ const alleFaerdigheder = {
 
         // Intuition
         {
-        id: "evne_intuition_skarp",
+        id: "f_evne_intuition_skarp",
         navn: "Skarp",
         kvalifikation: "Intuition 20",
         type: "passiv",
@@ -815,7 +815,7 @@ const alleFaerdigheder = {
         beskrivelse: "Når du ruller initiativ, kan du vælge at rulle to gange og bruge det højeste resultat.",
         },
         {
-        id: "evne_intuition_byt",
+        id: "f_evne_intuition_byt",
         navn: "Byt",
         kvalifikation: "Intuition 30",
         type: "aktiv",
@@ -823,7 +823,7 @@ const alleFaerdigheder = {
         beskrivelse: "Som det første i starten af din tur kan du vælge at bytte din tur med en allieret. \n\nDin allierede har nu tur i stedet for dig og din tur udskydes til din allieredes plads i initiativrækken.",
         },
         {
-        id: "evne_intuition_fokuseret",
+        id: "f_evne_intuition_fokuseret",
         navn: "Fokuseret",
         kvalifikation: "Intuition 40",
         type: "passiv",
@@ -833,7 +833,7 @@ const alleFaerdigheder = {
         
         // Styrke
         {
-        id: "evne_styrke_kald",
+        id: "f_evne_styrke_kald",
         navn: "Kald",
         kvalifikation: "Styrke 20",
         type: "aktiv",
@@ -841,7 +841,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du lave et kald mod himlen. Du kan fordoble skaden på dine næste to angreb, men reducerer din maksimale Hu med 1 indtil næste cyklus.",
         },
         {
-        id: "evne_styrke_skælv",
+        id: "f_evne_styrke_skælv",
         navn: "Skælv",
         kvalifikation: "Styrke 30",
         type: "aktiv",
@@ -849,7 +849,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, på din tur, kan du trampe i jorden med en sådan kraft, at alle indenfor 1 spænd bliver kastet til jorden og tager skade svarende til dit Styrkelevel.",
         },
         {
-        id: "evne_styrke_energiudladning",
+        id: "f_evne_styrke_energiudladning",
         navn: "Energiudladning",
         kvalifikation: "Styrke 40",
         type: "aktiv",
@@ -857,7 +857,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du samle din fysiske kraft i ét angreb. Dit næste angreb på denne tur ignorerer al skadesreduktion og angrebets skade fordobles. Hvis angrebet rammer med en fuldtræffer, kastes målet 3 spænd væk fra dig.",
         },
         {
-        id: "evne_styrke_lemlæstelse",
+        id: "f_evne_styrke_lemlæstelse",
         navn: "Lemlæstelse",
         kvalifikation: "Styrke 50",
         type: "aktiv",
@@ -867,7 +867,7 @@ const alleFaerdigheder = {
 
         // Behændighed
         {
-        id: "evne_behaendighed_spæn",
+        id: "f_evne_behaendighed_spæn",
         navn: "Spæn",
         kvalifikation: "Behændighed 20",
         type: "aktiv",
@@ -875,7 +875,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, på din tur, kan du fordoble det antal spænd du kan bevæge dig per Hu indtil starten af din næste tur.",
         },
         {
-        id: "evne_behaendighed_flugt",
+        id: "f_evne_behaendighed_flugt",
         navn: "Flugt",
         kvalifikation: "Behændighed 30",
         type: "aktiv",
@@ -883,7 +883,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, på din tur, kan du bevæge dig op til 15 spænd og undgå alle reaktive angreb.",
         },
         {
-        id: "evne_behaendighed_hast",
+        id: "f_evne_behaendighed_hast",
         navn: "Hast",
         kvalifikation: "Behændighed 40",
         type: "aktiv",
@@ -891,7 +891,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, når du laver et angreb, kan du lave et ekstra angreb, der ikke koster Sejd, uden bruge Hu på dette ekstra angreb.",
         },
         {
-        id: "evne_behaendighed_ruller",
+        id: "f_evne_behaendighed_ruller",
         navn: "Ruller",
         kvalifikation: "Behændighed 50",
         type: "passiv",
@@ -899,7 +899,7 @@ const alleFaerdigheder = {
         beskrivelse: "Det koster nu kun 1 Hu for dig at lave Undvigerul.",
         },
         {
-        id: "evne_behaendighed_dans",
+        id: "f_evne_behaendighed_dans",
         navn: "Dans",
         kvalifikation: "Behændighed 60",
         type: "aktiv",
@@ -909,7 +909,7 @@ const alleFaerdigheder = {
 
         // Visdom
         {
-        id: "evne_visdom_klarhed",
+        id: "f_evne_visdom_klarhed",
         navn: "Klarhed",
         kvalifikation: "Visdom 20",
         type: "aktiv",
@@ -917,7 +917,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du bruge din ophobede viden for at opnå kortvarig klarhed. Du får +2d6 til dit næste rul, men du bruger 5 Sejd og din maksimale Sejd reduceres med 5 indtil næste cyklus.",
         },
         {
-        id: "evne_visdom_vidensdeling",
+        id: "f_evne_visdom_vidensdeling",
         navn: "Vidensdeling",
         kvalifikation: "Visdom 30",
         type: "aktiv",
@@ -925,7 +925,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du dele din viden med dine allierede. Vælg op til 3 allierede indenfor 8 spænd. De får alle +1d6 til deres næste rul i enten Visdom eller Sind, efter eget valg.",
         },
         {
-        id: "evne_visdom_vaks",
+        id: "f_evne_visdom_vaks",
         navn: "Vaks",
         kvalifikation: "Visdom 40",
         type: "aktiv",
@@ -933,7 +933,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, når du laver et rul i Visdom eller Sind, kan du vælge at rulle alle terninger om. Det er resultatet af det nye rul, der gælder.",
         },
         {
-        id: "evne_visdom_cyklisk-forståelse",
+        id: "f_evne_visdom_cyklisk-forståelse",
         navn: "Cyklisk forståelse",
         kvalifikation: "Visdom 60",
         type: "aktiv",
@@ -943,7 +943,7 @@ const alleFaerdigheder = {
 
         // Mystik
         {
-        id: "evne_mystik_offer",
+        id: "f_evne_mystik_offer",
         navn: "Offer",
         kvalifikation: "Mystik 20",
         type: "aktiv",
@@ -951,7 +951,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du ofre dit helbred og tage skade svarende til halvdelen af dit maksimale Liv (uden at få en læsion) for at hele dybe sår. Du kan helbrede op til 2 læsioner på enten dig selv eller en allieret, du berører.",
         },
         {
-        id: "evne_mystik_tidslig-forståelse",
+        id: "f_evne_mystik_tidslig-forståelse",
         navn: "Tidslig forståelse",
         kvalifikation: "Mystik 30",
         type: "aktiv",
@@ -959,7 +959,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du rette dit sind til cyklussens tidslighed for at forudse en begivenhed.\n\nDu kan bede Spilmesteren fortælle dig hvilken handling, en fjende du kan se, vil tage på deres næste tur. Spilmesteren skal svare efter bedste evne.",
         },
         {
-        id: "evne_mystik_katlas-bøn",
+        id: "f_evne_mystik_katlas-bøn",
         navn: "Katlas bøn",
         kvalifikation: "Mystik 40",
         type: "aktiv",
@@ -967,7 +967,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus, hvis en person dør indenfor 2 spænd af dig, kan du umiddelbart efter bede en bøn, hvorefter den døde genopstår på stedet, uden forvitring, med halvdelen af sit maks Liv og med en ekstra læsion.",
         },
         {
-        id: "evne_mystik_deling",
+        id: "f_evne_mystik_deling",
         navn: "Deling",
         kvalifikation: "Mystik 50",
         type: "aktiv",
@@ -975,7 +975,7 @@ const alleFaerdigheder = {
         beskrivelse: "Én gang per cyklus kan du røre en person og give dem en del af din kraft.\n\nSkaden af målets næste angreb (der ikke bruger Sejd) fordobles, mens skaden af dit næste angreb halveres.",
         },
         {
-        id: "evne_mystik_livshæver",
+        id: "f_evne_mystik_livshæver",
         navn: "Livshæver",
         kvalifikation: "Mystik 60",
         type: "aktiv",

@@ -99,6 +99,11 @@ klik('vandsten', () => visJustering('vandsten'));
 klik('hvil-knap', () => aabenVindue('hvil'));
 klik('bekraeft-hvil', hvil);
 
+// Evneforbedring
+    klik('bekraeft-evne', bekraeftEvneForbedringer);
+    klik('annuller-evne', () => lukVindue('evneforbedring'));
+    klik('evneforbedringsknap', () => initEvneVindue());
+
 // Færdigheder
     klik('faerdighedsknap', () => aabenVindue('faerdighed-menu'));
     klik('annuller-faerdighed-menu', () => lukVindue('faerdighed-menu'));
@@ -115,10 +120,15 @@ klik('bekraeft-hvil', hvil);
     });
     klik('annuller-faerdighed-laer', () => lukVindue('faerdighed-laer'));
 
-// Evneforbedringsvindue
-    klik('bekraeft-evne', bekraeftEvneForbedringer);
-    klik('annuller-evne', () => lukVindue('evneforbedring'));
-    klik('evneforbedringsknap', () => initEvneVindue());
+// Besværgelser
+    klik('besvaergelsesknap', () => {
+        aabenVindue('magi');
+        opdaterMagiKortValg();
+    });
+    klik('annuller-magi', () => lukVindue('magi'));
+
+
+
 
 // Død
 klik('stor-doed-knap', () => aabenVindue('doed'));
