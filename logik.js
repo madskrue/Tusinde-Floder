@@ -1470,6 +1470,7 @@ function bekraeftEvneForbedringer() {
     opdaterVistData();
     lukVindue('evneforbedring');
     visBesked(`Evner forbedret. ${total} Dråber brugt.`);
+    hvil();
 }
 
 // Specialinfo-hjælpere til Liv, Sejd, Hu

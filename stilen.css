@@ -325,6 +325,10 @@ input::-webkit-inner-spin-button {
     display: block;
 }
 
+.faneblad--dyb {
+    border-radius: 0.5rem;
+}
+
 
 
 /* ================= */
