@@ -1,3 +1,62 @@
+const karakterGrundlag = {
+    navn: "",
+    klasse: "",
+    draaber: 2280,
+    draaberEfterladt: 0,
+
+    livNu: 1,
+    sejdNu: 1,
+    huNu: 1,
+
+    sekvens: 0,
+    haab: 0,
+    forvitring: 0,
+    laesioner: 0,
+    udmattelse: 0,
+
+    form: 1,
+    sind: 1,
+    intuition: 1,
+    styrke: 1,
+    behaendighed: 1,
+    visdom: 1,
+    mystik: 1,
+
+    forskydning: {
+        form: 0,
+        sind: 0,
+        intuition: 0,
+        styrke: 0,
+        behaendighed: 0,
+        visdom: 0,
+        mystik: 0,
+    },
+
+    faerdigheder: [],
+    valgteFaerdigheder: [],
+    brugteFaerdigheder: [],
+
+    vaaben: [],
+    valgteVaaben: [],
+
+    besvaergelser: [],
+    valgteBesvaergelser: [],
+
+    stenskaar: 0,
+    flaskerMax: 1,
+    flaskerNu: 1,
+    endeligtDoed: false,
+
+    noter: "",
+};
+let alleVaaben = [];
+let alleFaerdigheder = [];
+let klasseFaerdigheder = [];
+let evneFaerdigheder = [];
+let alleBesvaergelser = [];
+let standardKlasser = [];
+
+
 // Karakterobjektet
 let karakter = {
     navn: "",
@@ -780,7 +839,7 @@ function tilfoejVaaben() {
     const tekst = input.value || '';
     if (tekst === '') {return;}
 
-    const vaaben = alleVaaben.vaaben.find(v => tekst.includes(v.id));
+    const vaaben = alleVaaben.find(v => tekst.includes(v.id));
 
     if (!vaaben) {
         visBesked(`${tekst} kunne ikke findes.`);
@@ -799,10 +858,7 @@ function tilfoejVaaben() {
 // Færdigheder
 function opdaterFaerdighedKortBrug() {
     document.getElementById('faerdighed-beholder').innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
-    alleFaerdigheder.evnefaerdigheder
+    alleFaerdigheder
         .filter(v => karakter.valgteFaerdigheder.includes(v.id))
         .forEach(faerdighed => brugsKort(faerdighed));
 }
@@ -874,10 +930,10 @@ function opdaterValgsKort() {
     klasseBeholder.innerHTML = '';
     const evneBeholder = document.getElementById('evnefaerdigheder-valg');
     evneBeholder.innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
+    klasseFaerdigheder
         .filter(v => v.kvalifikation.includes(karakter.klasse))
         .forEach(faerdighed => valgsKort(faerdighed, klasseBeholder));
-    alleFaerdigheder.evnefaerdigheder
+    evneFaerdigheder
         .filter(v => karakter.faerdigheder.includes(v.id))
         .forEach(faerdighed => valgsKort(faerdighed, evneBeholder));
 }
@@ -931,16 +987,13 @@ function valgsKort(faerdighed, beholder) {
 function opdaterLaerKort() {
     const kendteBeholder = document.getElementById('kendte-faerdigheder-laer');
     kendteBeholder.innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
+    klasseFaerdigheder
         .filter(v => v.kvalifikation.includes(karakter.klasse))
-        .forEach(faerdighed => laerKortKendt(faerdighed, kendteBeholder));
-    alleFaerdigheder.evnefaerdigheder
-        .filter(v => karakter.faerdigheder.includes(v.id))
         .forEach(faerdighed => laerKortKendt(faerdighed, kendteBeholder));
 
     const ukendteBeholder = document.getElementById('ukendte-faerdigheder-laer');
     ukendteBeholder.innerHTML = '';
-    alleFaerdigheder.evnefaerdigheder
+    evneFaerdigheder
         .filter(v => !karakter.faerdigheder.includes(v.id))
         .forEach(faerdighed => laerKortUkendt(faerdighed, ukendteBeholder));
 }
@@ -996,7 +1049,7 @@ function laerKortUkendt(faerdighed, beholder) {
 // Besværgelser
 function opdaterMagiKortBrug() {
     document.getElementById('magi-beholder').innerHTML = '';
-    alleBesvaergelser.besvaergelser
+    alleBesvaergelser
         .filter(b => karakter.valgteBesvaergelser.includes(b.id))
         .forEach(besvaergelse => magiKortBrug(besvaergelse));
 }
@@ -1069,7 +1122,7 @@ function magiKortBrug(besvaergelse) {
 
 function opdaterMagiKortValg() {
     document.getElementById('kendt-magi').innerHTML = '';
-    alleBesvaergelser.besvaergelser
+    alleBesvaergelser
         .filter(b => karakter.besvaergelser.includes(b.id))
         .forEach(besvaergelse => magiKortValg(besvaergelse));
 }
@@ -1148,7 +1201,7 @@ function laerMagi() {
     const tekst = input.value || '';
     if (tekst === '') {return;}
 
-    const besvaergelse = alleBesvaergelser.besvaergelser.find(b => tekst.includes(b.id));
+    const besvaergelse = alleBesvaergelser.find(b => tekst.includes(b.id));
 
     if (!besvaergelse) {
         visBesked(`${tekst} kunne ikke findes.`);
@@ -1741,31 +1794,21 @@ function bekraeftVaabenopgradering() {
 // ====================== DATAHÅNDTERING ======================
 // ============================================================
 
-// Globale variable til dine lister (ligesom du har nu i data.js)
-// let standardKlasser = {};
-// let alleVaaben = [];
-// let alleBesvaergelser = [];
-// let alleFaerdigheder = [];
-
 async function indlaesSpilData() {
     try {
         const svar = await fetch('spildata.json');
         const spildata = await svar.json();
         
-        // Fordel dataen ud i dine variabler
+        standardKlasser = spildata.klasser;
         alleVaaben = spildata.vaaben;
         alleBesvaergelser = spildata.besvaergelser;
+        klasseFaerdigheder = spildata.klassefaerdigheder;
+        evneFaerdigheder = spildata.evnefaerdigheder;
         alleFaerdigheder = [...spildata.klassefaerdigheder, ...spildata.evnefaerdigheder];
-        
-        // Lav klasserne om til et opslagsobjekt (så det matcher din logik.js)
-        spildata.klasser.forEach(k => {
-            // F.eks. standardKlasser["asket"] = { ... }
-            standardKlasser[k.id] = k; 
-        });
 
         console.log("Al spildata er indlæst korrekt.");
         
-        // Kør din oprindelige start-logik herfra
+
         indlaesData(); // Hent karakter fra localStorage, hvis den findes
         opdaterVistData();
         
@@ -1774,15 +1817,7 @@ async function indlaesSpilData() {
     }
 }
 
-const standardKlasser = {
-    asket: standardasket,
-    bytyv: standardbytyv,
-    forkynder: standardforkynder,
-    hedonist: standardhedonist,
-    lovloes: standardlovloes,
-    laerd: standardlaerd,
-    militarist: standardmilitarist,
-};
+
 
 // Gem og indlæs
 function gemData() {
@@ -1823,25 +1858,24 @@ function nulstilData() {
 
 function hentStandardKlasse(klasse) {
     const karakterVisningsnavn = { asket: 'Asket', bytyv: 'Bytyv', forkynder: 'Forkynder', hedonist: 'Hedonist', lovloes: 'Lovløs', laerd: 'Lærd', militarist: 'Militarist' };
-    const diff = standardKlasser[klasse]; // ændre til 
-    // const diff = standardKlasser.find(k => k.id === klasse);
+    const diff = standardKlasser.find(k => k.id === klasse);
     if (!diff) return;
 
     const baseKarakter = JSON.parse(JSON.stringify(karakterGrundlag));
     const klasseData = JSON.parse(JSON.stringify(diff));
     const klasseVaabenRef = klasseData.vaaben || [];
     const klasseVaaben = klasseVaabenRef.map(ref => {
-        return alleVaaben.vaaben.find(v => v.id === ref.id);
+        return alleVaaben.find(v => v.id === ref.id);
     });
     const klasseFaerdighederRef = klasseData.faerdigheder || [];
-    const klasseFaerdigheder = klasseFaerdighederRef.map(ref => {
-        return alleFaerdigheder.klassefaerdigheder.find(v => v.id === ref.id);
+    const klasseFaerdighederne = klasseFaerdighederRef.map(ref => {
+        return klasseFaerdigheder.find(v => v.id === ref.id);
     });
 
     Object.assign(karakter, baseKarakter, klasseData);
     karakter.vaaben = [...klasseVaaben];
-    karakter.faerdigheder = klasseFaerdigheder.map(f => f.id);
-    karakter.valgteFaerdigheder = klasseFaerdigheder.map(f => f.id);
+    karakter.faerdigheder = klasseFaerdighederne.map(f => f.id);
+    karakter.valgteFaerdigheder = klasseFaerdighederne.map(f => f.id);
     karakter.besvaergelser = (karakter.besvaergelser || []).map(b => typeof b === 'string' ? b : b.id);
     karakter.valgteBesvaergelser = [...karakter.besvaergelser];
 

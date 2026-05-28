@@ -346,12 +346,11 @@ document.getElementById('importer-input').addEventListener('change', (e) => {
 if (localStorage.getItem('theme') === 'dark') {
   document.body.classList.add('dark-mode');
 }
-indlaesData();
+
+indlaesSpilData();
 
 if (!localStorage.getItem('karakterark')) {
     document.getElementById('beholder').style.display = 'none';
     document.getElementById('eksporter-knap').style.display = 'none';
     aabenVindue('karakter');
 }
-
-opdaterVistData();
