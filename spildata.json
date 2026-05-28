@@ -151,1356 +151,1353 @@
         }
     ],
 
+    "vaaben": [
+        {
+        "id": "skabelon",
+        "navn": "Våbennavn",
+        "beskrivelse": "Våbenbeskrivelse.",
+        "basis": "evne",
+        "levelKrav": {},
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Tekniknavn",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1,
+            "beskrivelse": "Teknikbeskrivelse."
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_knojern_asket",
+        "navn": "Knojern",
+        "beskrivelse": "Et simpelt knojern. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 10
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Knoglebrud",
+            "beskrivelse": "Koncentrer kraften af dit slag til et enkelt punkt på dit måls krop. Gør basisskade og målet får -1d6 til deres næste angreb.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_kaede_asket",
+        "navn": "Kæde",
+        "beskrivelse": "En let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 15,
+            "styrke": 10
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": "styrke",
+        "tillaegsTaeller": 1,
+        "tillaegsNaevner": 5,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Svirp",
+            "beskrivelse": "Hvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_tvillingedolke_bytyv",
+        "navn": "Tvillingedolke",
+        "beskrivelse": "Kræver to hænder. Et sæt af to mindre dolke, en til hver hånd. Et angreb er et stød med en af dolkene. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 15
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Hurtige hænder",
+            "beskrivelse": "Kræver to hænder. Angrib med den ene dolk, flyt dig op til 1 spænd, og angrib med den anden dolk. Gør halv basisskade for hvert angreb.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_langdolk_bytyv",
+        "navn": "Langdolk",
+        "beskrivelse": "En lang dolk med en savtakket klinge. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Flænsning",
+            "beskrivelse": "Skær et dybt sår i målet. Hvis de rammes, tager de basisskade nu og begynder at bløde. I starten af målets næste tur, tager de halv basisskade.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_sakral_leder_forkynder",
+        "navn": "Sakral Leder",
+        "beskrivelse": "Et enkelt objekt (f.eks. ikon, stav, relikvie), der kanaliserer sakral magi.",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 14
+        },
+        "opgradering": 0,
+        "leder": "sakral",
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": null,
+            "hu": null
+        },
+        "teknik": {
+            "navn": "Slag",
+            "beskrivelse": "Slå et mål indenfor 1 spænd. Gør halv basisskade.",
+            "skadeFaktor": 0.5,
+            "hu": 2
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_morgenstjerne_forkynder",
+        "navn": "Morgenstjerne",
+        "beskrivelse": "En tung kugle med pigge, fastgjort til et skaft. Gør basisskade.",
+        "basis": "styrke",
+        "levelKrav": {
+            "styrke": 10
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 1,
+            "hu": 2
+        },
+        "teknik": {
+            "navn": "Hårdt slag",
+            "beskrivelse": "Kræver to hænder. Slå et mål indenfor 1 spænd. Gør dobbelt basisskade.",
+            "skadeFaktor": 2,
+            "hu": 3,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_kaarde_hedonist",
+        "navn": "Kårde",
+        "beskrivelse": "Et elegant sværd med en lang, smal klinge. Kården er yderst spids. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Touché",
+            "beskrivelse": "Træd 1 spænd frem og angrib i én glidende bevægelse. Hvis du rammer, gør du basisskade og får +1d6 på dit næste forsvar mod denne fjende, hvis de dig angriber inden din næste tur.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_flitsbue_lovloes",
+        "navn": "Flitsbue",
+        "beskrivelse": "Kræver to hænder. Bue og pil. Et angreb affyrer en pil op til 20 spænd. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Overtræk",
+            "beskrivelse": "Kræver to hænder. Træk buen helt ud og affyr en pil op til 30 spænd. Gør basisskade.",
+            "skadeFaktor": 1,
+            "hu": 1,
+            "sejd": 2
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_langspyd_lovloes",
+        "navn": "Langspyd",
+        "beskrivelse": "Et langt og let spyd. Et angreb er et let hug mod et mål op til 2 spænd væk. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Spydkast",
+            "beskrivelse": "Kast spyddet op til 15 spænd efter et mål. Gør basisskade.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_krigshammer_lovloes",
+        "navn": "Krigshammer",
+        "beskrivelse": "Kræver to hænder. En tung tohåndshammer. Gør basisskade.",
+        "basis": "styrke",
+        "levelKrav": {
+            "styrke": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 1,
+            "hu": 2
+        },
+        "teknik": {
+            "navn": "Tvingende slag",
+            "beskrivelse": "Kræver to hænder. Et brutalt angreb, der rykker målet. Hvis du rammer, gør du dobblet basisskade og skubber målet 1 spænd væk fra dig. Hvis målet rammer en væg eller anden forhindring, falder det omkuld.",
+            "skadeFaktor": 2,
+            "hu": 3,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_profan_leder_laerd",
+        "navn": "Profan Leder",
+        "beskrivelse": "Et enkelt objekt (f.eks. stav, tryllestav, sfære), der kanaliserer profan magi.",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 14
+        },
+        "opgradering": 0,
+        "leder": "profan",
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": null,
+            "hu": null
+        },
+        "teknik": {
+            "navn": "Slag",
+            "beskrivelse": "Slå et mål indenfor 1 spænd. Gør halv basisskade.",
+            "skadeFaktor": 1,
+            "hu": 2
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_kort_svaerd_laerd",
+        "navn": "Kort sværd",
+        "beskrivelse": "Et enhåndssværd. Gør halv basisskade.",
+        "basis": "behaendighed",
+        "levelKrav": {
+            "behaendighed": 10
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 0.5,
+            "hu": 1
+        },
+        "teknik": {
+            "navn": "Gennembor",
+            "beskrivelse": "Spid målet med spidsen af sværdet. Hvis du rammer, tager målet basisskade og bliver ængsteligt.",
+            "skadeFaktor": 1,
+            "hu": 2,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_klingespyd_militarist",
+        "navn": "Klingespyd",
+        "beskrivelse": "Et tungt spyd med en klinge langs skaftet. Gør basisskade.",
+        "basis": "styrke",
+        "levelKrav": {
+            "styrke": 15,
+            "behaendighed": 12
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": "behaendighed",
+        "tillaegsTaeller": 1,
+        "tillaegsNaevner": 5,
+        "angreb": {
+            "skadeFaktor": 1,
+            "hu": 2
+        },
+        "teknik": {
+            "navn": "Rundhug",
+            "beskrivelse": "Kræver to hænder. Udstræk spyddet og drej hele vejen rundt om dig selv. Rul én gang for at angribe alle indenfor 1 spænd omkring dig. Gør basisskade til alle, der rammes.",
+            "skadeFaktor": 1,
+            "hu": 3,
+            "sejd": 1
+        },
+        "noter": ""
+        },
+        {
+        "id": "v_langsvaerd_militarist",
+        "navn": "Langsværd",
+        "beskrivelse": "Et langt, tungt sværd med en bred, tveægget klinge. Gør basisskade.",
+        "basis": "styrke",
+        "levelKrav": {
+            "styrke": 15
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": 1,
+            "hu": 2
+        },
+        "teknik": {
+            "navn": "Hoppende angreb",
+            "beskrivelse": "Kræver to hænder. Angrib et mål, ved at hoppe 1 spænd fremad og lande med et voldsomt stød. Gør dobbelt basisskade.",
+            "skadeFaktor": 2,
+            "hu": 3,
+            "sejd": 1
+        },
+        "noter": ""
+        }
+    ],
 
-  "vaaben": [
-    {
-      "id": "skabelon",
-      "navn": "Våbennavn",
-      "beskrivelse": "Våbenbeskrivelse.",
-      "basis": "evne",
-      "levelKrav": {},
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Tekniknavn",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1,
-        "beskrivelse": "Teknikbeskrivelse."
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_knojern_asket",
-      "navn": "Knojern",
-      "beskrivelse": "Et simpelt knojern. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 10
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Knoglebrud",
-        "beskrivelse": "Koncentrer kraften af dit slag til et enkelt punkt på dit måls krop. Gør basisskade og målet får -1d6 til deres næste angreb.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_kaede_asket",
-      "navn": "Kæde",
-      "beskrivelse": "En let smedejernskæde. Kan ramme mål der er 2 spænd væk. Gør halv basisskade. Med kæden kan du lave fastholdelsesrul med Behændighed frem for Styrke.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 15,
-        "styrke": 10
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": "styrke",
-      "tillaegsTaeller": 1,
-      "tillaegsNaevner": 5,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Svirp",
-        "beskrivelse": "Hvis du rammer, gør du basisskade og kan trække målet 1 spænd mod dig.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_tvillingedolke_bytyv",
-      "navn": "Tvillingedolke",
-      "beskrivelse": "Kræver to hænder. Et sæt af to mindre dolke, en til hver hånd. Et angreb er et stød med en af dolkene. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 15
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Hurtige hænder",
-        "beskrivelse": "Kræver to hænder. Angrib med den ene dolk, flyt dig op til 1 spænd, og angrib med den anden dolk. Gør halv basisskade for hvert angreb.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_langdolk_bytyv",
-      "navn": "Langdolk",
-      "beskrivelse": "En lang dolk med en savtakket klinge. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Flænsning",
-        "beskrivelse": "Skær et dybt sår i målet. Hvis de rammes, tager de basisskade nu og begynder at bløde. I starten af målets næste tur, tager de halv basisskade.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_sakral_leder_forkynder",
-      "navn": "Sakral Leder",
-      "beskrivelse": "Et enkelt objekt (f.eks. ikon, stav, relikvie), der kanaliserer sakral magi.",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 14
-      },
-      "opgradering": 0,
-      "leder": "sakral",
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
+    "klassefaerdigheder": [
+        {
+        "id": "f_klasse_asket_indre-ro",
+        "navn": "Indre ro",
+        "kvalifikation": "Asket",
+        "type": "aktiv",
+        "beskrivelse": "Når du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_klasse_asket_indre-kraft",
+        "navn": "Indre kraft",
+        "kvalifikation": "Asket",
+        "type": "aktiv",
+        "beskrivelse": "Du kan omdanne 6 Sejd til 2 Hu. Færdigheden kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_klasse_bytyv_baghold",
+        "navn": "Baghold",
+        "kvalifikation": "Bytyv",
+        "type": "aktiv",
+        "beskrivelse": "Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_klasse_forkynder_boen",
+        "navn": "Bøn",
+        "kvalifikation": "Forkynder",
+        "type": "aktiv",
+        "beskrivelse": "Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul."
+        },
+        {
+        "id": "f_klasse_hedonist_afledning",
+        "navn": "Afledning",
+        "kvalifikation": "Hedonist",
+        "type": "aktiv",
+        "beskrivelse": "Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig."
+        },
+        {
+        "id": "f_klasse_hedonist_duelist",
+        "navn": "Duelist",
+        "kvalifikation": "Hedonist",
+        "type": "passiv",
+        "beskrivelse": "Når du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen."
+        },
+        {
+        "id": "f_klasse_lovloes_kontroltab",
+        "navn": "Kontroltab",
+        "kvalifikation": "Lovløs",
+        "type": "aktiv",
+        "beskrivelse": "Én gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode."
+        },
+        {
+        "id": "f_klasse_laerd_visdommens-segl",
+        "navn": "Visdommens segl",
+        "kvalifikation": "Lærd",
+        "type": "aktiv",
+        "beskrivelse": "En gang per cyklus kan du, med din profane Leder, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder."
+        },
+        {
+        "id": "f_klasse_militarist_ordre",
+        "navn": "Ordre",
+        "kvalifikation": "Militarist",
+        "type": "aktiv",
+        "beskrivelse": "Som militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus."
+        }
+    ],
+
+    "evnefaerdigheder": [
+        {
+        "id": "f_evne_form_fast-stand",
+        "navn": "Fast stand",
+        "kvalifikation": "Form 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "form": 20
+        },
+        "beskrivelse": "Én gang per cyklus kan du aktivere din indre styrke og stå fast.\n\nI 1 runde halveres al skade mod dig og din bevægelse på din næste tur reduceres med 1 spænd per Hu."
+        },
+        {
+        "id": "f_evne_form_urokkelig",
+        "navn": "Urokkelig",
+        "kvalifikation": "Form 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "form": 30
+        },
+        "beskrivelse": "Én gang per cyklus kan du samle al din indre styrke.\n\nI 2 runder reduceres al skade mod dig med 90%. Du får urokkelig stand: i disse 2 runder - til slutning af din tur om 2 runder - kan ingen kan flytte dig, heller ikke dig selv, og du kan ikke tage nogle handlinger."
+        },
+        {
+        "id": "f_evne_form_til-stede",
+        "navn": "Til stede",
+        "kvalifikation": "Form 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "form": 40
+        },
+        "beskrivelse": "Én gang per cyklus kan du lade stærke smerter passere.\n\nI 2 runder kan du ignorere én (ikke kritisk) læsion."
+        },
+        {
+        "id": "f_evne_form_afbød",
+        "navn": "Afbød",
+        "kvalifikation": "Form 50",
+        "type": "aktiv",
+        "levelKrav": {
+            "form": 50
+        },
+        "beskrivelse": "Én gang per cyklus kan du afbøde al skade fra ét angreb, der rammer dig."
+        },
+        {
+        "id": "f_evne_form_udød",
+        "navn": "Udød",
+        "kvalifikation": "Form 60",
+        "type": "aktiv",
+        "levelKrav": {
+            "form": 60
+        },
+        "beskrivelse": "Én gang per cyklus, når dit Liv reduceres til 0, kan du samle dine sidste kræfter til i stedet at blive på 1 Liv og undgå at dø."
+        },
+        {
+        "id": "f_evne_sind_disciplin-1",
+        "navn": "Disciplin 1",
+        "kvalifikation": "Sind 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "sind": 20
+        },
+        "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_evne_sind_mental-modstand",
+        "navn": "Mental modstand",
+        "kvalifikation": "Sind 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "sind": 30
+        },
+        "beskrivelse": "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at halvere den skade, du tager fra det ene angreb."
+        },
+        {
+        "id": "f_evne_sind_disciplin-2",
+        "navn": "Disciplin 2",
+        "kvalifikation": "Sind 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "sind": 40
+        },
+        "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul din Sind-pulje, og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_evne_sind_mental-mur",
+        "navn": "Mental mur",
+        "kvalifikation": "Sind 50",
+        "type": "aktiv",
+        "levelKrav": {
+            "sind": 50
+        },
+        "beskrivelse": "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at afbøde al skade fra det ene angreb."
+        },
+        {
+        "id": "f_evne_sind_disciplin-3",
+        "navn": "Disciplin 3",
+        "kvalifikation": "Sind 60",
+        "type": "aktiv",
+        "levelKrav": {
+            "sind": 60
+        },
+        "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul en pulje af Sind + Form + Intuition og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus."
+        },
+        {
+        "id": "f_evne_intuition_skarp",
+        "navn": "Skarp",
+        "kvalifikation": "Intuition 20",
+        "type": "passiv",
+        "levelKrav": {
+            "intuition": 20
+        },
+        "beskrivelse": "Når du ruller initiativ, kan du vælge at rulle to gange og bruge det højeste resultat."
+        },
+        {
+        "id": "f_evne_intuition_byt",
+        "navn": "Byt",
+        "kvalifikation": "Intuition 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "intuition": 30
+        },
+        "beskrivelse": "Som det første i starten af din tur kan du vælge at bytte din tur med en allieret. \n\nDin allierede har nu tur i stedet for dig og din tur udskydes til din allieredes plads i initiativrækken."
+        },
+        {
+        "id": "f_evne_intuition_fokuseret",
+        "navn": "Fokuseret",
+        "kvalifikation": "Intuition 40",
+        "type": "passiv",
+        "levelKrav": {
+            "intuition": 40
+        },
+        "beskrivelse": "Det koster ikke længere Hu for dig at bruge Fokusér-handlingen."
+        },
+        {
+        "id": "f_evne_styrke_kald",
+        "navn": "Kald",
+        "kvalifikation": "Styrke 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "styrke": 20
+        },
+        "beskrivelse": "Én gang per cyklus kan du lave et kald mod himlen. Du kan fordoble skaden på dine næste to angreb, men reducerer din maksimale Hu med 1 indtil næste cyklus."
+        },
+        {
+        "id": "f_evne_styrke_skælv",
+        "navn": "Skælv",
+        "kvalifikation": "Styrke 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "styrke": 30
+        },
+        "beskrivelse": "Én gang per cyklus, på din tur, kan du trampe i jorden med en sådan kraft, at alle indenfor 1 spænd bliver kastet til jorden og tager skade svarende til dit Styrkelevel."
+        },
+        {
+        "id": "f_evne_styrke_energiudladning",
+        "navn": "Energiudladning",
+        "kvalifikation": "Styrke 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "styrke": 40
+        },
+        "beskrivelse": "Én gang per cyklus kan du samle din fysiske kraft i ét angreb. Dit næste angreb på denne tur ignorerer al skadesreduktion og angrebets skade fordobles. Hvis angrebet rammer med en fuldtræffer, kastes målet 3 spænd væk fra dig."
+        },
+        {
+        "id": "f_evne_styrke_lemlæstelse",
+        "navn": "Lemlæstelse",
+        "kvalifikation": "Styrke 50",
+        "type": "aktiv",
+        "levelKrav": {
+            "styrke": 50
+        },
+        "beskrivelse": "Én gang per cyklus, når du laver et angreb, kan du bruge din kraft til at påføre dit mål en automatisk læsion. Målet får en læsion selvom du ikke har påført skade svarende til halvdelen af deres maksimale Liv."
+        },
+        {
+        "id": "f_evne_behaendighed_spæn",
+        "navn": "Spæn",
+        "kvalifikation": "Behændighed 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "behaendighed": 20
+        },
+        "beskrivelse": "Én gang per cyklus, på din tur, kan du fordoble det antal spænd du kan bevæge dig per Hu indtil starten af din næste tur."
+        },
+        {
+        "id": "f_evne_behaendighed_flugt",
+        "navn": "Flugt",
+        "kvalifikation": "Behændighed 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "behaendighed": 30
+        },
+        "beskrivelse": "Én gang per cyklus, på din tur, kan du bevæge dig op til 15 spænd og undgå alle reaktive angreb."
+        },
+        {
+        "id": "f_evne_behaendighed_hast",
+        "navn": "Hast",
+        "kvalifikation": "Behændighed 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "behaendighed": 40
+        },
+        "beskrivelse": "Én gang per cyklus, når du laver et angreb, kan du lave et ekstra angreb, der ikke koster Sejd, uden bruge Hu på dette ekstra angreb."
+        },
+        {
+        "id": "f_evne_behaendighed_ruller",
+        "navn": "Ruller",
+        "kvalifikation": "Behændighed 50",
+        "type": "passiv",
+        "levelKrav": {
+            "behaendighed": 50
+        },
+        "beskrivelse": "Det koster nu kun 1 Hu for dig at lave Undvigerul."
+        },
+        {
+        "id": "f_evne_behaendighed_dans",
+        "navn": "Dans",
+        "kvalifikation": "Behændighed 60",
+        "type": "aktiv",
+        "levelKrav": {
+            "behaendighed": 60
+        },
+        "beskrivelse": "Én gang per cyklus kan du bevæge dig som en uforudsigelig danser. I 2 runder kan du bevæge dig gennem fjender uden at udløse reaktive angreb, og du får +2d6 til alle undvigerul- og undvigelseshandlinger."
+        },
+        {
+        "id": "f_evne_visdom_klarhed",
+        "navn": "Klarhed",
+        "kvalifikation": "Visdom 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "visdom": 20
+        },
+        "beskrivelse": "Én gang per cyklus kan du bruge din ophobede viden for at opnå kortvarig klarhed. Du får +2d6 til dit næste rul, men du bruger 5 Sejd og din maksimale Sejd reduceres med 5 indtil næste cyklus."
+        },
+        {
+        "id": "f_evne_visdom_vidensdeling",
+        "navn": "Vidensdeling",
+        "kvalifikation": "Visdom 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "visdom": 30
+        },
+        "beskrivelse": "Én gang per cyklus kan du dele din viden med dine allierede. Vælg op til 3 allierede indenfor 8 spænd. De får alle +1d6 til deres næste rul i enten Visdom eller Sind, efter eget valg."
+        },
+        {
+        "id": "f_evne_visdom_vaks",
+        "navn": "Vaks",
+        "kvalifikation": "Visdom 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "visdom": 40
+        },
+        "beskrivelse": "Én gang per cyklus, når du laver et rul i Visdom eller Sind, kan du vælge at rulle alle terninger om. Det er resultatet af det nye rul, der gælder."
+        },
+        {
+        "id": "f_evne_visdom_cyklisk-forståelse",
+        "navn": "Cyklisk forståelse",
+        "kvalifikation": "Visdom 60",
+        "type": "aktiv",
+        "levelKrav": {
+            "visdom": 60
+        },
+        "beskrivelse": "Én gang per cyklus kan du bruge din forståelse af den cykliske natur.\n\nHvis du tidligere i denne cyklus har brugt en anden evnefærdighed, der ellers kun kan bruges én gang per cyklus, kan du bruge den igen uden at betale dens omkostninger."
+        },
+        {
+        "id": "f_evne_mystik_offer",
+        "navn": "Offer",
+        "kvalifikation": "Mystik 20",
+        "type": "aktiv",
+        "levelKrav": {
+            "mystik": 20
+        },
+        "beskrivelse": "Én gang per cyklus kan du ofre dit helbred og tage skade svarende til halvdelen af dit maksimale Liv (uden at få en læsion) for at hele dybe sår. Du kan helbrede op til 2 læsioner på enten dig selv eller en allieret, du berører."
+        },
+        {
+        "id": "f_evne_mystik_tidslig-forståelse",
+        "navn": "Tidslig forståelse",
+        "kvalifikation": "Mystik 30",
+        "type": "aktiv",
+        "levelKrav": {
+            "mystik": 30
+        },
+        "beskrivelse": "Én gang per cyklus kan du rette dit sind til cyklussens tidslighed for at forudse en begivenhed.\n\nDu kan bede Spilmesteren fortælle dig hvilken handling, en fjende du kan se, vil tage på deres næste tur. Spilmesteren skal svare efter bedste evne."
+        },
+        {
+        "id": "f_evne_mystik_katlas-bøn",
+        "navn": "Katlas bøn",
+        "kvalifikation": "Mystik 40",
+        "type": "aktiv",
+        "levelKrav": {
+            "mystik": 40
+        },
+        "beskrivelse": "Én gang per cyklus, hvis en person dør indenfor 2 spænd af dig, kan du umiddelbart efter bede en bøn, hvorefter den døde genopstår på stedet, uden forvitring, med halvdelen af sit maks Liv og med en ekstra læsion."
+        },
+        {
+        "id": "f_evne_mystik_deling",
+        "navn": "Deling",
+        "kvalifikation": "Mystik 50",
+        "type": "aktiv",
+        "levelKrav": {
+            "mystik": 50
+        },
+        "beskrivelse": "Én gang per cyklus kan du røre en person og give dem en del af din kraft.\n\nSkaden af målets næste angreb (der ikke bruger Sejd) fordobles, mens skaden af dit næste angreb halveres."
+        },
+        {
+        "id": "f_evne_mystik_livshæver",
+        "navn": "Livshæver",
+        "kvalifikation": "Mystik 60",
+        "type": "aktiv",
+        "levelKrav": {
+            "mystik": 60
+        },
+        "beskrivelse": "Én gang per cyklus, når en fjende dør indenfor 2 spænd af dig, kan du trække deres ånd ind i dig selv. Rul Mystik mod deres Form. Hvis du lykkes, genvinder du Liv svarende til dit Mystiklevel."
+        }
+    ],
+
+    "besvaergelser": [
+        {
+        "id": "b_skole_navn",
+        "navn": "Besværgelsesnavn",
+        "beskrivelse": "Besværgelsesbeskrivelse.",
+        "skole": "Skole",
+        "basis": "Evne",
+        "levelKrav": {},
+        "lederKrav": null,
+        "type": null,
+        "effekt": null,
+        "hu": null,
+        "sejd": null,
         "skadeFaktor": null,
-        "hu": null
-      },
-      "teknik": {
-        "navn": "Slag",
-        "beskrivelse": "Slå et mål indenfor 1 spænd. Gør halv basisskade.",
-        "skadeFaktor": 0.5,
-        "hu": 2
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_morgenstjerne_forkynder",
-      "navn": "Morgenstjerne",
-      "beskrivelse": "En tung kugle med pigge, fastgjort til et skaft. Gør basisskade.",
-      "basis": "styrke",
-      "levelKrav": {
-        "styrke": 10
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 1,
-        "hu": 2
-      },
-      "teknik": {
-        "navn": "Hårdt slag",
-        "beskrivelse": "Kræver to hænder. Slå et mål indenfor 1 spænd. Gør dobbelt basisskade.",
-        "skadeFaktor": 2,
-        "hu": 3,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_kaarde_hedonist",
-      "navn": "Kårde",
-      "beskrivelse": "Et elegant sværd med en lang, smal klinge. Kården er yderst spids. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Touché",
-        "beskrivelse": "Træd 1 spænd frem og angrib i én glidende bevægelse. Hvis du rammer, gør du basisskade og får +1d6 på dit næste forsvar mod denne fjende, hvis de dig angriber inden din næste tur.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_flitsbue_lovloes",
-      "navn": "Flitsbue",
-      "beskrivelse": "Kræver to hænder. Bue og pil. Et angreb affyrer en pil op til 20 spænd. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Overtræk",
-        "beskrivelse": "Kræver to hænder. Træk buen helt ud og affyr en pil op til 30 spænd. Gør basisskade.",
-        "skadeFaktor": 1,
+        "heling": null
+        },
+        {
+        "id": "b_hellig_helende-beroering",
+        "navn": "Helende berøring",
+        "beskrivelse": "Berør en person indenfor 1 spænd og giv dem 10 Liv.",
+        "skole": "Hellig",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 10
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "heling",
         "hu": 1,
-        "sejd": 2
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_langspyd_lovloes",
-      "navn": "Langspyd",
-      "beskrivelse": "Et langt og let spyd. Et angreb er et let hug mod et mål op til 2 spænd væk. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Spydkast",
-        "beskrivelse": "Kast spyddet op til 15 spænd efter et mål. Gør basisskade.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_krigshammer_lovloes",
-      "navn": "Krigshammer",
-      "beskrivelse": "Kræver to hænder. En tung tohåndshammer. Gør basisskade.",
-      "basis": "styrke",
-      "levelKrav": {
-        "styrke": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 1,
-        "hu": 2
-      },
-      "teknik": {
-        "navn": "Tvingende slag",
-        "beskrivelse": "Kræver to hænder. Et brutalt angreb, der rykker målet. Hvis du rammer, gør du dobblet basisskade og skubber målet 1 spænd væk fra dig. Hvis målet rammer en væg eller anden forhindring, falder det omkuld.",
-        "skadeFaktor": 2,
-        "hu": 3,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_profan_leder_laerd",
-      "navn": "Profan Leder",
-      "beskrivelse": "Et enkelt objekt (f.eks. stav, tryllestav, sfære), der kanaliserer profan magi.",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 14
-      },
-      "opgradering": 0,
-      "leder": "profan",
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
+        "sejd": 2,
         "skadeFaktor": null,
-        "hu": null
-      },
-      "teknik": {
-        "navn": "Slag",
-        "beskrivelse": "Slå et mål indenfor 1 spænd. Gør halv basisskade.",
-        "skadeFaktor": 1,
-        "hu": 2
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_kort_svaerd_laerd",
-      "navn": "Kort sværd",
-      "beskrivelse": "Et enhåndssværd. Gør halv basisskade.",
-      "basis": "behaendighed",
-      "levelKrav": {
-        "behaendighed": 10
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 0.5,
-        "hu": 1
-      },
-      "teknik": {
-        "navn": "Gennembor",
-        "beskrivelse": "Spid målet med spidsen af sværdet. Hvis du rammer, tager målet basisskade og bliver ængsteligt.",
-        "skadeFaktor": 1,
-        "hu": 2,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_klingespyd_militarist",
-      "navn": "Klingespyd",
-      "beskrivelse": "Et tungt spyd med en klinge langs skaftet. Gør basisskade.",
-      "basis": "styrke",
-      "levelKrav": {
-        "styrke": 15,
-        "behaendighed": 12
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": "behaendighed",
-      "tillaegsTaeller": 1,
-      "tillaegsNaevner": 5,
-      "angreb": {
-        "skadeFaktor": 1,
-        "hu": 2
-      },
-      "teknik": {
-        "navn": "Rundhug",
-        "beskrivelse": "Kræver to hænder. Udstræk spyddet og drej hele vejen rundt om dig selv. Rul én gang for at angribe alle indenfor 1 spænd omkring dig. Gør basisskade til alle, der rammes.",
-        "skadeFaktor": 1,
+        "heling": 10
+        },
+        {
+        "id": "b_hellig_hellig-beroering",
+        "navn": "Hellig berøring",
+        "beskrivelse": "Berør en person indenfor 1 spænd og fjern én negativ mental effekt (f.eks. ængstelig, forfærdelse).",
+        "skole": "Hellig",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 14
+        },
+        "lederKrav": "sakral",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 1,
+        "sejd": 3,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_hellig_hellig-hammer",
+        "navn": "Hellig hammer",
+        "beskrivelse": "Skab en lysende hammer og slå den ned på en person indenfor 2 spænd.\n\nHvis personen rammes, tager de dobbelt basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
+        "skole": "Hellig",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 18
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "skade",
         "hu": 3,
-        "sejd": 1
-      },
-      "noter": ""
-    },
-    {
-      "id": "v_langsvaerd_militarist",
-      "navn": "Langsværd",
-      "beskrivelse": "Et langt, tungt sværd med en bred, tveægget klinge. Gør basisskade.",
-      "basis": "styrke",
-      "levelKrav": {
-        "styrke": 15
-      },
-      "opgradering": 0,
-      "leder": null,
-      "tillaegsevne": null,
-      "tillaegsTaeller": null,
-      "tillaegsNaevner": null,
-      "angreb": {
-        "skadeFaktor": 1,
-        "hu": 2
-      },
-      "teknik": {
-        "navn": "Hoppende angreb",
-        "beskrivelse": "Kræver to hænder. Angrib et mål, ved at hoppe 1 spænd fremad og lande med et voldsomt stød. Gør dobbelt basisskade.",
+        "sejd": 2,
         "skadeFaktor": 2,
+        "heling": null
+        },
+        {
+        "id": "b_hellig_helende-aura",
+        "navn": "Helende aura",
+        "beskrivelse": "Du heler alle allierede indenfor 1 spænd af dig 4 Liv per tur indtil starten af din næste tur.",
+        "skole": "Hellig",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 20
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "heling",
+        "hu": 2,
+        "sejd": 8,
+        "skadeFaktor": null,
+        "heling": 4
+        },
+        {
+        "id": "b_hellig_sakral-stråle",
+        "navn": "Sakral stråle",
+        "beskrivelse": "Skab en koncentreret, lysende stråle, der skyder frem i en lige linje. Hvis du forsøger at ramme et mål, der er mere end 10 spænd væk, har du -1d6 per 10 spænd målet er væk. Strålen trænger igennem alle personer, den rammer, indtil den stoppes af en solid genstand eller blokeres.\n\nAlle der rammes tager basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
+        "skole": "Hellig",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 26
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "skade",
         "hu": 3,
-        "sejd": 1
-      },
-      "noter": ""
-    }
-  ],
-
-  "klassefaerdigheder": [
-    {
-      "id": "f_klasse_asket_indre-ro",
-      "navn": "Indre ro",
-      "kvalifikation": "Asket",
-      "type": "aktiv",
-      "beskrivelse": "Når du tager skade nok til at få en læsion, kan du bruge 6 Sejd for at undgå læsionen. Færdigheden kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_klasse_asket_indre-kraft",
-      "navn": "Indre kraft",
-      "kvalifikation": "Asket",
-      "type": "aktiv",
-      "beskrivelse": "Du kan omdanne 6 Sejd til 2 Hu. Færdigheden kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_klasse_bytyv_baghold",
-      "navn": "Baghold",
-      "kvalifikation": "Bytyv",
-      "type": "aktiv",
-      "beskrivelse": "Når du laver et nærangreb mod en fjende, der ikke har set dig, får du +2d6 til angrebet. Hvis angrebet rammer, fordobles skade af det ene angreb. Færdigheden kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_klasse_forkynder_boen",
-      "navn": "Bøn",
-      "kvalifikation": "Forkynder",
-      "type": "aktiv",
-      "beskrivelse": "Én gang per cyklus kan du bede for alle allierede indenfor 2 spænd og give dem +1d6 til deres næste angreb- eller forsvarsrul."
-    },
-    {
-      "id": "f_klasse_hedonist_afledning",
-      "navn": "Afledning",
-      "kvalifikation": "Hedonist",
-      "type": "aktiv",
-      "beskrivelse": "Én gang per cyklus kan du skabe forvirring, så en fjende angriber en af dine allierede i stedet for dig."
-    },
-    {
-      "id": "f_klasse_hedonist_duelist",
-      "navn": "Duelist",
-      "kvalifikation": "Hedonist",
-      "type": "passiv",
-      "beskrivelse": "Når du står alene i nærkamp mod én fjende, får du +1d6 til forsvar mod dem. Dette gælder kun, så længe fjenden ikke er blevet angrebet af andre end dig og du ikke er blevet angrebet af andre end fjenden i løbet af kampen."
-    },
-    {
-      "id": "f_klasse_lovloes_kontroltab",
-      "navn": "Kontroltab",
-      "kvalifikation": "Lovløs",
-      "type": "aktiv",
-      "beskrivelse": "Én gang per cyklus kan du miste besindelsen. Du får +1d6 til alle angreb i 3 runder, men du får samtidig -1d6 til at forsvare dig i samme periode."
-    },
-    {
-      "id": "f_klasse_laerd_visdommens-segl",
-      "navn": "Visdommens segl",
-      "kvalifikation": "Lærd",
-      "type": "aktiv",
-      "beskrivelse": "En gang per cyklus kan du, med din profane Leder, tegne et cirkulært segl på jorden med en diameter på 3 spænd. Når man står på dette segl, får man +1d6 til alle angrebsrul, der bruger Visdom. Seglet varer i 3 runder."
-    },
-    {
-      "id": "f_klasse_militarist_ordre",
-      "navn": "Ordre",
-      "kvalifikation": "Militarist",
-      "type": "aktiv",
-      "beskrivelse": "Som militarist kan du styre slagmarken. På din tur i en kamp kan du udstede en ordre til to af dine allierede indenfor 8 spænd. Hvis de adlyder, får de hver +1d6 til at udføre den handling, du har beordret. Hvis de begge lykkes med at udføre deres ordrer inden din næste tur, får du selv +1d6 til dit næste angreb- eller forsvarsrul. Færdigheden kan bruges én gang per cyklus."
-    }
-  ],
-
-  "evnefaerdigheder": [
-    {
-      "id": "f_evne_form_fast-stand",
-      "navn": "Fast stand",
-      "kvalifikation": "Form 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "form": 20
-      },
-      "beskrivelse": "Én gang per cyklus kan du aktivere din indre styrke og stå fast.\n\nI 1 runde halveres al skade mod dig og din bevægelse på din næste tur reduceres med 1 spænd per Hu."
-    },
-    {
-      "id": "f_evne_form_urokkelig",
-      "navn": "Urokkelig",
-      "kvalifikation": "Form 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "form": 30
-      },
-      "beskrivelse": "Én gang per cyklus kan du samle al din indre styrke.\n\nI 2 runder reduceres al skade mod dig med 90%. Du får urokkelig stand: i disse 2 runder - til slutning af din tur om 2 runder - kan ingen kan flytte dig, heller ikke dig selv, og du kan ikke tage nogle handlinger."
-    },
-    {
-      "id": "f_evne_form_til-stede",
-      "navn": "Til stede",
-      "kvalifikation": "Form 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "form": 40
-      },
-      "beskrivelse": "Én gang per cyklus kan du lade stærke smerter passere.\n\nI 2 runder kan du ignorere én (ikke kritisk) læsion."
-    },
-    {
-      "id": "f_evne_form_afbød",
-      "navn": "Afbød",
-      "kvalifikation": "Form 50",
-      "type": "aktiv",
-      "levelKrav": {
-        "form": 50
-      },
-      "beskrivelse": "Én gang per cyklus kan du afbøde al skade fra ét angreb, der rammer dig."
-    },
-    {
-      "id": "f_evne_form_udød",
-      "navn": "Udød",
-      "kvalifikation": "Form 60",
-      "type": "aktiv",
-      "levelKrav": {
-        "form": 60
-      },
-      "beskrivelse": "Én gang per cyklus, når dit Liv reduceres til 0, kan du samle dine sidste kræfter til i stedet at blive på 1 Liv og undgå at dø."
-    },
-    {
-      "id": "f_evne_sind_disciplin-1",
-      "navn": "Disciplin 1",
-      "kvalifikation": "Sind 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "sind": 20
-      },
-      "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul 1d6, og genvind Sejd svarende til de viste øjne. Kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_evne_sind_mental-modstand",
-      "navn": "Mental modstand",
-      "kvalifikation": "Sind 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "sind": 30
-      },
-      "beskrivelse": "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at halvere den skade, du tager fra det ene angreb."
-    },
-    {
-      "id": "f_evne_sind_disciplin-2",
-      "navn": "Disciplin 2",
-      "kvalifikation": "Sind 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "sind": 40
-      },
-      "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul din Sind-pulje, og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_evne_sind_mental-mur",
-      "navn": "Mental mur",
-      "kvalifikation": "Sind 50",
-      "type": "aktiv",
-      "levelKrav": {
-        "sind": 50
-      },
-      "beskrivelse": "Én gang per cyklus, når du rammes af et mentalt angreb, kan du bruge din mentale resiliens til at afbøde al skade fra det ene angreb."
-    },
-    {
-      "id": "f_evne_sind_disciplin-3",
-      "navn": "Disciplin 3",
-      "kvalifikation": "Sind 60",
-      "type": "aktiv",
-      "levelKrav": {
-        "sind": 60
-      },
-      "beskrivelse": "Saml dit sind og genvind Sejd.\n\nRul en pulje af Sind + Form + Intuition og genvind Sejd svarende til den samlede sum af viste øjne. Kan bruges én gang per cyklus."
-    },
-    {
-      "id": "f_evne_intuition_skarp",
-      "navn": "Skarp",
-      "kvalifikation": "Intuition 20",
-      "type": "passiv",
-      "levelKrav": {
-        "intuition": 20
-      },
-      "beskrivelse": "Når du ruller initiativ, kan du vælge at rulle to gange og bruge det højeste resultat."
-    },
-    {
-      "id": "f_evne_intuition_byt",
-      "navn": "Byt",
-      "kvalifikation": "Intuition 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "intuition": 30
-      },
-      "beskrivelse": "Som det første i starten af din tur kan du vælge at bytte din tur med en allieret. \n\nDin allierede har nu tur i stedet for dig og din tur udskydes til din allieredes plads i initiativrækken."
-    },
-    {
-      "id": "f_evne_intuition_fokuseret",
-      "navn": "Fokuseret",
-      "kvalifikation": "Intuition 40",
-      "type": "passiv",
-      "levelKrav": {
-        "intuition": 40
-      },
-      "beskrivelse": "Det koster ikke længere Hu for dig at bruge Fokusér-handlingen."
-    },
-    {
-      "id": "f_evne_styrke_kald",
-      "navn": "Kald",
-      "kvalifikation": "Styrke 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "styrke": 20
-      },
-      "beskrivelse": "Én gang per cyklus kan du lave et kald mod himlen. Du kan fordoble skaden på dine næste to angreb, men reducerer din maksimale Hu med 1 indtil næste cyklus."
-    },
-    {
-      "id": "f_evne_styrke_skælv",
-      "navn": "Skælv",
-      "kvalifikation": "Styrke 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "styrke": 30
-      },
-      "beskrivelse": "Én gang per cyklus, på din tur, kan du trampe i jorden med en sådan kraft, at alle indenfor 1 spænd bliver kastet til jorden og tager skade svarende til dit Styrkelevel."
-    },
-    {
-      "id": "f_evne_styrke_energiudladning",
-      "navn": "Energiudladning",
-      "kvalifikation": "Styrke 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "styrke": 40
-      },
-      "beskrivelse": "Én gang per cyklus kan du samle din fysiske kraft i ét angreb. Dit næste angreb på denne tur ignorerer al skadesreduktion og angrebets skade fordobles. Hvis angrebet rammer med en fuldtræffer, kastes målet 3 spænd væk fra dig."
-    },
-    {
-      "id": "f_evne_styrke_lemlæstelse",
-      "navn": "Lemlæstelse",
-      "kvalifikation": "Styrke 50",
-      "type": "aktiv",
-      "levelKrav": {
-        "styrke": 50
-      },
-      "beskrivelse": "Én gang per cyklus, når du laver et angreb, kan du bruge din kraft til at påføre dit mål en automatisk læsion. Målet får en læsion selvom du ikke har påført skade svarende til halvdelen af deres maksimale Liv."
-    },
-    {
-      "id": "f_evne_behaendighed_spæn",
-      "navn": "Spæn",
-      "kvalifikation": "Behændighed 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "behaendighed": 20
-      },
-      "beskrivelse": "Én gang per cyklus, på din tur, kan du fordoble det antal spænd du kan bevæge dig per Hu indtil starten af din næste tur."
-    },
-    {
-      "id": "f_evne_behaendighed_flugt",
-      "navn": "Flugt",
-      "kvalifikation": "Behændighed 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "behaendighed": 30
-      },
-      "beskrivelse": "Én gang per cyklus, på din tur, kan du bevæge dig op til 15 spænd og undgå alle reaktive angreb."
-    },
-    {
-      "id": "f_evne_behaendighed_hast",
-      "navn": "Hast",
-      "kvalifikation": "Behændighed 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "behaendighed": 40
-      },
-      "beskrivelse": "Én gang per cyklus, når du laver et angreb, kan du lave et ekstra angreb, der ikke koster Sejd, uden bruge Hu på dette ekstra angreb."
-    },
-    {
-      "id": "f_evne_behaendighed_ruller",
-      "navn": "Ruller",
-      "kvalifikation": "Behændighed 50",
-      "type": "passiv",
-      "levelKrav": {
-        "behaendighed": 50
-      },
-      "beskrivelse": "Det koster nu kun 1 Hu for dig at lave Undvigerul."
-    },
-    {
-      "id": "f_evne_behaendighed_dans",
-      "navn": "Dans",
-      "kvalifikation": "Behændighed 60",
-      "type": "aktiv",
-      "levelKrav": {
-        "behaendighed": 60
-      },
-      "beskrivelse": "Én gang per cyklus kan du bevæge dig som en uforudsigelig danser. I 2 runder kan du bevæge dig gennem fjender uden at udløse reaktive angreb, og du får +2d6 til alle undvigerul- og undvigelseshandlinger."
-    },
-    {
-      "id": "f_evne_visdom_klarhed",
-      "navn": "Klarhed",
-      "kvalifikation": "Visdom 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "visdom": 20
-      },
-      "beskrivelse": "Én gang per cyklus kan du bruge din ophobede viden for at opnå kortvarig klarhed. Du får +2d6 til dit næste rul, men du bruger 5 Sejd og din maksimale Sejd reduceres med 5 indtil næste cyklus."
-    },
-    {
-      "id": "f_evne_visdom_vidensdeling",
-      "navn": "Vidensdeling",
-      "kvalifikation": "Visdom 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "visdom": 30
-      },
-      "beskrivelse": "Én gang per cyklus kan du dele din viden med dine allierede. Vælg op til 3 allierede indenfor 8 spænd. De får alle +1d6 til deres næste rul i enten Visdom eller Sind, efter eget valg."
-    },
-    {
-      "id": "f_evne_visdom_vaks",
-      "navn": "Vaks",
-      "kvalifikation": "Visdom 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "visdom": 40
-      },
-      "beskrivelse": "Én gang per cyklus, når du laver et rul i Visdom eller Sind, kan du vælge at rulle alle terninger om. Det er resultatet af det nye rul, der gælder."
-    },
-    {
-      "id": "f_evne_visdom_cyklisk-forståelse",
-      "navn": "Cyklisk forståelse",
-      "kvalifikation": "Visdom 60",
-      "type": "aktiv",
-      "levelKrav": {
-        "visdom": 60
-      },
-      "beskrivelse": "Én gang per cyklus kan du bruge din forståelse af den cykliske natur.\n\nHvis du tidligere i denne cyklus har brugt en anden evnefærdighed, der ellers kun kan bruges én gang per cyklus, kan du bruge den igen uden at betale dens omkostninger."
-    },
-    {
-      "id": "f_evne_mystik_offer",
-      "navn": "Offer",
-      "kvalifikation": "Mystik 20",
-      "type": "aktiv",
-      "levelKrav": {
-        "mystik": 20
-      },
-      "beskrivelse": "Én gang per cyklus kan du ofre dit helbred og tage skade svarende til halvdelen af dit maksimale Liv (uden at få en læsion) for at hele dybe sår. Du kan helbrede op til 2 læsioner på enten dig selv eller en allieret, du berører."
-    },
-    {
-      "id": "f_evne_mystik_tidslig-forståelse",
-      "navn": "Tidslig forståelse",
-      "kvalifikation": "Mystik 30",
-      "type": "aktiv",
-      "levelKrav": {
-        "mystik": 30
-      },
-      "beskrivelse": "Én gang per cyklus kan du rette dit sind til cyklussens tidslighed for at forudse en begivenhed.\n\nDu kan bede Spilmesteren fortælle dig hvilken handling, en fjende du kan se, vil tage på deres næste tur. Spilmesteren skal svare efter bedste evne."
-    },
-    {
-      "id": "f_evne_mystik_katlas-bøn",
-      "navn": "Katlas bøn",
-      "kvalifikation": "Mystik 40",
-      "type": "aktiv",
-      "levelKrav": {
-        "mystik": 40
-      },
-      "beskrivelse": "Én gang per cyklus, hvis en person dør indenfor 2 spænd af dig, kan du umiddelbart efter bede en bøn, hvorefter den døde genopstår på stedet, uden forvitring, med halvdelen af sit maks Liv og med en ekstra læsion."
-    },
-    {
-      "id": "f_evne_mystik_deling",
-      "navn": "Deling",
-      "kvalifikation": "Mystik 50",
-      "type": "aktiv",
-      "levelKrav": {
-        "mystik": 50
-      },
-      "beskrivelse": "Én gang per cyklus kan du røre en person og give dem en del af din kraft.\n\nSkaden af målets næste angreb (der ikke bruger Sejd) fordobles, mens skaden af dit næste angreb halveres."
-    },
-    {
-      "id": "f_evne_mystik_livshæver",
-      "navn": "Livshæver",
-      "kvalifikation": "Mystik 60",
-      "type": "aktiv",
-      "levelKrav": {
-        "mystik": 60
-      },
-      "beskrivelse": "Én gang per cyklus, når en fjende dør indenfor 2 spænd af dig, kan du trække deres ånd ind i dig selv. Rul Mystik mod deres Form. Hvis du lykkes, genvinder du Liv svarende til dit Mystiklevel."
-    }
-  ],
-
-
-  
-  "besvaergelser": [
-    {
-      "id": "b_skole_navn",
-      "navn": "Besværgelsesnavn",
-      "beskrivelse": "Besværgelsesbeskrivelse.",
-      "skole": "Skole",
-      "basis": "Evne",
-      "levelKrav": {},
-      "lederKrav": null,
-      "type": null,
-      "effekt": null,
-      "hu": null,
-      "sejd": null,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_hellig_helende-beroering",
-      "navn": "Helende berøring",
-      "beskrivelse": "Berør en person indenfor 1 spænd og giv dem 10 Liv.",
-      "skole": "Hellig",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 10
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "heling",
-      "hu": 1,
-      "sejd": 2,
-      "skadeFaktor": null,
-      "heling": 10
-    },
-    {
-      "id": "b_hellig_hellig-beroering",
-      "navn": "Hellig berøring",
-      "beskrivelse": "Berør en person indenfor 1 spænd og fjern én negativ mental effekt (f.eks. ængstelig, forfærdelse).",
-      "skole": "Hellig",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 14
-      },
-      "lederKrav": "sakral",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 1,
-      "sejd": 3,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_hellig_hellig-hammer",
-      "navn": "Hellig hammer",
-      "beskrivelse": "Skab en lysende hammer og slå den ned på en person indenfor 2 spænd.\n\nHvis personen rammes, tager de dobbelt basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
-      "skole": "Hellig",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 18
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 3,
-      "sejd": 2,
-      "skadeFaktor": 2,
-      "heling": null
-    },
-    {
-      "id": "b_hellig_helende-aura",
-      "navn": "Helende aura",
-      "beskrivelse": "Du heler alle allierede indenfor 1 spænd af dig 4 Liv per tur indtil starten af din næste tur.",
-      "skole": "Hellig",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 20
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "heling",
-      "hu": 2,
-      "sejd": 8,
-      "skadeFaktor": null,
-      "heling": 4
-    },
-    {
-      "id": "b_hellig_sakral-stråle",
-      "navn": "Sakral stråle",
-      "beskrivelse": "Skab en koncentreret, lysende stråle, der skyder frem i en lige linje. Hvis du forsøger at ramme et mål, der er mere end 10 spænd væk, har du -1d6 per 10 spænd målet er væk. Strålen trænger igennem alle personer, den rammer, indtil den stoppes af en solid genstand eller blokeres.\n\nAlle der rammes tager basisskade. Ved fuldtræffer bliver de blændet og har -1d6 til deres næste angreb.",
-      "skole": "Hellig",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 26
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 3,
-      "sejd": 6,
-      "skadeFaktor": 1,
-      "heling": null
-    },
-    {
-      "id": "b_raad_hudsult",
-      "navn": "Hudsult",
-      "beskrivelse": "Knæl ved et lig indenfor 1 spænd. Spis af ligets kød og genvind Liv svarende til dit Mystiklevel.",
-      "skole": "Råd",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 21
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "heling",
-      "hu": 1,
-      "sejd": 5,
-      "skadeFaktor": 1,
-      "heling": "basis"
-    },
-    {
-      "id": "b_raad_nekrose",
-      "navn": "Nekrose",
-      "beskrivelse": "Grib fat i et måls kropsdel (arm eller ben) indenfor 1 spænd og forsøg at holde fast (følger normale regler for fastholdelse): rul Styrke mod målets Styrke eller Behændighed.\n\nHvis du lykkes med at gribe fat, tager målet halv basisskade (Mystik).\n\nHvis du kan opretholde fastholdelsen indtil starten af din næste tur uden at miste grebet, får målet en kritisk læsion; kropsdelen visner og kan ikke længere bruges.",
-      "skole": "Råd",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 24
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 2,
-      "sejd": 6,
-      "skadeFaktor": 0.5,
-      "heling": null
-    },
-    {
-      "id": "b_raad_opstoed",
-      "navn": "Opstød",
-      "beskrivelse": "Fald til jorden og tøm din maves indhold ud over et område med en radius på 2 spænd fra dit center. Gør basisskade.\n\nAlle der rammes, skal rulle Form og få 2 eller flere træffere. Hvis ikke de får 2 eller flere træffere, er de forgiftet i 2 runder.",
-      "skole": "Råd",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 27
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 3,
-      "sejd": 7,
-      "skadeFaktor": 1,
-      "heling": null
-    },
-    {
-      "id": "b_raad_sepsis",
-      "navn": "Sepsis",
-      "beskrivelse": "Berør et mål, der har en læsion indenfor 1 spænd og inficer såret. Lav et angrebsrul for at føre dine fingre ind i læsionen.\n\nHvis du rammer, gør du halv basisskade og kan rulle Mystik mod målets Form. Hvis du får samme antal eller flere træffere end målet, forgifter du deres blod gennem 3 runder:\n\nI første runde er målets maksimale Hu og regenerering af Hu reduceret med 3. I anden runde er målets maks Hu og regenerering reduceret med 2. I tredje runde er målets maks Hu og regenerering reduceret med 1.",
-      "skole": "Råd",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 30
-      },
-      "lederKrav": "sakral",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 1,
-      "sejd": 8,
-      "skadeFaktor": 0.5,
-      "heling": null
-    },
-    {
-      "id": "b_seer_se",
-      "navn": "Se",
-      "beskrivelse": "Rør en person og få øjeblikkeligt et syn fra deres liv.\n\nRul Mystik mod deres Sind. Hvis du består, beskriver Spilmesteren et billede fra deres levede fortid eller potentielle fremtid.",
-      "skole": "Seer",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 14
-      },
-      "lederKrav": "sakral",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 1,
-      "sejd": 4,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_seer_traed-ind",
-      "navn": "Træd ind",
-      "beskrivelse": "Træd ind i en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du se gennem deres øjne, høre gennem deres ører, føle gennem deres hænder. Varer et minut eller til du træder ud igen.",
-      "skole": "Seer",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 18
-      },
-      "lederKrav": "sakral",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 7,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_seer_besaet",
-      "navn": "Besæt",
-      "beskrivelse": "Besæt en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du overtage kontrollen af deres krop. Varer et minut eller til du slipper kontrollen.",
-      "skole": "Seer",
-      "basis": "mystik",
-      "levelKrav": {
-        "mystik": 36
-      },
-      "lederKrav": "sakral",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 4,
-      "sejd": 20,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_natur_iskrystal",
-      "navn": "Iskrystal",
-      "beskrivelse": "Afsend et projektil af is mod en person indenfor 10 spænd. Gør halv basisskade.\n\nHvis den rammer med en fuldtræffer, sætter iskrystallen sig fast i den ramtes krop, og de har -1d6 til deres næste forsvarsrul.",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 14
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 1,
-      "sejd": 1,
-      "skadeFaktor": 0.5,
-      "heling": null
-    },
-    {
-      "id": "b_natur_vindstoed",
-      "navn": "Vindstød",
-      "beskrivelse": "Manipulér luften til at bevæge sig hastigt afsted.\n\nRul Visdom. Antallet af træffere afgør kraften af besværgelsen.\n\n1 træffer: Brise\n2 træffere: Vind\n3 træffere: Kuling\n4 træffere: Storm\n5 eller flere træffere: Orkan",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 16
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 3,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_natur_afladning",
-      "navn": "Afladning",
-      "beskrivelse": "Aflad en statisk puls fra din Leder to et mål indenfor 2 spænd. Gør dobbelt basisskade.",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 18
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 2,
-      "sejd": 5,
-      "skadeFaktor": 2,
-      "heling": null
-    },
-    {
-      "id": "b_natur_istap",
-      "navn": "Istap",
-      "beskrivelse": "Form en stor istap et sted i luften indenfor 4 spænd. Istappen bliver hængende i tre ture efter din tur og falder ned derefter.\n\nHvis der står en person under istappen når den falder, ruller du Visdom og offeret har -2d6 til at undvige eller blokere den.\n\nHvis istappen rammer, gør den dobbelt basisskade.",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 22
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 1,
-      "sejd": 6,
-      "skadeFaktor": 2,
-      "heling": null
-    },
-    {
-      "id": "b_natur_elektrisk-segl",
-      "navn": "Elektrisk segl",
-      "beskrivelse": "Tegn et segl i luften med din Leder indenfor 1 spænd. En elektrisk puls forsegles og udløses automatisk, hvis en person berører seglet. Kan også udløses på din tur for 1 Hu og række op til 1 spænd. Gør basisskade.\n\nVarer i 2 runder eller til seglet udløses.",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 27
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 2,
-      "sejd": 6,
-      "skadeFaktor": 1,
-      "heling": null
-    },
-    {
-      "id": "b_natur_hagl",
-      "navn": "Hagl",
-      "beskrivelse": "Nedkald en voldsom haglstorm.\n\nRul Visdom. Alle indenfor et område med en radius af 3 spænd fra dit center ruller for at blokere eller undvige haglene.\n\nGør basisskade til alle, der rammes.",
-      "skole": "Natur",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 36
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "skade",
-      "hu": 3,
-      "sejd": 13,
-      "skadeFaktor": 1,
-      "heling": null
-    },
-    {
-      "id": "b_manipulation_ubehag",
-      "navn": "Ubehag",
-      "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og skræm dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet ængsteligt i en runde.",
-      "skole": "Manipulation",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 17
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 1,
-      "sejd": 3,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_manipulation_tjeneste",
-      "navn": "Tjeneste",
-      "beskrivelse": "Gennemtræng sindet af en person som du kan se indenfor 6 spænd og tving dem til at hjælpe dig.\n\nRul Visdom mod deres Sind. Hvis du består, vil personen bruge 1 Hu på at opfylde en tjeneste, du beder dem om på deres næste tur.",
-      "skole": "Manipulation",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 18
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 1,
-      "sejd": 3,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_manipulation_frygt",
-      "navn": "Frygt",
-      "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en dyb frygt i dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet forfærdet i en runde og vil desuden forsøge at gemme sig fra dig på sin næste tur. De kan ikke tage andre handlinger på den tur, men kan stadig forsvare sig fra andre angreb.",
-      "skole": "Manipulation",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 26
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 7,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_manipulation_paranoia",
-      "navn": "Paranoia",
-      "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en eksistentiel angst i dem.\n\nRul Visdom mod deres Sind. Hvis du består, vil målet se alle som fjender i en runde og vil gøre alt for at forsvare sig mod dem.",
-      "skole": "Manipulation",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 32
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 10,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_forbindelse_energioverfoersel",
-      "navn": "Energioverførsel",
-      "beskrivelse": "Tap din egen energi for at give den til en anden.\n\nOverfør Hu fra dig selv til en anden person, hvis Hu ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 2 Hu. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 1 Hu.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 16
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": null,
-      "huTekst": "1 + 1-2",
-      "sejd": 2,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_forbindelse_forstaaelse",
-      "navn": "Forståelse",
-      "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og analyser dem.\n\nRul Visdom mod deres Sind. Hvis du består, lærer du en af følgende efter eget valg: deres maksimale Liv, deres højeste evne, eller en af deres svagheder.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 20
-      },
-      "lederKrav": "profan",
-      "type": "mental",
-      "effekt": "kontrol",
-      "hu": 1,
-      "sejd": 6,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_forbindelse_helbredsoverfoersel",
-      "navn": "Helbredsoverførsel",
-      "beskrivelse": "Tap dit eget helbred for at give det til en anden.\n\nOverfør Liv fra dig selv til en anden person, hvis Liv ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 20 Liv. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 10 Liv.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 23
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "heling",
-      "hu": 1,
-      "sejd": 4,
-      "skadeFaktor": null,
-      "heling": null,
-      "helingTekst": "10-20"
-    },
-    {
-      "id": "b_forbindelse_sammenfoejelse",
-      "navn": "Sammenføjelse",
-      "beskrivelse": "Kast en besværgelse over to personer for at forbinde dem fysisk.\n\nKastes mod to personer der rører hinanden, du kan se, indenfor 6 spænd. Hvis de begge fejler, eller hvis begge er villige, forbindes deres kroppe, hvor de er i kontakt. De sammenføjes og må bevæge sig sammen med kun ét spænd per Hu. De har -1d6 til forsvar mod fysiske angreb, men +1d6 til at ramme med angreb.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 30
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 10,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_forbindelse_ekstra-jeg",
-      "navn": "Ekstra jeg",
-      "beskrivelse": "Lav en åbning til dine indvolde og lad en lille version af dig selv fødes.\n\nDit lille, ekstra jeg fødes nøgen, er omtrent en ottendedel af din størrelse, og har evnelevels svarende til en fjerdedel af dine.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 37
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 4,
-      "sejd": 14,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_forbindelse_amalgam",
-      "navn": "Amalgam",
-      "beskrivelse": "Lad to blive en.\n\nOmfavn en villig allieret. Jeres kroppe og jeres sind smelter sammen til et amalgam af jeres personer.\n\nNår I er et amalgam, lægges jeres evne-levels sammen, hvilket også bestemmer jeres nye terningerpuljer, Liv, Sejd og Hu. Derudover sammenlægges den skade I har taget, Sejd I har brugt, jeres forvitring og jeres læsioner. I har nu én tur i stedet for to og jeres Initiativtal er gennemsnittet af de tal, I havde før, rundet op. Amalgammet kan bruge alle besværgelser hver af jer kendte, begge jeres klassefærdigheder, og de evnefærdigheder jeres nye levels giver adgang til.\n\nJeres amalgam må beslutte hvilket udstyr, det tager med - det kan kun bære én rustning og én genstand i hver af dets to hænder, dog kan det bære to vedhæng.\n\nJeres amalgam varer til næste cyklus. Hvis amalgammet dør, genopvågner I begge, på hvad der ville have været amalgammets næste tur. Hvis amalgammet hviler ved en vandsten, ophæves det og splittes til de to, I var før.",
-      "skole": "Forbindelse",
-      "basis": "visdom",
-      "levelKrav": {
-        "visdom": 46
-      },
-      "lederKrav": "profan",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 4,
-      "sejd": 20,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_boelgemagi_sammentraek-rum",
-      "navn": "Sammentræk rum",
-      "beskrivelse": "Træk alle indenfor 3 spænd af dig 1 spænd mod dig.",
-      "skole": "Bølgemagi",
-      "basis": [
-        "visdom",
-        "mystik"
-      ],
-      "levelKrav": {
-        "visdom": 14,
-        "mystik": 14
-      },
-      "lederKrav": "bølgende",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 4,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_boelgemagi_udvid-rum",
-      "navn": "Udvid rum",
-      "beskrivelse": "Skub alle indenfor 3 spænd af dig 1 spænd væk fra dig.",
-      "skole": "Bølgemagi",
-      "basis": [
-        "visdom",
-        "mystik"
-      ],
-      "levelKrav": {
-        "visdom": 15,
-        "mystik": 15
-      },
-      "lederKrav": "bølgende",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 6,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_boelgemagi_vend-rum",
-      "navn": "Vend rum",
-      "beskrivelse": "Form rummet omkring dig og skab en øjeblikkelig portal til et sted du kan se indenfor 8 spænd. Hvis der står en anden person det sted, du teleporterer hen, bytter I plads og personen teleporterers til det sted, du stod på før rummet vendte.",
-      "skole": "Bølgemagi",
-      "basis": [
-        "visdom",
-        "mystik"
-      ],
-      "levelKrav": {
-        "visdom": 16,
-        "mystik": 16
-      },
-      "lederKrav": "bølgende",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 8,
-      "skadeFaktor": null,
-      "heling": null
-    },
-    {
-      "id": "b_boelgemagi_faseskift",
-      "navn": "Faseskift",
-      "beskrivelse": "Træd delvist ud af den stabile fase i et øjeblik. Du kan gå gennem andre personer i denne tur uden at tage reaktive angreb og du kan ikke rammes af fysiske angreb indtil din næste tur.",
-      "skole": "Bølgemagi",
-      "basis": [
-        "visdom",
-        "mystik"
-      ],
-      "levelKrav": {
-        "visdom": 17,
-        "mystik": 17
-      },
-      "lederKrav": "bølgende",
-      "type": "fysisk",
-      "effekt": "kontrol",
-      "hu": 2,
-      "sejd": 12,
-      "skadeFaktor": null,
-      "heling": null
-    }
-  ]
+        "sejd": 6,
+        "skadeFaktor": 1,
+        "heling": null
+        },
+        {
+        "id": "b_raad_hudsult",
+        "navn": "Hudsult",
+        "beskrivelse": "Knæl ved et lig indenfor 1 spænd. Spis af ligets kød og genvind Liv svarende til dit Mystiklevel.",
+        "skole": "Råd",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 21
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "heling",
+        "hu": 1,
+        "sejd": 5,
+        "skadeFaktor": 1,
+        "heling": "basis"
+        },
+        {
+        "id": "b_raad_nekrose",
+        "navn": "Nekrose",
+        "beskrivelse": "Grib fat i et måls kropsdel (arm eller ben) indenfor 1 spænd og forsøg at holde fast (følger normale regler for fastholdelse): rul Styrke mod målets Styrke eller Behændighed.\n\nHvis du lykkes med at gribe fat, tager målet halv basisskade (Mystik).\n\nHvis du kan opretholde fastholdelsen indtil starten af din næste tur uden at miste grebet, får målet en kritisk læsion; kropsdelen visner og kan ikke længere bruges.",
+        "skole": "Råd",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 24
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 2,
+        "sejd": 6,
+        "skadeFaktor": 0.5,
+        "heling": null
+        },
+        {
+        "id": "b_raad_opstoed",
+        "navn": "Opstød",
+        "beskrivelse": "Fald til jorden og tøm din maves indhold ud over et område med en radius på 2 spænd fra dit center. Gør basisskade.\n\nAlle der rammes, skal rulle Form og få 2 eller flere træffere. Hvis ikke de får 2 eller flere træffere, er de forgiftet i 2 runder.",
+        "skole": "Råd",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 27
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 3,
+        "sejd": 7,
+        "skadeFaktor": 1,
+        "heling": null
+        },
+        {
+        "id": "b_raad_sepsis",
+        "navn": "Sepsis",
+        "beskrivelse": "Berør et mål, der har en læsion indenfor 1 spænd og inficer såret. Lav et angrebsrul for at føre dine fingre ind i læsionen.\n\nHvis du rammer, gør du halv basisskade og kan rulle Mystik mod målets Form. Hvis du får samme antal eller flere træffere end målet, forgifter du deres blod gennem 3 runder:\n\nI første runde er målets maksimale Hu og regenerering af Hu reduceret med 3. I anden runde er målets maks Hu og regenerering reduceret med 2. I tredje runde er målets maks Hu og regenerering reduceret med 1.",
+        "skole": "Råd",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 30
+        },
+        "lederKrav": "sakral",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 1,
+        "sejd": 8,
+        "skadeFaktor": 0.5,
+        "heling": null
+        },
+        {
+        "id": "b_seer_se",
+        "navn": "Se",
+        "beskrivelse": "Rør en person og få øjeblikkeligt et syn fra deres liv.\n\nRul Mystik mod deres Sind. Hvis du består, beskriver Spilmesteren et billede fra deres levede fortid eller potentielle fremtid.",
+        "skole": "Seer",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 14
+        },
+        "lederKrav": "sakral",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 1,
+        "sejd": 4,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_seer_traed-ind",
+        "navn": "Træd ind",
+        "beskrivelse": "Træd ind i en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du se gennem deres øjne, høre gennem deres ører, føle gennem deres hænder. Varer et minut eller til du træder ud igen.",
+        "skole": "Seer",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 18
+        },
+        "lederKrav": "sakral",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 7,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_seer_besaet",
+        "navn": "Besæt",
+        "beskrivelse": "Besæt en person, du har rørt ved inden for denne cyklus.\n\nRul Mystik mod deres Sind. Hvis du består, kan du overtage kontrollen af deres krop. Varer et minut eller til du slipper kontrollen.",
+        "skole": "Seer",
+        "basis": "mystik",
+        "levelKrav": {
+            "mystik": 36
+        },
+        "lederKrav": "sakral",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 4,
+        "sejd": 20,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_natur_iskrystal",
+        "navn": "Iskrystal",
+        "beskrivelse": "Afsend et projektil af is mod en person indenfor 10 spænd. Gør halv basisskade.\n\nHvis den rammer med en fuldtræffer, sætter iskrystallen sig fast i den ramtes krop, og de har -1d6 til deres næste forsvarsrul.",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 14
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 1,
+        "sejd": 1,
+        "skadeFaktor": 0.5,
+        "heling": null
+        },
+        {
+        "id": "b_natur_vindstoed",
+        "navn": "Vindstød",
+        "beskrivelse": "Manipulér luften til at bevæge sig hastigt afsted.\n\nRul Visdom. Antallet af træffere afgør kraften af besværgelsen.\n\n1 træffer: Brise\n2 træffere: Vind\n3 træffere: Kuling\n4 træffere: Storm\n5 eller flere træffere: Orkan",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 16
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 3,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_natur_afladning",
+        "navn": "Afladning",
+        "beskrivelse": "Aflad en statisk puls fra din Leder to et mål indenfor 2 spænd. Gør dobbelt basisskade.",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 18
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 2,
+        "sejd": 5,
+        "skadeFaktor": 2,
+        "heling": null
+        },
+        {
+        "id": "b_natur_istap",
+        "navn": "Istap",
+        "beskrivelse": "Form en stor istap et sted i luften indenfor 4 spænd. Istappen bliver hængende i tre ture efter din tur og falder ned derefter.\n\nHvis der står en person under istappen når den falder, ruller du Visdom og offeret har -2d6 til at undvige eller blokere den.\n\nHvis istappen rammer, gør den dobbelt basisskade.",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 22
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 1,
+        "sejd": 6,
+        "skadeFaktor": 2,
+        "heling": null
+        },
+        {
+        "id": "b_natur_elektrisk-segl",
+        "navn": "Elektrisk segl",
+        "beskrivelse": "Tegn et segl i luften med din Leder indenfor 1 spænd. En elektrisk puls forsegles og udløses automatisk, hvis en person berører seglet. Kan også udløses på din tur for 1 Hu og række op til 1 spænd. Gør basisskade.\n\nVarer i 2 runder eller til seglet udløses.",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 27
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 2,
+        "sejd": 6,
+        "skadeFaktor": 1,
+        "heling": null
+        },
+        {
+        "id": "b_natur_hagl",
+        "navn": "Hagl",
+        "beskrivelse": "Nedkald en voldsom haglstorm.\n\nRul Visdom. Alle indenfor et område med en radius af 3 spænd fra dit center ruller for at blokere eller undvige haglene.\n\nGør basisskade til alle, der rammes.",
+        "skole": "Natur",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 36
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "skade",
+        "hu": 3,
+        "sejd": 13,
+        "skadeFaktor": 1,
+        "heling": null
+        },
+        {
+        "id": "b_manipulation_ubehag",
+        "navn": "Ubehag",
+        "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og skræm dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet ængsteligt i en runde.",
+        "skole": "Manipulation",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 17
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 1,
+        "sejd": 3,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_manipulation_tjeneste",
+        "navn": "Tjeneste",
+        "beskrivelse": "Gennemtræng sindet af en person som du kan se indenfor 6 spænd og tving dem til at hjælpe dig.\n\nRul Visdom mod deres Sind. Hvis du består, vil personen bruge 1 Hu på at opfylde en tjeneste, du beder dem om på deres næste tur.",
+        "skole": "Manipulation",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 18
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 1,
+        "sejd": 3,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_manipulation_frygt",
+        "navn": "Frygt",
+        "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en dyb frygt i dem.\n\nRul Visdom mod deres Sind. Hvis du består, er målet forfærdet i en runde og vil desuden forsøge at gemme sig fra dig på sin næste tur. De kan ikke tage andre handlinger på den tur, men kan stadig forsvare sig fra andre angreb.",
+        "skole": "Manipulation",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 26
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 7,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_manipulation_paranoia",
+        "navn": "Paranoia",
+        "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og indgyd en eksistentiel angst i dem.\n\nRul Visdom mod deres Sind. Hvis du består, vil målet se alle som fjender i en runde og vil gøre alt for at forsvare sig mod dem.",
+        "skole": "Manipulation",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 32
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 10,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_forbindelse_energioverfoersel",
+        "navn": "Energioverførsel",
+        "beskrivelse": "Tap din egen energi for at give den til en anden.\n\nOverfør Hu fra dig selv til en anden person, hvis Hu ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 2 Hu. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 1 Hu.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 16
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": null,
+        "huTekst": "1 + 1-2",
+        "sejd": 2,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_forbindelse_forstaaelse",
+        "navn": "Forståelse",
+        "beskrivelse": "Kig en person, som du kan se og som kan se dig, i øjnene og analyser dem.\n\nRul Visdom mod deres Sind. Hvis du består, lærer du en af følgende efter eget valg: deres maksimale Liv, deres højeste evne, eller en af deres svagheder.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 20
+        },
+        "lederKrav": "profan",
+        "type": "mental",
+        "effekt": "kontrol",
+        "hu": 1,
+        "sejd": 6,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_forbindelse_helbredsoverfoersel",
+        "navn": "Helbredsoverførsel",
+        "beskrivelse": "Tap dit eget helbred for at give det til en anden.\n\nOverfør Liv fra dig selv til en anden person, hvis Liv ikke er fuld. Hvis du er i fysisk kontakt med modtageren, kan du overføre op til 20 Liv. Hvis modtageren er indenfor 6 spænd og du kan se dem, kan du overføre 10 Liv.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 23
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "heling",
+        "hu": 1,
+        "sejd": 4,
+        "skadeFaktor": null,
+        "heling": null,
+        "helingTekst": "10-20"
+        },
+        {
+        "id": "b_forbindelse_sammenfoejelse",
+        "navn": "Sammenføjelse",
+        "beskrivelse": "Kast en besværgelse over to personer for at forbinde dem fysisk.\n\nKastes mod to personer der rører hinanden, du kan se, indenfor 6 spænd. Hvis de begge fejler, eller hvis begge er villige, forbindes deres kroppe, hvor de er i kontakt. De sammenføjes og må bevæge sig sammen med kun ét spænd per Hu. De har -1d6 til forsvar mod fysiske angreb, men +1d6 til at ramme med angreb.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 30
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 10,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_forbindelse_ekstra-jeg",
+        "navn": "Ekstra jeg",
+        "beskrivelse": "Lav en åbning til dine indvolde og lad en lille version af dig selv fødes.\n\nDit lille, ekstra jeg fødes nøgen, er omtrent en ottendedel af din størrelse, og har evnelevels svarende til en fjerdedel af dine.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 37
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 4,
+        "sejd": 14,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_forbindelse_amalgam",
+        "navn": "Amalgam",
+        "beskrivelse": "Lad to blive en.\n\nOmfavn en villig allieret. Jeres kroppe og jeres sind smelter sammen til et amalgam af jeres personer.\n\nNår I er et amalgam, lægges jeres evne-levels sammen, hvilket også bestemmer jeres nye terningerpuljer, Liv, Sejd og Hu. Derudover sammenlægges den skade I har taget, Sejd I har brugt, jeres forvitring og jeres læsioner. I har nu én tur i stedet for to og jeres Initiativtal er gennemsnittet af de tal, I havde før, rundet op. Amalgammet kan bruge alle besværgelser hver af jer kendte, begge jeres klassefærdigheder, og de evnefærdigheder jeres nye levels giver adgang til.\n\nJeres amalgam må beslutte hvilket udstyr, det tager med - det kan kun bære én rustning og én genstand i hver af dets to hænder, dog kan det bære to vedhæng.\n\nJeres amalgam varer til næste cyklus. Hvis amalgammet dør, genopvågner I begge, på hvad der ville have været amalgammets næste tur. Hvis amalgammet hviler ved en vandsten, ophæves det og splittes til de to, I var før.",
+        "skole": "Forbindelse",
+        "basis": "visdom",
+        "levelKrav": {
+            "visdom": 46
+        },
+        "lederKrav": "profan",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 4,
+        "sejd": 20,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_boelgemagi_sammentraek-rum",
+        "navn": "Sammentræk rum",
+        "beskrivelse": "Træk alle indenfor 3 spænd af dig 1 spænd mod dig.",
+        "skole": "Bølgemagi",
+        "basis": [
+            "visdom",
+            "mystik"
+        ],
+        "levelKrav": {
+            "visdom": 14,
+            "mystik": 14
+        },
+        "lederKrav": "bølgende",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 4,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_boelgemagi_udvid-rum",
+        "navn": "Udvid rum",
+        "beskrivelse": "Skub alle indenfor 3 spænd af dig 1 spænd væk fra dig.",
+        "skole": "Bølgemagi",
+        "basis": [
+            "visdom",
+            "mystik"
+        ],
+        "levelKrav": {
+            "visdom": 15,
+            "mystik": 15
+        },
+        "lederKrav": "bølgende",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 6,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_boelgemagi_vend-rum",
+        "navn": "Vend rum",
+        "beskrivelse": "Form rummet omkring dig og skab en øjeblikkelig portal til et sted du kan se indenfor 8 spænd. Hvis der står en anden person det sted, du teleporterer hen, bytter I plads og personen teleporterers til det sted, du stod på før rummet vendte.",
+        "skole": "Bølgemagi",
+        "basis": [
+            "visdom",
+            "mystik"
+        ],
+        "levelKrav": {
+            "visdom": 16,
+            "mystik": 16
+        },
+        "lederKrav": "bølgende",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 8,
+        "skadeFaktor": null,
+        "heling": null
+        },
+        {
+        "id": "b_boelgemagi_faseskift",
+        "navn": "Faseskift",
+        "beskrivelse": "Træd delvist ud af den stabile fase i et øjeblik. Du kan gå gennem andre personer i denne tur uden at tage reaktive angreb og du kan ikke rammes af fysiske angreb indtil din næste tur.",
+        "skole": "Bølgemagi",
+        "basis": [
+            "visdom",
+            "mystik"
+        ],
+        "levelKrav": {
+            "visdom": 17,
+            "mystik": 17
+        },
+        "lederKrav": "bølgende",
+        "type": "fysisk",
+        "effekt": "kontrol",
+        "hu": 2,
+        "sejd": 12,
+        "skadeFaktor": null,
+        "heling": null
+        }
+    ]
 }

@@ -1741,6 +1741,39 @@ function bekraeftVaabenopgradering() {
 // ====================== DATAHÅNDTERING ======================
 // ============================================================
 
+// Globale variable til dine lister (ligesom du har nu i data.js)
+// let standardKlasser = {};
+// let alleVaaben = [];
+// let alleBesvaergelser = [];
+// let alleFaerdigheder = [];
+
+async function indlaesSpilData() {
+    try {
+        const svar = await fetch('spildata.json');
+        const spildata = await svar.json();
+        
+        // Fordel dataen ud i dine variabler
+        alleVaaben = spildata.vaaben;
+        alleBesvaergelser = spildata.besvaergelser;
+        alleFaerdigheder = [...spildata.klassefaerdigheder, ...spildata.evnefaerdigheder];
+        
+        // Lav klasserne om til et opslagsobjekt (så det matcher din logik.js)
+        spildata.klasser.forEach(k => {
+            // F.eks. standardKlasser["asket"] = { ... }
+            standardKlasser[k.id] = k; 
+        });
+
+        console.log("Al spildata er indlæst korrekt.");
+        
+        // Kør din oprindelige start-logik herfra
+        indlaesData(); // Hent karakter fra localStorage, hvis den findes
+        opdaterVistData();
+        
+    } catch (fejl) {
+        console.error("Fejl under indlæsning af spildata:", fejl);
+    }
+}
+
 const standardKlasser = {
     asket: standardasket,
     bytyv: standardbytyv,
@@ -1790,7 +1823,8 @@ function nulstilData() {
 
 function hentStandardKlasse(klasse) {
     const karakterVisningsnavn = { asket: 'Asket', bytyv: 'Bytyv', forkynder: 'Forkynder', hedonist: 'Hedonist', lovloes: 'Lovløs', laerd: 'Lærd', militarist: 'Militarist' };
-    const diff = standardKlasser[klasse];
+    const diff = standardKlasser[klasse]; // ændre til 
+    // const diff = standardKlasser.find(k => k.id === klasse);
     if (!diff) return;
 
     const baseKarakter = JSON.parse(JSON.stringify(karakterGrundlag));
