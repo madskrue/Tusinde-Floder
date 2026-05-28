@@ -64,127 +64,71 @@ function opdaterVistData() {
     opdaterStatus();
     opdaterEvner();
     opdaterInventarOgNoter();
-    opdaterVaabenRaekke();
-    opdaterVaabenKort();
-    opdaterBrugsKort();
-    opdaterMagiKortBrug();
+    opdaterBeredskab();
     gemData();
     opdaterDoedVisning();
+}
 
-    function opdaterGrundlaeggende() {
-        document.getElementById('karakterNavn').value = karakter.navn;
-        document.getElementById('karakterKlasse').value = karakter.klasse;
-        const level = karakter.form + karakter.sind + karakter.intuition +
-            karakter.styrke + karakter.behaendighed + karakter.visdom + karakter.mystik;
-        document.getElementById('karakterLevel').textContent = level;
-        document.getElementById('draaber').textContent = karakter.draaber;
-        document.getElementById('draaber-efterladt').textContent = karakter.draaberEfterladt;
-        document.getElementById('draaber-efterladt-beholder').classList.toggle('aktiv', karakter.draaberEfterladt > 0);
-    }
+function opdaterGrundlaeggende() {
+    document.getElementById('karakterNavn').value = karakter.navn;
+    document.getElementById('karakterKlasse').value = karakter.klasse;
+    const level = karakter.form + karakter.sind + karakter.intuition +
+        karakter.styrke + karakter.behaendighed + karakter.visdom + karakter.mystik;
+    document.getElementById('karakterLevel').textContent = level;
+    document.getElementById('draaber').textContent = karakter.draaber;
+    document.getElementById('draaber-efterladt').textContent = karakter.draaberEfterladt;
+    document.getElementById('draaber-efterladt-beholder').classList.toggle('aktiv', karakter.draaberEfterladt > 0);
+}
 
-    function opdaterRessourcer() {
-        beregnRessourcer();
-        saetRessourcer();
-        opdaterBarer();
-        opdaterFlaskeIkoner();
+function opdaterRessourcer() {
+    beregnRessourcer();
+    saetRessourcer();
+    opdaterBarer();
+    opdaterFlaskeIkoner();
+}
 
-        function beregnRessourcer() {
-            const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
-            karakter.livVital = vitalMax;
-            karakter.livMax = karakter.livVital - (karakter.forvitring * Math.ceil(karakter.livVital / 20));
-            if (karakter.livNu > karakter.livMax) karakter.livNu = karakter.livMax;
+function opdaterStatus() {
+    document.getElementById('sekvens-vaerdi').textContent = karakter.sekvens;
+    document.getElementById('haab-vaerdi').textContent = karakter.haab;
+    document.getElementById('forvitring-vaerdi').textContent = karakter.forvitring;
+    document.getElementById('udmattelse-vaerdi').textContent = karakter.udmattelse;
+    document.getElementById('laesioner-vaerdi').textContent = karakter.laesioner;
+}
 
-            if (karakter.livMax > 0) {
-                karakter.endeligtDoed = false;
-            } else if (karakter.livMax <= 0) {
-                karakter.endeligtDoed = true;
-            }
+function opdaterEvner() {
+    opdaterEvne('form', karakter.form, karakter.forskydning.form);
+    opdaterEvne('sind', karakter.sind, karakter.forskydning.sind);
+    opdaterEvne('intuition', karakter.intuition, karakter.forskydning.intuition);
+    opdaterEvne('styrke', karakter.styrke, karakter.forskydning.styrke);
+    opdaterEvne('behaendighed', karakter.behaendighed, karakter.forskydning.behaendighed);
+    opdaterEvne('visdom', karakter.visdom, karakter.forskydning.visdom);
+    opdaterEvne('mystik', karakter.mystik, karakter.forskydning.mystik);
+}
 
-            const sejdMax = getSejdMax(karakter.sind + karakter.forskydning.sind);
-            karakter.sejdMax = Math.max(0, sejdMax);
-            if (karakter.sejdNu > karakter.sejdMax) karakter.sejdNu = karakter.sejdMax;
+function opdaterInventarOgNoter() {
+    document.getElementById('stenvandsflasker').textContent = karakter.flaskerMax;
+    document.getElementById('stenskaar').textContent = karakter.stenskaar;
 
-            const huMax = Math.max(1, getHuMax(karakter.intuition + karakter.forskydning.intuition) - karakter.laesioner);
-            const huRegen = Math.max(0, getHuRegen(karakter.intuition + karakter.forskydning.intuition) - karakter.udmattelse);
-            karakter.huMax = huMax;
-            karakter.huRegen = huRegen;
-            if (karakter.huNu > karakter.huMax) karakter.huNu = karakter.huMax;
-        }
+    document.getElementById('noter-input').value = karakter.noter;
+    opdaterNoteOmraade('noter-input');
+}
 
-        function saetRessourcer() {
-            document.getElementById('livVital').textContent = karakter.livVital;
-            document.getElementById('livMax').textContent = karakter.livMax;
-            document.getElementById('livNu').textContent = karakter.livNu;
-            document.getElementById('sejdMax').textContent = karakter.sejdMax;
-            document.getElementById('sejdNu').textContent = karakter.sejdNu;
-            document.getElementById('huMax').classList.toggle('reduceret', karakter.huMax < getHuMax(karakter.intuition));
-            document.getElementById('huRegen').classList.toggle('reduceret', karakter.huRegen < getHuRegen(karakter.intuition));
-            document.getElementById('huMax').textContent = karakter.huMax;
-            document.getElementById('huRegen').textContent = karakter.huRegen;
-            document.getElementById('huNu').textContent = karakter.huNu;
-            document.getElementById('flaskerNu').textContent = karakter.flaskerNu;
-            document.getElementById('flaskerMax').textContent = karakter.flaskerMax;
-        }
+function opdaterBeredskab() {
+    opdaterVaabenRaekke();
+    opdaterVaabenKort();
+    opdaterFaerdighedKortBrug();
+    opdaterMagiKortBrug();
+}
 
-        function opdaterBarer() {
-            if (karakter.livNu < 0) {
-                document.getElementById('livBar').style.width = '0%';
-            } else {
-                const livProcent = (karakter.livNu / karakter.livMax * 100).toFixed(0);
-                document.getElementById('livBar').style.width = livProcent + '%';
-            }
-
-            if (karakter.sejdNu < 0) {
-                document.getElementById('sejdBar').style.width = '0%';
-            } else {
-            const sejdProcent = (karakter.sejdNu / karakter.sejdMax * 100).toFixed(0);
-            document.getElementById('sejdBar').style.width = sejdProcent + '%';
-            }
-
-            if (karakter.huNu < 0) {
-                document.getElementById('huBar').style.width = '0%';
-            } else {
-            const huProcent = (karakter.huNu / karakter.huMax * 100).toFixed(0);
-            document.getElementById('huBar').style.width = huProcent + '%';
-            }
-        }
-
-    }
-
-    function opdaterStatus() {
-        document.getElementById('sekvens-vaerdi').textContent = karakter.sekvens;
-        document.getElementById('haab-vaerdi').textContent = karakter.haab;
-        document.getElementById('forvitring-vaerdi').textContent = karakter.forvitring;
-        document.getElementById('udmattelse-vaerdi').textContent = karakter.udmattelse;
-        document.getElementById('laesioner-vaerdi').textContent = karakter.laesioner;
-    }
-
-    function opdaterEvner() {
-        opdaterEvne('form', karakter.form, karakter.forskydning.form);
-        opdaterEvne('sind', karakter.sind, karakter.forskydning.sind);
-        opdaterEvne('intuition', karakter.intuition, karakter.forskydning.intuition);
-        opdaterEvne('styrke', karakter.styrke, karakter.forskydning.styrke);
-        opdaterEvne('behaendighed', karakter.behaendighed, karakter.forskydning.behaendighed);
-        opdaterEvne('visdom', karakter.visdom, karakter.forskydning.visdom);
-        opdaterEvne('mystik', karakter.mystik, karakter.forskydning.mystik);
-    }
-
-    function opdaterInventarOgNoter() {
-        document.getElementById('stenvandsflasker').textContent = karakter.flaskerMax;
-        document.getElementById('stenskaar').textContent = karakter.stenskaar;
-
-        document.getElementById('noter-input').value = karakter.noter;
-        opdaterNoteOmraade('noter-input');
-    }
-
-    function opdaterDoedVisning() {
-        if (karakter.endeligtDoed) {
-            document.getElementById('endeligtdoed').style.display = 'block';
-        } else {
-            document.getElementById('endeligtdoed').style.display = 'none';
-        }
+function opdaterDoedVisning() {
+    if (karakter.endeligtDoed) {
+        document.getElementById('endeligtdoed').style.display = 'block';
+    } else {
+        document.getElementById('endeligtdoed').style.display = 'none';
     }
 }
+
+
 
 // Vis besked
 function visBesked(tekst) {
@@ -289,20 +233,76 @@ function visArk() {
 // === HJÆLPEBEREGNERE ===
 // =======================
 
-// Rustningsgrad – til fremtidig implementering af rustninger
-function beregnRustningsgrad(reduktion) {
-    const rustningsgrad = Math.ceil( karakter.livMax * (reduktion / 100) );
-    return rustningsgrad;
+// Ressourcer
+function beregnRessourcer() {
+    const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
+    karakter.livVital = vitalMax;
+    karakter.livMax = karakter.livVital - (karakter.forvitring * Math.ceil(karakter.livVital / 20));
+    if (karakter.livNu > karakter.livMax) karakter.livNu = karakter.livMax;
+
+    if (karakter.livMax > 0) {
+        karakter.endeligtDoed = false;
+    } else if (karakter.livMax <= 0) {
+        karakter.endeligtDoed = true;
+    }
+
+    const sejdMax = getSejdMax(karakter.sind + karakter.forskydning.sind);
+    karakter.sejdMax = Math.max(0, sejdMax);
+    if (karakter.sejdNu > karakter.sejdMax) karakter.sejdNu = karakter.sejdMax;
+
+    const huMax = Math.max(1, getHuMax(karakter.intuition + karakter.forskydning.intuition) - karakter.laesioner);
+    const huRegen = Math.max(0, getHuRegen(karakter.intuition + karakter.forskydning.intuition) - karakter.udmattelse);
+    karakter.huMax = huMax;
+    karakter.huRegen = huRegen;
+    if (karakter.huNu > karakter.huMax) karakter.huNu = karakter.huMax;
 }
 
-// Tjek endelig død
-function erEndeligDoed() {
-    if (!karakter.endeligtDoed) return false;
-        visBesked('Du er endeligt død.');
-        return true;
+function saetRessourcer() {
+    document.getElementById('livVital').textContent = karakter.livVital;
+    document.getElementById('livMax').textContent = karakter.livMax;
+    document.getElementById('livNu').textContent = karakter.livNu;
+    document.getElementById('sejdMax').textContent = karakter.sejdMax;
+    document.getElementById('sejdNu').textContent = karakter.sejdNu;
+    document.getElementById('huMax').classList.toggle('reduceret', karakter.huMax < getHuMax(karakter.intuition));
+    document.getElementById('huRegen').classList.toggle('reduceret', karakter.huRegen < getHuRegen(karakter.intuition));
+    document.getElementById('huMax').textContent = karakter.huMax;
+    document.getElementById('huRegen').textContent = karakter.huRegen;
+    document.getElementById('huNu').textContent = karakter.huNu;
+    document.getElementById('flaskerNu').textContent = karakter.flaskerNu;
+    document.getElementById('flaskerMax').textContent = karakter.flaskerMax;
 }
 
-// Evnelevels og puljer
+function opdaterBarer() {
+    if (karakter.livNu < 0) {
+        document.getElementById('livBar').style.width = '0%';
+    } else {
+        const livProcent = (karakter.livNu / karakter.livMax * 100).toFixed(0);
+        document.getElementById('livBar').style.width = livProcent + '%';
+    }
+
+    if (karakter.sejdNu < 0) {
+        document.getElementById('sejdBar').style.width = '0%';
+    } else {
+    const sejdProcent = (karakter.sejdNu / karakter.sejdMax * 100).toFixed(0);
+    document.getElementById('sejdBar').style.width = sejdProcent + '%';
+    }
+
+    if (karakter.huNu < 0) {
+        document.getElementById('huBar').style.width = '0%';
+    } else {
+    const huProcent = (karakter.huNu / karakter.huMax * 100).toFixed(0);
+    document.getElementById('huBar').style.width = huProcent + '%';
+    }
+}
+
+function opdaterFlaskeIkoner() {
+    const fyldte = '◉ '.repeat(karakter.flaskerNu).trim();
+    const tomme = '○ '.repeat(karakter.flaskerMax - karakter.flaskerNu).trim();
+    const ikoner = [fyldte, tomme].filter(s => s).join(' ');
+    document.getElementById('flaske-ikoner').textContent = ikoner;
+}
+
+// Evner
 function opdaterEvne(navn, level, forskydning) {
     document.getElementById(navn + '-level').textContent = level;
     const pulje = getPulje(level, forskydning);
@@ -330,13 +330,24 @@ function opdaterEvne(navn, level, forskydning) {
     }
 }
 
-// Flasker
-function opdaterFlaskeIkoner() {
-    const fyldte = '◉ '.repeat(karakter.flaskerNu).trim();
-    const tomme = '○ '.repeat(karakter.flaskerMax - karakter.flaskerNu).trim();
-    const ikoner = [fyldte, tomme].filter(s => s).join(' ');
-    document.getElementById('flaske-ikoner').textContent = ikoner;
+// Rustningsgrad – til fremtidig implementering af rustninger
+function beregnRustningsgrad(reduktion) {
+    const rustningsgrad = Math.ceil( karakter.livMax * (reduktion / 100) );
+    return rustningsgrad;
 }
+
+// Tjek endelig død
+function erEndeligDoed() {
+    if (!karakter.endeligtDoed) return false;
+        visBesked('Du er endeligt død.');
+        return true;
+}
+
+
+
+
+
+
 
 // Udregn pulje
 function getPulje(level, forskydning) {
@@ -423,10 +434,12 @@ function efterladDraaber() {
 }
 
 function samlDraaber() {
-    karakter.draaber = karakter.draaber + karakter.draaberEfterladt;
+    const efterladteDraaber = karakter.draaberEfterladt;
+    karakter.draaber = karakter.draaber + efterladteDraaber;
     karakter.draaberEfterladt = 0;
     document.getElementById('draaber-efterladt-beholder').classList.remove('aktiv');
     opdaterVistData();
+    visBesked(`Du har samlet ${efterladteDraaber} Dråber op.`);
 }
 
 // Liv
@@ -575,52 +588,13 @@ function saetSekvens() {
     opdaterVistData();
 }
 
-// Håb
-function haabMinus() {
-    karakter.haab = Math.max(0, karakter.haab - 1);
-    opdaterVistData();
-}
-
-function haabPlus() {
-    karakter.haab = Math.min(3, karakter.haab + 1);
-    opdaterVistData();
-}
-
-// Forvitring
-function forvitringMinus() {
-    karakter.forvitring = Math.max(0, karakter.forvitring - 1);
-    opdaterVistData();
-}
-
-function forvitringPlus() {
-    karakter.forvitring = karakter.forvitring + 1;
-    opdaterVistData();
-}
-
-// Udmattelse
-function udmattelseMinus() {
-    if (karakter.sejdNu === 0 && karakter.udmattelse === 1) {
+function justerStat(stat, aendring, min = 0, max = Infinity) {
+    if (stat === 'udmattelse' && karakter.sejdNu === 0 && karakter.udmattelse === 1) {
         visBesked('Genvind Sejd for at lette din udmattelse.');
         return;
-    }
-    karakter.udmattelse = Math.max(0, karakter.udmattelse - 1);
-    opdaterVistData();
-}
+    };
 
-function udmattelsePlus() {
-    karakter.udmattelse = karakter.udmattelse + 1;
-    opdaterVistData();
-    tjekBevidstloeshed();
-}
-
-// Læsioner
-function laesionerMinus() {
-    karakter.laesioner = Math.max(0, karakter.laesioner - 1);
-    opdaterVistData();
-}
-
-function laesionerPlus() {
-    karakter.laesioner = karakter.laesioner + 1;
+    karakter[stat] = Math.max(min, Math.min(max, karakter[stat] + aendring));
     opdaterVistData();
 }
 
@@ -640,9 +614,11 @@ function hvil() {
 }
 
 function doed() {
+    const haabBesked = karakter.forvitring > 0 ? ' Rul 1d6. Få Håb på en træffer.' : '' ;
+
     karakter.forvitring++;
     const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
-    const nyLivMax = vitalMax - (karakter.forvitring * Math.ceil(vitalMax / 10));
+    const nyLivMax = vitalMax - (karakter.forvitring * Math.ceil(vitalMax * 0.05));
     karakter.livNu = Math.max(0, nyLivMax);
     
     efterladDraaber();
@@ -654,9 +630,9 @@ function doed() {
     }
 
     if (karakter.draaberEfterladt > 0) {
-        visBesked('Du er død og genopvågnet. Du har efterladt ' + karakter.draaberEfterladt + ' Dråber.');
+        visBesked('Du er død og genopvågnet. Du har efterladt ' + karakter.draaberEfterladt + ' Dråber.' + haabBesked);
     } else {
-        visBesked('Du er død og genopvågnet.');
+        visBesked('Du er død og genopvågnet.' + haabBesked);
     }
 
     opdaterVistData();
@@ -670,6 +646,46 @@ function doed() {
 // =========================
 
 // Våben
+function opdaterVaabenRaekke() {
+    const container = document.getElementById('vaaben-raekke');
+    container.innerHTML = '';
+
+    if (!karakter.vaaben || karakter.vaaben.length === 0) {
+        const tom = document.createElement('div');
+        tom.className = 'emne-raekke-tom';
+        tom.textContent = 'Ingen våben.';
+        container.appendChild(tom);
+        return;
+    }
+
+    for (const vaaben of karakter.vaaben) {
+        const erValgt = karakter.valgteVaaben.includes(vaaben.id);
+        const el = document.createElement('div');
+        el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
+        el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
+
+        el.addEventListener('click', (e) => {
+            e.stopPropagation();
+            if (karakter.valgteVaaben.includes(vaaben.id)) {
+                karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== vaaben.id);
+            } else {
+                karakter.valgteVaaben.push(vaaben.id);
+            }
+            gemData();
+            opdaterVistData();
+        });
+
+        container.appendChild(el);
+    }
+}
+
+function opdaterVaabenKort() {
+    document.getElementById('basisskade-beholder').innerHTML = '';
+    karakter.vaaben
+        .filter(v => karakter.valgteVaaben.includes(v.id))
+        .forEach(vaaben => genererVaabenKort(vaaben));
+}
+
 function genererVaabenKort(vaaben) {
     const beholder = document.getElementById('basisskade-beholder');
     const id = vaaben.id;
@@ -749,46 +765,6 @@ function genererVaabenKort(vaaben) {
     }
 }
 
-function opdaterVaabenKort() {
-    document.getElementById('basisskade-beholder').innerHTML = '';
-    karakter.vaaben
-        .filter(v => karakter.valgteVaaben.includes(v.id))
-        .forEach(vaaben => genererVaabenKort(vaaben));
-}
-
-function opdaterVaabenRaekke() {
-    const container = document.getElementById('vaaben-raekke');
-    container.innerHTML = '';
-
-    if (!karakter.vaaben || karakter.vaaben.length === 0) {
-        const tom = document.createElement('div');
-        tom.className = 'emne-raekke-tom';
-        tom.textContent = 'Ingen våben.';
-        container.appendChild(tom);
-        return;
-    }
-
-    for (const vaaben of karakter.vaaben) {
-        const erValgt = karakter.valgteVaaben.includes(vaaben.id);
-        const el = document.createElement('div');
-        el.className = 'emne-valg' + (erValgt ? ' aktiv' : '');
-        el.textContent = vaaben.navn + (vaaben.opgradering > 0 ? ' +' + vaaben.opgradering : '');
-
-        el.addEventListener('click', (e) => {
-            e.stopPropagation();
-            if (karakter.valgteVaaben.includes(vaaben.id)) {
-                karakter.valgteVaaben = karakter.valgteVaaben.filter(id => id !== vaaben.id);
-            } else {
-                karakter.valgteVaaben.push(vaaben.id);
-            }
-            gemData();
-            opdaterVistData();
-        });
-
-        container.appendChild(el);
-    }
-}
-
 function beregnBasisskade(vaaben) {
     const basisLevel = karakter[vaaben.basis] + karakter.forskydning[vaaben.basis];
     const basisDel = basisLevel * (1 + vaaben.opgradering * 0.2);
@@ -799,9 +775,38 @@ function beregnBasisskade(vaaben) {
     return Math.round(basisDel + tillaegsDel);
 }
 
+function tilfoejVaaben() {
+    const input = document.getElementById('tilfoej-vaaben-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return;}
+
+    const vaaben = alleVaaben.vaaben.find(v => tekst.includes(v.id));
+
+    if (!vaaben) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.vaaben.push({...vaaben});
+    gemData();
+    genererVaabenliste();
+    visBesked(`Du har fået ${vaaben.navn}.`);
+    input.value = '';
+}
+
 
 
 // Færdigheder
+function opdaterFaerdighedKortBrug() {
+    document.getElementById('faerdighed-beholder').innerHTML = '';
+    alleFaerdigheder.klassefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => brugsKort(faerdighed));
+    alleFaerdigheder.evnefaerdigheder
+        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
+        .forEach(faerdighed => brugsKort(faerdighed));
+}
+
 function opretFaerdighedskort(faerdighed) {
     const id = faerdighed.id;
     const kort = document.createElement('div');
@@ -825,16 +830,6 @@ function opretFaerdighedskort(faerdighed) {
     </div>`;
 
     return kort;
-}
-
-function opdaterBrugsKort() {
-    document.getElementById('faerdighed-beholder').innerHTML = '';
-    alleFaerdigheder.klassefaerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
-    alleFaerdigheder.evnefaerdigheder
-        .filter(v => karakter.valgteFaerdigheder.includes(v.id))
-        .forEach(faerdighed => brugsKort(faerdighed));
 }
 
 function brugsKort(faerdighed) {
@@ -1184,29 +1179,6 @@ function tjekMagiLevelKrav(besvaergelse) {
 
     return true;
 }
-
-
-
-function tilfoejVaaben() {
-    const input = document.getElementById('tilfoej-vaaben-input');
-    const tekst = input.value || '';
-    if (tekst === '') {return;}
-
-    const vaaben = alleVaaben.vaaben.find(v => tekst.includes(v.id));
-
-    if (!vaaben) {
-        visBesked(`${tekst} kunne ikke findes.`);
-        return;
-    }
-
-    karakter.vaaben.push({...vaaben});
-    gemData();
-    genererVaabenliste();
-    visBesked(`Du har fået ${vaaben.navn}.`);
-    input.value = '';
-}
-
-
 
 
 

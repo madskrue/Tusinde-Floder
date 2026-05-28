@@ -148,20 +148,20 @@ klik('sekvens', () => visJustering('sekvens'));
 klik('sekvens-saet', saetSekvens);
 
 klik('haab', () => visJustering('haab'));
-klik('haab-justering-minus', haabMinus);
-klik('haab-justering-plus', haabPlus);
+klik('haab-justering-minus', () => justerStat('haab', -1, 0, 3));
+klik('haab-justering-plus', () => justerStat('haab', 1, 0, 3));
 
 klik('forvitring', () => visJustering('forvitring'));
-klik('forvitring-justering-minus', forvitringMinus);
-klik('forvitring-justering-plus', forvitringPlus);
+klik('forvitring-justering-minus', () => justerStat('forvitring', -1));
+klik('forvitring-justering-plus', () => justerStat('forvitring', 1));
 
 klik('udmattelse', () => visJustering('udmattelse'));
-klik('udmattelse-justering-minus', udmattelseMinus);
-klik('udmattelse-justering-plus', udmattelsePlus);
+klik('udmattelse-justering-minus', () => justerStat('udmattelse', -1));
+klik('udmattelse-justering-plus', () => justerStat('udmattelse', 1));
 
 klik('laesioner', () => visJustering('laesioner'));
-klik('laesioner-justering-minus', laesionerMinus);
-klik('laesioner-justering-plus', laesionerPlus);
+klik('laesioner-justering-minus', () => justerStat('laesioner', -1));
+klik('laesioner-justering-plus', () => justerStat('laesioner', 1));
 
 // Våben
 klik('vaaben-liste-knap', genererVaabenliste);
