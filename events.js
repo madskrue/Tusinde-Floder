@@ -128,9 +128,6 @@ klik('bekraeft-hvil', hvil);
     klik('laer-magi-knap', () => laerMagi());
     klik('annuller-magi', () => lukVindue('magi'));
 
-
-
-
 // Død
 klik('stor-doed-knap', () => aabenVindue('doed'));
 klik('bekraeft-doed', doed);
@@ -139,10 +136,6 @@ klik('annuller-doed', () => lukVindue('doed'));
 
 // Status
 klik('status-toggle', visStatusJusteringer);
-
-
-
-
 
 klik('sekvens', () => visJustering('sekvens'));
 klik('sekvens-saet', saetSekvens);

@@ -1,61 +1,9 @@
-const karakterGrundlag = {
-    navn: "",
-    klasse: "",
-    draaber: 2280,
-    draaberEfterladt: 0,
-
-    livNu: 1,
-    sejdNu: 1,
-    huNu: 1,
-
-    sekvens: 0,
-    haab: 0,
-    forvitring: 0,
-    laesioner: 0,
-    udmattelse: 0,
-
-    form: 1,
-    sind: 1,
-    intuition: 1,
-    styrke: 1,
-    behaendighed: 1,
-    visdom: 1,
-    mystik: 1,
-
-    forskydning: {
-        form: 0,
-        sind: 0,
-        intuition: 0,
-        styrke: 0,
-        behaendighed: 0,
-        visdom: 0,
-        mystik: 0,
-    },
-
-    faerdigheder: [],
-    valgteFaerdigheder: [],
-    brugteFaerdigheder: [],
-
-    vaaben: [],
-    valgteVaaben: [],
-
-    besvaergelser: [],
-    valgteBesvaergelser: [],
-
-    stenskaar: 0,
-    flaskerMax: 1,
-    flaskerNu: 1,
-    endeligtDoed: false,
-
-    noter: "",
-};
 let alleVaaben = [];
 let alleFaerdigheder = [];
 let klasseFaerdigheder = [];
 let evneFaerdigheder = [];
 let alleBesvaergelser = [];
 let standardKlasser = [];
-
 
 // Karakterobjektet
 let karakter = {
@@ -402,12 +350,6 @@ function erEndeligDoed() {
         return true;
 }
 
-
-
-
-
-
-
 // Udregn pulje
 function getPulje(level, forskydning) {
     if (level + forskydning <= 6) return 1;
@@ -453,12 +395,6 @@ function getHuRegen(intuition) {
 }
 
 
-
-
-
-// ===================================================
-// ====================== ARKET ======================
-// ===================================================
 
 
 
@@ -1296,8 +1232,6 @@ function opdaterNoteOmraade(felt) {
 // ====================== VINDUER ======================
 // =====================================================
 
-
-
 // ======================
 // === EVNEFORBEDRING ===
 // ======================
@@ -1807,20 +1741,71 @@ async function indlaesSpilData() {
         evneFaerdigheder = spildata.evnefaerdigheder;
         alleFaerdigheder = [...spildata.klassefaerdigheder, ...spildata.evnefaerdigheder];
 
-        console.log("Al spildata er indlæst korrekt.");
+        console.log("Spildata er indlæst korrekt ☺︎");
         
-
-        indlaesData(); // Hent karakter fra localStorage, hvis den findes
+        indlaesData();
         opdaterVistData();
         
     } catch (fejl) {
-        console.error("Fejl under indlæsning af spildata:", fejl);
+        console.error("Fejl under indlæsning af spildata:", fejl, " ☹︎");
     }
 }
 
 
 
 // Gem og indlæs
+const karakterGrundlag = {
+    navn: "",
+    klasse: "",
+    draaber: 2280,
+    draaberEfterladt: 0,
+
+    livNu: 1,
+    sejdNu: 1,
+    huNu: 1,
+
+    sekvens: 0,
+    haab: 0,
+    forvitring: 0,
+    laesioner: 0,
+    udmattelse: 0,
+
+    form: 1,
+    sind: 1,
+    intuition: 1,
+    styrke: 1,
+    behaendighed: 1,
+    visdom: 1,
+    mystik: 1,
+
+    forskydning: {
+        form: 0,
+        sind: 0,
+        intuition: 0,
+        styrke: 0,
+        behaendighed: 0,
+        visdom: 0,
+        mystik: 0,
+    },
+
+    faerdigheder: [],
+    valgteFaerdigheder: [],
+    brugteFaerdigheder: [],
+
+    vaaben: [],
+    valgteVaaben: [],
+
+    besvaergelser: [],
+    valgteBesvaergelser: [],
+
+    stenskaar: 0,
+    flaskerMax: 1,
+    flaskerNu: 1,
+    endeligtDoed: false,
+
+    noter: "",
+};
+
 function gemData() {
     localStorage.setItem('karakterark', JSON.stringify(karakter));
 }
