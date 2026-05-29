@@ -96,6 +96,7 @@ function opdaterRessourcer() {
 
 function opdaterStatus() {
     document.getElementById('sekvens-vaerdi').textContent = karakter.sekvens;
+    document.getElementById('sekvens-pulje').textContent = getSekvensPulje();
     document.getElementById('haab-vaerdi').textContent = karakter.haab;
     document.getElementById('forvitring-vaerdi').textContent = karakter.forvitring;
     document.getElementById('udmattelse-vaerdi').textContent = karakter.udmattelse;
@@ -394,6 +395,13 @@ function getHuRegen(intuition) {
     return 7;
 }
 
+function getSekvensPulje() {
+    const form = getPulje(karakter.form, karakter.forskydning.form);
+    const intuition = getPulje(karakter.intuition, karakter.forskydning.intuition);
+    const pulje = form + intuition + 'd6';
+    return pulje;
+}
+
 
 
 
@@ -609,7 +617,7 @@ function hvil() {
 }
 
 function doed() {
-    const haabBesked = karakter.forvitring > 0 ? ' Rul 1d6. Få Håb på en træffer.' : '' ;
+    const haabBesked = karakter.forvitring > 0 ? ' Rul 1d6, få 1 Håb på en træffer.' : '' ;
 
     karakter.forvitring++;
     const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
@@ -631,7 +639,19 @@ function doed() {
     }
 
     opdaterVistData();
-    lukVindue('doed');
+}
+
+function genskabVitalitet() {
+    if (karakter.forvitring === 0) {
+        visBesked('Du er allerede vital');
+        return;
+    }
+
+    karakter.forvitring = 0;
+    beregnRessourcer();
+    karakter.livNu = karakter.livVital;
+    opdaterVistData();
+    visBesked('Vitalitet genskabt!');
 }
 
 
@@ -1747,7 +1767,7 @@ async function indlaesSpilData() {
         opdaterVistData();
         
     } catch (fejl) {
-        console.error("Fejl under indlæsning af spildata:", fejl, " ☹︎");
+        console.error("Fejl under indlæsning af spildata ☹︎", fejl);
     }
 }
 
@@ -1855,7 +1875,7 @@ function hentStandardKlasse(klasse) {
     });
     const klasseFaerdighederRef = klasseData.faerdigheder || [];
     const klasseFaerdighederne = klasseFaerdighederRef.map(ref => {
-        return klasseFaerdigheder.find(v => v.id === ref.id);
+        return klasseFaerdigheder.find(f => f.id === ref.id);
     });
 
     Object.assign(karakter, baseKarakter, klasseData);

@@ -95,7 +95,6 @@ klik('flaske-laesion', () => drikFlaske('laesion'));
 
 
 // Hvile
-klik('vandsten', () => visJustering('vandsten'));
 klik('hvil-knap', () => aabenVindue('hvil'));
 klik('bekraeft-hvil', hvil);
 
@@ -129,9 +128,24 @@ klik('bekraeft-hvil', hvil);
     klik('annuller-magi', () => lukVindue('magi'));
 
 // Død
-klik('stor-doed-knap', () => aabenVindue('doed'));
-klik('bekraeft-doed', doed);
+klik('stor-doed-knap', () => aabenVindue('doed-valg'));
+klik('annuller-doed-valg', () => lukVindue('doed-valg'));
+
+klik('doed-valg-knap', () => aabenVindue('doed'));
+klik('bekraeft-doed', () => {
+    doed();
+    lukVindue('doed');
+    lukVindue('doed-valg');
+});
 klik('annuller-doed', () => lukVindue('doed'));
+
+klik('vitalitet-valg-knap', () => aabenVindue('vitalitet'));
+klik('bekraeft-vitalitet', () => {
+    genskabVitalitet();
+    lukVindue('vitalitet');
+    lukVindue('doed-valg');
+});
+klik('annuller-vitalitet', () => lukVindue('vitalitet'));
 
 
 // Status

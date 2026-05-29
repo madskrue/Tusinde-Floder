@@ -65,6 +65,13 @@
                             </div>
                         </div>
                     </div>
+                    <div class="grundlaeggende__knapper">
+                        <div class="stat vandsten" id="hvil-knap">
+                            <span class="stat__navn">Vandsten</span>
+                            <span class="stat__vaerdi stat__vaerdi--vandsten">✺</span>
+                        </div>
+                        <div class="stat stat--doed" id="stor-doed-knap">Død</div>
+                    </div>
                 </div>
             </div>
         </div>
@@ -166,27 +173,24 @@
                 <div id="status-indhold">
 
                     <div class="status__grid">
-                        <div class="stat vandsten" id="vandsten">
-                            <span class="stat__navn">Vandsten</span>
-                            <span class="stat__vaerdi stat__vaerdi--vandsten">✺</span>
-                            <div class="justering justering--stat" id="vandsten-justering">
-                                <div class="justering__knapgruppe justering__knapgruppe--kolonne">
-                                    <div class="justering__knap justering__knap--lille" id="hvil-knap">Hvil</div>
-                                    <div class="justering__knap justering__knap--lille" id="stor-doed-knap">Død</div>
-                                </div>
-                            </div>
-                        </div>
+                        
 
                         <div class="stat sekvens" id="sekvens">
                             <span class="stat__navn">Sekvens</span>
                             <span class="stat__vaerdi" id="sekvens-vaerdi">0</span>
-                            
-                            <div class="justering justering--stat" id="sekvens-justering">
-                                <input type="number" id="sekvens-input" placeholder="Sekvenstal" min="0">
-                                <div class="justering__knapgruppe">
-                                    <div class="justering__knap sekvens" id="sekvens-saet">↖︎</div>
+                                <div class="justering justering--stat" id="sekvens-justering">
+                                    <div class="u-flex-row">
+                                        <input type="number" id="sekvens-input" placeholder="Sekvenstal" min="0">
+                                        <div class="justering__knapgruppe">
+                                            <div class="justering__knap sekvens" id="sekvens-saet">↖︎</div>
+                                        </div>
+                                    </div>
+
+                                        <div class="evne__pulje sekvens-pulje" id="sekvens-pulje"></div>
+
                                 </div>
-                            </div>
+                               
+
                         </div>
 
                         <div class="stat haab" id="haab">
@@ -603,6 +607,17 @@
 
 
     <!-- Død -->
+     <div class="vindue__baggrund" id="doed-valg-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Død og forvitring</div>
+            <div class="vindue__knapgruppe vindue__knapgruppe--lodret">
+                <div class="vindue__knap" id="doed-valg-knap">Dø og genopstå</div>
+                <div class="vindue__knap" id="vitalitet-valg-knap">Genskab vitalitet</div>
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-doed-valg">Annuller</div>
+            </div>
+        </div>
+    </div>
+
     <div class="vindue__baggrund" id="doed-vindue">
         <div class="vindue__blok">
             <div class="vindue__titel">Død</div>
@@ -610,6 +625,17 @@
             <div class="vindue__knapgruppe">
                 <div class="vindue__knap vindue__knap--annuller" id="annuller-doed">Annuller</div>
                 <div class="vindue__knap" id="bekraeft-doed">Bekræft</div>
+            </div>
+        </div>
+    </div>
+
+    <div class="vindue__baggrund" id="vitalitet-vindue">
+        <div class="vindue__blok">
+            <div class="vindue__titel">Vitalitet</div>
+            <div class="vindue__tekst">Vil du genskabe din vitalitet?</div>
+            <div class="vindue__knapgruppe">
+                <div class="vindue__knap vindue__knap--annuller" id="annuller-vitalitet">Annuller</div>
+                <div class="vindue__knap" id="bekraeft-vitalitet">Bekræft</div>
             </div>
         </div>
     </div>

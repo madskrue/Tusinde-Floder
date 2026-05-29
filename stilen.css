@@ -338,7 +338,7 @@ input::-webkit-inner-spin-button {
 /* SEKTION: GRUNDLÆGGENDE */
 .grundlaeggende__kolonner {
     display: grid;
-    grid-template-columns: 2fr 1fr;
+    grid-template-columns: 2fr 1fr 120px;
     gap: 1rem;
 }
 
@@ -392,6 +392,12 @@ input::-webkit-inner-spin-button {
 .draaber__efterladt:hover {
     background-color: var(--hover);
     color: var(--tekst-haard);
+}
+
+.grundlaeggende__knapper {
+    min-width: 120px;
+    max-width: 200px;
+    margin: auto;
 }
 
 /* SEKTION: RESSOURCER */
@@ -503,6 +509,12 @@ input::-webkit-inner-spin-button {
     width: 100%;
     display: flex;
     justify-content: center;
+}
+
+.stat--doed {
+    margin-top: 0.25rem;
+    padding: 0.25rem;
+    color: var(--tekst-svag);
 }
 
 /* Ved vandstenen */
@@ -1008,6 +1020,16 @@ input::-webkit-inner-spin-button {
     flex-direction: row;
     justify-content: space-between;
     margin-bottom: 0.25rem;
+}
+
+#sekvens-justering {
+    flex-direction: column;
+    gap: 0.5rem;
+}
+
+.sekvens-pulje {
+    font-size: 0.8rem;
+    font-weight: 600;
 }
 
 
