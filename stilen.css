@@ -319,6 +319,8 @@ input::-webkit-inner-spin-button {
     background-color: var(--felt);
     padding: 0.5rem;
     border-radius: 0 0.5rem 0.5rem 0.5rem;
+    max-height: 300px;
+    overflow: scroll;
 }
 
 .faneblad--aktiv {
@@ -659,6 +661,11 @@ input::-webkit-inner-spin-button {
     font-size: 0.6rem;
     color: var(--tekst-svag);
     text-transform: lowercase;
+}
+
+.kort__basis--info {
+    font-size: 0.6rem;
+    color: var(--tekst-svag);
 }
 
 .intet-vaaben {

@@ -1537,12 +1537,12 @@
             "navn": "Navn",
             "beskrivelse": "Udstyrsbeskrivelse",
 
-            "type": "(Let/Tung) rustning/Skjold/Hjelm/Vedhæng",
+            "type": "Type",
             "plads": "haand/hoved/krop/vedhaeng",
             "levelKrav": {},
 
             "reduktion": 0,
-            "modifikationer": {},
+            "forskydning": {},
             "percyklus": false,
 
             "teknik": {
@@ -1553,8 +1553,8 @@
             }
         },
 
-        
 
+    
         {
             "id": "u_rustning_laederrustning",
             "navn": "Læderrustning",
@@ -1570,6 +1570,76 @@
         },
 
         {
+            "id": "u_rustning_ringbrynje",
+            "navn": "Ringbrynje",
+            "beskrivelse": "Tusinde metalringe flettet sammen i et beskyttende net. Giver moderat beskyttele.",
+
+            "type": "Mellem rustning",
+            "plads": "krop",
+            "levelKrav": {
+                "styrke": 30
+            },
+
+            "reduktion": 10,
+            "forskydning": {
+                "mystik": 1
+            }
+        },
+
+        {
+            "id": "u_rustning_rustning-af-haerdet-trae",
+            "navn": "Rustning af hærdet træ",
+            "beskrivelse": "Avanceret rustning af hundredevis af små varme- og trykbehandlede træ-skæl, syet sammen til en rustning, der giver moderat beskyttelse.",
+
+            "type": "Mellem rustning",
+            "plads": "krop",
+            "levelKrav": {
+                "styrke": 30
+            },
+
+            "reduktion": 10,
+            "forskydning": {
+                "behaendighed": 1
+            }
+        },
+
+        {
+            "id": "u_rustning_staalpladerustning",
+            "navn": "Stålpladerustning",
+            "beskrivelse": "Metalplader der er nittet sammen til en omsluttende dragt, der giver høj beskyttelse mod fysisk skade.",
+
+            "type": "Tung rustning",
+            "plads": "krop",
+            "levelKrav": {
+                "styrke": 45
+            },
+
+            "reduktion": 15,
+            "forskydning": {
+                "behaendighed": -1
+            }
+        },
+
+        {
+            "id": "u_rustning_granitrustning",
+            "navn": "Granitrustning",
+            "beskrivelse": "Store plader af granit, boltet sammen. Giver meget høj beskyttelse mod fysisk skade.",
+
+            "type": "Enorm rustning",
+            "plads": "krop",
+            "levelKrav": {
+                "styrke": 60
+            },
+
+            "reduktion": 20,
+            "forskydning": {
+                "behaendighed": -3
+            }
+        },
+
+
+
+        {
             "id": "u_vedhaeng_instinktets-vedhaeng",
             "navn": "Instinktets vedhæng",
             "beskrivelse": "Vedhænget skærper dit instinkt. Én gang per cyklus kan du erklære, at du bruger dit instinkt før du ruller. Alle dine terninger der viser 4, 5 eller 6, tæller som træffere på dette rul.",
@@ -1578,6 +1648,19 @@
             "plads": "vedhaeng",
 
             "percyklus": true
+        },
+
+        {
+            "id": "u_vedhaeng_intuitionens-vedhaeng",
+            "navn": "Intuitionens vedhæng",
+            "beskrivelse": "Vedhænget gør, at du regenererer 1 ekstra Hu per tur.",
+
+            "type": "Vedhæng",
+            "plads": "vedhaeng",
+
+            "forskydning": {
+                "huRegen": 1
+            }
         }
     ]
 }

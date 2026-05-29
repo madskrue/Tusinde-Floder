@@ -124,7 +124,7 @@ klik('bekraeft-hvil', hvil);
         aabenVindue('magi');
         opdaterMagiKortValg();
     });
-    klik('laer-magi-knap', () => laerMagi());
+    klik('laer-magi-knap', () => tilfoejMagi());
     klik('annuller-magi', () => lukVindue('magi'));
 
 // Død
@@ -244,7 +244,7 @@ document.getElementById('liv-input').addEventListener('keydown', (e) =>{if (e.ke
 document.getElementById('sejd-input').addEventListener('keydown', (e) =>{if (e.key === 'Enter') sejdBrug();});
 document.getElementById('draaber-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') tilfoejDraaber();});
 document.getElementById('sekvens-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') saetSekvens();});
-document.getElementById('laer-magi-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') laerMagi();});
+document.getElementById('tilfoej-magi-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') tilfoejMagi();});
 document.getElementById('tilfoej-vaaben-input').addEventListener('keydown', (e) => {if (e.key === 'Enter') tilfoejVaaben();});
 
 

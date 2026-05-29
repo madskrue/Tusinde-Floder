@@ -48,6 +48,11 @@ let karakter = {
     vaaben: [],
     valgteVaaben: [],
 
+    udstyr: [],
+    valgtRustning: [],
+    valgtHjelm: [],
+    valgtVedhaeng: [],
+
     besvaergelser: [],
     valgteBesvaergelser: [],
 
@@ -75,6 +80,7 @@ function opdaterVistData() {
     opdaterBeredskab();
     gemData();
     opdaterDoedVisning();
+    opdaterUdstyrKort();
 }
 
 function opdaterGrundlaeggende() {
@@ -661,6 +667,63 @@ function genskabVitalitet() {
 // === BEREDSKAB OG KORT ===
 // =========================
 
+function tilfoejVaaben() {
+    const input = document.getElementById('tilfoej-vaaben-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return};
+
+    const vaaben = alleVaaben.find(v => tekst.includes(v.id));
+
+    if (!vaaben) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.vaaben.push({...vaaben});
+    gemData();
+    genererVaabenliste();
+    visBesked(`Du har fået ${vaaben.navn}.`);
+    input.value = '';
+}
+
+function tilfoejMagi() {
+    const input = document.getElementById('tilfoej-magi-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return};
+
+    const besvaergelse = alleBesvaergelser.find(b => tekst.includes(b.id));
+
+    if (!besvaergelse) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.besvaergelser.push(besvaergelse.id);
+    gemData();
+    opdaterMagiKortValg();
+    visBesked(`Du har lært ${besvaergelse.navn}.`);
+    input.value = '';
+}
+
+function tilfoejUdstyr() {
+    const input = document.getElementById('tilfoej-udstyr-input');
+    const tekst = input.value || '';
+    if (tekst === '') {return};
+
+    const udstyr = altUdstyr.find(u => tekst.includes(u.id));
+
+    if (!udstyr) {
+        visBesked(`${tekst} kunne ikke findes.`);
+        return;
+    }
+
+    karakter.udstyr.push({...udstyr});
+    gemData();
+    // genererVaabenliste(); funktion der opdaterer visning
+    visBesked(`Du har fået ${udstyr.navn}.`);
+    input.value = '';
+}
+
 // Våben
 function opdaterVaabenRaekke() {
     const container = document.getElementById('vaaben-raekke');
@@ -797,29 +860,69 @@ function beregnBasisskade(vaaben) {
     return Math.round(basisDel + tillaegsDel);
 }
 
-function tilfoejVaaben() {
-    const input = document.getElementById('tilfoej-vaaben-input');
-    const tekst = input.value || '';
-    if (tekst === '') {return;}
 
-    const vaaben = alleVaaben.find(v => tekst.includes(v.id));
-
-    if (!vaaben) {
-        visBesked(`${tekst} kunne ikke findes.`);
-        return;
-    }
-
-    karakter.vaaben.push({...vaaben});
-    gemData();
-    genererVaabenliste();
-    visBesked(`Du har fået ${vaaben.navn}.`);
-    input.value = '';
-}
 
 
 
 // Udstyr
+function opretUdstyrKort(udstyr) {
+    const id = udstyr.id;
+    const kort = document.createElement('div');
+    kort.className = 'kort';
+    kort.id = id + '-kort';
 
+    kort.innerHTML = 
+    `<div class="kort__top">
+        <div class="kort__titel" id="titel-${id}">${udstyr.navn}</div>
+        <div class="kort__basis" id="type-${id}">${udstyr.type}</div>
+    </div>
+
+    <div class="kort__top" id="info-${id}">
+        <div class="kort__basis--info" id="info-a-${id}"></div>
+        <div class="kort__basis--info" id="info-b-${id}"></div>
+        <div class="kort__basis--info" id="info-c-${id}"></div>
+    </div>
+
+    <div class="kort__data">
+        <div class="kort__linje">
+            <div class="kort__beskrivelse">${udstyr.beskrivelse}</div>
+        </div>
+    </div>`;
+
+    return kort;
+}
+
+
+function udstyrKort(udstyr) {
+    const kort = opretUdstyrKort(udstyr);
+    document.getElementById('udstyr-beholder').appendChild(kort);
+    const infoBeholder = document.getElementById(`info-${udstyr.id}`);
+
+    if (udstyr.levelKrav) {
+        const krav = Object.entries(udstyr.levelKrav)
+            .filter(([evne]) => evneVisningsnavn[evne])
+            .map(([evne, værdi]) => `${evneVisningsnavn[evne]} ${værdi}`)
+            .join(', ');
+
+        const vistKrav = document.getElementById(`info-a-${udstyr.id}`);
+        vistKrav.textContent = `${krav}`;
+    }
+
+    if (udstyr.forskydning) {
+        const forskydning = Object.entries(udstyr.forskydning)
+            .filter(([evne]) => evneVisningsnavn[evne])
+            .map(([evne, værdi]) => `${evneVisningsnavn[evne]} ${værdi > 0 ? '+' + værdi : værdi}`)
+            .join(', ');
+        
+        const vistforskydning = document.getElementById(`info-c-${udstyr.id}`);
+        vistforskydning.textContent = `${forskydning}`;
+    }
+}
+
+function opdaterUdstyrKort() {
+    document.getElementById('udstyr-beholder').innerHTML = '';
+    altUdstyr.forEach(udstyr => udstyrKort(udstyr));
+}
 
 
 
@@ -1075,12 +1178,12 @@ function magiKortBrug(besvaergelse) {
 
     const basisskade = beregnBasisskade(leder);
     const angrebSkade = besvaergelse.skadeFaktor ? Math.ceil( basisskade * besvaergelse.skadeFaktor ) : '';
-    const farve = besvaergelse.effekt === "skade" ? 'style="color: var(--forskudt-ned)"' : "heling" ? 'style="color: var(--forskudt-op)"' : '';
+    const forbrugHuSejd = besvaergelse.hu && besvaergelse.sejd ? ' · ' : '';
 
     dataBeholder.innerHTML =
     `<div class="kort__angreb">
-        <div class="kort__vaerdi" ${farve}>${angrebSkade}</div>
-        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${besvaergelse.sejd ? ' · ' + besvaergelse.sejd + ' Sejd' : ''}</span></div>
+        <div class="kort__vaerdi">${angrebSkade}</div>
+        <div class="kort__forbrug">${besvaergelse.hu ? besvaergelse.hu + ' Hu' : ''}<span class="kort__forbrug">${forbrugHuSejd}${besvaergelse.sejd ? besvaergelse.sejd + ' Sejd' : ''}</span></div>
     </div>
 
     <div class="kort__linje">
@@ -1162,25 +1265,6 @@ function magiKortValg(besvaergelse) {
         opdaterVistData();
         opdaterMagiKortValg();
     }
-}
-
-function laerMagi() {
-    const input = document.getElementById('laer-magi-input');
-    const tekst = input.value || '';
-    if (tekst === '') {return;}
-
-    const besvaergelse = alleBesvaergelser.find(b => tekst.includes(b.id));
-
-    if (!besvaergelse) {
-        visBesked(`${tekst} kunne ikke findes.`);
-        return;
-    }
-
-    karakter.besvaergelser.push(besvaergelse.id);
-    gemData();
-    opdaterMagiKortValg();
-    visBesked(`Du har lært ${besvaergelse.navn}.`);
-    input.value = '';
 }
 
 function tjekMagiLevelKrav(besvaergelse) {
@@ -1827,6 +1911,11 @@ const karakterGrundlag = {
 
     vaaben: [],
     valgteVaaben: [],
+
+    udstyr: [],
+    valgtRustning: [],
+    valgtHjelm: [],
+    valgtVedhaeng: [],
 
     besvaergelser: [],
     valgteBesvaergelser: [],
