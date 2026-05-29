@@ -24,8 +24,8 @@ klik('draabe-justering-minus', fjernDraaber);
 klik('draabe-justering-plus', tilfoejDraaber);
 klik('draaber-efterladt-beholder', samlDraaber);
 
-// 
-['basisskade', 'cyklus', 'magi'].forEach(fane => {
+// Beredskab
+['basisskade', 'udstyr', 'cyklus', 'magi'].forEach(fane => {
     klik(`${fane}-titel`, () => {
         vaelgFane(fane)
     })

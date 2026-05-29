@@ -54,6 +54,9 @@
             },
             {
             "id": "v_morgenstjerne_forkynder"
+            },
+            {
+            "id": "v_skjold_rundskjold"
             }
             ],
         "besvaergelser": [
@@ -145,6 +148,9 @@
             },
             {
             "id": "v_langsvaerd_militarist"
+            },
+            {
+            "id": "v_skjold_rundskjold"
             }
             ]
         }
@@ -455,7 +461,7 @@
         "teknik": {
             "navn": "Slag",
             "beskrivelse": "Slå et mål indenfor 1 spænd. Gør halv basisskade.",
-            "skadeFaktor": 1,
+            "skadeFaktor": 0.5,
             "hu": 2
         },
         "noter": ""
@@ -538,6 +544,31 @@
             "sejd": 1
         },
         "noter": ""
+        },
+        {
+        "id": "v_skjold_rundskjold",
+        "navn": "Rundskjold",
+        "beskrivelse": "Kan bruges til at blokere fysiske angreb.\n\nNår du bærer skjoldet i en hånd og vil blokere et angreb du kan se, får du +1d6 til at blokere.",
+        "basis": "styrke",
+        "levelKrav": {
+            "styrke": 14
+        },
+        "opgradering": 0,
+        "leder": null,
+        "tillaegsevne": null,
+        "tillaegsTaeller": null,
+        "tillaegsNaevner": null,
+        "angreb": {
+            "skadeFaktor": null,
+            "hu": null
+        },
+        "teknik": {
+            "navn": "Parér",
+            "skadeFaktor": null,
+            "hu": 1,
+            "sejd": 1,
+            "beskrivelse": "I stedet for at blokere et fysisk nærangreb, kan du forsøge at parere. Rul Styrke for at forsvare dig. Hvis det lykkes, slår du modstanderens våben til side og kan forsøge at lave et modangreb, der ikke bruger Sejd."
+        }
         }
     ],
 
@@ -1497,6 +1528,56 @@
         "sejd": 12,
         "skadeFaktor": null,
         "heling": null
+        }
+    ],
+
+    "udstyr": [
+        {
+            "id": "u_type_navn",
+            "navn": "Navn",
+            "beskrivelse": "Udstyrsbeskrivelse",
+
+            "type": "(Let/Tung) rustning/Skjold/Hjelm/Vedhæng",
+            "plads": "haand/hoved/krop/vedhaeng",
+            "levelKrav": {},
+
+            "reduktion": 0,
+            "modifikationer": {},
+            "percyklus": false,
+
+            "teknik": {
+                "navn": "Tekniknavn",
+                "hu": null,
+                "sejd": null,
+                "beskrivelse": "Teknikbeskrivelse."
+            }
+        },
+
+        
+
+        {
+            "id": "u_rustning_laederrustning",
+            "navn": "Læderrustning",
+            "beskrivelse": "Simpel rustning i hærdet læder, der tager det værste.",
+
+            "type": "Let rustning",
+            "plads": "krop",
+            "levelKrav": {
+                "styrke": 15
+            },
+
+            "reduktion": 5
+        },
+
+        {
+            "id": "u_vedhaeng_instinktets-vedhaeng",
+            "navn": "Instinktets vedhæng",
+            "beskrivelse": "Vedhænget skærper dit instinkt. Én gang per cyklus kan du erklære, at du bruger dit instinkt før du ruller. Alle dine terninger der viser 4, 5 eller 6, tæller som træffere på dette rul.",
+
+            "type": "Vedhæng",
+            "plads": "vedhaeng",
+
+            "percyklus": true
         }
     ]
 }

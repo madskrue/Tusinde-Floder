@@ -1,9 +1,10 @@
+let standardKlasser = [];
 let alleVaaben = [];
-let alleFaerdigheder = [];
+let alleBesvaergelser = [];
 let klasseFaerdigheder = [];
 let evneFaerdigheder = [];
-let alleBesvaergelser = [];
-let standardKlasser = [];
+let alleFaerdigheder = [];
+let altUdstyr = [];
 
 // Karakterobjektet
 let karakter = {
@@ -743,6 +744,12 @@ function genererVaabenKort(vaaben) {
         </div>
     </div>`;
 
+    const ingenSkadeAngreb = vaaben.angreb.skadeFaktor === 0 || !vaaben.angreb.skadeFaktor;
+    const ingenSkadeTeknik = vaaben.teknik.skadeFaktor === 0 || !vaaben.teknik.skadeFaktor;
+
+    if (ingenSkadeAngreb) {kort.querySelector('.kort__angreb').classList.add('skjul-indhold')};
+    if (ingenSkadeTeknik) {kort.querySelector('.kort__teknikvaerdi').classList.add('skjul-indhold')};
+
     visTooltip();
 
     function visTooltip() {
@@ -808,6 +815,11 @@ function tilfoejVaaben() {
     visBesked(`Du har fået ${vaaben.navn}.`);
     input.value = '';
 }
+
+
+
+// Udstyr
+
 
 
 
@@ -1760,6 +1772,7 @@ async function indlaesSpilData() {
         klasseFaerdigheder = spildata.klassefaerdigheder;
         evneFaerdigheder = spildata.evnefaerdigheder;
         alleFaerdigheder = [...spildata.klassefaerdigheder, ...spildata.evnefaerdigheder];
+        altUdstyr = spildata.udstyr;
 
         console.log("Spildata er indlæst korrekt ☺︎");
         

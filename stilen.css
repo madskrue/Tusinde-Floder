@@ -1445,7 +1445,7 @@ input::-webkit-inner-spin-button {
         grid-template-columns: 1fr 1fr;
     }
 
-    .kort__grid {
+    .dobbeltsektion {
         grid-template-columns: 1fr;
     }
 }
@@ -1453,6 +1453,10 @@ input::-webkit-inner-spin-button {
 @media (max-width: 600px) {
     body {
         padding: 0.5rem 0.5rem 4rem 0.5rem;
+    }
+
+    .kort__grid {
+        grid-template-columns: 1fr;
     }
     
     .grundlaeggende__kolonner {
@@ -1469,10 +1473,6 @@ input::-webkit-inner-spin-button {
     }
 
     .ressource__grid {
-        grid-template-columns: 1fr;
-    }
-
-    .dobbeltsektion {
         grid-template-columns: 1fr;
     }
 
