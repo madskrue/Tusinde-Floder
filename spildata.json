@@ -1560,7 +1560,9 @@
                 "styrke": 10
             },
 
-            "rustningsgrad": 5
+            "effekt": {
+                "rustningsgrad": 5
+            }
         },
         {
             "id": "u_rustning_ringbrynje",
@@ -1573,7 +1575,9 @@
                 "styrke": 20
             },
 
-            "rustningsgrad": 12,
+            "effekt": {
+                "rustningsgrad": 12
+            },
             "forskydning": {
                 "mystik": 1
             }
@@ -1589,7 +1593,9 @@
                 "styrke": 20
             },
 
-            "rustningsgrad": 10,
+            "effekt": {
+                "rustningsgrad": 10
+            },
             "forskydning": {
                 "behaendighed": 1
             }
@@ -1605,7 +1611,9 @@
                 "styrke": 30
             },
 
-            "rustningsgrad": 15,
+            "effekt": {
+                "rustningsgrad": 15
+            },
             "forskydning": {
                 "behaendighed": -1
             }
@@ -1621,7 +1629,9 @@
                 "styrke": 40
             },
 
-            "rustningsgrad": 25,
+            "effekt": {
+                "rustningsgrad": 25
+            },
             "forskydning": {
                 "behaendighed": -3
             }
