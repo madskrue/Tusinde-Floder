@@ -664,8 +664,8 @@ input::-webkit-inner-spin-button {
 }
 
 .kort__basis--info {
-    font-size: 0.6rem;
-    color: var(--tekst-svag);
+    font-size: 0.65rem;
+    color: var(--tekst-mellem-svag);
 }
 
 .intet-vaaben {
@@ -1434,6 +1434,14 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-svag);
     font-weight: 400;
     cursor: default;
+}
+
+.forskudt-op {
+    color: var(--forskudt-op);
+}
+
+.forskudt-ned {
+    color: var(--forskudt-ned);
 }
 
 

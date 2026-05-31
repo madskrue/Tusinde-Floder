@@ -1541,7 +1541,7 @@
             "plads": "haand/hoved/krop/vedhaeng",
             "levelKrav": {},
 
-            "reduktion": 0,
+            "rustningsgrad": 0,
             "forskydning": {},
             "percyklus": false,
 
@@ -1566,13 +1566,13 @@
                 "styrke": 15
             },
 
-            "reduktion": 5
+            "rustningsgrad": 5
         },
 
         {
             "id": "u_rustning_ringbrynje",
             "navn": "Ringbrynje",
-            "beskrivelse": "Tusinde metalringe flettet sammen i et beskyttende net. Giver moderat beskyttele.",
+            "beskrivelse": "Tusinde metalringe flettet sammen i et beskyttende net.",
 
             "type": "Mellem rustning",
             "plads": "krop",
@@ -1580,7 +1580,7 @@
                 "styrke": 30
             },
 
-            "reduktion": 10,
+            "rustningsgrad": 12,
             "forskydning": {
                 "mystik": 1
             }
@@ -1589,7 +1589,7 @@
         {
             "id": "u_rustning_rustning-af-haerdet-trae",
             "navn": "Rustning af hærdet træ",
-            "beskrivelse": "Avanceret rustning af hundredevis af små varme- og trykbehandlede træ-skæl, syet sammen til en rustning, der giver moderat beskyttelse.",
+            "beskrivelse": "Avanceret rustning af hundredevis af små varme- og trykbehandlede træ-skæl, syet sammen til en rustning.",
 
             "type": "Mellem rustning",
             "plads": "krop",
@@ -1597,7 +1597,7 @@
                 "styrke": 30
             },
 
-            "reduktion": 10,
+            "rustningsgrad": 10,
             "forskydning": {
                 "behaendighed": 1
             }
@@ -1606,7 +1606,7 @@
         {
             "id": "u_rustning_staalpladerustning",
             "navn": "Stålpladerustning",
-            "beskrivelse": "Metalplader der er nittet sammen til en omsluttende dragt, der giver høj beskyttelse mod fysisk skade.",
+            "beskrivelse": "Metalplader der er nittet sammen til en omsluttende dragt.",
 
             "type": "Tung rustning",
             "plads": "krop",
@@ -1614,7 +1614,7 @@
                 "styrke": 45
             },
 
-            "reduktion": 15,
+            "rustningsgrad": 15,
             "forskydning": {
                 "behaendighed": -1
             }
@@ -1623,7 +1623,7 @@
         {
             "id": "u_rustning_granitrustning",
             "navn": "Granitrustning",
-            "beskrivelse": "Store plader af granit, boltet sammen. Giver meget høj beskyttelse mod fysisk skade.",
+            "beskrivelse": "Store plader af granit, boltet sammen.",
 
             "type": "Enorm rustning",
             "plads": "krop",
@@ -1631,7 +1631,7 @@
                 "styrke": 60
             },
 
-            "reduktion": 20,
+            "rustningsgrad": 22,
             "forskydning": {
                 "behaendighed": -3
             }

@@ -49,8 +49,9 @@ let karakter = {
     valgteVaaben: [],
 
     udstyr: [],
-    valgtRustning: [],
-    valgtHjelm: [],
+    aktivtUdstyr: [],
+    valgtRustning: null,
+    valgtHjelm: null,
     valgtVedhaeng: [],
 
     besvaergelser: [],
@@ -64,6 +65,8 @@ let karakter = {
     noter: "",
 }
 
+let effektiveEvner = {};
+
 
 
 // ===============
@@ -72,6 +75,7 @@ let karakter = {
 
 // Visningsfunktionen
 function opdaterVistData() {
+    opdaterEffektiveEvner();
     opdaterGrundlaeggende();
     opdaterRessourcer();
     opdaterStatus();
@@ -81,6 +85,15 @@ function opdaterVistData() {
     gemData();
     opdaterDoedVisning();
     opdaterUdstyrKort();
+}
+
+function opdaterEffektiveEvner() {
+    const udstyrForskydning = beregnUdstyrForskydning();
+    for (const evne of evneNoegler) {
+        effektiveEvner[evne] = karakter[evne] 
+            + (karakter.forskydning[evne] ?? 0) 
+            + (udstyrForskydning[evne] ?? 0);
+    }
 }
 
 function opdaterGrundlaeggende() {
@@ -111,13 +124,13 @@ function opdaterStatus() {
 }
 
 function opdaterEvner() {
-    opdaterEvne('form', karakter.form, karakter.forskydning.form);
-    opdaterEvne('sind', karakter.sind, karakter.forskydning.sind);
-    opdaterEvne('intuition', karakter.intuition, karakter.forskydning.intuition);
-    opdaterEvne('styrke', karakter.styrke, karakter.forskydning.styrke);
-    opdaterEvne('behaendighed', karakter.behaendighed, karakter.forskydning.behaendighed);
-    opdaterEvne('visdom', karakter.visdom, karakter.forskydning.visdom);
-    opdaterEvne('mystik', karakter.mystik, karakter.forskydning.mystik);
+    opdaterEvne('form', effektiveEvner.form);
+    opdaterEvne('sind', effektiveEvner.sind);
+    opdaterEvne('intuition', effektiveEvner.intuition);
+    opdaterEvne('styrke', effektiveEvner.styrke);
+    opdaterEvne('behaendighed', effektiveEvner.behaendighed);
+    opdaterEvne('visdom', effektiveEvner.visdom);
+    opdaterEvne('mystik', effektiveEvner.mystik);
 }
 
 function opdaterInventarOgNoter() {
@@ -248,9 +261,21 @@ function visArk() {
 // === HJÆLPEBEREGNERE ===
 // =======================
 
+function beregnUdstyrForskydning() {
+    const resultat = { form: 0, sind: 0, intuition: 0, styrke: 0, behaendighed: 0, visdom: 0, mystik: 0 };
+    karakter.aktivtUdstyr.forEach(id => {
+        const udstyr = altUdstyr.find(u => u.id === id);
+        if (!udstyr?.forskydning) return;
+        for (const [evne, værdi] of Object.entries(udstyr.forskydning)) {
+            if (evne in resultat) resultat[evne] += værdi;
+        }
+    });
+    return resultat;
+}
+
 // Ressourcer
 function beregnRessourcer() {
-    const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
+    const vitalMax = getVitalMax(effektiveEvner.form);
     karakter.livVital = vitalMax;
     karakter.livMax = karakter.livVital - (karakter.forvitring * Math.ceil(karakter.livVital / 20));
     if (karakter.livNu > karakter.livMax) karakter.livNu = karakter.livMax;
@@ -261,12 +286,12 @@ function beregnRessourcer() {
         karakter.endeligtDoed = true;
     }
 
-    const sejdMax = getSejdMax(karakter.sind + karakter.forskydning.sind);
+    const sejdMax = getSejdMax(effektiveEvner.sind);
     karakter.sejdMax = Math.max(0, sejdMax);
     if (karakter.sejdNu > karakter.sejdMax) karakter.sejdNu = karakter.sejdMax;
 
-    const huMax = Math.max(1, getHuMax(karakter.intuition + karakter.forskydning.intuition) - karakter.laesioner);
-    const huRegen = Math.max(0, getHuRegen(karakter.intuition + karakter.forskydning.intuition) - karakter.udmattelse);
+    const huMax = Math.max(1, getHuMax(effektiveEvner.intuition) - karakter.laesioner);
+    const huRegen = Math.max(0, getHuRegen(effektiveEvner.intuition) - karakter.udmattelse);
     karakter.huMax = huMax;
     karakter.huRegen = huRegen;
     if (karakter.huNu > karakter.huMax) karakter.huNu = karakter.huMax;
@@ -279,7 +304,7 @@ function saetRessourcer() {
     document.getElementById('sejdMax').textContent = karakter.sejdMax;
     document.getElementById('sejdNu').textContent = karakter.sejdNu;
     document.getElementById('huMax').classList.toggle('reduceret', karakter.huMax < getHuMax(karakter.intuition));
-    document.getElementById('huRegen').classList.toggle('reduceret', karakter.huRegen < getHuRegen(karakter.intuition));
+    document.getElementById('huRegen').classList.toggle('reduceret', karakter.huRegen < getHuRegen(effektiveEvner.intuition));
     document.getElementById('huMax').textContent = karakter.huMax;
     document.getElementById('huRegen').textContent = karakter.huRegen;
     document.getElementById('huNu').textContent = karakter.huNu;
@@ -318,38 +343,34 @@ function opdaterFlaskeIkoner() {
 }
 
 // Evner
-function opdaterEvne(navn, level, forskydning) {
-    document.getElementById(navn + '-level').textContent = level;
-    const pulje = getPulje(level, forskydning);
-    document.getElementById(navn + '-pulje').textContent = pulje + 'd6';
+function opdaterEvne(evne, level) {
+    document.getElementById(evne + '-level').textContent = karakter[evne];
+    const pulje = getPulje(level);
+    document.getElementById(evne + '-pulje').textContent = pulje + 'd6';
 
-    const forskudtLevel = level + forskydning;
-    const forskudt = document.getElementById(navn + '-forskudt');
-    const forskydningsTal = document.getElementById(navn + '-forskydning-vaerdi');
+
+    const forskudt = document.getElementById(evne + '-forskudt');
+    const forskydningsTal = document.getElementById(evne + '-forskydning-vaerdi');
     ['evne__level--forskudt-op', 'evne__level--ikke-forskudt', 'evne__level--forskudt-ned'].forEach(cls => 
         forskudt.classList.remove(cls)
     );
 
-    if (forskydning === 0) {
-        forskudt.textContent = forskudtLevel;
+    if (effektiveEvner[evne] === karakter[evne]) {
+        forskudt.textContent = level;
         forskydningsTal.textContent = 0;
         forskudt.classList.add('evne__level--ikke-forskudt');
-    } else if (forskydning > 0) {
-        forskudt.textContent = forskudtLevel;
-        forskydningsTal.textContent = '+' + forskydning;
+    } else if (effektiveEvner[evne] > karakter[evne]) {
+        forskudt.textContent = level;
+        forskydningsTal.textContent = '+' + karakter.forskydning[evne];
         forskudt.classList.add('evne__level--forskudt-op');
-    } else if (forskydning < 0) {
-        forskudt.textContent = forskudtLevel;
-        forskydningsTal.textContent = forskydning;
+    } else if (effektiveEvner[evne] < karakter[evne]) {
+        forskudt.textContent = level;
+        forskydningsTal.textContent = karakter.forskydning[evne];
         forskudt.classList.add('evne__level--forskudt-ned');
     }
 }
 
-// Rustningsgrad – til fremtidig implementering af rustninger
-function beregnRustningsgrad(reduktion) {
-    const rustningsgrad = Math.ceil( karakter.livMax * (reduktion / 100) );
-    return rustningsgrad;
-}
+
 
 // Tjek endelig død
 function erEndeligDoed() {
@@ -359,16 +380,16 @@ function erEndeligDoed() {
 }
 
 // Udregn pulje
-function getPulje(level, forskydning) {
-    if (level + forskydning <= 6) return 1;
-    if (level + forskydning <= 12) return 2;
-    if (level + forskydning <= 20) return 3;
-    if (level + forskydning <= 29) return 4;
-    if (level + forskydning <= 39) return 5;
-    if (level + forskydning <= 50) return 6;
-    if (level + forskydning <= 63) return 7;
-    if (level + forskydning <= 78) return 8;
-    if (level + forskydning <= 94) return 9;
+function getPulje(level) {
+    if (level <= 6) return 1;
+    if (level <= 12) return 2;
+    if (level <= 20) return 3;
+    if (level <= 29) return 4;
+    if (level <= 39) return 5;
+    if (level <= 50) return 6;
+    if (level <= 63) return 7;
+    if (level <= 78) return 8;
+    if (level <= 94) return 9;
     return 10;
 }
 
@@ -403,8 +424,8 @@ function getHuRegen(intuition) {
 }
 
 function getSekvensPulje() {
-    const form = getPulje(karakter.form, karakter.forskydning.form);
-    const intuition = getPulje(karakter.intuition, karakter.forskydning.intuition);
+    const form = getPulje(effektiveEvner.form);
+    const intuition = getPulje(effektiveEvner.intuition);
     const pulje = form + intuition + 'd6';
     return pulje;
 }
@@ -610,13 +631,14 @@ function justerStat(stat, aendring, min = 0, max = Infinity) {
 
 // Vandsten
 function hvil() {
+    opdaterEffektiveEvner();
     if (karakter.sejdNu <= 0 && karakter.udmattelse > 0) {
         karakter.udmattelse -= 1;
     }
     karakter.laesioner = 0;
     karakter.livNu = karakter.livMax;
     karakter.sejdNu = karakter.sejdMax;
-    karakter.huNu = getHuMax(karakter.intuition + karakter.forskydning.intuition);
+    karakter.huNu = getHuMax(effektiveEvner.intuition);
     karakter.flaskerNu = karakter.flaskerMax;
     karakter.brugteFaerdigheder = [];
     opdaterVistData();
@@ -624,10 +646,10 @@ function hvil() {
 }
 
 function doed() {
+    opdaterEffektiveEvner();
     const haabBesked = karakter.forvitring > 0 ? ' Rul 1d6, få 1 Håb på en træffer.' : '' ;
-
     karakter.forvitring++;
-    const vitalMax = getVitalMax(karakter.form + karakter.forskydning.form);
+    const vitalMax = getVitalMax(effektiveEvner.form);
     const nyLivMax = vitalMax - (karakter.forvitring * Math.ceil(vitalMax * 0.05));
     karakter.livNu = Math.max(0, nyLivMax);
     
@@ -655,6 +677,7 @@ function genskabVitalitet() {
     }
 
     karakter.forvitring = 0;
+    opdaterEffektiveEvner();
     beregnRessourcer();
     karakter.livNu = karakter.livVital;
     opdaterVistData();
@@ -851,10 +874,10 @@ function genererVaabenKort(vaaben) {
 }
 
 function beregnBasisskade(vaaben) {
-    const basisLevel = karakter[vaaben.basis] + karakter.forskydning[vaaben.basis];
+    const basisLevel = effektiveEvner[vaaben.basis];
     const basisDel = basisLevel * (1 + vaaben.opgradering * 0.2);
     const tillaegsDel = vaaben.tillaegsevne
-        ? (karakter[vaaben.tillaegsevne] + karakter.forskydning[vaaben.tillaegsevne])
+        ? (effektiveEvner[vaaben.tillaegsevne])
           * (vaaben.tillaegsTaeller / vaaben.tillaegsNaevner)
         : 0;
     return Math.round(basisDel + tillaegsDel);
@@ -883,8 +906,13 @@ function opretUdstyrKort(udstyr) {
         <div class="kort__basis--info" id="info-c-${id}"></div>
     </div>
 
+    <div class="kort__top">
+        <div class="kort__basis--info" id="info-d-${id}"></div>
+        <div id="brug-knap-beholder-${id}"></div>
+    </div>
+
     <div class="kort__data">
-        <div class="kort__linje">
+        <div class="kort__linje" id="beskrivelse-${id}">
             <div class="kort__beskrivelse">${udstyr.beskrivelse}</div>
         </div>
     </div>`;
@@ -911,12 +939,52 @@ function udstyrKort(udstyr) {
     if (udstyr.forskydning) {
         const forskydning = Object.entries(udstyr.forskydning)
             .filter(([evne]) => evneVisningsnavn[evne])
-            .map(([evne, værdi]) => `${evneVisningsnavn[evne]} ${værdi > 0 ? '+' + værdi : værdi}`)
+            .map(([evne, værdi]) => {
+                const værdiklasse = værdi > 0 ? 'forskudt-op' : 'forskudt-ned';
+                const værditekst = værdi > 0 ? '+' + værdi : værdi;
+                return `${evneVisningsnavn[evne]} <span class="${værdiklasse}">${værditekst}</span>`;
+            })
             .join(', ');
         
         const vistforskydning = document.getElementById(`info-c-${udstyr.id}`);
-        vistforskydning.textContent = `${forskydning}`;
+        vistforskydning.innerHTML = forskydning;
     }
+
+    if (udstyr.rustningsgrad) {
+        document.getElementById(`info-d-${udstyr.id}`).textContent = `Rustningsgrad: ${udstyr.rustningsgrad}`;
+    }
+
+    if (udstyr.percyklus) {
+        const knap = document.createElement('div');
+        const id = udstyr.id;
+        knap.className = 'brug-knap';
+        knap.id = `cyklus-brug-${id}`;
+        knap.textContent = 'Brug';
+        document.getElementById(`brug-knap-beholder-${id}`).appendChild(knap);
+
+        saetBrugtVisningUdstyr(id, karakter.brugteFaerdigheder.includes(id));
+        knap.addEventListener('click', () => {
+            const brugt = karakter.brugteFaerdigheder.includes(id);
+            if (brugt) {
+                karakter.brugteFaerdigheder = karakter.brugteFaerdigheder.filter(f => f !== id);
+            } else {
+                karakter.brugteFaerdigheder.push(id);
+            }
+            saetBrugtVisningUdstyr(id, !brugt);
+            gemData();
+        });
+    }
+}
+
+function saetBrugtVisningUdstyr(id, brugt) {
+    const elementer = [
+        document.getElementById(`cyklus-brug-${id}`),
+        document.getElementById(`titel-${id}`),
+        document.getElementById(`beskrivelse-${id}`),
+        document.getElementById(`type-${id}`)
+    ];
+    elementer.forEach(el => el.classList.toggle('inaktiv', brugt));
+    document.getElementById(`cyklus-brug-${id}`).textContent = brugt ? 'Brugt' : 'Brug';
 }
 
 function opdaterUdstyrKort() {
@@ -1102,7 +1170,7 @@ function laerKortUkendt(faerdighed, beholder) {
         }
 
         const [evne, kravLevel] = Object.entries(faerdighed.levelKrav)[0];
-        if (karakter[evne] < kravLevel) {
+        if (effektiveEvner[evne] < kravLevel) {
             visBesked(`${faerdighed.navn} kræver ${evneVisningsnavn[evne]} ${kravLevel}.`);
             return;
         }
@@ -1275,7 +1343,7 @@ function tjekMagiLevelKrav(besvaergelse) {
     }
 
     for (const [evne, level] of Object.entries(levelKrav)) {
-        const karakterEvneLevel = (karakter[evne] || 0) + (karakter.forskydning?.[evne] || 0)
+        const karakterEvneLevel = (effektiveEvner[evne] || 0);
 
         if (karakterEvneLevel < level) {
             return false;
@@ -1361,7 +1429,7 @@ const evneVisningsnavn = {
 // Modul-niveau state så alle funktioner deler samme data
 let evneVindueData = null;
 let evneForbedringer = {};
-  
+
 function initEvneVindue() {
     evneForbedringer = { form: 0, sind: 0, intuition: 0, styrke: 0, behaendighed: 0, visdom: 0, mystik: 0 };
  
@@ -1435,8 +1503,8 @@ function opdaterEvneInfo(evne) {
     const nuvaerendeLvl = evneVindueData.evner[evne];
     const antalForbedringer = evneForbedringer[evne];
     const nytLevel = nuvaerendeLvl + antalForbedringer;
-    const nuvaerendePulje = getPulje(nuvaerendeLvl, 0);
-    const nyPulje = getPulje(nytLevel, 0);
+    const nuvaerendePulje = getPulje(nuvaerendeLvl);
+    const nyPulje = getPulje(nytLevel);
 
     let info = '';
     if (antalForbedringer > 0) {
