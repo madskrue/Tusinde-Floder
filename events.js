@@ -14,7 +14,7 @@ document.getElementById('dark-mode-toggle').addEventListener('click', () => {
 });
 
 // Sektionskjulere
-['grundlaeggende', 'ressourcer', 'status', 'beredskab', 'evner', 'inventar-og-noter'].forEach(sektion => {
+['grundlaeggende', 'status', 'beredskab', 'evner', 'inventar-og-noter'].forEach(sektion => {
     klik(`${sektion}-titel`, () => toggleSektion(sektion));
 });
 
@@ -71,8 +71,11 @@ klik('annuller-nulstil', () => {
     aabenVindue('karakter');
 });
 
-// Ressourcer
-klik('ressource-toggle', visRessourceJusteringer);
+// Status
+klik('status-toggle', () => {
+    visRessourceJusteringer();
+    visStatusJusteringer();
+});
 
 klik('liv-status', () => visJustering('liv'));
 klik('liv-justering-minus', livSkade);
@@ -91,6 +94,26 @@ klik('flasker', () => visJustering('flaske'));
 klik('flaske-liv', () => drikFlaske('liv'));
 klik('flaske-sejd', () => drikFlaske('sejd'));
 klik('flaske-laesion', () => drikFlaske('laesion'));
+
+// Statuseffekter
+klik('sekvens', () => visJustering('sekvens'));
+klik('sekvens-saet', saetSekvens);
+
+klik('haab', () => visJustering('haab'));
+klik('haab-justering-minus', () => justerStat('haab', -1, 0, 3));
+klik('haab-justering-plus', () => justerStat('haab', 1, 0, 3));
+
+klik('forvitring', () => visJustering('forvitring'));
+klik('forvitring-justering-minus', () => justerStat('forvitring', -1));
+klik('forvitring-justering-plus', () => justerStat('forvitring', 1));
+
+klik('udmattelse', () => visJustering('udmattelse'));
+klik('udmattelse-justering-minus', () => justerStat('udmattelse', -1));
+klik('udmattelse-justering-plus', () => justerStat('udmattelse', 1));
+
+klik('laesioner', () => visJustering('laesioner'));
+klik('laesioner-justering-minus', () => justerStat('laesioner', -1));
+klik('laesioner-justering-plus', () => justerStat('laesioner', 1));
 
 
 
@@ -148,27 +171,7 @@ klik('bekraeft-vitalitet', () => {
 klik('annuller-vitalitet', () => lukVindue('vitalitet'));
 
 
-// Status
-klik('status-toggle', visStatusJusteringer);
 
-klik('sekvens', () => visJustering('sekvens'));
-klik('sekvens-saet', saetSekvens);
-
-klik('haab', () => visJustering('haab'));
-klik('haab-justering-minus', () => justerStat('haab', -1, 0, 3));
-klik('haab-justering-plus', () => justerStat('haab', 1, 0, 3));
-
-klik('forvitring', () => visJustering('forvitring'));
-klik('forvitring-justering-minus', () => justerStat('forvitring', -1));
-klik('forvitring-justering-plus', () => justerStat('forvitring', 1));
-
-klik('udmattelse', () => visJustering('udmattelse'));
-klik('udmattelse-justering-minus', () => justerStat('udmattelse', -1));
-klik('udmattelse-justering-plus', () => justerStat('udmattelse', 1));
-
-klik('laesioner', () => visJustering('laesioner'));
-klik('laesioner-justering-minus', () => justerStat('laesioner', -1));
-klik('laesioner-justering-plus', () => justerStat('laesioner', 1));
 
 // Våben
 klik('vaaben-liste-knap', genererVaabenliste);

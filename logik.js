@@ -274,7 +274,7 @@ function beregnUdstyrForskydning() {
     return resultat;
 }
 
-// Ehhh effekt ik å
+// Få den her til at virke
 function beregnUdstyrEffekter() {
     const resultat = { rustningsgrad: 0, huRegen: 0, mentalForsvar: 0 };
     karakter.aktivtUdstyr.forEach(id => {
@@ -911,7 +911,7 @@ function opretUdstyrKort(udstyr) {
     kort.innerHTML = 
     `<div class="kort__top">
         <div class="kort__titel" id="titel-${id}">${udstyr.navn}</div>
-        <div class="kort__basis" id="type-${id}">${udstyr.type}</div>
+        <div class="kort__basis" id="type-${id}" style="text-align: right">${udstyr.type}</div>
     </div>
 
     <div class="kort__info-kolonner">
