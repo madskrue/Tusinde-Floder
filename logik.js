@@ -900,15 +900,9 @@ function opretUdstyrKort(udstyr) {
         <div class="kort__basis" id="type-${id}">${udstyr.type}</div>
     </div>
 
-    <div class="kort__top" id="info-${id}">
-        <div class="kort__basis--info" id="info-a-${id}"></div>
-        <div class="kort__basis--info" id="info-b-${id}"></div>
-        <div class="kort__basis--info" id="info-c-${id}"></div>
-    </div>
-
-    <div class="kort__top">
-        <div class="kort__basis--info" id="info-d-${id}"></div>
-        <div id="brug-knap-beholder-${id}"></div>
+    <div class="kort__info-kolonner">
+        <div class="kort__info-kolonne kort__basis--info" id="info-krav-${id}"></div>
+        <div class="kort__info-kolonne kort__basis--info" id="info-effekt-${id}"></div>
     </div>
 
     <div class="kort__data">
@@ -924,7 +918,8 @@ function opretUdstyrKort(udstyr) {
 function udstyrKort(udstyr) {
     const kort = opretUdstyrKort(udstyr);
     document.getElementById('udstyr-beholder').appendChild(kort);
-    const infoBeholder = document.getElementById(`info-${udstyr.id}`);
+    const kravBeholder = document.getElementById(`info-krav-${udstyr.id}`);
+    const effektBeholder = document.getElementById(`info-effekt-${udstyr.id}`);
 
     if (udstyr.levelKrav) {
         const krav = Object.entries(udstyr.levelKrav)
@@ -932,26 +927,9 @@ function udstyrKort(udstyr) {
             .map(([evne, værdi]) => `${evneVisningsnavn[evne]} ${værdi}`)
             .join(', ');
 
-        const vistKrav = document.getElementById(`info-a-${udstyr.id}`);
+        const vistKrav = document.createElement('div');
         vistKrav.textContent = `${krav}`;
-    }
-
-    if (udstyr.forskydning) {
-        const forskydning = Object.entries(udstyr.forskydning)
-            .filter(([evne]) => evneVisningsnavn[evne])
-            .map(([evne, værdi]) => {
-                const værdiklasse = værdi > 0 ? 'forskudt-op' : 'forskudt-ned';
-                const værditekst = værdi > 0 ? '+' + værdi : værdi;
-                return `${evneVisningsnavn[evne]} <span class="${værdiklasse}">${værditekst}</span>`;
-            })
-            .join(', ');
-        
-        const vistforskydning = document.getElementById(`info-c-${udstyr.id}`);
-        vistforskydning.innerHTML = forskydning;
-    }
-
-    if (udstyr.rustningsgrad) {
-        document.getElementById(`info-d-${udstyr.id}`).textContent = `Rustningsgrad: ${udstyr.rustningsgrad}`;
+        kravBeholder.appendChild(vistKrav);
     }
 
     if (udstyr.percyklus) {
@@ -960,7 +938,7 @@ function udstyrKort(udstyr) {
         knap.className = 'brug-knap';
         knap.id = `cyklus-brug-${id}`;
         knap.textContent = 'Brug';
-        document.getElementById(`brug-knap-beholder-${id}`).appendChild(knap);
+        effektBeholder.appendChild(knap);
 
         saetBrugtVisningUdstyr(id, karakter.brugteFaerdigheder.includes(id));
         knap.addEventListener('click', () => {
@@ -973,6 +951,44 @@ function udstyrKort(udstyr) {
             saetBrugtVisningUdstyr(id, !brugt);
             gemData();
         });
+    }
+
+    if (udstyr.forskydning) {
+        const forskydning = Object.entries(udstyr.forskydning)
+            .filter(([evne]) => evneVisningsnavn[evne])
+            .map(([evne, værdi]) => {
+                const værdiklasse = værdi > 0 ? 'forskudt-op' : 'forskudt-ned';
+                const værditekst = værdi > 0 ? '+' + værdi : værdi;
+                return `${evneVisningsnavn[evne]} <span class="${værdiklasse}">${værditekst}</span>`;
+            })
+            .join(', ');
+        
+        const vistforskydning = document.createElement('div');
+        vistforskydning.innerHTML = forskydning;
+        effektBeholder.appendChild(vistforskydning);
+    }
+
+    if (udstyr.effekt) {
+        const effektVisningsnavn = {
+            huRegen: 'Hu ↺', mentalForsvar: 'Undslip'
+        };
+
+        const effekt = Object.entries(udstyr.effekt)
+        .map(([effekt, værdi]) => {
+                const værditekst = værdi > 0 ? '+' + værdi : værdi;
+                return `${effektVisningsnavn[effekt]} <span>${værditekst}</span>`;
+            })
+            .join(', ');
+
+        const visteffekt = document.createElement('div');
+        visteffekt.innerHTML = effekt;
+        effektBeholder.appendChild(visteffekt);
+    }
+
+    if (udstyr.rustningsgrad) {
+        const vistrustningsgrad = document.createElement('div');
+        vistrustningsgrad.textContent = `Rustningsgrad: ${udstyr.rustningsgrad}`;
+        effektBeholder.appendChild(vistrustningsgrad);
     }
 }
 

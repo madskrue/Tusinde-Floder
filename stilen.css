@@ -668,6 +668,22 @@ input::-webkit-inner-spin-button {
     color: var(--tekst-mellem-svag);
 }
 
+.kort__info-kolonner {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 0.25rem;
+    margin-bottom: 0.25rem;
+}
+
+.kort__info-kolonne {
+    display: flex;
+    flex-direction: column;
+}
+
+[id^="info-effekt-"] > div {
+    margin-left: auto;
+}
+
 .intet-vaaben {
     color: var(--tekst-svag);
     font-weight: 400;
